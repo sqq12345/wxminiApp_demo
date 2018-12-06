@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/enter/step1/step1",
     "pages/tabbar/home/home",
     "pages/tabbar/user/user",
     "pages/enter/step2/step2",
@@ -19,8 +20,7 @@
     "pages/settle/settle",
     "pages/tabbar/cart/cart",
     "pages/goodslist/goodslist",
-    "pages/tabbar/home/search/search",
-    "pages/enter/step1/step1"
+    "pages/tabbar/home/search/search"
   ],
   "window": {
     "navigationStyle": "custom"

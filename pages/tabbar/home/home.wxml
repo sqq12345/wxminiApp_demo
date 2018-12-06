@@ -4,7 +4,7 @@
     <search cities="{{cities}}" selected="{{selected}}" bind:onChange="onCityChange" />
     <view class="type">
       <scroll-view scroll-x>
-        <text wx:for="{{types}}" bind:tap="changeType" data-id="{{item.id}}" class="{{selectedTypeId==item.id?'selected':''}}">{{item.name}}</text>
+        <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="{{selectedTypeId==item.id?'selected':''}}">{{item.name}}</text>
       </scroll-view>
       <navigator hover-class="none" class="button" url="/pages/enter/enter">入驻</navigator>
     </view>

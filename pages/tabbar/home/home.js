@@ -41,6 +41,7 @@ Page({
     })
   },
 
+  //切换城市
   onCityChange(e) {
     this.setData({
       selected: e.detail.detail.value
