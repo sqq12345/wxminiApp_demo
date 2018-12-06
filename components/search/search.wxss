@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.search text{
+.search picker{
     margin-right: 10px;
 }
 
