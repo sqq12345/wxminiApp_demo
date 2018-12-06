@@ -1,14 +1,14 @@
 /* pages/settle/settle.wxss */
 
 .container {
-    padding: 15px;
+    padding: 30rpx;
 }
 
 .bottom-btn {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 100rpx;
     display: flex;
     background: #fff;
 }
@@ -17,9 +17,9 @@
     flex-grow: 2;
     display: flex;
     align-items: center;
-    padding-left: 15px;
+    padding-left: 30rpx;
     justify-content: flex-end;
-    padding-right: 10px;
+    padding-right: 20rpx;
 }
 
 .bottom-btn .buy {
@@ -32,11 +32,11 @@
 }
 
 .item{
-    margin-bottom: 15px;
+    margin-bottom: 30rpx;
 }
 
 .item.user{
-    padding-bottom: 10px;
+    padding-bottom: 20rpx;
 }
 
 .item.user>view>text:last-child{
@@ -46,16 +46,16 @@
 .item .header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20rpx;
     justify-content:space-between;
 }
 
 .item .header .logo {
     border-radius: 50%;
     border: 1px solid #eeeeee;
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 20rpx;
 }
 
 .item .header view {
@@ -66,36 +66,36 @@
 .item .goods {
     display: flex;
     align-items: center;
-    padding: 10px;
-    margin: 0 -10px;
+    padding: 20rpx;
+    margin: 0 -20rpx;
     background: #e5eee5;
 }
 
 .item .goods image {
-    width: 80px;
-    height: 80px;
+    width: 160rpx;
+    height: 160rpx;
     border: 1px solid #ffffff;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 20rpx;
     flex-shrink: 0;
 }
 
 .goods .unit {
-    font-size: 14px;
+    font-size: 28rpx;
     color: #555555;
 }
 
 .goods .info {
     flex-grow: 1;
     position: relative;
-    height: 78px;
+    height: 156rpx;
 }
 
 .goods .info .price {
     position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 16px;
+    font-size: 32rpx;
 }
 
 .goods .info .calc {
@@ -104,17 +104,17 @@
 
 .goods .info .calc .add, .goods .info .calc .sub {
     display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: 44rpx;
+    height: 44rpx;
     border: 1px solid #eeeeee;
     border-radius: 50%;
     text-align: center;
-    line-height: 22px;
+    line-height: 44rpx;
 }
 
 .goods .info .num {
     text-align: center;
-    width: 24px;
+    width: 48rpx;
     display: inline-block;
 }
 
@@ -125,12 +125,12 @@
 .item {
     background: #ffffff;
     border-radius: 5px;
-    padding: 10px 10px 0 10px;
+    padding: 20rpx 20rpx 0 20rpx;
 }
 
 .item .line {
     border-bottom: 1px solid #eeeeee;
-    line-height: 45px;
+    line-height: 90rpx;
 }
 
 .item .line text:last-child {

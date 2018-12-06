@@ -2,18 +2,18 @@
 .tabbar{
     display: flex;
     background: #fff;
-    padding-top: 10px;
+    padding-top: 20rpx;
     border-top: 1px solid #eee;
 }
 
 .tabbar view{
     flex: 1;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 20rpx;
 }
 
 .tabbar view text{
-    padding-bottom: 10px;
+    padding-bottom: 20rpx;
 }
 
 .tabbar text.active{
@@ -23,25 +23,25 @@
 
 .order{
     background: #fff;
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 20rpx;
+    padding: 20rpx;
 }
 
 .order .top{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
-    padding-bottom : 10px;
-    margin: 0 -10px;
+    padding: 0 20rpx;
+    padding-bottom : 20rpx;
+    margin: 0 -20rpx;
     border-bottom: 1px solid #eee;
-    font-size: 15px;
+    font-size: 30rpx;
     color: #555555; 
 }
 
 .order image{
-    width: 80px;
-    height: 80px;
+    width: 160rpx;
+    height: 160rpx;
     border:1px solid #eee;
     border-radius: 5px;
     margin-right: 10px;
@@ -49,7 +49,7 @@
 
 .order .middle{
     display: flex;
-    padding: 15px 0;
+    padding: 30rpx 0;
     border-bottom: 1px solid #eee; 
 }
 
@@ -58,9 +58,9 @@
 }
 
 .order .middle .unit{
-    font-size: 15px;
+    font-size: 30rpx;
     color: #555555;
-    margin-top: 5px;
+    margin-top: 10rpx;
 }
 
 .order .middle .unit .num{
@@ -74,20 +74,20 @@
 
 .order .middle .price{
     position: absolute;
-    bottom: 3px;
+    bottom: 6rpx;
 }
 
 .order .bottom{
     display: flex;
     flex-direction: row-reverse;
-    padding-top: 10px;
+    padding-top: 20rpx;
     align-items: center;
 }
 
 .order .bottom .button{
     color: #fff;
-    padding: 3px 10px;
+    padding: 6rpx 20rpx;
     background: green;
     border-radius: 20px;
-    margin-left: 15px;
+    margin-left: 30rpx;
 }

@@ -8,7 +8,7 @@ swiper image {
 .container {
     background: #eeeeee;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 100rpx;
 }
 
 swiper {
@@ -16,12 +16,12 @@ swiper {
 }
 
 .info {
-    padding: 10px 15px;
+    padding: 20rpx 30rpx;
     background: #ffffff;
 }
 
 .info>view {
-    margin-bottom: 5px;
+    margin-bottom: 10rpx;
 }
 
 .info .price {}
@@ -36,26 +36,26 @@ swiper {
 }
 
 .info .price text:first-child {
-    font-size: 24px;
+    font-size: 48rpx;
 }
 
 .info .price text:last-child {
-    font-size: 18px;
+    font-size: 36rpx;
 }
 
 .info .desc {
-    font-size: 14px;
+    font-size: 28rpx;
     color: #555555;
 }
 
 .info .extr {
-    font-size: 14px;
+    font-size: 28rpx;
     display: flex;
     justify-content: space-between;
 }
 
 .info .unit {
-    font-size: 14px;
+    font-size: 28rpx;
 }
 
 .info .unit>text {
@@ -68,9 +68,9 @@ swiper {
 
 .comments {
     background: #ffffff;
-    margin-top: 10px;
+    margin-top: 20rpx;
     text-align: center;
-    padding: 15px;
+    padding: 30rpx;
 }
 
 .comments .comment {}
@@ -79,17 +79,17 @@ swiper {
     border-radius: 50%;
     float: left;
     border: 1px solid #eeeeee;
-    width: 35px;
-    height: 35px;
+    width: 70rpx;
+    height: 70rpx;
 }
 
 .comments .comment .content {
-    padding-left: 50px;
+    padding-left: 50rpx;
     text-align: left;
 }
 
 .comments .comment .bottom {
-    font-size: 14px;
+    font-size: 28rpx;
     color: #555555;
 }
 
@@ -109,7 +109,7 @@ swiper {
 }
 
 .shop {
-    margin-top: 10px;
+    margin-top: 20rpx;
     background: #ffffff;
     display: flex;
     align-items: center;
@@ -119,8 +119,8 @@ swiper {
 .shop .logo {
     border-radius: 50%;
     border: 1px solid #eeeeee;
-    width: 50px;
-    height: 50px;
+    width: 100rpx;
+    height: 100rpx;
 }
 
 .shop .name {
@@ -136,7 +136,7 @@ swiper {
     display: flex;
     background: #ffffff;
     text-align: center;
-    height: 50px;
+    height: 100rpx;
     border-top: 1px solid #dddddd;
 }
 

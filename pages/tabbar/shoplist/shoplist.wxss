@@ -10,7 +10,7 @@ swiper{
 }
 
 .container{
-    padding: 0 15px;
+    padding: 0 30rpx;
     background: #fff;
 }
 
@@ -18,15 +18,15 @@ swiper{
     border-bottom: 1px solid #eeeeee;
     display: flex;
     align-items: center;
-    padding: 5px 0;
-    margin-top: 15px;
+    padding: 10rpx 0;
+    margin-top: 30rpx;
     justify-content: space-between;
-    padding-bottom: 15px;
+    padding-bottom: 30rpx;
 }
 
 .sort .btns text{
-    border-radius: 20px;
-    padding: 5px 15px;
+    border-radius: 40rpx;
+    padding: 10rpx 30rpx;
 }
 
 .sort .btns text.selected{
@@ -35,5 +35,5 @@ swiper{
 }
 
 .sort>text:last-of-type text{
-    margin-left: 10px;
+    margin-left: 20rpx;
 }

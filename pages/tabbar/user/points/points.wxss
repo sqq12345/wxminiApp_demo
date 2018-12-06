@@ -4,7 +4,7 @@
 }
 
 .list .item{
-    padding: 15px;
+    padding: 30rpx;
     border-top: 1px solid #eeeeee;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .list .item>view:first-child{
-    margin-bottom: 5px;
+    margin-bottom: 10rpx;
 }
 
 .list .item>view:first-child>text:first-child{

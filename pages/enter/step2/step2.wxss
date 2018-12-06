@@ -1,6 +1,6 @@
 /* pages/enter/step2/step2.wxss */
 .container{
-    padding: 15px;
+    padding: 30rpx;
 }
 
 page{
@@ -9,7 +9,7 @@ page{
 
 .form-group{
     border-bottom: 1px solid #eeeeee;
-    padding: 12px 0;
+    padding: 24rpx 0;
     display: block;
 }
 

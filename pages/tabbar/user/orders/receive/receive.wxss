@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 200rpx;
 }
 
 .points {
@@ -12,21 +12,21 @@
 }
 
 .title {
-    font-size: 18px;
+    font-size: 36rpx;
     font-weight: bold;
 }
 
 .btns {
-    margin-top: 40px;
+    margin-top: 80rpx;
 }
 
 .btns text {
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 20rpx 40rpx;
     background: #cccccc;
     color: #ffffff;
 }
 
 .btns text:first-of-type {
-    margin-right: 20px;
+    margin-right: 40rpx;
 }

@@ -1,31 +1,31 @@
 /* pages/tabbar/user/orders/order/order.wxss */
 .block{
     background: #fff;
-    padding: 15px;
-    margin-top: 15px;
+    padding: 30rpx;
+    margin-top: 30rpx;
 }
 
 .order .top{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
-    margin: 0 -10px;
-    font-size: 15px;
+    padding: 0 20rpx;
+    margin: 0 -20rpx;
+    font-size: 30rpx;
     color: #555555; 
 }
 
 .order image{
-    width: 80px;
-    height: 80px;
+    width: 160rpx;
+    height: 160rpx;
     border:1px solid #eee;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 20rpx;
 }
 
 .order .middle{
     display: flex;
-    padding: 15px 0;
+    padding: 30rpx 0;
     border-bottom: 1px solid #eee; 
 }
 
@@ -34,7 +34,7 @@
 }
 
 .order .middle .unit{
-    font-size: 15px;
+    font-size: 30rpx;
     color: #555555;
     margin-top: 5px;
 }
@@ -50,17 +50,17 @@
 
 .order .middle .price{
     position: absolute;
-    bottom: 3px;
+    bottom: 6rpx;
 }
 
 .order .bottom>view{
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 10rpx 0;
 }
 
 .order .bottom>view:first-of-type{
-    margin-top: 10px;
+    margin-top: 20rpx;
 }
 
 .info{
@@ -68,7 +68,7 @@
 }
 
 .info view{
-    margin-bottom: 10px;
+    margin-bottom: 20rpx;
 }
 
 .info view:last-of-type{
@@ -80,20 +80,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 30rpx;
     border-top: 1px solid #eee;
 }
 
 .ops{
     text-align: right;
-    padding: 30px 15px;
+    padding: 60rpx 30rpx;
 }
 
 .ops .button{
     color: #fff;
-    padding: 6px 10px;
+    padding: 12rpx 20rpx;
     background: green;
     border-radius: 20px;
-    margin-left: 15px;
+    margin-left: 30rpx;
 }
 

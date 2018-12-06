@@ -13,6 +13,6 @@
     background: #eeeeee;
     border-radius: 15px;
     flex: 1;
-    height: 35px;
+    height: 70rpx;
     padding-left: 1em;
 }

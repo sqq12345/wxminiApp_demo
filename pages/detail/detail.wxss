@@ -16,27 +16,27 @@
     height: 200rpx;
     border-radius: 50%;
     border: 1px solid #eeeeee;
-    margin-bottom: 5px;
+    margin-bottom: 10rpx;
 }
 
 .head .title {
-    font-size: 22px;
+    font-size: 44rpx;
     color: #000000;
 }
 
 .head view {
-    margin-bottom: 5px;
+    margin-bottom: 10rpx;
     color: #555555;
 }
 
 .block {
     background: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
 }
 
 .block .item {
-    padding: 10px 0;
+    padding: 20rpx 0;
 }
 
 .block .item .label {
@@ -48,7 +48,7 @@
 
 .block .item .tags {
     margin-left: 5em;
-    padding-bottom: 10px;
+    padding-bottom: 20rpx;
     border-bottom: 1px solid #eeeeee;
 }
 
@@ -59,16 +59,16 @@
 .block .item .tags text {
     display: inline-block;
     border-radius: 15px;
-    padding: 3px 8px;
+    padding: 6rpx 16rpx;
     background: #87f571;
-    margin-bottom: 8px;
-    margin-right: 8px;
+    margin-bottom: 16rpx;
+    margin-right: 16rpx;
 }
 
 .block .title{
     font-weight: bold;
-    font-size: 18px;
-    padding: 5px 0;
+    font-size: 36rpx;
+    padding: 10rpx 0;
 }
 
 .desc .content {
@@ -82,17 +82,17 @@
     border-radius: 50%;
     float: left;
     border: 1px solid #eeeeee;
-    width: 35px;
-    height: 35px;
+    width: 70rpx;
+    height: 70rpx;
 }
 
 .comments .comment .content {
-    padding-left: 50px;
+    padding-left: 100rpx;
     text-align: left;
 }
 
 .comments .comment .bottom {
-    font-size: 14px;
+    font-size: 28rpx;
     color: #555555;
 }
 

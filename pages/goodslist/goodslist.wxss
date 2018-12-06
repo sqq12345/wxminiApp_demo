@@ -6,11 +6,11 @@
     flex-direction: column;
     color: #ffffff;
     padding-top: 150rpx;
-    padding-bottom: 15px;
+    padding-bottom: 30rpx;
 }
 
 .container{
-    padding: 15px;
+    padding: 30rpx;
     background: #eeeeee;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .header .title{
-    padding: 10px 0;
+    padding: 20rpx 0;
 }
 
 .header .info{
@@ -37,7 +37,7 @@
 }
 
 .sort{
-    padding: 10px 0;
+    padding: 20rpx 0;
 }
 
 .sort text:last-of-type{
@@ -48,7 +48,7 @@
     display: inline-block;
     width: 48%;
     background: #ffffff;
-    margin-bottom: 15px;
+    margin-bottom: 30rpx;
 }
 
 .list .item>text{
