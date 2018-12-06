@@ -3,7 +3,7 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
         <view class="list">
-            <navigator class="item" url="/pages/tabbar/user/fans/orders/orders">
+            <navigator hover-class="none" class="item" url="/pages/tabbar/user/fans/orders/orders">
                 <image/>
                 <view>username</view>
                 <view>

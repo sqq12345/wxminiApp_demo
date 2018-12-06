@@ -9,7 +9,7 @@
         <text>生态餐厅</text>
         <text>有机超市</text>
       </scroll-view>
-      <navigator class="button" url="/pages/enter/enter">入驻</navigator>
+      <navigator hover-class="none" class="button" url="/pages/enter/enter">入驻</navigator>
     </view>
     <map id="map" class="map" scale="14" show-location></map>
   </view>

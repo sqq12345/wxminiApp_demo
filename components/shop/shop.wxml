@@ -1,7 +1,7 @@
 <!-- components/shop/shpo.wxml -->
 <view>
     <view class='shop'>
-        <navigator url="/pages/goodslist/goodslist"><image class="logo" /></navigator>
+        <navigator url="/pages/goodslist/goodslist" hover-class="none"><image class="logo" /></navigator>
         <view class="text">
             <view class="title">商家名称</view>
             <view>
@@ -15,17 +15,17 @@
         </view>
     </view>
     <view class="activity">
-        <navigator url="/pages/goods/goods">
+        <navigator url="/pages/goods/goods" hover-class="none">
             <image />
             <view class="ellipsis">titleasasdsdaasaddasdasd</view>
             <view class="price">￥99.90</view>
         </navigator>
-        <navigator url="/pages/goods/goods">
+        <navigator url="/pages/goods/goods" hover-class="none">
             <image />
             <view class="ellipsis">title</view>
             <view class="price">￥99.90</view>
         </navigator>
-        <navigator url="/pages/goods/goods">
+        <navigator url="/pages/goods/goods" hover-class="none">
             <image />
             <view class="ellipsis">title</view>
             <view class="price">￥99.90</view>

@@ -24,7 +24,7 @@
                 <text>订单号:66666666666</text>
                 <text>状态</text>
             </view>
-            <navigator class="middle" url="/pages/tabbar/user/orders/order/order">
+            <navigator hover-class="none" class="middle" url="/pages/tabbar/user/orders/order/order">
                 <image />
                 <view>
                     <view class="name">商品名</view>

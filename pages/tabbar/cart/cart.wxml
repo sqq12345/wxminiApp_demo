@@ -40,6 +40,6 @@
             <text class="select" />
             全选
         </view>
-        <navigator class="buy" url="/pages/settle/settle">去结算</navigator>
+        <navigator hover-class="none" class="buy" url="/pages/settle/settle">去结算</navigator>
     </view>
 </view>

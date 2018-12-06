@@ -4,16 +4,16 @@
     <view class="container">
         <view class="head">
             <view class="info">
-                <navigator url="/pages/tabbar/user/profile/profile">
+                <navigator hover-class="none" url="/pages/tabbar/user/profile/profile">
                     <image />
                     <text>username</text>
                 </navigator>
                 <view>
-                    <navigator class="num" url="/pages/tabbar/user/points/points">
+                    <navigator hover-class="none" class="num" url="/pages/tabbar/user/points/points">
                         <view>180</view>
                         <view>安积分</view>
                     </navigator>
-                    <navigator class="num" url="/pages/tabbar/user/fans/fans">
+                    <navigator hover-class="none" class="num" url="/pages/tabbar/user/fans/fans">
                         <view>30</view>
                         <view>粉丝</view>
                     </navigator>
@@ -26,8 +26,8 @@
                         <text>￥8888</text>
                     </view>
                     <view class="buttons">
-                        <navigator url="/pages/tabbar/user/earnings/earnings">收益明细</navigator>
-                        <navigator>提现</navigator>
+                        <navigator hover-class="none" url="/pages/tabbar/user/earnings/earnings">收益明细</navigator>
+                        <navigator hover-class="none">提现</navigator>
                     </view>
                 </view>
             </view>
@@ -35,7 +35,7 @@
         <view class="block">
             <view class="title">
                 <text>我的订单</text>
-                <navigator class="more" url="/pages/tabbar/user/orders/orders">查看更多></navigator>
+                <navigator hover-class="none" class="more" url="/pages/tabbar/user/orders/orders">查看更多></navigator>
             </view>
             <view class="block">
                 <view class="icons">

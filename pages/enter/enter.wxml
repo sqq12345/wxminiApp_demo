@@ -3,11 +3,11 @@
     <header navbar-data='{{nvabarData}}'/>
     <view class='container' style='height:calc(100% - {{occupation}}px)'>
         <view class="f1">请选择角色</view>
-        <navigator class="item" url="/pages/enter/step1/step1">农场</navigator>
-        <navigator class="item">社群</navigator>
-        <navigator class="item">生态餐厅</navigator>
-        <navigator class="item">有机超市</navigator>
-        <navigator class="item">农夫集市</navigator>
-        <navigator class="f1"></navigator>
+        <navigator hover-class="none" class="item" url="/pages/enter/step1/step1">农场</navigator>
+        <navigator hover-class="none" class="item">社群</navigator>
+        <navigator hover-class="none" class="item">生态餐厅</navigator>
+        <navigator hover-class="none" class="item">有机超市</navigator>
+        <navigator hover-class="none" class="item">农夫集市</navigator>
+        <navigator hover-class="none" class="f1"></navigator>
     </view>
 </view>

@@ -66,7 +66,7 @@
                     <text>租地种植</text>
                 </view>
             </view>
-            <navigator url="/pages/enter/step2/step2"><button type="primary">下一步</button></navigator>
+            <navigator hover-class="none" url="/pages/enter/step2/step2"><button type="primary">下一步</button></navigator>
         </form>
     </view>
 </view>
