@@ -1,0 +1,4 @@
+/* pages/tabbar/search/search.wxss */
+.container{
+    padding: 15px;
+}

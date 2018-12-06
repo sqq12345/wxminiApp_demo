@@ -1,0 +1,72 @@
+<!-- pages/enter/step1/step1.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class='container'>
+        <view class='code'>
+            <input placeholder="点击输入邀请码" placeholder-class='placeholder'/>
+        </view>
+        <form class='form'>
+            <view class='form-group'>
+                <label>农场名称</label>
+                <input placeholder="输入名称" />
+            </view>
+            <view class='form-group'>
+                <label>农场类型</label>
+                <view class='select'>
+                    <text>CSA农场</text>
+                    <text>自然农法农场</text>
+                    <text>朴门农场</text>
+                    <text>有机</text>
+                    <text>绿色</text>
+                    <text>其他</text>
+                </view>
+            </view>
+            <view class='form-group'>
+                <label>特色的种养技术</label>
+                <view class='select'>
+                    <text>禽畜作物循环型</text>
+                    <text>稻鸭共养型</text>
+                    <text>林木禽畜共生型</text>
+                    <text>水产作为共生型</text>
+                    <text>仿生野生种养型</text>
+                    <text>其他</text>
+                </view>
+            </view>
+            <view class='form-group'>
+                <label>特色的传统工艺</label>
+                <view class='select'>
+                    <text>古法酿造</text>
+                    <text>古法压榨</text>
+                    <text>传统研磨</text>
+                    <text>土法加工</text>
+                    <text>自然晾晒</text>
+                    <text>其他</text>
+                </view>
+            </view>
+            <view class='form-group'>
+                <label>农场产品</label>
+                <view class='select'>
+                    <text>水果</text>
+                    <text>蔬菜</text>
+                    <text>特产</text>
+                    <text>肉禽蛋类</text>
+                    <text>粮油副食</text>
+                    <text>海鲜水产</text>
+                    <text>酒水茶饮</text>
+                </view>
+            </view>
+            <view class='form-group'>
+                <label>农场服务</label>
+                <view class='select'>
+                    <text>民宿</text>
+                    <text>餐饮</text>
+                    <text>参观</text>
+                    <text>采摘</text>
+                    <text>亲子</text>
+                    <text>租地种植</text>
+                </view>
+            </view>
+            <navigator url="/pages/enter/step2/step2"><button type="primary">下一步</button></navigator>
+        </form>
+    </view>
+</view>

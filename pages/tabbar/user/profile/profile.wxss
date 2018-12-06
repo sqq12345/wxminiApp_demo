@@ -1,0 +1,30 @@
+/* pages/tabbar/user/profile/profile.wxss */
+.container{
+    margin-top: 10px;
+}
+
+.list{
+    background: #fff;
+    padding: 0 15px;
+}
+
+.list .item{
+    border-bottom: 1px solid #eeeeee;
+    min-height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.userhead{
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    width: 50px;
+    height: 50px;
+}
+
+button{
+    width: calc(100% - 30px);
+    margin: 30px auto;
+}

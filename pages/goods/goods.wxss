@@ -1,0 +1,162 @@
+/* pages/goods/goods.wxss */
+
+swiper image {
+    width: 100%;
+    height: 100vw;
+}
+
+.container {
+    background: #eeeeee;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+swiper {
+    height: 100vw;
+}
+
+.info {
+    padding: 10px 15px;
+    background: #ffffff;
+}
+
+.info>view {
+    margin-bottom: 5px;
+}
+
+.info .price {}
+
+.info .title {
+    color: #000000;
+    font-weight: bold;
+}
+
+.info .price {
+    color: red;
+}
+
+.info .price text:first-child {
+    font-size: 24px;
+}
+
+.info .price text:last-child {
+    font-size: 18px;
+}
+
+.info .desc {
+    font-size: 14px;
+    color: #555555;
+}
+
+.info .extr {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info .unit {
+    font-size: 14px;
+}
+
+.info .unit>text {
+    margin-right: 2em;
+}
+
+.info .unit>text text {
+    color: green;
+}
+
+.comments {
+    background: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+.comments .comment {}
+
+.comments .comment .head {
+    border-radius: 50%;
+    float: left;
+    border: 1px solid #eeeeee;
+    width: 35px;
+    height: 35px;
+}
+
+.comments .comment .content {
+    padding-left: 50px;
+    text-align: left;
+}
+
+.comments .comment .bottom {
+    font-size: 14px;
+    color: #555555;
+}
+
+.comments .comment .pics image {
+    border: 1px solid #eeeeee;
+    position: relative;
+    width: 31%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 30%;
+    margin-right: 3.5%;
+    box-sizing: border-box;
+}
+
+.comments .comment .pics>image:last-child {
+    margin: 0;
+}
+
+.shop {
+    margin-top: 10px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.shop .logo {
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    width: 50px;
+    height: 50px;
+}
+
+.shop .name {
+    flex-grow: 1;
+}
+
+.shop>text {}
+
+.bottom-btn {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    background: #ffffff;
+    text-align: center;
+    height: 50px;
+    border-top: 1px solid #dddddd;
+}
+
+.bottom-btn>view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-btn .nav{
+    
+}
+.bottom-btn .add{
+    color: #ffffff;
+    background: #56f12f;
+    flex-grow: 1;
+}
+
+.bottom-btn .buy{
+    color: #ffffff;
+    background: #26b802;
+    flex-grow: 1;
+}

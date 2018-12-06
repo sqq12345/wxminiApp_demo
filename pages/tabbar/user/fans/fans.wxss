@@ -1,0 +1,29 @@
+/* pages/tabbar/user/address/address.wxss */
+.list{
+    background: #fff;
+}
+
+.list .item{
+    padding: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.list .item image{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    float: left;
+    margin-right: 15px;
+    vertical-align: text-top;
+}
+
+.list .item>view:last-of-type{
+    font-size: 15px;
+    color: #555555;
+    margin-top: 8px;
+}
+
+.list .item>view>text:last-of-type{
+    float: right;
+}

@@ -1,0 +1,28 @@
+/**app.wxss**/
+@import "/static/fonts/stylesheet.wxss";
+@import "/static/fonts/font-awesome.wxss";
+
+page {
+  position: relative;
+  z-index: 9999998;
+  background: #eeeeee;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.clear{
+  clear: both;
+}
+
+view,text{
+  word-break: break-all;
+  font-size: 16px;
+}
+
+navigator{
+  display: inline;
+}

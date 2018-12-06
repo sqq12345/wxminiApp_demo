@@ -1,0 +1,18 @@
+.search{
+    background: #ffffff;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.search text{
+    margin-right: 10px;
+}
+
+.search input{
+    background: #eeeeee;
+    border-radius: 15px;
+    flex: 1;
+    height: 35px;
+    padding-left: 1em;
+}

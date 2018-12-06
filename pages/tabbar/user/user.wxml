@@ -1,0 +1,107 @@
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <view class="head">
+            <view class="info">
+                <navigator url="/pages/tabbar/user/profile/profile">
+                    <image />
+                    <text>username</text>
+                </navigator>
+                <view>
+                    <navigator class="num" url="/pages/tabbar/user/points/points">
+                        <view>180</view>
+                        <view>安积分</view>
+                    </navigator>
+                    <navigator class="num" url="/pages/tabbar/user/fans/fans">
+                        <view>30</view>
+                        <view>粉丝</view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="bottom">
+                <view>
+                    <view>
+                        可提现金额:
+                        <text>￥8888</text>
+                    </view>
+                    <view class="buttons">
+                        <text>收益明细</text>
+                        <text>提现</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="block">
+            <view class="title">
+                <text>我的订单</text>
+                <navigator class="more" url="/pages/tabbar/user/orders/orders">查看更多></navigator>
+            </view>
+            <view class="block">
+                <view class="icons">
+                    <view class="icon">
+                        <image />
+                        待付款
+                    </view>
+                    <view class="icon">
+                        <image />
+                        待发货
+                    </view>
+                    <view class="icon">
+                        <image />
+                        待收货
+                    </view>
+                    <view class="icon">
+                        <image />
+                        待评价
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="block">
+            <view class="title">
+                <text>正在参与</text>
+            </view>
+            <view class="block">
+                <view class="icons">
+                    <view class="icon">
+                        <image />
+                        优惠券
+                    </view>
+                    <view class="icon">
+                        <image />
+                        收藏
+                    </view>
+                    <view class="icon" style="visibility:hidden">
+                        <image />
+                        客服
+                    </view>
+                    <view class="icon" style="visibility:hidden">
+                        <image />
+                        设置
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="block">
+            <view class="icons">
+                <view class="icon">
+                    <image />
+                    优惠券
+                </view>
+                <view class="icon">
+                    <image />
+                    收藏
+                </view>
+                <view class="icon">
+                    <image />
+                    客服
+                </view>
+                <view class="icon">
+                    <image />
+                    设置
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

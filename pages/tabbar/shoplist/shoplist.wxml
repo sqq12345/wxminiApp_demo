@@ -1,0 +1,25 @@
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <search></search>
+    <view class="container">
+        <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="sort">
+            <text class="btns">
+                <text class="selected">农场</text>
+                <text>社群</text>
+            </text>
+            <text>
+                <text>默认排序</text>
+                <text>销量</text>
+            </text>
+        </view>
+        <shop />
+    </view>
+</view>

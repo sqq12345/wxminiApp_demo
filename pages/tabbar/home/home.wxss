@@ -1,0 +1,60 @@
+/* pages/tabbar/home/home.wxss */
+page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+}
+.search{
+    background: #ffffff;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.search text{
+    margin-right: 10px;
+}
+
+.search input{
+    background: #eeeeee;
+    border-radius: 15px;
+    flex: 1;
+    height: 35px;
+    padding-left: 1em;
+}
+
+.type{
+    background: #ffffff;
+    padding: 0 20rpx;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.type scroll-view{
+    white-space: nowrap;
+}
+
+.type scroll-view text{
+    margin-right: 10px;
+}
+
+.type .button{
+    word-break: keep-all;
+    border:1px solid #cccccc;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.map{
+    flex: 1;
+    width: 100%;
+}

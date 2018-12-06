@@ -1,0 +1,60 @@
+/* pages/goodslist/goodslist.wxss */
+.header{
+    background: green;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+    padding-top: 150rpx;
+    padding-bottom: 15px;
+}
+
+.container{
+    padding: 15px;
+    background: #eeeeee;
+}
+
+.header .logo{
+    border-radius: 50%;
+    width: 150rpx;
+    height: 150rpx;
+    border: 1px solid #eeeeee;
+}
+
+.header .title{
+    padding: 10px 0;
+}
+
+.header .info{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.header .info text{
+    text-align: center;
+    width: 30%;
+}
+
+.sort{
+    padding: 10px 0;
+}
+
+.sort text:last-of-type{
+    float: right;
+}
+
+.list .item{
+    display: inline-block;
+    width: 48%;
+    background: #ffffff;
+    margin-bottom: 15px;
+}
+
+.list .item>text{
+    display: block;
+}
+
+.list .item:nth-of-type(odd){
+    margin-right: 4%;
+}

@@ -1,0 +1,27 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <view class="list">
+            <view class="item">
+                头像
+                <image class="userhead" />
+            </view>
+            <view class="item">
+                昵称
+                <text>username</text>
+            </view>
+            <view class="item">
+                用户id
+                <text>userid</text>
+            </view>
+            <view class="item">
+                手机号
+                <text>phone</text>
+            </view>
+            <view class="item">
+                地址管理
+            </view>
+        </view>
+        <button type="primary">保存</button>
+    </view>
+</view>

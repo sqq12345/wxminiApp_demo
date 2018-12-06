@@ -1,0 +1,53 @@
+<!-- pages/enter/step2/step2.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <form>
+            <view class='form-group'>
+                <text>联系人</text>
+                <input placeholder="请输入姓名（必填）" />
+            </view>
+            <view class='form-group'>
+                <text>手机号码</text>
+                <input placeholder="请输入手机号码" />
+            </view>
+            <view class='form-group'>
+                <text>固定电话</text>
+                <input placeholder="请输入固定电话" />
+            </view>
+            <view class='form-group'>
+                <text>其他</text>
+                <input placeholder="请输入其他联系方式" />
+            </view>
+            <view class='form-group'>
+                <text>身份证号</text>
+                <input placeholder="请输入身份证号码" />
+            </view>
+            <view class='form-group'>
+                <text>农场规模</text>
+                <input placeholder="只可填写数字" />
+            </view>
+            <view class='form-group'>
+                <text>地址</text>
+                <input placeholder="详细地址（必填）" />
+            </view>
+            <view class='form-group'>
+                <text>LOGO</text>
+                <button>+</button>
+            </view>
+            <view class='form-group'>
+                <text>简介</text>
+                <textarea placeholder='可介绍下农场成立的初衷，农场特色，农场产品等。' maxlength="300"></textarea>
+            </view>
+            <view class='form-group'>
+                <text>农场图片</text>
+                <button>+</button>
+            </view>
+            <view class='form-group'>
+                <text>农夫故事</text>
+                <textarea placeholder='可以说说自己的故事，让更多的人了解你' maxlength="300"></textarea>
+            </view>
+            <button type='primary'>提交</button>
+        </form>
+    </view>
+</view>

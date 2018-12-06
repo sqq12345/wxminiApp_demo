@@ -1,0 +1,7 @@
+<!-- pages/tabbar/search/search.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <shop></shop>
+    </view>
+</view>

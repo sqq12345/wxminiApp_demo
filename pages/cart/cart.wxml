@@ -1,0 +1,45 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <view class="item">
+            <view class="header">
+                <text class="select"></text>
+                header
+            </view>
+            <view>
+                <view class="goods">
+                    <text class="select"></text>
+                    <image />
+                    <view class="info">
+                        <view class="title">title</view>
+                        <view class="unit">title</view>
+                        <view class="price">
+                            title
+                            <view class="calc">
+                                <text class="sub">-</text>
+                                <text class="num">1</text>
+                                <text class="add">+</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="goods">
+                    <text class="select"></text>
+                    <image />
+                    <view class="info">
+                        <view class="title">titlasdasdasadqerqdagxzce</view>
+                        <view class="unit">title</view>
+                        <view class="price">title</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-btn">
+        <view class="all">
+            <text class="select" />
+            全选
+        </view>
+        <navigator class="buy" url="/pages/settle/settle">去结算</navigator>
+    </view>
+</view>

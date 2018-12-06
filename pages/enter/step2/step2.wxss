@@ -1,0 +1,25 @@
+/* pages/enter/step2/step2.wxss */
+.container{
+    padding: 15px;
+}
+
+page{
+    background: #fff;
+}
+
+.form-group{
+    border-bottom: 1px solid #eeeeee;
+    padding: 12px 0;
+    display: block;
+}
+
+.form-group text{
+    float: left;
+    font-weight: 400;
+    width: 4.5em;
+}
+
+.form-group textarea{
+    padding-right: 1em;
+    margin-left: 4.5em;
+}

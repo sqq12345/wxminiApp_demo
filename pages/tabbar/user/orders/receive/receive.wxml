@@ -1,0 +1,16 @@
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+       <view class="title">
+           已确认收货
+       </view>
+       <view class="points">
+           本次订单获取880分
+       </view>
+       <view class="btns">
+           <text>立即评价</text>
+           <text>马上分享</text>
+       </view>
+    </view>
+</view>

@@ -1,0 +1,93 @@
+/* pages/tabbar/user/orders/orders.wxss */
+.tabbar{
+    display: flex;
+    background: #fff;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.tabbar view{
+    flex: 1;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.tabbar view text{
+    padding-bottom: 10px;
+}
+
+.tabbar text.active{
+    color: green;
+    border-bottom: 2px solid green;
+}
+
+.order{
+    background: #fff;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.order .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    padding-bottom : 10px;
+    margin: 0 -10px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #555555; 
+}
+
+.order image{
+    width: 80px;
+    height: 80px;
+    border:1px solid #eee;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.order .middle{
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; 
+}
+
+.order .middle .name{
+    font-weight: bold;
+}
+
+.order .middle .unit{
+    font-size: 15px;
+    color: #555555;
+    margin-top: 5px;
+}
+
+.order .middle .unit .num{
+    float: right;
+}
+
+.order .middle>view{
+    position: relative;
+    flex: 1;
+}
+
+.order .middle .price{
+    position: absolute;
+    bottom: 3px;
+}
+
+.order .bottom{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.order .bottom .button{
+    color: #fff;
+    padding: 3px 10px;
+    background: green;
+    border-radius: 20px;
+    margin-left: 15px;
+}

@@ -1,0 +1,16 @@
+<view>
+  <header navbar-data='{{nvabarData}}'/>
+  <view class='container' style='height:calc(100% - {{occupation}}px)'>
+    <search/>
+    <view class="type">
+      <scroll-view scroll-x>
+        <text>附件农场</text>
+        <text>附件社群</text>
+        <text>生态餐厅</text>
+        <text>有机超市</text>
+      </scroll-view>
+      <navigator class="button" url="/pages/enter/enter">入驻</navigator>
+    </view>
+    <map id="map" class="map" scale="14" show-location></map>
+  </view>
+</view>

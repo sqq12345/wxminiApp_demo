@@ -1,0 +1,42 @@
+.fans{
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.fans image{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    float: left;
+    margin-right: 15px;
+    vertical-align: text-top;
+}
+
+.fans>view:last-of-type{
+    font-size: 15px;
+    color: #555555;
+    margin-top: 8px;
+}
+
+.fans>view>text:last-of-type{
+    float: right;
+}
+
+.list .item{
+    background: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-right: 0;
+}
+
+.list .item>text:last-of-type{
+    background: #cccccc;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}

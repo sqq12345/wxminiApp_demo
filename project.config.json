@@ -4,17 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": false
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
-	"appid": "wxd8ff470ab650b632",
-	"projectname": "miniApp",
+	"appid": "wx5838bf66842130f3",
+	"projectname": "anfou",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

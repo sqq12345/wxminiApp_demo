@@ -1,0 +1,38 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="header">
+        <image class="logo" />
+        <text class="title">Title</text>
+        <view class="info">
+            <text>农场ID</text>
+            <text>总销量</text>
+            <text>详情</text>
+        </view>
+    </view>
+    <view class="container">
+        <view class="sort">
+            <text>全部宝贝</text>
+            <text>默认排序</text>
+        </view>
+        <view class="list">
+            <view class="item">
+                <image/>
+                <text>title</text>
+                <text>￥99.99</text>
+                <text>已售888 评分5.0</text>
+            </view>
+            <view class="item">
+                <image/>
+                <text>title</text>
+                <text>￥99.99</text>
+                <text>已售888 评分5.0</text>
+            </view>
+            <view class="item">
+                <image/>
+                <text>title</text>
+                <text>￥99.99</text>
+                <text>已售888 评分5.0</text>
+            </view>
+        </view>
+    </view>
+</view>

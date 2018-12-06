@@ -1,0 +1,51 @@
+/* pages/enter/step1/step1.wxss */
+.container{
+
+}
+
+page{
+    background: #fff;
+}
+
+.form{
+    padding: 20px;
+    display: block;
+}
+
+.code{
+    background: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.code input{
+    width: 50%;
+    color: rgb(100, 200, 86);
+    border-bottom: 1px solid rgb(100, 200, 86);
+}
+
+.placeholder{
+    color: rgb(100, 200, 86);
+    text-align: center;
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
+
+.form-group label{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.select text{
+    background: #eeeeee;
+    padding: 7px 12px;
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}

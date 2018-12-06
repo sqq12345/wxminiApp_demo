@@ -1,0 +1,99 @@
+/* pages/tabbar/user/orders/order/order.wxss */
+.block{
+    background: #fff;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.order .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin: 0 -10px;
+    font-size: 15px;
+    color: #555555; 
+}
+
+.order image{
+    width: 80px;
+    height: 80px;
+    border:1px solid #eee;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.order .middle{
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; 
+}
+
+.order .middle .name{
+    font-weight: bold;
+}
+
+.order .middle .unit{
+    font-size: 15px;
+    color: #555555;
+    margin-top: 5px;
+}
+
+.order .middle .unit .num{
+    float: right;
+}
+
+.order .middle>view{
+    position: relative;
+    flex: 1;
+}
+
+.order .middle .price{
+    position: absolute;
+    bottom: 3px;
+}
+
+.order .bottom>view{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.order .bottom>view:first-of-type{
+    margin-top: 10px;
+}
+
+.info{
+    color: #555555;
+}
+
+.info view{
+    margin-bottom: 10px;
+}
+
+.info view:last-of-type{
+    margin-bottom: 0;
+}
+
+.call{
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.ops{
+    text-align: right;
+    padding: 30px 15px;
+}
+
+.ops .button{
+    color: #fff;
+    padding: 6px 10px;
+    background: green;
+    border-radius: 20px;
+    margin-left: 15px;
+}
+

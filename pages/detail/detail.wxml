@@ -1,0 +1,61 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="head">
+        <image class="logo" />
+        <view class="title">安否有机自营农场</view>
+        <view>农场规模:25亩</view>
+        <view>农场主:王恺</view>
+        <view>地址:addressssssssssssss</view>
+    </view>
+    <view class="block">
+        <view class="item">
+            <view class="label">农场类型</view>
+            <view class="tags">
+                <text>有机</text>
+            </view>
+        </view>
+        <view class="item">
+            <view class="label">农场产品</view>
+            <view class="tags">
+                <text>有机</text>
+                <text>有机</text>
+                <text>有机</text>
+            </view>
+        </view>
+        <view class="item">
+            <view class="label">农场服务</view>
+            <view class="tags">
+                <text>有机</text>
+                <text>有机</text>
+                <text>有机</text>
+                <text>有机</text>
+                <text>有机</text>
+                <text>有机</text>
+            </view>
+        </view>
+    </view>
+    <view class="block desc">
+        <view class="title">农场简介</view>
+        <view class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</view>
+    </view>
+    <view class="block">
+        <view class="title">留言评论</view>
+        <view class="comments">
+            <view class="comment">
+                <image class="userhead" />
+                <view class="content">
+                    <view>username</view>
+                    <view>xxxxxxxxxxxxxxxxxxxxxxxxx</view>
+                    <view class="pics">
+                        <image />
+                        <image />
+                        <image />
+                    </view>
+                    <view class="bottom">
+                        <text>time</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,29 @@
+/* pages/tabbar/user/address/address.wxss */
+.list{
+    background: #fff;
+}
+
+.list .item{
+    padding: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.list .item .username{
+    font-weight: bold;
+    font-size: 18px;
+    width: 5em;
+    display: inline-block;
+}
+
+.list .item .phone{
+    color: #555555;
+}
+
+.list .item .address{
+    margin-top: 5px;
+}
+
+button{
+    width: calc(100% - 30px);
+    margin: 30px auto;
+}

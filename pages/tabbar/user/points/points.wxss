@@ -1,0 +1,26 @@
+/* pages/tabbar/user/address/address.wxss */
+.list{
+    background: #fff;
+}
+
+.list .item{
+    padding: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.list .item>view{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list .item>view:first-child{
+    margin-bottom: 5px;
+}
+
+.list .item>view:first-child>text:first-child{
+    font-weight: bold;
+}
+
+.list .item>view:last-child{
+    color: #555555;
+}

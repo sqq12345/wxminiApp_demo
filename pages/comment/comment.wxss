@@ -1,0 +1,22 @@
+.rater{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.rater>view{
+    display: flex;
+    align-items: center;
+}
+
+.rater>view>text{
+    width: 2.5em;
+    text-align: center;
+}
+
+.textarea{
+    background: #ffffff;
+    padding: 10px;
+}

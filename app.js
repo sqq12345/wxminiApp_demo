@@ -1,48 +1,52 @@
-global.regeneratorRuntime = require('./utils/regenerator/runtime-module')
+//app.js
 App({
-  onLaunch: function (opts) {
-    console.log('App Launch', opts)
-  },
-  onShow: function (opts) {
-    console.log('App Show', opts)
-  },
-  onHide: function () {
-    console.log('App Hide')
-  },
-  globalData: {
-    hasLogin: false,
-    openid: null
-  },
-  // lazy loading openid
-  getUserOpenId: function(callback) {
-    var self = this
-
-    if (self.globalData.openid) {
-      callback(null, self.globalData.openid)
+  onLaunch: function (options) {
+    // 判断是否由分享进入小程序
+    if (options.scene == 1007 || options.scene == 1008) {
+      this.globalData.share = true
     } else {
-      wx.login({
-        success: function(data) {
-          wx.request({
-            url: openIdUrl,
-            data: {
-              code: data.code
-            },
-            success: function(res) {
-              console.log('拉取openid成功', res)
-              self.globalData.openid = res.data.openid
-              callback(null, self.globalData.openid)
-            },
-            fail: function(res) {
-              console.log('拉取用户openid失败，将无法正常使用开放接口等服务', res)
-              callback(res)
+      this.globalData.share = false
+    };
+    //获取设备顶部窗口的高度（不同设备窗口高度不一样，根据这个来设置自定义导航栏的高度）
+    //这个最初我是在组件中获取，但是出现了一个问题，当第一次进入小程序时导航栏会把
+    //页面内容盖住一部分,当打开调试重新进入时就没有问题，这个问题弄得我是莫名其妙
+    //虽然最后解决了，但是花费了不少时间
+    wx.getSystemInfo({
+      success: (res) => {
+        this.globalData.height = res.statusBarHeight
+      }
+    })
+
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    })
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo
+
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
             }
           })
-        },
-        fail: function(err) {
-          console.log('wx.login 接口调用失败，将无法正常使用开放接口等服务', err)
-          callback(err)
         }
-      })
-    }
+      }
+    })
+  },
+  globalData: {
+    userInfo: null,
+    share: false,  // 分享默认为false
+    height: 0,
   }
 })

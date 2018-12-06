@@ -1,0 +1,4 @@
+<view class="search">
+    <text>北京市</text>
+    <input placeholder='请输入您要搜索的农场或商品' />
+</view>

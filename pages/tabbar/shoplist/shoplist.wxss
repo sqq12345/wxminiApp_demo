@@ -1,0 +1,39 @@
+/* pages/tabbar/shoplist/shoplist.wxss */
+swiper image{
+    width: 100%;
+    border-radius: 5px;
+}
+
+swiper{
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.container{
+    padding: 0 15px;
+    background: #fff;
+}
+
+.sort{
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    margin-top: 15px;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.sort .btns text{
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.sort .btns text.selected{
+    background: #ccc;
+    color: #fff;
+}
+
+.sort>text:last-of-type text{
+    margin-left: 10px;
+}

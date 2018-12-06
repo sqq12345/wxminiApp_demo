@@ -1,0 +1,109 @@
+/* pages/cart/cart.wxss */
+
+.container {
+    padding: 15px;
+}
+
+.item {
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.item .header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px;
+}
+
+.select {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: block;
+    border: 1px solid #000;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.item .goods {
+display: flex;
+align-items: center;
+padding: 10px;
+}
+
+.item .goods image {
+width: 80px;
+height: 80px;
+border: 1px solid #eeeeee;
+border-radius: 5px;
+margin-right: 10px;
+flex-shrink: 0;
+}
+
+.goods .unit{
+font-size: 14px;
+color: #555555;
+}
+
+.goods .info{
+flex-grow: 1;
+position: relative;
+height: 78px;
+}
+
+.goods .info .price{
+position: absolute;
+bottom: 0;
+width: 100%;
+font-size: 16px;
+}
+
+.goods .info .calc{
+float: right;
+}
+
+.goods .info .calc .add,.goods .info .calc .sub{
+display: inline-block;
+width: 22px;
+height: 22px;
+border:1px solid #eeeeee;
+border-radius: 50%;
+text-align: center;
+line-height: 22px;
+}
+
+.goods .info .num{
+text-align: center;
+width: 24px;
+display: inline-block;
+}
+
+.goods .title{
+line-height: 1;
+}
+
+.bottom-btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background: #fff;
+}
+
+.bottom-btn .all{
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.bottom-btn .buy {
+    background: #26b802;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}

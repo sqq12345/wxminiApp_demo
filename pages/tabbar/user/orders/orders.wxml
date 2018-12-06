@@ -1,0 +1,44 @@
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <view class="tabbar">
+            <view>
+                <text class="active">全部</text>
+            </view>
+            <view>
+                <text>待付款</text>
+            </view>
+            <view>
+                <text>待发货</text>
+            </view>
+            <view>
+                <text>待收货</text>
+            </view>
+            <view>
+                <text>待评价</text>
+            </view>
+        </view>
+        <view class="order">
+            <view class="top">
+                <text>订单号:66666666666</text>
+                <text>状态</text>
+            </view>
+            <navigator class="middle" url="/pages/tabbar/user/orders/order/order">
+                <image />
+                <view>
+                    <view class="name">商品名</view>
+                    <view class="unit">
+                        规格
+                        <text class="num">x1</text>
+                    </view>
+                    <view class="price">￥399</view>
+                </view>
+            </navigator>
+            <view class="bottom">
+                <text class="button">去支付</text>
+                <text>实付:￥399</text>
+            </view>
+        </view>
+    </view>
+</view>
