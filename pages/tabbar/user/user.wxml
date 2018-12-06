@@ -26,8 +26,8 @@
                         <text>￥8888</text>
                     </view>
                     <view class="buttons">
-                        <text>收益明细</text>
-                        <text>提现</text>
+                        <navigator url="/pages/tabbar/user/earnings/earnings">收益明细</navigator>
+                        <navigator>提现</navigator>
                     </view>
                 </view>
             </view>

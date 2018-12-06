@@ -1,7 +1,7 @@
 <!-- components/shop/shpo.wxml -->
 <view>
     <view class='shop'>
-        <image class="logo" />
+        <navigator url="/pages/goodslist/goodslist"><image class="logo" /></navigator>
         <view class="text">
             <view class="title">商家名称</view>
             <view>

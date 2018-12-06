@@ -18,9 +18,9 @@
                 手机号
                 <text>phone</text>
             </view>
-            <view class="item">
+            <navigator class="item" url="/pages/tabbar/user/address/address">
                 地址管理
-            </view>
+            </navigator>
         </view>
         <button type="primary">保存</button>
     </view>

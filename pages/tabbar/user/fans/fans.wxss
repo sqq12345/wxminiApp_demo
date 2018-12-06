@@ -6,6 +6,7 @@
 .list .item{
     padding: 15px;
     border-top: 1px solid #eeeeee;
+    display: block;
 }
 
 .list .item image{

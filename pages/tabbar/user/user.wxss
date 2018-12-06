@@ -98,7 +98,7 @@
 
 .head .bottom .buttons {}
 
-.head .bottom .buttons text {
+.head .bottom .buttons navigator {
     color: #fff;
     background: #ccc;
     padding: 5px 13px;
