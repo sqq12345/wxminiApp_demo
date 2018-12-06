@@ -1,3 +1,0 @@
-<!--page/tabBar/home/index.wxml-->
-<text>{{props.todoStore.todoText}}</text>
-
