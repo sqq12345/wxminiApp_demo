@@ -15,20 +15,20 @@
         </view>
     </view>
     <view class="activity">
-        <view>
+        <navigator url="/pages/goods/goods">
             <image />
             <view class="ellipsis">titleasasdsdaasaddasdasd</view>
             <view class="price">￥99.90</view>
-        </view>
-        <view>
+        </navigator>
+        <navigator url="/pages/goods/goods">
             <image />
             <view class="ellipsis">title</view>
             <view class="price">￥99.90</view>
-        </view>
-        <view>
+        </navigator>
+        <navigator url="/pages/goods/goods">
             <image />
             <view class="ellipsis">title</view>
             <view class="price">￥99.90</view>
-        </view>
+        </navigator>
     </view>
 </view>

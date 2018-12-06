@@ -49,17 +49,17 @@
     border: 1px solid #eeeeee;
 }
 
- .activity>view{
+ .activity>navigator{
     width:31.33%;
     margin-right: 3%;
     border-radius: 3px;
     display: inline-block;
     box-sizing:border-box;
 }
-.activity>view:last-child{
+.activity>navigator:last-child{
     margin-right: 0;
 }
 
-.activity>view .price{
+.activity>navigator .price{
     color: red;
 }

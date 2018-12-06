@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/tabbar/home/home",
     "pages/tabbar/user/user",
     "pages/enter/step2/step2",
     "pages/enter/enter",
     "pages/tabbar/shoplist/shoplist",
-    "pages/tabbar/home/home",
     "pages/tabbar/user/orders/receive/receive",
     "pages/tabbar/user/orders/order/order",
     "pages/tabbar/user/orders/orders",
@@ -17,7 +17,7 @@
     "pages/comment/comment",
     "pages/detail/detail",
     "pages/settle/settle",
-    "pages/cart/cart",
+    "pages/tabbar/cart/cart",
     "pages/goodslist/goodslist",
     "pages/tabbar/home/search/search",
     "pages/enter/step1/step1"
@@ -44,7 +44,7 @@
         "text": "商家列表"
       },
       {
-        "pagePath": "pages/cart/cart",
+        "pagePath": "pages/tabbar/cart/cart",
         "iconPath": "/static/icons/tabbar/home.png",
         "selectedIconPath": "/static/icons/tabbar/home-2.png",
         "text": "购物车"
