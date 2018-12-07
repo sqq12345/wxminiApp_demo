@@ -20,26 +20,39 @@ App({
     })
 
     // 登录
-    wx.login({
-      success: res => {
-        if (res.code) {
-          //请求用户信息
-          wx.request({
-            url: `https://api.weixin.qq.com/sns/jscode2session?appid=${AppID}&secret=${AppSecret}&js_code=${res.code}&grant_type=authorization_code`,
-            success:  (response)=> {
-              this.globalData.openId = response.data.openid;
-            },
-          })
-        } else {
-          console.warn('获取用户登录态失败！' + res.errMsg)
-        }
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     if (res.code) {
+    //       //请求用户信息
+    //       wx.request({
+    //         url: `https://api.weixin.qq.com/sns/jscode2session?appid=${AppID}&secret=${AppSecret}&js_code=${res.code}&grant_type=authorization_code`,
+    //         success:  (response)=> {
+    //           this.globalData.openId = response.data.openid;
+    //           console.log(this.globalData.openId);
+    //         },
+    //       })
+    //     } else {
+    //       console.warn('获取用户登录态失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
+
   },
   globalData: {
     openId: null,
     userInfo: null,
     share: false,  // 分享默认为false
     height: 0,
+    getCities: new Promise(function (resolve, reject) {
+      //考虑缓存数据
+      setTimeout(() => {
+        resolve([
+          { city: '北京市', },
+          { city: '武汉市', },
+          { city: '十堰市', },
+          { city: '广州市', },
+        ]);
+      }, 3000)
+    })
   }
 })

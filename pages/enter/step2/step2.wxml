@@ -33,7 +33,9 @@
             </view>
             <view class='form-group'>
                 <text>LOGO</text>
-                <button>+</button>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
             </view>
             <view class='form-group'>
                 <text>简介</text>
@@ -41,7 +43,9 @@
             </view>
             <view class='form-group'>
                 <text>农场图片</text>
-                <button>+</button>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
             </view>
             <view class='form-group'>
                 <text>农夫故事</text>

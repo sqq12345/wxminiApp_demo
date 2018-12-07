@@ -11,5 +11,14 @@ Page({
       transparent: false //透明导航栏
     },
   },
+  /* upload */
+  onUploadSuccess(e){
 
+  },
+  onUploadFail(e){
+    
+  },
+  onUploadComplete(e){
+    console.log(e);
+  }
 })

@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/enter/step1/step1",
     "pages/tabbar/home/home",
-    "pages/tabbar/user/user",
     "pages/enter/step2/step2",
+    "pages/enter/step1/step1",
+    "pages/tabbar/user/user",
     "pages/enter/enter",
     "pages/tabbar/shoplist/shoplist",
     "pages/tabbar/user/orders/receive/receive",

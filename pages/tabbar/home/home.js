@@ -1,4 +1,5 @@
 // pages/tabbar/home/home.js
+import regeneratorRuntime from '../../../utils/regenerator/runtime-module';
 const app = getApp();
 const ak = 'vhxahuEGUT0LuHNexQPRsxmxIaDkSKED';
 Page({
@@ -22,12 +23,6 @@ Page({
     selectedTypeId: 1,
     //map相关
     map: {},
-    cities: [
-      { city: '北京市', },
-      { city: '武汉市', },
-      { city: '十堰市', },
-      { city: '广州市', },
-    ],  //城市列表
     selected: -1,  //选中的城市的下标,
     markers: [],
     detailShow: false, //显示详情?
@@ -50,8 +45,9 @@ Page({
   onReady() {
     this.mapCtx = wx.createMapContext('map')
   },
-  onLoad() {
-    //todo 请求城市列表
+  async onLoad() {
+    const cities = await app.globalData.getCities;
+    console.log(cities);
     wx.getLocation({
       type: 'wgs84',
       success: (res) => {
@@ -73,7 +69,7 @@ Page({
             // success  
             const name = res.data.result.addressComponent.city;
             //根据名字找到数组中的城市
-            const selected = this.data.cities.findIndex(item => {
+            const selected = cities.findIndex(item => {
               return item.city === name;
             });
             this.setData({

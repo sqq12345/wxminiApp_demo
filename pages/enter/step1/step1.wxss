@@ -48,4 +48,11 @@ page{
     margin-bottom: 20rpx;
     font-size: 28rpx;
     border-radius: 5px;
+    border:1px solid transparent;
+}
+
+.select .selected{
+    color: green;
+    border: 1px solid green;
+    box-sizing: border-box;
 }

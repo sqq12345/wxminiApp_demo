@@ -1,7 +1,7 @@
 <view>
   <header navbar-data='{{nvabarData}}' />
   <view class='container' style='height:calc(100% - {{occupation}}px)'>
-    <search cities="{{cities}}" selected="{{selected}}" bind:onChange="onCityChange" />
+    <search selected="{{selected}}" bind:onChange="onCityChange" />
     <view class="type">
       <scroll-view scroll-x>
         <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="{{selectedTypeId==item.id?'selected':''}}">{{item.name}}</text>
