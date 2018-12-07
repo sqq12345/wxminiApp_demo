@@ -3,5 +3,5 @@
         <view wx:if="{{selected!=-1}}" class="picker">{{cities[selected].city}}</view>
         <view wx:if="{{selected==-1}}" class="picker">定位中</view>
     </picker>
-    <input placeholder='请输入您要搜索的农场或商品' />
+    <input placeholder='请输入您要搜索的农场或商品' bind:confirm="search" value="{{query}}"/>
 </view>

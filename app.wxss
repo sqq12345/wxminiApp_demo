@@ -30,3 +30,58 @@ navigator{
 button{
   font-size: 36rpx;
 }
+
+.loading {
+  text-align: center;
+  color: #666;
+  padding: 2vw 0;
+  font-size: 0;
+}
+
+.loading-gif {
+  display: inline-block;
+  font-size: 0;
+}
+
+@keyframes loading {
+  0% {
+    width: 14rpx;
+  }
+
+  50% {
+    width: 28rpx;
+  }
+
+  100% {
+    width: 14rpx;
+  }
+}
+
+.loading-gif view {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  background: #ccc;
+  animation: loading 1.5s infinite;
+  margin-left: 5px;
+}
+
+.loading-gif .a {
+  animation-delay: 0.1s
+}
+
+.loading-gif .b {
+  animation-delay: 0.2s
+}
+
+.loading-gif .c {
+  animation-delay: 0.4s
+}
+
+.loading-gif .d {
+  animation-delay: 0.8s
+}
+
+.loading-gif .e {
+  animation-delay: 1.2s
+}

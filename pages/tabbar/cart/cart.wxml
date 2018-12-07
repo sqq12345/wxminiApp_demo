@@ -29,7 +29,14 @@
                     <view class="info">
                         <view class="title">titlasdasdasadqerqdagxzce</view>
                         <view class="unit">title</view>
-                        <view class="price">title</view>
+                        <view class="price">
+                            title
+                            <view class="calc">
+                                <text class="sub">-</text>
+                                <text class="num">1</text>
+                                <text class="add">+</text>
+                            </view>
+                        </view>
                     </view>
                 </view>
             </view>

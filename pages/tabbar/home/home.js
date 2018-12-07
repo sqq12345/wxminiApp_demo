@@ -1,8 +1,11 @@
 // pages/tabbar/home/home.js
-import regeneratorRuntime from '../../../utils/regenerator/runtime-module';
+import { observer } from '../../../utils/mobx/observer';
+const { regeneratorRuntime } = global;
 const app = getApp();
-const ak = 'vhxahuEGUT0LuHNexQPRsxmxIaDkSKED';
-Page({
+Page(observer({
+  props: {
+    city: require('../../../stores/City'),
+  },
   data: {
     // 组件所需的参数
     nvabarData: {
@@ -21,10 +24,6 @@ Page({
       { name: '生态餐厅', id: 6 },
     ],
     selectedTypeId: 1,
-    //map相关
-    map: {},
-    selected: -1,  //选中的城市的下标,
-    markers: [],
     detailShow: false, //显示详情?
     selectedMarker: -1, //选中的marker id
   },
@@ -38,75 +37,20 @@ Page({
 
   //切换城市
   onCityChange(e) {
-    this.setData({
-      selected: e.detail.detail.value
-    })
+    this.props.city.selected = e.detail.detail.value;
   },
+
   onReady() {
     this.mapCtx = wx.createMapContext('map')
   },
-  async onLoad() {
-    const cities = await app.globalData.getCities;
-    console.log(cities);
-    wx.getLocation({
-      type: 'wgs84',
-      success: (res) => {
-        // success  
-        // const longitude = res.longitude;
-        // const latitude = res.latitude;
-        const latitude = 23.099994;
-        const longitude = 113.324520;
-        this.setData({
-          map: {
-            longitude, latitude
-          }
-        });
-        this.getMarkers();
-        wx.request({
-          url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + latitude + ',' + longitude + '&output=json',
-          data: {},
-          success: (res) => {
-            // success  
-            const name = res.data.result.addressComponent.city;
-            //根据名字找到数组中的城市
-            const selected = cities.findIndex(item => {
-              return item.city === name;
-            });
-            this.setData({
-              selected
-            })
-          },
-          fail: function () {
-            wx.showToast({
-              icon: 'none',
-              title: '获取地址失败',
-              duration: 2000
-            })
-          },
-        })
-      }
-    })
+  onLoad() {
+    
   },
   //根据经纬度获取周边商家
   getMarkers() {
     //todo
     this.setData({
-      markers: [{
-        id: 1,
-        latitude: 23.099994,
-        longitude: 113.324520,
-        name: 'T.I.T 创意园'
-      }, {
-        id: 2,
-        latitude: 23.099994,
-        longitude: 113.344520,
-        iconPath: '/static/icons/location.png'
-      }, {
-        id: 3,
-        latitude: 23.099994,
-        longitude: 113.304520,
-        iconPath: '/static/icons/location.png'
-      }],
+      
     })
   },
   //点击marker
@@ -137,4 +81,4 @@ Page({
       );
     }
   },
-})
+}))

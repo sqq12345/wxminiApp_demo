@@ -15,7 +15,6 @@ swiper{
 }
 
 .sort{
-    border-bottom: 1px solid #eeeeee;
     display: flex;
     align-items: center;
     padding: 10rpx 0;
@@ -34,6 +33,14 @@ swiper{
     color: #fff;
 }
 
-.sort>text:last-of-type text{
+.sort>view:last-of-type text{
     margin-left: 20rpx;
+}
+
+.sort .sorts text{
+    color: #777;
+}
+
+.sort .sorts .selected{
+    color: #000;
 }

@@ -1,5 +1,6 @@
 const AppID = 'wx5838bf66842130f3';
 const AppSecret = 'f9cf145ceef787955832dd5cdae5750a';
+global.regeneratorRuntime = require('./utils/regenerator/runtime-module')
 //app.js
 App({
   onLaunch: function (options) {
@@ -43,16 +44,5 @@ App({
     userInfo: null,
     share: false,  // 分享默认为false
     height: 0,
-    getCities: new Promise(function (resolve, reject) {
-      //考虑缓存数据
-      setTimeout(() => {
-        resolve([
-          { city: '北京市', },
-          { city: '武汉市', },
-          { city: '十堰市', },
-          { city: '广州市', },
-        ]);
-      }, 3000)
-    })
   }
 })

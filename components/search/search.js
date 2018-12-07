@@ -1,19 +1,20 @@
 // components/search/search.js
-import regeneratorRuntime from '../../utils/regenerator/runtime-module';
 const app = getApp();
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    selected: Number,  //选中的城市的下标
+    cities: Array,
+    selected: Number,  //选中的城市的下标,
+    query: String, //查询关键字
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    cities: []
+
   },
 
   /**
@@ -22,13 +23,11 @@ Component({
   methods: {
     onChange(e) {
       this.triggerEvent('onChange', e)
+    },
+    search(e) {
+      wx.navigateTo({
+        url: "/pages/tabbar/home/search/search?query=" + e.detail.value,
+      })
     }
-  },
-
-  async attached() {
-    const cities = await app.globalData.getCities;
-    this.setData({
-      cities: cities
-    });
   }
 })

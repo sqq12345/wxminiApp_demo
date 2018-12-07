@@ -1,24 +1,25 @@
-.shop{
+.shop {
     display: flex;
     /* padding: 15px; */
-    margin-top: 30rpx;
+    padding-top: 30rpx;
+    border-top: 1px solid #eeeeee;
 }
 
-.ellipsis{
+.ellipsis {
     overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.shop .logo{
+.shop .logo {
     border-radius: 50%;
-    border:1px solid red;
+    border: 1px solid red;
     width: 140rpx;
     height: 140rpx;
     margin-right: 30rpx;
 }
 
-.shop .text{
+.shop .text {
     font-size: 26rpx;
     color: #333333;
     display: flex;
@@ -26,40 +27,41 @@
     flex-grow: 1;
 }
 
-.shop .text view{
+.shop .text view {
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
 }
 
-.shop .text .title{
+.shop .text .title {
     color: #000000;
     font-size: 32rpx;
 }
 
-.activity{
+.activity {
     /* padding: 15px; */
     margin-top: 30rpx;
     padding-bottom: 30rpx;
 }
 
- .activity image{
+.activity image {
     width: 100%;
     height: 30vw;
     border: 1px solid #eeeeee;
 }
 
- .activity>navigator{
-    width:31.33%;
+.activity>navigator {
+    width: 31.33%;
     margin-right: 3%;
     border-radius: 3px;
     display: inline-block;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
-.activity>navigator:last-child{
+
+.activity>navigator:last-child {
     margin-right: 0;
 }
 
-.activity>navigator .price{
+.activity>navigator .price {
     color: red;
 }

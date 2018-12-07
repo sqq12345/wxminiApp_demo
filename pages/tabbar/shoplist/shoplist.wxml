@@ -1,25 +1,32 @@
 <!-- pages/tabbar/shoplist/shoplist.wxml -->
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <search></search>
+    <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" />
     <view class="container">
         <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
-            <block wx:for="{{imgUrls}}">
+            <block wx:for="{{imgUrls}}" wx:key="{{index}}">
                 <swiper-item>
                     <image src="{{item}}" class="slide-image" />
                 </swiper-item>
             </block>
         </swiper>
         <view class="sort">
-            <text class="btns">
-                <text class="selected">农场</text>
-                <text>社群</text>
-            </text>
-            <text>
-                <text>默认排序</text>
-                <text>销量</text>
-            </text>
+            <view class="btns">
+                <text data-condition="type" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedType==item.value?'selected':''}}" wx:for="{{types}}" wx:key="{{index}}">{{item.text}}</text>
+            </view>
+            <view class="sorts">
+                <text data-condition="sort" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
+            </view>
         </view>
-        <shop />
+        <shop wx:for="{{list}}" wx:key="{{index}}" />
+        <view class='loading'>
+            <view class='loading-gif'>
+                <view class='a' />
+                <view class='b' />
+                <view class='c' />
+                <view class='d' />
+                <view class='e' />
+            </view>
+        </view>
     </view>
 </view>
