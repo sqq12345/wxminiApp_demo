@@ -12,25 +12,24 @@ let City = function () {
     longitude: null,
     markers: []
   });
-
-  this.getMarkers = function () {
-    this.markers = [{
-      id: 1,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      name: 'T.I.T 创意园'
-    }, {
-      id: 2,
-      latitude: 23.099994,
-      longitude: 113.344520,
-      iconPath: '/static/icons/location.png'
-    }, {
-      id: 3,
-      latitude: 23.099994,
-      longitude: 113.304520,
-      iconPath: '/static/icons/location.png'
-    }]
-  }
+}
+City.prototype.getMarkers = function () {
+  this.markers = [{
+    id: 111111,
+    latitude: 23.099994,
+    longitude: 113.324520,
+    name: 'T.I.T 创意园'
+  }, {
+    id: 2334232,
+    latitude: 23.099994,
+    longitude: 113.344520,
+    iconPath: '/static/icons/location.png'
+  }, {
+    id: 45756756,
+    latitude: 23.099994,
+    longitude: 113.304520,
+    iconPath: '/static/icons/location.png'
+  }]
 }
 const Store = new City();
 setTimeout(function () {
@@ -72,6 +71,6 @@ setTimeout(function () {
     }
   })
 
-}, 200000);
+}, 2000);
 
 module.exports = Store

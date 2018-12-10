@@ -39,22 +39,22 @@
             </view>
             <view class="block">
                 <view class="icons">
-                    <view class="icon">
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=1">
                         <image />
                         待付款
-                    </view>
-                    <view class="icon">
+                    </navigator>
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=2">                    
                         <image />
                         待发货
-                    </view>
-                    <view class="icon">
+                    </navigator>
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=3">                    
                         <image />
                         待收货
-                    </view>
-                    <view class="icon">
+                    </navigator>
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=4">                    
                         <image />
                         待评价
-                    </view>
+                    </navigator>
                 </view>
             </view>
         </view>

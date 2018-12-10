@@ -1,16 +1,17 @@
 {
   "pages": [
+    "pages/tabbar/user/user",
+    "pages/tabbar/user/orders/orders",
     "pages/tabbar/cart/cart",
+    "pages/tabbar/home/home",
     "pages/tabbar/shoplist/shoplist",
     "pages/tabbar/home/search/search",
-    "pages/tabbar/home/home",
     "pages/enter/step2/step2",
     "pages/enter/step1/step1",
-    "pages/tabbar/user/user",
+    
     "pages/enter/enter",
     "pages/tabbar/user/orders/receive/receive",
     "pages/tabbar/user/orders/order/order",
-    "pages/tabbar/user/orders/orders",
     "pages/tabbar/user/earnings/earnings",
     "pages/tabbar/user/fans/fans",
     "pages/goods/goods",
@@ -19,7 +20,7 @@
     "pages/tabbar/user/profile/profile",
     "pages/comment/comment",
     "pages/detail/detail",
-    "pages/settle/settle",
+    "pages/tabbar/cart/settle/settle",
     "pages/goodslist/goodslist"
   ],
   "window": {

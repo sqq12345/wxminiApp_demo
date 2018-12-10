@@ -27,11 +27,24 @@ Page(observer({
     detailShow: false, //显示详情?
     selectedMarker: -1, //选中的marker id
   },
-
+  //切换分类
   changeType(e) {
     const { id } = e.currentTarget.dataset;
+    //清除markers和detail,并重新请求markers
     this.setData({
-      selectedTypeId: id
+      selectedTypeId: id,
+      detailShow: false
+    }, () => {
+      this.props.city.markers = [];
+      //模拟请求
+      wx.showLoading({
+        title: '获取周边商家',
+        mask: true,
+      });
+      setTimeout(() => {
+        wx.hideLoading();
+        this.props.city.getMarkers();
+      }, 1000)
     })
   },
 
@@ -45,13 +58,6 @@ Page(observer({
   },
   onLoad() {
     
-  },
-  //根据经纬度获取周边商家
-  getMarkers() {
-    //todo
-    this.setData({
-      
-    })
   },
   //点击marker
   tapMarker(e) {

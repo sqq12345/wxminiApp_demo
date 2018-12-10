@@ -65,12 +65,14 @@ Page(observer({
         break;
       case 'sort':
         this.setData({ selectedSort: value })
-        break
+        break;
     }
     //重新加载数据
     this.setData({ loading: true, list: [] }, () => {
       setTimeout(() => {
-        this.setData({ list: [{}, {}, {}] });
+        this.setData({ list: [{}, {}, {}] }, () => {
+          this.setData({ loading: false });
+        });
       }, 1000)
     });
   },

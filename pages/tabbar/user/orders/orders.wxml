@@ -3,20 +3,8 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
         <view class="tabbar">
-            <view>
-                <text class="active">全部</text>
-            </view>
-            <view>
-                <text>待付款</text>
-            </view>
-            <view>
-                <text>待发货</text>
-            </view>
-            <view>
-                <text>待收货</text>
-            </view>
-            <view>
-                <text>待评价</text>
+            <view wx:for="{{status}}" wx:key="{{index}}" data-status="{{item.value}}" bind:tap="switchStatus">
+                <text class="{{selected==item.value?'active':''}}">{{item.text}}</text>
             </view>
         </view>
         <view class="order">

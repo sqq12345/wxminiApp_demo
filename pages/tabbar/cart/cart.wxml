@@ -1,40 +1,28 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        <view class="item">
+        <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
             <view class="header">
-                <text class="select"></text>
-                header
+                <text class="select {{item.selected?'selected':''}}" bind:tap="select"
+                    data-cart-index="{{cartIndex}}"><text class="fa fa-check"/></text>
+                {{item.shop.name}}
             </view>
             <view>
-                <view class="goods">
-                    <text class="select"></text>
+                <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
+                    <text class="select {{goods.selected?'selected':''}}" bind:tap="select"
+                        data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}"><text class="fa fa-check"/></text>
                     <image />
                     <view class="info">
-                        <view class="title">title</view>
-                        <view class="unit">title</view>
+                        <view class="title">{{goods.name}}</view>
+                        <view class="unit">{{goods.unit}}</view>
                         <view class="price">
-                            title
+                            ￥{{goods.total}}
                             <view class="calc">
-                                <text class="sub">-</text>
-                                <text class="num">1</text>
-                                <text class="add">+</text>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="goods">
-                    <text class="select"></text>
-                    <image />
-                    <view class="info">
-                        <view class="title">titlasdasdasadqerqdagxzce</view>
-                        <view class="unit">title</view>
-                        <view class="price">
-                            title
-                            <view class="calc">
-                                <text class="sub">-</text>
-                                <text class="num">1</text>
-                                <text class="add">+</text>
+                                <text class="sub" bind:tap="reduce" 
+                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}">-</text>
+                                <text class="num">{{goods.count}}</text>
+                                <text class="add" bind:tap="increase" 
+                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}">+</text>
                             </view>
                         </view>
                     </view>
@@ -44,9 +32,19 @@
     </view>
     <view class="bottom-btn">
         <view class="all">
-            <text class="select" />
-            全选
+            <view>
+                <text class="select {{props.cart.allSelected?'selected':''}}" bind:tap="selectAll"><text class="fa fa-check"/></text>
+                全选
+            </view>
+            <view>
+                <view>
+                    实付款
+                    <text class="price">￥{{props.cart.total}}</text>
+                </view>
+                <view class="extr">不含运费</view>
+            </view>
         </view>
-        <navigator hover-class="none" class="buy" url="/pages/settle/settle">去结算</navigator>
+        <navigator wx:if="{{props.cart.total>0}}" hover-class="none" class="buy" url="/pages/tabbar/cart/settle/settle">去结算</navigator>
+        <view wx:if="{{props.cart.total==0}}"class="buy disable">去结算</view>
     </view>
 </view>

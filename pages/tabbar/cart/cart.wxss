@@ -2,11 +2,13 @@
 
 .container {
     padding: 30rpx;
+    margin-bottom: 100rpx;
 }
 
 .item {
     background: #ffffff;
     border-radius: 5px;
+    margin-bottom: 30rpx;
 }
 
 .item .header {
@@ -20,10 +22,20 @@
     border-radius: 50%;
     width: 36rpx;
     height: 36rpx;
-    display: block;
+    display: inline-block;
     border: 1px solid #000;
     margin-right: 20rpx;
     flex-shrink: 0;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 0;
+}
+
+.select.selected {
+    background: #26b802;
+    color: #fff;
+    border-color: #26b802;
+    font-size: 32rpx;
 }
 
 .item .goods {
@@ -42,6 +54,7 @@
 }
 
 .goods .unit {
+    margin-top: 10rpx;
     font-size: 28rpx;
     color: #555555;
 }
@@ -57,10 +70,12 @@
     bottom: 0;
     width: 100%;
     font-size: 32rpx;
+    color: rgb(219, 109, 50);
 }
 
 .goods .info .calc {
     float: right;
+    color: #000;
 }
 
 .goods .info .calc .add, .goods .info .calc .sub {
@@ -96,7 +111,25 @@
     flex-grow: 2;
     display: flex;
     align-items: center;
-    padding-left: 30rpx;
+    padding: 0 30rpx;
+    justify-content: space-between;
+}
+
+.bottom-btn .all view {
+    font-size: 28rpx;
+}
+
+.bottom-btn .all .select {
+    vertical-align: text-top;
+}
+
+.bottom-btn .price{
+    color: rgb(219, 109, 50);
+}
+
+.bottom-btn .extr{
+    font-size: 24rpx;
+    color: #666666;
 }
 
 .bottom-btn .buy {
@@ -106,4 +139,8 @@
     align-items: center;
     flex-grow: 1;
     justify-content: center;
+}
+
+.buy.disable {
+    background: #cccccc;
 }

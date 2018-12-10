@@ -20,7 +20,7 @@ App({
       }
     })
 
-    // 登录
+    //登录
     // wx.login({
     //   success: res => {
     //     if (res.code) {
