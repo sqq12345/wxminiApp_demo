@@ -66,19 +66,15 @@
                 <view class="icons">
                     <view class="icon">
                         <image />
-                        优惠券
+                        发起接龙
                     </view>
                     <view class="icon">
                         <image />
-                        收藏
+                        我的拼团
                     </view>
                     <view class="icon" style="visibility:hidden">
-                        <image />
-                        客服
                     </view>
                     <view class="icon" style="visibility:hidden">
-                        <image />
-                        设置
                     </view>
                 </view>
             </view>

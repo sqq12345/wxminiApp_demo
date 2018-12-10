@@ -1,0 +1,70 @@
+/* pages/group/start.wxss */
+.part{
+    background: #fff;
+    padding: 20rpx 30rpx;
+}
+
+.part.one input{
+    border-bottom: 1px solid #eeeeee;
+    line-height: 70rpx;
+    height: 70rpx;
+}
+
+.header{
+    font-weight: bold;
+    padding: 20rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header picker{
+    color: #26b802;
+}
+
+.placeholder{
+    text-align: right;
+}
+
+.part.one textarea{
+    width: 100%;
+    margin-top: 20rpx;
+    display: block;
+    height: 250rpx;
+}
+
+.fa-caret-down{
+    color: #26b802;
+}
+
+.form-group{
+    border-bottom: 1px solid #eeeeee;
+    padding: 24rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-group input{
+    flex-grow: 1;
+}
+
+.form-group .label{
+    float: left;
+    font-weight: 400;
+    width: 5em;
+}
+
+.form-group .label::before{
+    content: '*';
+    color: red;
+    display: inline;
+}
+
+.form-group .label.no::before{
+    content: '';
+    display: none;
+}
+
+.form-group .text{
+    color: #777;
+}

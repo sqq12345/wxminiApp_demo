@@ -43,7 +43,7 @@ page {
 
 .type scroll-view {
     white-space: nowrap;
-    max-width: calc(100% - 4.5em);
+    max-width: calc(100% - 5em);
     border-right: 1px solid #cccccc;
 }
 
@@ -52,15 +52,16 @@ page {
 }
 
 .type scroll-view text.selected{
-    color: green;
+    color: #26b802;
 }
 
 .type .button {
     word-break: keep-all;
-    border: 1px solid #cccccc;
+    border: 1px solid #26b802;
     padding: 10rpx 30rpx;
     border-radius: 20px;
     font-size: 28rpx;
+    color: #26b802;
 }
 
 .map {
@@ -79,15 +80,12 @@ page {
     left: 0px;
     right: 0px;
     padding: 30rpx 20rpx;
-    box-shadow: 2px 2px 2px #cccccc;
-    z-index: 9999;
 }
 
 .detail .head{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 20rpx;
-    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10rpx;
 }
 
 .detail .footer{
@@ -99,11 +97,22 @@ page {
 }
 
 .detail .url{
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #555555;
 }
 
 .detail .footer cover-view{
-    margin-top: 20rpx;
-    font-size: 24rpx;
+    margin-top: 10rpx;
+    font-size: 26rpx;
+}
+
+.detail .footer cover-view .text{
+    display: inline-block;
+}
+
+.detail .footer cover-image{
+    width:30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+    display: inline-block;
 }

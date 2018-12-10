@@ -1,0 +1,14 @@
+.search input {
+    background: #eeeeee;
+    border-radius: 15px;
+    flex: 1;
+    height: 70rpx;
+    padding-left: 1em;
+}
+
+.search {
+    background: #ffffff;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+}

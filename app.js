@@ -1,5 +1,5 @@
-const AppID = 'wx5838bf66842130f3';
-const AppSecret = 'f9cf145ceef787955832dd5cdae5750a';
+const AppID = 'wxe03bb6c88e343ca6';
+const AppSecret = 'c2b577b604e9deb660594917987f000c';
 global.regeneratorRuntime = require('./utils/regenerator/runtime-module')
 //app.js
 App({

@@ -1,0 +1,81 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <form>
+            <view class="part one">
+                <input placeholder="请输入团购主题" />
+                <textarea placeholder="请输入团购描述"></textarea>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
+            </view>
+            <view class="header">
+                团购商品
+                <picker range="{{picker}}" range-key="text">
+                    <view class="picker">
+                        {{picker[0].text}}
+                        <text class="fa fa-caret-down" />
+                    </view>
+                </picker>
+            </view>
+            <view class="part two">
+                <view class="form-group">
+                    <text class="label">商品名称</text>
+                    <input placeholder="请输入" placeholder-class="placeholder" />
+                </view>
+                <view class="form-group">
+                    <text class="label">商品主图</text>
+                </view>
+                <view class="form-group">
+                    <text class="label">规格</text>
+                    <input placeholder="尺寸，颜色等" placeholder-class="placeholder" />
+                </view>
+                <view class="form-group">
+                    <text class="label">价格</text>
+                    <input placeholder="请输入价格" placeholder-class="placeholder" />
+                </view>
+                <view class="form-group">
+                    <text class="label">库存</text>
+                    <input placeholder="请输入库存" placeholder-class="placeholder" />
+                </view>
+                <view class="form-group">
+                    <text class="label">配送范围</text>
+                    <picker range="{{picker}}" range-key="text">
+                        <view class="picker">
+                            {{picker[0].text}}
+                            <text class="fa fa-caret-down" />
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="header">团购设置</view>
+            <view class="part three">
+                <view class="form-group">
+                    <text class="label">物流方式</text>
+                    <picker range="{{picker}}" range-key="text">
+                        <view class="picker">
+                            {{picker[0].text}}
+                            <text class="fa fa-caret-down" />
+                        </view>
+                    </picker>
+                </view>
+                <view class="form-group">
+                    <text class="label">截止时间</text>
+                </view>
+                <view class="form-group">
+                    <text class="text">传播隐私设置</text>
+                </view>
+                <view class="form-group">
+                    <text class="text">接龙次数</text>
+                </view>
+                <view class="form-group">
+                    <text class="text">接龙起购价</text>
+                </view>
+                <view class="form-group">
+                    <text class="label no">提示</text>
+                    <input placeholder="请输入让参与人注意的重要提示" placeholder-class="placeholder" />
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/group/result/result",
+    "pages/group/search/search",
+    "pages/group/start",
+    "pages/tabbar/home/home",
     "pages/tabbar/user/user",
     "pages/tabbar/user/orders/orders",
     "pages/tabbar/cart/cart",
-    "pages/tabbar/home/home",
     "pages/tabbar/shoplist/shoplist",
     "pages/tabbar/home/search/search",
     "pages/enter/step2/step2",
     "pages/enter/step1/step1",
-    
     "pages/enter/enter",
     "pages/tabbar/user/orders/receive/receive",
     "pages/tabbar/user/orders/order/order",

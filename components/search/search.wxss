@@ -9,6 +9,13 @@
     margin-right: 10px;
 }
 
+.search image{
+    width: 24rpx;
+    height: 24rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .search input{
     background: #eeeeee;
     border-radius: 15px;

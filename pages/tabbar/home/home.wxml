@@ -6,17 +6,17 @@
       <scroll-view scroll-x>
         <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="{{selectedTypeId==item.id?'selected':''}}">{{item.name}}</text>
       </scroll-view>
-      <navigator hover-class="none" class="button" url="/pages/enter/enter">入驻</navigator>
+      <navigator hover-class="none" class="button" url="/pages/enter/enter"><text class="fa fa-plus"/>入驻</navigator>
     </view>
     <map id="map" class="map" scale="14" show-location markers="{{props.city.markers}}" latitude="{{props.city.latitude}}" longitude="{{props.city.longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
       <cover-view class="detail" wx:if="{{detailShow}}">
         <cover-view class="head">
           <cover-view class="name">农场{{selectedMarker}}</cover-view>
-          <cover-view class="url">详情></cover-view>
+          <cover-view class="url">详情 ></cover-view>
         </cover-view>
         <cover-view class="footer">
-          <cover-view>tags....</cover-view>
-          <cover-view>location.....</cover-view>
+          <cover-view><cover-image src="/static/icons/tag.png"/><cover-view class="text">绿色，有机，纯天然</cover-view></cover-view>
+          <cover-view><cover-image src="/static/icons/plane.png"/><cover-view class="text">距我3公里（省-市-区）</cover-view></cover-view>
         </cover-view>
       </cover-view>
     </map>

@@ -25,7 +25,7 @@ City.prototype.getMarkers = function () {
     longitude: 113.344520,
     iconPath: '/static/icons/location.png'
   }, {
-    id: 45756756,
+    id: '奥术大师多撒阿萨德',
     latitude: 23.099994,
     longitude: 113.304520,
     iconPath: '/static/icons/location.png'
