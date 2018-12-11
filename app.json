@@ -1,17 +1,17 @@
 {
   "pages": [
-    "pages/group/result/result",
-    "pages/group/search/search",
-    "pages/group/start",
-    "pages/tabbar/home/home",
     "pages/tabbar/user/user",
+    "pages/tabbar/home/home",
+    "pages/enter/enter",
+    "pages/group/result/result",
+    "pages/group/start",
+    "pages/group/search/search",
     "pages/tabbar/user/orders/orders",
     "pages/tabbar/cart/cart",
     "pages/tabbar/shoplist/shoplist",
     "pages/tabbar/home/search/search",
-    "pages/enter/step2/step2",
-    "pages/enter/step1/step1",
-    "pages/enter/enter",
+    "pages/enter/nongchang/nongchang",
+    "pages/enter/index/index",
     "pages/tabbar/user/orders/receive/receive",
     "pages/tabbar/user/orders/order/order",
     "pages/tabbar/user/earnings/earnings",
@@ -36,26 +36,26 @@
     "list": [
       {
         "pagePath": "pages/tabbar/home/home",
-        "iconPath": "/static/icons/tabbar/home.png",
-        "selectedIconPath": "/static/icons/tabbar/home-2.png",
+        "iconPath": "/static/icons/tabbar/1.png",
+        "selectedIconPath": "/static/icons/tabbar/1-selected.png",
         "text": "附件商家"
       },
       {
         "pagePath": "pages/tabbar/shoplist/shoplist",
-        "iconPath": "/static/icons/tabbar/home.png",
-        "selectedIconPath": "/static/icons/tabbar/home-2.png",
+        "iconPath": "/static/icons/tabbar/3-copy.png",
+        "selectedIconPath": "/static/icons/tabbar/2-selected.png",
         "text": "商家列表"
       },
       {
         "pagePath": "pages/tabbar/cart/cart",
-        "iconPath": "/static/icons/tabbar/home.png",
-        "selectedIconPath": "/static/icons/tabbar/home-2.png",
+        "iconPath": "/static/icons/tabbar/3.png",
+        "selectedIconPath": "/static/icons/tabbar/3-selected.png",
         "text": "购物车"
       },
       {
         "pagePath": "pages/tabbar/user/user",
-        "iconPath": "/static/icons/tabbar/home.png",
-        "selectedIconPath": "/static/icons/tabbar/home-2.png",
+        "iconPath": "/static/icons/tabbar/4.png",
+        "selectedIconPath": "/static/icons/tabbar/4-selected.png",
         "text": "个人中心"
       }
     ]

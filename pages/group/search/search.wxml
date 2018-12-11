@@ -7,10 +7,10 @@
         </view>
         <view class="grid">
             <view wx:for="{{list}}" wx:key="{{item}}">
-                <view>
+                <navigator url="/pages/group/result/result">
                     <text>{{item.text}}</text>
                     <image />
-                </view>
+                </navigator>
             </view>
         </view>
     </view>

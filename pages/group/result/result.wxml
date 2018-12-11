@@ -3,7 +3,24 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
         <view class="search">
-            <input placeholder='请输入您要搜索的商品' bind:confirm="search" value="{{query}}"/>
+            <input placeholder='请输入您要搜索的商品' bind:confirm="search" value="{{query}}" />
         </view>
+        <view>
+            <view class="goods" wx:for="{{results}}" wx:key="{{index}}">
+                <image />
+                <view class="info">
+                    <view class="shop">{{item.shop.name}}</view>
+                    <view class="title">{{item.name}}</view>
+                    <view class="unit">{{item.unit}}</view>
+                    <view class="price">
+                        ￥{{item.price}}
+                        <text class="select {{item.selected?'selected':''}}" bind:tap="select" data-id="{{item.id}}">
+                            <text class="fa fa-check" />
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+       <navigator class="done" url="/pages/group/start">选好了</navigator>
     </view>
 </view>

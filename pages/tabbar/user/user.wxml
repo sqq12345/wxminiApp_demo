@@ -23,10 +23,12 @@
                 <view>
                     <view>
                         可提现金额:
-                        <text>￥8888</text>
+                        <text class="price">￥8888</text>
                     </view>
                     <view class="buttons">
-                        <navigator hover-class="none" url="/pages/tabbar/user/earnings/earnings">收益明细</navigator>
+                        <navigator hover-class="none" url="/pages/tabbar/user/earnings/earnings">
+                            收益明细
+                        </navigator>
                         <navigator hover-class="none">提现</navigator>
                     </view>
                 </view>
@@ -35,24 +37,26 @@
         <view class="block">
             <view class="title">
                 <text>我的订单</text>
-                <navigator hover-class="none" class="more" url="/pages/tabbar/user/orders/orders">查看更多></navigator>
+                <navigator hover-class="none" class="more" url="/pages/tabbar/user/orders/orders">
+                    查看更多>
+                </navigator>
             </view>
             <view class="block">
                 <view class="icons">
                     <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=1">
-                        <image />
+                        <image src="/static/icons/user/1.png" />
                         待付款
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=2">                    
-                        <image />
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=2">
+                        <image src="/static/icons/user/2.png" />
                         待发货
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=3">                    
-                        <image />
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=3">
+                        <image src="/static/icons/user/3.png" />
                         待收货
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=4">                    
-                        <image />
+                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=4">
+                        <image src="/static/icons/user/4.png" />
                         待评价
                     </navigator>
                 </view>
@@ -64,39 +68,46 @@
             </view>
             <view class="block">
                 <view class="icons">
-                    <view class="icon">
-                        <image />
+                    <navigator hover-class="none" class="icon" url="/pages/group/start">
+                        <image src="/static/icons/user/5.png" />
                         发起接龙
-                    </view>
+                    </navigator>
                     <view class="icon">
-                        <image />
+                        <image src="/static/icons/user/6.png" />
                         我的拼团
                     </view>
-                    <view class="icon" style="visibility:hidden">
-                    </view>
-                    <view class="icon" style="visibility:hidden">
-                    </view>
+                    <view class="icon" style="visibility:hidden"></view>
+                    <view class="icon" style="visibility:hidden"></view>
                 </view>
             </view>
         </view>
         <view class="block">
             <view class="icons">
                 <view class="icon">
-                    <image />
+                    <image src="/static/icons/user/7.png" />
+                    购物车
+                </view>
+                <view class="icon">
+                    <image src="/static/icons/user/8.png" />
                     优惠券
                 </view>
                 <view class="icon">
-                    <image />
+                    <image src="/static/icons/user/9.png" />
                     收藏
                 </view>
                 <view class="icon">
-                    <image />
+                    <image src="/static/icons/user/10.png" />
                     客服
                 </view>
+            </view>
+            <view class="icons">
                 <view class="icon">
-                    <image />
+                    <image src="/static/icons/user/11.png" />
                     设置
                 </view>
+                <view class="icon" style="visibility:hidden"></view>
+                <view class="icon" style="visibility:hidden"></view>
+                <view class="icon" style="visibility:hidden"></view>
             </view>
         </view>
     </view>

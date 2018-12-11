@@ -16,7 +16,8 @@
 
 .block .title .more {
     font-weight: normal;
-    color: #555555;
+    color: #999;
+    font-size: 24rpx;
 }
 
 .icons {
@@ -31,12 +32,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 28rpx;
 }
 
 .icons .icon image {
-    width: 100rpx;
-    height: 100rpx;
-    border: 1px solid #eeeeee;
+    width: 50rpx;
+    height: 50rpx;
+    margin-bottom: 10rpx;
 }
 
 .head {
@@ -65,7 +67,7 @@
     margin-right: 20rpx;
 }
 
-.head .info>view,.head .info>navigator {
+.head .info>view, .head .info>navigator {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +94,7 @@
     display: flex;
     align-items: center;
     color: #000;
-    padding: 0 30rpx;
+    padding: 0 20rpx;
     justify-content: space-between;
 }
 
@@ -101,7 +103,21 @@
 .head .bottom .buttons navigator {
     color: #fff;
     background: #ccc;
-    padding: 10rpx 26rpx;
+    padding: 10rpx 24rpx;
     border-radius: 20px;
     margin-left: 20rpx;
+    font-size: 28rpx;
+}
+
+.head .bottom .buttons navigator:first-of-type{
+    background: linear-gradient(to right, #FFCC00 , #FFA230);
+}
+
+.head .bottom .buttons navigator:last-of-type{
+    background: linear-gradient(to right, #38E56A , #1FC13B);
+}
+
+.head .bottom .price {
+    color: #FF8A00;
+    font-size: 32rpx;
 }

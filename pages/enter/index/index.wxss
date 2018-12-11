@@ -1,18 +1,17 @@
 /* pages/enter/step1/step1.wxss */
-.container{
 
-}
+.container {}
 
-page{
+page {
     background: #fff;
 }
 
-.form{
+.form {
     padding: 40rpx;
     display: block;
 }
 
-.code{
+.code {
     background: #eeeeee;
     display: flex;
     align-items: center;
@@ -20,39 +19,45 @@ page{
     height: 100rpx;
 }
 
-.code input{
+.code input {
     width: 50%;
-    color: rgb(100, 200, 86);
-    border-bottom: 1px solid rgb(100, 200, 86);
+    color: #25CE41;
+    border-bottom: 1px solid #25CE41;
 }
 
-.placeholder{
-    color: rgb(100, 200, 86);
+.placeholder {
+    color: #25CE41;
     text-align: center;
 }
 
-.form-group{
+.form-group {
     margin-bottom: 10px;
 }
 
-.form-group label{
+.form-group label {
     margin-bottom: 10px;
     display: block;
 }
 
-.select text{
-    background: #eeeeee;
+.form-group input {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10rpx;
+}
+
+.select text {
+    background: #F5F5F5;
     padding: 14rpx 24rpx;
     margin-right: 20rpx;
     display: inline-block;
     margin-bottom: 20rpx;
     font-size: 28rpx;
     border-radius: 5px;
-    border:1px solid transparent;
+    border: 1px solid transparent;
 }
 
-.select .selected{
-    color: green;
-    border: 1px solid green;
+.select .selected {
+    background: #F7FFF8;
+    color: #25CE41;
+    border: 1px solid #25CE41;
     box-sizing: border-box;
 }

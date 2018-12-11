@@ -43,7 +43,7 @@ page {
 
 .type scroll-view {
     white-space: nowrap;
-    max-width: calc(100% - 5em);
+    max-width: calc(100% - 6em);
     border-right: 1px solid #cccccc;
 }
 
@@ -58,7 +58,7 @@ page {
 .type .button {
     word-break: keep-all;
     border: 1px solid #26b802;
-    padding: 10rpx 30rpx;
+    padding: 6rpx 24rpx;
     border-radius: 20px;
     font-size: 28rpx;
     color: #26b802;

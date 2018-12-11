@@ -23,7 +23,7 @@
     width: 36rpx;
     height: 36rpx;
     display: inline-block;
-    border: 1px solid #000;
+    border: 1px solid #ccc;
     margin-right: 20rpx;
     flex-shrink: 0;
     line-height: 36rpx;
@@ -35,7 +35,7 @@
     background: #26b802;
     color: #fff;
     border-color: #26b802;
-    font-size: 32rpx;
+    font-size: 26rpx;
 }
 
 .item .goods {

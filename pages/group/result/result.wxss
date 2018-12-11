@@ -12,3 +12,94 @@
     display: flex;
     align-items: center;
 }
+
+.container {
+    margin-bottom: 170rpx;
+}
+
+.select {
+    border-radius: 50%;
+    width: 36rpx;
+    height: 36rpx;
+    display: inline-block;
+    border: 1px solid #ccc;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 0;
+}
+
+.select.selected {
+    background: #26b802;
+    color: #fff;
+    border-color: #26b802;
+    font-size: 26rpx;
+}
+
+.goods {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    background: #ffffff;
+    margin-top: 20rpx;
+    position: relative;
+}
+
+.goods image {
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.goods .unit {
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: #555555;
+}
+
+.goods .info {
+    flex-grow: 1;
+    position: relative;
+    height: 156rpx;
+}
+
+.goods .info .price {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 32rpx;
+    color: rgb(219, 109, 50);
+}
+
+.goods .info .price .select {
+    float: right;
+}
+
+.goods .shop {
+    background: #cccccc;
+    padding: 12rpx 26rpx;
+    font-size: 28rpx;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    right: -20rpx;
+}
+
+.done {
+    position: fixed;
+    bottom: 30rpx;
+    background: #26b802;
+    text-align: center;
+    padding: 30rpx;
+    color: #fff;
+    width: 70%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px #ccc;
+}

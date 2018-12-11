@@ -7,17 +7,17 @@
         </view>
         <form class='form'>
             <view class='form-group'>
-                <label>农场名称</label>
+                <label>{{type}}名称</label>
                 <input placeholder="输入名称" />
             </view>
             <view class='form-group' wx:for="{{fields}}" wx:key="{{index}}" wx:for-item="field">
                 <label>{{field.name}}</label>
                 <view class='select'>
-                    <text wx:for="{{field.items}}"  data-field="{{field.field}}" class="{{form[field.field].text==item.text?'selected':''}}"
+                    <text wx:for="{{field.items}}"  data-field="{{field.field}}" class="{{item.selected?'selected':''}}"
                     wx:key="{{index}}" bind:tap="select" data-value="{{item}}">{{item.text}}</text>
                 </view>
             </view>
-            <navigator hover-class="none" url="/pages/enter/step2/step2"><button type="primary">下一步</button></navigator>
+            <navigator hover-class="none" url="{{nextUrl}}"><button type="primary">下一步</button></navigator>
         </form>
     </view>
 </view>

@@ -11,14 +11,13 @@
             </view>
             <view class="header">
                 团购商品
-                <picker range="{{picker}}" range-key="text">
-                    <view class="picker">
-                        {{picker[0].text}}
-                        <text class="fa fa-caret-down" />
-                    </view>
-                </picker>
+                <view class="picker" bind:tap="selectType">
+                    {{type[selectedType]}}
+                    <text class="fa fa-caret-down" />
+                </view>
             </view>
-            <view class="part two">
+            <!-- 自有商品 -->
+            <view class="part two" wx:if="{{selectedType==0}}">
                 <view class="form-group">
                     <text class="label">商品名称</text>
                     <input placeholder="请输入" placeholder-class="placeholder" />
@@ -47,6 +46,24 @@
                         </view>
                     </picker>
                 </view>
+            </view>
+            <!-- 商品库选择 -->
+            <view class="part two" wx:if="{{selectedType==1}}">
+                <view class="goods" wx:for="{{props.selectedList}}" wx:key="{{index}}">
+                    <image />
+                    <view class="info">
+                        <view class="shop">{{item.shop.name}}</view>
+                        <view class="title">{{item.name}}</view>
+                        <view class="unit">{{item.unit}}</view>
+                        <view class="price">
+                            ￥{{item.price}}
+                            <text class="select" bind:tap="remove" data-id="{{item.id}}">
+                                <text class="fa fa-trash" />
+                            </text>
+                        </view>
+                    </view>
+                </view>
+                <navigator hover-class="none" class="add" url="/pages/group/search/search">新增</navigator>
             </view>
             <view class="header">团购设置</view>
             <view class="part three">

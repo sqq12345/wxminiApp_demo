@@ -48,26 +48,26 @@ setTimeout(function () {
       Store.latitude = 23.099994;
       Store.longitude = 113.324520;
       Store.getMarkers();
-      wx.request({
-        url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + Store.latitude + ',' + Store.longitude + '&output=json',
-        data: {},
-        success: (res) => {
-          // success  
-          const name = res.data.result.addressComponent.city;
-          //根据名字找到数组中的城市
-          const selected = Store.list.findIndex(item => {
-            return item.city === name;
-          });
-          Store.selected = selected;
-        },
-        fail: function () {
-          wx.showToast({
-            icon: 'none',
-            title: '获取地址失败',
-            duration: 2000
-          })
-        },
-      })
+      // wx.request({
+      //   url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + Store.latitude + ',' + Store.longitude + '&output=json',
+      //   data: {},
+      //   success: (res) => {
+      //     // success  
+      //     const name = res.data.result.addressComponent.city;
+      //     //根据名字找到数组中的城市
+      //     const selected = Store.list.findIndex(item => {
+      //       return item.city === name;
+      //     });
+      //     Store.selected = selected;
+      //   },
+      //   fail: function () {
+      //     wx.showToast({
+      //       icon: 'none',
+      //       title: '获取地址失败',
+      //       duration: 2000
+      //     })
+      //   },
+      // })
     }
   })
 

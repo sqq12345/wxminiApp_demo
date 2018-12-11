@@ -24,7 +24,8 @@
     height: calc(33.333vw - 8rpx);
 }
 
-.grid>view view {
+.grid>view navigator {
+    display: block;
     margin: 10rpx;
     width: calc(100% - 20rpx);
     height: calc(100% - 20rpx);
@@ -34,12 +35,12 @@
     overflow: hidden;
 }
 
-.grid>view view text {
+.grid>view navigator text {
     padding-top: 1em;
     display: block;
 }
 
-.grid>view view image {
+.grid>view navigator image {
     width: 100%;
     height: 100%;
     background: #ccc

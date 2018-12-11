@@ -5,7 +5,7 @@
 page {
   position: relative;
   z-index: 9999998;
-  background: #eeeeee;
+  background: #F7F7F7;
 }
 
 ::-webkit-scrollbar {
@@ -20,7 +20,7 @@ page {
 
 view,text{
   word-break: break-all;
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 navigator{

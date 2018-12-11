@@ -1,42 +1,44 @@
 /* pages/group/start.wxss */
-.part{
+
+.part {
     background: #fff;
     padding: 20rpx 30rpx;
 }
 
-.part.one input{
+.part.one input {
     border-bottom: 1px solid #eeeeee;
     line-height: 70rpx;
     height: 70rpx;
 }
 
-.header{
+.header {
     font-weight: bold;
     padding: 20rpx 30rpx;
     display: flex;
     justify-content: space-between;
 }
 
-.header picker{
+.header .picker {
     color: #26b802;
+    font-size: 28rpx;
 }
 
-.placeholder{
+.placeholder {
     text-align: right;
 }
 
-.part.one textarea{
+.part.one textarea {
     width: 100%;
     margin-top: 20rpx;
     display: block;
     height: 250rpx;
 }
 
-.fa-caret-down{
+.fa-caret-down {
     color: #26b802;
 }
 
-.form-group{
+.form-group {
     border-bottom: 1px solid #eeeeee;
     padding: 24rpx 0;
     display: flex;
@@ -44,27 +46,99 @@
     justify-content: space-between;
 }
 
-.form-group input{
+.form-group input {
     flex-grow: 1;
 }
 
-.form-group .label{
+.form-group .label {
     float: left;
     font-weight: 400;
     width: 5em;
 }
 
-.form-group .label::before{
+.form-group .label::before {
     content: '*';
     color: red;
     display: inline;
 }
 
-.form-group .label.no::before{
+.form-group .label.no::before {
     content: '';
     display: none;
 }
 
-.form-group .text{
+.form-group .text {
     color: #777;
+}
+
+.goods {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    position: relative;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0 -30rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx; 
+    padding-top: 20rpx;
+}
+
+.goods:first-of-type{
+    padding-top: 0;
+}
+
+.goods image {
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.goods .unit {
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: #555555;
+}
+
+.goods .info {
+    flex-grow: 1;
+    position: relative;
+    height: 156rpx;
+}
+
+.goods .info .price {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 32rpx;
+    color: rgb(219, 109, 50);
+}
+
+.goods .info .price .select {
+    float: right;
+}
+
+.goods .shop {
+    background: #cccccc;
+    padding: 12rpx 26rpx;
+    font-size: 28rpx;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    right: -30rpx;
+}
+
+.goods .fa {
+    color: red;
+}
+
+.part.two .add{
+    color: #26b802;
+    text-align: center;
+    padding-top: 20rpx;
+    font-size: 28rpx;
+    display: block;
 }

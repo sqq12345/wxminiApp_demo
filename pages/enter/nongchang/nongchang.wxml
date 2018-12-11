@@ -32,7 +32,7 @@
                 <input placeholder="详细地址（必填）" />
             </view>
             <view class='form-group'>
-                <text>LOGO</text>
+                <text>封面</text>
                 <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
                     <text>+</text>
                 </wux-upload>
@@ -50,6 +50,42 @@
             <view class='form-group'>
                 <text>农夫故事</text>
                 <textarea placeholder='可以说说自己的故事，让更多的人了解你' maxlength="300"></textarea>
+            </view>
+            <view class='form-group'>
+                <text>营业执照</text>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
+            </view>
+            <view class='form-group'>
+                <text>个人身份证</text>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
+            </view>
+            <view class='form-group'>
+                <text>品牌授权</text>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
+            </view>
+            <view class='form-group'>
+                <text style="display:block;width:100%">企业生产许可证/食品经营许可证/食品流通许可证(3选1)</text>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
+            </view>
+            <view class='form-group'>
+                <text style="display:block;width:100%">质检报告(质监局/SGS等专业检测机构)</text>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
+            </view>
+            <view class='form-group'>
+                <text style="display:block;width:100%">有机认证/绿色认证</text>
+                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                    <text>+</text>
+                </wux-upload>
             </view>
             <button type='primary'>提交</button>
         </form>
