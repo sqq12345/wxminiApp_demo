@@ -5,8 +5,8 @@
         <view class="head">
             <view class="info">
                 <navigator hover-class="none" url="/pages/tabbar/user/profile/profile">
-                    <image />
-                    <text>username</text>
+                    <open-data class="avatar" type="userAvatarUrl"></open-data>
+                    <open-data type="userNickName"></open-data>
                 </navigator>
                 <view>
                     <navigator hover-class="none" class="num" url="/pages/tabbar/user/points/points">

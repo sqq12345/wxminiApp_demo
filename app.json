@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/tabbar/user/user",
     "pages/tabbar/home/home",
+    "pages/group/search/search",
+    "pages/tabbar/user/user",
     "pages/enter/enter",
     "pages/group/result/result",
     "pages/group/start",
-    "pages/group/search/search",
     "pages/tabbar/user/orders/orders",
     "pages/tabbar/cart/cart",
     "pages/tabbar/shoplist/shoplist",

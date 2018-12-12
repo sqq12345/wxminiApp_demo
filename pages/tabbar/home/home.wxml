@@ -8,7 +8,7 @@
       </scroll-view>
       <navigator hover-class="none" class="button" url="/pages/enter/enter"><text class="fa fa-plus"/>入驻</navigator>
     </view>
-    <map id="map" class="map" scale="14" show-location markers="{{props.city.markers}}" latitude="{{props.city.latitude}}" longitude="{{props.city.longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
+    <map id="map" class="map" scale="12" show-location markers="{{props.city.markers}}" latitude="{{props.city.latitude}}" longitude="{{props.city.longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
       <cover-view class="detail" wx:if="{{detailShow}}">
         <cover-view class="head">
           <cover-view class="name">农场{{selectedMarker}}</cover-view>

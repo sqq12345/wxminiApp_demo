@@ -75,14 +75,14 @@
 
 .goods .info .calc {
     float: right;
-    color: #000;
+    color: #25CE41;
 }
 
 .goods .info .calc .add, .goods .info .calc .sub {
     display: inline-block;
     width: 44rpx;
     height: 44rpx;
-    border: 1px solid #eeeeee;
+    border: 1px solid #25CE41;
     border-radius: 50%;
     text-align: center;
     line-height: 44rpx;

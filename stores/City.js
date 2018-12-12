@@ -18,17 +18,23 @@ City.prototype.getMarkers = function () {
     id: 111111,
     latitude: 23.099994,
     longitude: 113.324520,
-    name: 'T.I.T 创意园'
+    iconPath: '/static/icons/map/1-1.png',
+    width: '80rpx',
+    height: '80rpx',
   }, {
     id: 2334232,
     latitude: 23.099994,
     longitude: 113.344520,
-    iconPath: '/static/icons/location.png'
+    iconPath: '/static/icons/map/1-1.png',
+    width: '80rpx',
+    height: '80rpx',
   }, {
     id: '奥术大师多撒阿萨德',
     latitude: 23.099994,
     longitude: 113.304520,
-    iconPath: '/static/icons/location.png'
+    iconPath: '/static/icons/map/1-1.png',
+    width: '80rpx',
+    height: '80rpx',
   }]
 }
 const Store = new City();

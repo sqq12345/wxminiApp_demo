@@ -20,8 +20,7 @@ Page(observer({
       { name: '附件社群', id: 2 },
       { name: '有机超市', id: 3 },
       { name: '生态餐厅', id: 4 },
-      { name: '生态餐厅', id: 5 },
-      { name: '生态餐厅', id: 6 },
+      { name: '农夫集市', id: 5 },
     ],
     selectedTypeId: 1,
     detailShow: false, //显示详情?

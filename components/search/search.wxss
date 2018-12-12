@@ -16,10 +16,24 @@
     vertical-align: middle;
 }
 
-.search input{
-    background: #eeeeee;
-    border-radius: 15px;
+.search>view{
     flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search input{
+    background: #F4F4F4;
+    border-radius: 15px;
     height: 70rpx;
-    padding-left: 1em;
+    padding-left: 2.25em;
+    flex: 1;
+}
+
+.search image{
+    position: absolute;
+    width: 35rpx;
+    height: 35rpx;
+    left: .75em;
 }
