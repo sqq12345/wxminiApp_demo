@@ -1,11 +1,12 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="header">
+        <image src="/static/bg/goodslist/bg.png" class="_bg"/>
         <image class="logo" />
         <text class="title">Title</text>
         <view class="info">
             <text>农场ID</text>
-            <text>总销量</text>
+            <text class="total">总销量:<text>123456</text></text>
             <navigator hover-class="none" url="/pages/detail/detail">详情</navigator>
         </view>
     </view>
@@ -16,23 +17,14 @@
         </view>
         <view class="list">
             <view class="item">
-                <image/>
-                <text>title</text>
-                <text>￥99.99</text>
-                <text>已售888 评分5.0</text>
+                <image />
+                <view class="info">
+                    <text class="name">商品名</text>
+                    <text class="price">￥99.99</text>
+                    <text class="extr">已售888 评分5.0</text>
+                </view>
             </view>
-            <view class="item">
-                <image/>
-                <text>title</text>
-                <text>￥99.99</text>
-                <text>已售888 评分5.0</text>
-            </view>
-            <view class="item">
-                <image/>
-                <text>title</text>
-                <text>￥99.99</text>
-                <text>已售888 评分5.0</text>
-            </view>
+            
         </view>
     </view>
 </view>

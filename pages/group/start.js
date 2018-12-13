@@ -13,8 +13,6 @@ Page(observer({
       title: '开团商品', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    type: ['自有商品', '商品库选择'],
-    selectedType: 1,
     picker: [
       { text: 'picker', value: '' },
       { text: 'picker', value: '' },
@@ -41,19 +39,6 @@ Page(observer({
   },
   onShow: function () {
     
-  },
-  selectType() {
-    wx.showActionSheet({
-      itemList: this.data.type,
-      success: (res) => {
-        this.setData({ selectedType: res.tapIndex });
-        if (res.tapIndex == 0) {
-
-        } else {
-
-        }
-      }
-    })
   },
   //删除选中商品
   remove(e){

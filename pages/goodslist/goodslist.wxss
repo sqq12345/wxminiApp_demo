@@ -1,60 +1,105 @@
 /* pages/goodslist/goodslist.wxss */
-.header{
-    background: green;
+
+.header {
     display: flex;
     align-items: center;
     flex-direction: column;
     color: #ffffff;
     padding-top: 150rpx;
     padding-bottom: 30rpx;
+    position: relative;
 }
 
-.container{
-    padding: 30rpx;
-    background: #eeeeee;
+.header ._bg {
+    top: 0;
 }
 
-.header .logo{
+.container {
+    padding: 20rpx;
+}
+
+.header .logo {
     border-radius: 50%;
     width: 150rpx;
     height: 150rpx;
     border: 1px solid #eeeeee;
 }
 
-.header .title{
-    padding: 20rpx 0;
+.header .total{
+    background: #25CE41;
+    padding: 6rpx 10rpx;
+    border-radius: 30rpx;
 }
 
-.header .info{
+.header .total{
+    color: #89FC91;
+}
+
+.header .total text{
+    color: #ffffff;
+}
+
+.header .title {
+    padding: 20rpx 0;
+    font-size: 36rpx;
+    font-weight: 500;
+}
+
+.header .info {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    align-items: center;
 }
 
-.header .info text,.header .info navigator{
+.header .info text, .header .info navigator {
     text-align: center;
     width: 30%;
+    font-size: 24rpx;
 }
 
-.sort{
+.sort {
     padding: 20rpx 0;
 }
 
-.sort text:last-of-type{
+.sort text:last-of-type {
     float: right;
 }
 
-.list .item{
+.list .item {
     display: inline-block;
     width: 48%;
     background: #ffffff;
     margin-bottom: 30rpx;
 }
 
-.list .item>text{
-    display: block;
+.list .item:nth-of-type(odd) {
+    margin-right: 4%;
 }
 
-.list .item:nth-of-type(odd){
-    margin-right: 4%;
+.list .item .info {
+    padding: 20rpx;
+}
+
+.list .item .info>text {
+    display: block;
+    margin-bottom: 6rpx;
+}
+
+.list .item .info .name {
+    font-weight: 500;
+}
+
+.list .item .info .price {
+    font-size: 32rpx;
+    color: #FF6600;
+}
+
+.list .item .info .extr {
+    font-size: 24rpx !important;
+}
+
+.list .item image {
+    width: 100%;
+    height: 45vw;
 }

@@ -1,0 +1,31 @@
+/* pages/tabbar/user/profile/profile.wxss */
+
+.container {
+    margin-top: 20rpx;
+}
+
+.list {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.list .item {
+    border-bottom: 1px solid #eeeeee;
+    min-height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10rpx 0;
+}
+
+.item.address{
+    border: 0;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    width: 100rpx;
+    height: 100rpx;
+    overflow: hidden;
+}

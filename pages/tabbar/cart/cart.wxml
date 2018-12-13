@@ -3,26 +3,28 @@
     <view class="container">
         <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
             <view class="header">
-                <text class="select {{item.selected?'selected':''}}" bind:tap="select"
-                    data-cart-index="{{cartIndex}}"><text class="fa fa-check"/></text>
-                {{item.shop.name}}
+                <view>
+                    <image class="select-icon" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
+                    <image class="select-icon" src="" />
+                    {{item.shop.name}}
+                </view>
+                <image class="_right" src="/static/icons/right.png" />
             </view>
             <view>
                 <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
-                    <text class="select {{goods.selected?'selected':''}}" bind:tap="select"
-                        data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}"><text class="fa fa-check"/></text>
-                    <image />
+                    <image class="select-icon" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
+                    <image class="thumb" />
                     <view class="info">
                         <view class="title">{{goods.name}}</view>
                         <view class="unit">{{goods.unit}}</view>
                         <view class="price">
                             ￥{{goods.total}}
                             <view class="calc">
-                                <text class="sub" bind:tap="reduce" 
-                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}">-</text>
+                                <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" 
+                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}"/>
                                 <text class="num">{{goods.count}}</text>
-                                <text class="add" bind:tap="increase" 
-                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}">+</text>
+                                <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" 
+                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}"/>
                             </view>
                         </view>
                     </view>
@@ -32,8 +34,8 @@
     </view>
     <view class="bottom-btn">
         <view class="all">
-            <view>
-                <text class="select {{props.cart.allSelected?'selected':''}}" bind:tap="selectAll"><text class="fa fa-check"/></text>
+            <view class="select" bind:tap="selectAll">
+                <image class="select-icon" src="/static/icons/cart/{{props.cart.allSelected?'selected.png':'unselected.png'}}" />
                 全选
             </view>
             <view>
@@ -44,7 +46,9 @@
                 <view class="extr">不含运费</view>
             </view>
         </view>
-        <navigator wx:if="{{props.cart.total>0}}" hover-class="none" class="buy" url="/pages/tabbar/cart/settle/settle">去结算</navigator>
-        <view wx:if="{{props.cart.total==0}}"class="buy disable">去结算</view>
+        <navigator wx:if="{{props.cart.total>0}}" hover-class="none" class="buy" url="/pages/tabbar/cart/settle/settle">
+            去结算
+        </navigator>
+        <view wx:if="{{props.cart.total==0}}" class="buy disable">去结算</view>
     </view>
 </view>

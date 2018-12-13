@@ -81,7 +81,12 @@ setTimeout(function () {
                     return b; 
                 });
             };
-            goods.total = (goods.price * goods.count).toFixed(2);
+            goods.total = 0;
+            Object.defineProperty(goods,'total',{
+                get(){
+                    return (this.price * this.count).toFixed(2);
+                }
+            })
         })
     });
     Store.list = json;

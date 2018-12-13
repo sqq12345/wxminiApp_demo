@@ -5,16 +5,17 @@
             <text>商品评价</text>
             <view>
                 <wux-rater allow-half allow-clear allow-touch-move value="{{raterValue}}" controlled bind:change="raterChange" />
-                <text>{{raterValue}}分</text>
+                <text class="score">{{raterValue}}分</text>
             </view>
         </view>
         <view class="textarea">
             <textarea placeholder="请输入您的评论..." />
+            <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <image src="/static/icons/upload.png"/>
+            </wux-upload>
         </view>
-        <view style="padding:40px 10px">
-            <button type="primary">
-                提交评论
-            </button>
+        <view class="_button">
+            提交评论
         </view>
     </view>
 </view>

@@ -2,6 +2,16 @@
 
 .container {
     padding: 30rpx;
+    margin-bottom: 100rpx;
+}
+
+.box {
+    background: #fff;
+    border-radius: 5px;
+}
+
+.cart {
+    margin-top: 30rpx;
 }
 
 .bottom-btn {
@@ -11,6 +21,7 @@
     height: 100rpx;
     display: flex;
     background: #fff;
+    border-top: 1px solid #eeeeee;
 }
 
 .bottom-btn .all {
@@ -22,6 +33,10 @@
     padding-right: 20rpx;
 }
 
+.bottom-btn .all .price{
+    color: #FF6600;
+}
+
 .bottom-btn .buy {
     background: #26b802;
     color: #fff;
@@ -29,58 +44,63 @@
     align-items: center;
     flex-grow: 1;
     justify-content: center;
+    font-size: 32rpx;
 }
 
-.item{
-    margin-bottom: 30rpx;
+.line {
+    border-top: 1px solid #eeeeee;
+    line-height: 90rpx;
+    padding: 0 20rpx;
 }
 
-.item.user{
-    padding-bottom: 20rpx;
-}
-
-.item.user>view>text:last-child{
+.line text:last-child {
     float: right;
 }
+
+.item {}
 
 .item .header {
     display: flex;
     align-items: center;
-    margin-bottom: 20rpx;
-    justify-content:space-between;
+    border-bottom: 1px solid #eeeeee;
+    padding: 20rpx;
+    justify-content: space-between;
 }
 
-.item .header .logo {
-    border-radius: 50%;
-    border: 1px solid #eeeeee;
-    width: 48rpx;
-    height: 48rpx;
-    margin-right: 20rpx;
-}
-
-.item .header view {
+.item .header>view {
     display: flex;
     align-items: center;
+}
+
+.select {
+    display: flex;
+    align-items: center;
+}
+
+.select-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 15rpx;
 }
 
 .item .goods {
     display: flex;
     align-items: center;
     padding: 20rpx;
-    margin: 0 -20rpx;
-    background: #e5eee5;
+    background: #F9FEFA;
 }
 
-.item .goods image {
+.item .goods .thumb {
     width: 160rpx;
     height: 160rpx;
-    border: 1px solid #ffffff;
+    border: 1px solid #eeeeee;
     border-radius: 5px;
     margin-right: 20rpx;
     flex-shrink: 0;
 }
 
 .goods .unit {
+    margin-top: 10rpx;
     font-size: 28rpx;
     color: #555555;
 }
@@ -95,21 +115,20 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 32rpx;
+    font-size: 28rpx;
+    color: #FF6600;
 }
 
 .goods .info .calc {
     float: right;
+    color: #25CE41;
+    display: inline-flex;
 }
 
-.goods .info .calc .add, .goods .info .calc .sub {
+.goods .info .calc .op {
     display: inline-block;
-    width: 44rpx;
-    height: 44rpx;
-    border: 1px solid #eeeeee;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 44rpx;
+    width: 38rpx;
+    height: 38rpx;
 }
 
 .goods .info .num {
@@ -120,19 +139,30 @@
 
 .goods .title {
     line-height: 1;
+    font-weight: 500;
 }
 
-.item {
-    background: #ffffff;
+.user {
+    background: #fff;
     border-radius: 5px;
-    padding: 20rpx 20rpx 0 20rpx;
+    padding: 20rpx;
 }
 
-.item .line {
-    border-bottom: 1px solid #eeeeee;
-    line-height: 90rpx;
+.user>view {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8rpx;
 }
 
-.item .line text:last-child {
-    float: right;
+.user .username {
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.user .phone {
+    color: #25CE41;
+}
+
+.user .address {
+    color: #666666;
 }

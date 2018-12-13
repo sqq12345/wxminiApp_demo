@@ -54,10 +54,3 @@ page{
 .i3{background: #C78422;}
 .i4{background: #06D89A;}
 .i5{background: #ABDD01;}
-
-.bg{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-}

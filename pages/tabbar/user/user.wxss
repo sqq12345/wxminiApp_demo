@@ -68,6 +68,11 @@
     overflow: hidden;
 }
 
+.head .info .username{
+    font-weight: 500;
+    font-size: 30rpx;
+}
+
 .head .info>view, .head .info>navigator {
     display: flex;
     align-items: center;

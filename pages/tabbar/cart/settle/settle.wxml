@@ -1,56 +1,65 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        <view class="item user">
+        <view class="user">
             <view>
-                <text>马骄傲</text>
-                <text>13333333333</text>
+                <text class="username">马骄傲</text>
+                <text class="'phone'">13333333333</text>
             </view>
-            <view>
+            <view class="address">
                 <text>address</text>
-                <text class="fa fa-angle-right" />
+                <image class="_right" src="/static/icons/right.png" />
             </view>
         </view>
-        <view class="item">
-            <view class="header">
-                <view>
-                    <image class="logo" />
-                    安否自营农场
-                </view>
-                <text class="fa fa-angle-right" />
-            </view>
-            <view class="goods">
-                <image />
-                <view class="info">
-                    <view class="title">titlasdasdasadqerqdagxzce</view>
-                    <view class="unit">title</view>
-                    <view class="price">
-                        title
-                        <view class="calc">
-                            <text class="sub">-</text>
-                            <text class="num">1</text>
-                            <text class="add">+</text>
+        <view class="box">
+            <view class="cart">
+                <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
+                    <view class="header">
+                        <view>
+                            <image class="select-icon" src="" />
+                            {{item.shop.name}}
+                        </view>
+                        <image class="_right" src="/static/icons/right.png" />
+                    </view>
+                    <view>
+                        <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
+                            <image class="thumb" />
+                            <view class="info">
+                                <view class="title">{{goods.name}}</view>
+                                <view class="unit">{{goods.unit}}</view>
+                                <view class="price">
+                                    ￥{{goods.total}}
+                                    <view class="calc">
+                                        <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                        <text class="num">{{goods.count}}</text>
+                                        <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                    </view>
+                                </view>
+                            </view>
                         </view>
                     </view>
                 </view>
             </view>
-            <view class="line">
-                <text>运费</text>
-                <text>10元</text>
-            </view>
-            <view class="line">
-                <text>优惠券</text>
-                <text>暂无可用优惠券</text>
-            </view>
-            <view class="line">
-                <text>买家留言</text>
-                <text></text>
+            <view class="item">
+                <view class="line">
+                    <text>运费</text>
+                    <text>10元</text>
+                </view>
+                <view class="line">
+                    <text>优惠券</text>
+                    <text>暂无可用优惠券</text>
+                </view>
+                <view class="line">
+                    <text>买家留言</text>
+                    <text></text>
+                </view>
             </view>
         </view>
     </view>
     <view class="bottom-btn">
         <view class="all">
-            实付款<text>￥199.00</text>
+            实付款
+            <text class="price">￥{{props.cart.total}}</text>
         </view>
         <view class="buy">确认付款</view>
     </view>

@@ -11,59 +11,25 @@
             </view>
             <view class="header">
                 团购商品
-                <view class="picker" bind:tap="selectType">
-                    {{type[selectedType]}}
-                    <text class="fa fa-caret-down" />
-                </view>
-            </view>
-            <!-- 自有商品 -->
-            <view class="part two" wx:if="{{selectedType==0}}">
-                <view class="form-group">
-                    <text class="label">商品名称</text>
-                    <input placeholder="请输入" placeholder-class="placeholder" />
-                </view>
-                <view class="form-group">
-                    <text class="label">商品主图</text>
-                </view>
-                <view class="form-group">
-                    <text class="label">规格</text>
-                    <input placeholder="尺寸，颜色等" placeholder-class="placeholder" />
-                </view>
-                <view class="form-group">
-                    <text class="label">价格</text>
-                    <input placeholder="请输入价格" placeholder-class="placeholder" />
-                </view>
-                <view class="form-group">
-                    <text class="label">库存</text>
-                    <input placeholder="请输入库存" placeholder-class="placeholder" />
-                </view>
-                <view class="form-group">
-                    <text class="label">配送范围</text>
-                    <picker range="{{picker}}" range-key="text">
-                        <view class="picker">
-                            {{picker[0].text}}
-                            <text class="fa fa-caret-down" />
-                        </view>
-                    </picker>
-                </view>
+                <view class="picker">去商品库选择<image class="icon" src="/static/icons/group/right.png"/></view>
             </view>
             <!-- 商品库选择 -->
-            <view class="part two" wx:if="{{selectedType==1}}">
+            <view class="part two">
                 <view class="goods" wx:for="{{props.selectedList}}" wx:key="{{index}}">
-                    <image />
+                    <image class="thumb"/>
                     <view class="info">
                         <view class="shop">{{item.shop.name}}</view>
                         <view class="title">{{item.name}}</view>
                         <view class="unit">{{item.unit}}</view>
                         <view class="price">
                             ￥{{item.price}}
-                            <text class="select" bind:tap="remove" data-id="{{item.id}}">
-                                <text class="fa fa-trash" />
-                            </text>
+                            <image class="delete" src="/static/icons/group/delete.png" bind:tap="remove" data-id="{{item.id}}"/>
                         </view>
                     </view>
                 </view>
-                <navigator hover-class="none" class="add" url="/pages/group/search/search">新增</navigator>
+                <navigator hover-class="none" class="add" url="/pages/group/search/search">
+                    <image src="/static/icons/group/add.png" />新增
+                </navigator>
             </view>
             <view class="header">团购设置</view>
             <view class="part three">
@@ -71,8 +37,7 @@
                     <text class="label">物流方式</text>
                     <picker range="{{picker}}" range-key="text">
                         <view class="picker">
-                            {{picker[0].text}}
-                            <text class="fa fa-caret-down" />
+                            {{picker[0].text}}<image class="icon" src="/static/icons/group/down.png"/>
                         </view>
                     </picker>
                 </view>

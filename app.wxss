@@ -1,6 +1,4 @@
 /**app.wxss**/
-@import "/static/fonts/stylesheet.wxss";
-@import "/static/fonts/font-awesome.wxss";
 
 page {
   position: relative;
@@ -14,21 +12,43 @@ page {
   color: transparent;
 }
 
-.clear{
+.clear {
   clear: both;
 }
 
-view,text{
+view, text {
   word-break: break-all;
   font-size: 28rpx;
 }
 
-navigator{
+navigator {
   display: inline;
 }
 
-button{
+button {
   font-size: 36rpx;
+}
+
+._button {
+  text-align: center;
+  padding: 22rpx;
+  color: #fff;
+  width: 80%;
+  margin: 40rpx auto;
+  border-radius: 30px;
+  background: linear-gradient(to right, #38E56A, #1FC13B);
+}
+
+._right {
+  width: 15rpx;
+  height: 26rpx;
+}
+
+._bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 .loading {
@@ -47,11 +67,9 @@ button{
   0% {
     width: 14rpx;
   }
-
   50% {
     width: 28rpx;
   }
-
   100% {
     width: 14rpx;
   }

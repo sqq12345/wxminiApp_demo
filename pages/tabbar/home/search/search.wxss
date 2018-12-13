@@ -1,5 +1,6 @@
 /* pages/tabbar/search/search.wxss */
 .container{
     padding: 30rpx;
+    padding-top: 0;
     background: #fff;
 }

@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "header": "/components/header/header",
-        "wux-rater": "/components/rater/index"
+        "wux-rater": "/components/rater/index",
+        "wux-upload": "/components/upload/index"
     }
 }

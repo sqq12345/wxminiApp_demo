@@ -43,7 +43,7 @@ page {
 
 .type scroll-view {
     white-space: nowrap;
-    max-width: calc(100% - 6em);
+    max-width: calc(100% - 5.5em);
     border-right: 1px solid #cccccc;
 }
 
@@ -60,8 +60,14 @@ page {
     border: 1px solid #26b802;
     padding: 6rpx 24rpx;
     border-radius: 20px;
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #26b802;
+}
+
+.type .button image{
+    width: 20rpx;
+    height: 20rpx;
+    margin-right: 6rpx;
 }
 
 .map {

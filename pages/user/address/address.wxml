@@ -1,0 +1,29 @@
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <view class="list">
+            <view class="item">
+                <view>
+                    <text class="username">用户名</text>
+                    <text class="phone">13000000000</text>
+                </view>
+                <view class="address">
+                    湖北省 武汉市 洪山区 新都汇小区一单元504
+                </view>
+            </view>
+            <view class="item">
+                <view>
+                    <text class="username">用户名</text>
+                    <text class="phone">13000000000</text>
+                </view>
+                <view class="address">
+                    湖北省 武汉市 洪山区 新都汇小区一单元504
+                </view>
+            </view>
+        </view>
+        <view class="button">
+            <image src="/static/icons/group/add.png"/>添加收货地址
+        </view>
+    </view>
+</view>

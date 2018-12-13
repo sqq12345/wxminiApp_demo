@@ -1,4 +1,4 @@
-.rater{
+.rater {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,17 +6,21 @@
     padding: 20px 0;
 }
 
-.rater>view{
+.score {
+    color: #FFAA27;
+}
+
+.rater>view {
     display: flex;
     align-items: center;
 }
 
-.rater>view>text{
+.rater>view>text {
     width: 2.5em;
     text-align: center;
 }
 
-.textarea{
+.textarea {
     background: #ffffff;
     padding: 10px;
 }

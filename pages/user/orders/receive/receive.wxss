@@ -1,0 +1,47 @@
+/* pages/tabbar/user/orders/receive/receive.wxss */
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200rpx;
+}
+
+.points {
+    color: #AAAAAA;
+}
+
+.title {
+    font-size: 32rpx;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+}
+
+.btns {
+    margin-top: 80rpx;
+}
+
+.btns text {
+    border-radius: 20px;
+    padding: 15rpx 40rpx;
+    color: #ffffff;
+}
+
+.btns .comment{
+    background: linear-gradient(to right, #F9C700 , #FFA535);    
+}
+.btns .share{
+    background: linear-gradient(to right, #38E56A , #1FC13B);
+}
+
+.btns text:first-of-type {
+    margin-right: 40rpx;
+}

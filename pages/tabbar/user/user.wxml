@@ -4,16 +4,16 @@
     <view class="container">
         <view class="head">
             <view class="info">
-                <navigator hover-class="none" url="/pages/tabbar/user/profile/profile">
+                <navigator hover-class="none" url="/pages/user/profile/profile">
                     <open-data class="avatar" type="userAvatarUrl"></open-data>
-                    <open-data type="userNickName"></open-data>
+                    <open-data class="username" type="userNickName"></open-data>
                 </navigator>
                 <view>
-                    <navigator hover-class="none" class="num" url="/pages/tabbar/user/points/points">
+                    <navigator hover-class="none" class="num" url="/pages/user/points/points">
                         <view>180</view>
                         <view>安积分</view>
                     </navigator>
-                    <navigator hover-class="none" class="num" url="/pages/tabbar/user/fans/fans">
+                    <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
                         <view>30</view>
                         <view>粉丝</view>
                     </navigator>
@@ -26,7 +26,7 @@
                         <text class="price">￥8888</text>
                     </view>
                     <view class="buttons">
-                        <navigator hover-class="none" url="/pages/tabbar/user/earnings/earnings">
+                        <navigator hover-class="none" url="/pages/user/earnings/earnings">
                             收益明细
                         </navigator>
                         <navigator hover-class="none">提现</navigator>
@@ -37,25 +37,25 @@
         <view class="block">
             <view class="title">
                 <text>我的订单</text>
-                <navigator hover-class="none" class="more" url="/pages/tabbar/user/orders/orders">
+                <navigator hover-class="none" class="more" url="/pages/user/orders/orders">
                     查看更多>
                 </navigator>
             </view>
             <view class="block">
                 <view class="icons">
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=1">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
                         <image src="/static/icons/user/1.png" />
                         待付款
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=2">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
                         <image src="/static/icons/user/2.png" />
                         待发货
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=3">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
                         <image src="/static/icons/user/3.png" />
                         待收货
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/tabbar/user/orders/orders?status=4">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=4">
                         <image src="/static/icons/user/4.png" />
                         待评价
                     </navigator>

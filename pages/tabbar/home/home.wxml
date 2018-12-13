@@ -6,7 +6,7 @@
       <scroll-view scroll-x>
         <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="{{selectedTypeId==item.id?'selected':''}}">{{item.name}}</text>
       </scroll-view>
-      <navigator hover-class="none" class="button" url="/pages/enter/enter"><text class="fa fa-plus"/>入驻</navigator>
+      <navigator hover-class="none" class="button" url="/pages/enter/enter"><image src="/static/icons/plus.png"/>入驻</navigator>
     </view>
     <map id="map" class="map" scale="12" show-location markers="{{props.city.markers}}" latitude="{{props.city.latitude}}" longitude="{{props.city.longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
       <cover-view class="detail" wx:if="{{detailShow}}">

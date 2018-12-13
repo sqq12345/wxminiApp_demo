@@ -7,20 +7,19 @@
         </view>
         <view>
             <view class="goods" wx:for="{{results}}" wx:key="{{index}}">
-                <image />
+                <image class="thumb"/>
                 <view class="info">
                     <view class="shop">{{item.shop.name}}</view>
                     <view class="title">{{item.name}}</view>
                     <view class="unit">{{item.unit}}</view>
                     <view class="price">
                         ￥{{item.price}}
-                        <text class="select {{item.selected?'selected':''}}" bind:tap="select" data-id="{{item.id}}">
-                            <text class="fa fa-check" />
-                        </text>
+                        <image class="select-icon" bind:tap="select" data-id="{{item.id}}"
+                         src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
                     </view>
                 </view>
             </view>
         </view>
-       <navigator class="done" url="/pages/group/start">选好了</navigator>
+       <navigator class="_button done" url="/pages/group/start">选好了</navigator>
     </view>
 </view>

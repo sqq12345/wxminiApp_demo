@@ -61,6 +61,10 @@ Component({
             type: Boolean,
             value: false,
         },
+        starSize:{
+            type: Number,
+            value: 20,
+        }
     },
     data: {
         raterValue: 0,

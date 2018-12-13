@@ -11,6 +11,15 @@ swiper image {
     padding-bottom: 100rpx;
 }
 
+.btn-all {
+    color: #888888;
+    border: 1px solid #eeeeee;
+    padding: 6rpx 30rpx;
+    border-radius: 30rpx;
+    display: inline-block;
+    margin-top: 10rpx;
+}
+
 swiper {
     height: 100vw;
 }
@@ -29,10 +38,11 @@ swiper {
 .info .title {
     color: #000000;
     font-weight: bold;
+    font-size: 32rpx;
 }
 
 .info .price {
-    color: red;
+    color: #FF6600;
 }
 
 .info .price text:first-child {
@@ -45,7 +55,7 @@ swiper {
 
 .info .desc {
     font-size: 28rpx;
-    color: #555555;
+    color: #888888;
 }
 
 .info .extr {
@@ -55,42 +65,74 @@ swiper {
 }
 
 .info .unit {
+    color: #666666;
     font-size: 28rpx;
 }
 
-.info .unit>text {
+.info .unit>view {
     margin-right: 2em;
+    display: inline-block;
 }
 
-.info .unit>text text {
-    color: green;
+.info .unit>view text {
+    color: #25CE41;
 }
 
 .comments {
     background: #ffffff;
     margin-top: 20rpx;
-    text-align: center;
     padding: 30rpx;
+    text-align: center;
 }
 
-.comments .comment {}
+.comments .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 32rpx;
+    margin-bottom: 10rpx;
+}
+
+.comments .header>view {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+
+.comments .comment {
+    margin-bottom: 10rpx;
+}
 
 .comments .comment .head {
     border-radius: 50%;
     float: left;
     border: 1px solid #eeeeee;
-    width: 70rpx;
-    height: 70rpx;
+    width: 75rpx;
+    height: 75rpx;
+    margin-right: 20rpx;
 }
 
 .comments .comment .content {
-    padding-left: 50rpx;
+    padding-left: 95rpx;
     text-align: left;
 }
 
-.comments .comment .bottom {
-    font-size: 28rpx;
-    color: #555555;
+.comments .comment .content .username {
+    color: #25CE41;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comments .comment .content .desc {
+    margin-bottom: 10rpx;
+}
+
+.comments .comment .content .bottom text {
+    font-size: 24rpx !important;
+    color: #aaaaaa;
 }
 
 .comments .comment .pics image {
@@ -121,13 +163,27 @@ swiper {
     border: 1px solid #eeeeee;
     width: 100rpx;
     height: 100rpx;
+    margin-right: 15rpx;
 }
 
 .shop .name {
     flex-grow: 1;
 }
 
-.shop>text {}
+.shop .name .title {
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.shop .name .sale {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.shop>navigator {
+    font-size: 28rpx;
+    color: #25CE41;
+}
 
 .bottom-btn {
     position: fixed;
@@ -140,23 +196,51 @@ swiper {
     border-top: 1px solid #dddddd;
 }
 
-.bottom-btn>view{
+.bottom-btn .nav {
+    width: 240rpx;
     display: flex;
+}
+
+.bottom-btn .nav>view {
+    font-size: 24rpx !important;
+    flex: 1;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.bottom-btn .nav{
-    
+.bottom-btn .nav image {
+    width: 40rpx;
+    height: 40rpx;
 }
-.bottom-btn .add{
+
+.bottom-btn .add, .bottom-btn .buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-btn .add {
     color: #ffffff;
-    background: #56f12f;
+    background: #48D960;
     flex-grow: 1;
 }
 
-.bottom-btn .buy{
+.bottom-btn .buy {
     color: #ffffff;
-    background: #26b802;
+    background: #25CE41;
     flex-grow: 1;
+}
+
+.detail {
+    background: #fff;
+}
+
+.detail .text {
+    text-align: center;
+    color: #999;
+    padding: 30rpx;
+    margin: 0 30rpx;
+    border-top: 1px solid #eeeeee;
 }

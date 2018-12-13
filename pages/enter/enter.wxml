@@ -4,7 +4,7 @@
     <view class='container' style='height:calc(100% - {{occupation}}px)'>
         <view class="f1">请选择角色</view>
         <navigator hover-class="none" class="item bg1" url="/pages/enter/index/index?index=1">
-            <image src="/static/bg/enter/1.png" class="bg" />
+            <image src="/static/bg/enter/1.png" class="_bg" />
             <view class="icon i1">
                 <image src="/static/icons/enter/1.png" />
             </view>

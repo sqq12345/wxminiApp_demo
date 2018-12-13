@@ -10,7 +10,7 @@ Page({
       title: '留言评论', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    raterValue:5,
+    raterValue:3.5,
   },
 
   /**

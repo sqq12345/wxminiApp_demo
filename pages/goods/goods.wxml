@@ -1,7 +1,7 @@
 <view class='container'>
     <header navbar-data='{{nvabarData}}' />
     <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
-        <block wx:for="{{imgUrls}}">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
             <swiper-item>
                 <image src="{{item}}" class="slide-image" />
             </swiper-item>
@@ -9,15 +9,20 @@
     </swiper>
     <view class="info">
         <view class="price">
-            <text>￥12</text><text>.08</text>
+            <text>￥12</text>
+            <text>.08</text>
         </view>
         <view class="unit">
-            <text>规格: <text>500g/斤</text></text>
-            <text>配送范围: <text>北京市</text></text>
+            <view>
+                规格:
+                <text>500g/斤</text>
+            </view>
+            <view>
+                配送范围:
+                <text>北京市</text>
+            </view>
         </view>
-        <view class="title">
-            精品牛腩块
-        </view>
+        <view class="title">精品牛腩块</view>
         <view class="desc">
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         </view>
@@ -28,18 +33,25 @@
         </view>
     </view>
     <view class="comments">
-        <view>大家都在说</view>
+        <view class="header">
+            大家都在说
+            <view>
+                <wux-rater allow-half defaultValue="{{3.5}}" disabled fontSize="14" starSize="14" />
+                4.0
+            </view>
+        </view>
         <view class="comment">
-            <image class="head"/>
+            <image class="head" />
             <view class="content">
-                <view>
+                <view class="username">
                     username
+                    <wux-rater allow-half defaultValue="{{2.5}}" disabled fontSize="12" starSize="12" />
                 </view>
-                <view>xxxxxxxxxxxxxxxxxxxxxxxxx</view>
+                <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
                 <view class="pics">
-                    <image/>
-                    <image/>
-                    <image/>
+                    <image />
+                    <image />
+                    <image />
                 </view>
                 <view class="bottom">
                     <text>time</text>
@@ -47,21 +59,49 @@
                 </view>
             </view>
         </view>
-        <view>查看全部</view>
+        <view class="comment">
+            <image class="head" />
+            <view class="content">
+                <view class="username">
+                    username
+                    <wux-rater allow-half defaultValue="{{4}}" disabled fontSize="12" starSize="12" />
+                </view>
+                <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
+                <view class="pics">
+                    <image />
+                    <image />
+                    <image />
+                </view>
+                <view class="bottom">
+                    <text>time</text>
+                    <text>规格</text>
+                </view>
+            </view>
+        </view>
+        <view class="btn-all">查看全部</view>
     </view>
     <view class="shop">
-        <image class="logo"/>
+        <image class="logo" />
         <view class="name">
-            <view>安否自营农场</view>
-            <view>总销量9999</view>
+            <view class="title">安否自营农场</view>
+            <view class="sale">总销量9999</view>
         </view>
-        <text>进店逛逛</text>
+        <navigator hover-class="none">进店逛逛</navigator>
     </view>
-
+    <view class="detail">
+        <view class="text">- 商品详情 -</view>
+        <!-- 商品长图 -->
+    </view>
     <view class="bottom-btn">
         <view class="nav">
-            <view>收藏</view>
-            <view>购物车</view>
+            <view>
+                <image src="/static/icons/goods/1.png" />
+                收藏
+            </view>
+            <view>
+                <image src="/static/icons/goods/2.png" />
+                购物车
+            </view>
         </view>
         <view class="add">加入购物车</view>
         <view class="buy">立即购买</view>

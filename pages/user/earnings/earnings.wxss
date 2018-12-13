@@ -1,0 +1,51 @@
+.fans {
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.fans image {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    float: left;
+    margin-right: 30rpx;
+    vertical-align: text-top;
+}
+
+.fans>view:last-of-type {
+    font-size: 30rpx;
+    color: #555555;
+    margin-top: 16rpx;
+}
+
+.fans>view>text:last-of-type {
+    float: right;
+}
+
+.list .item {
+    background: #fff;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25rpx;
+    padding-right: 0;
+    border-radius: 10rpx;
+}
+
+.list .item>text:last-of-type {
+    color: #FF8A00;
+    background: #FFEED3;
+    padding: 12rpx 25rpx;
+    font-size: 24rpx;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.list .item .price {
+    font-size: 30rpx;
+    font-weight: 500;
+}

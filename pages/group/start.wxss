@@ -11,6 +11,17 @@
     height: 70rpx;
 }
 
+.icon {
+    width: 15rpx;
+    height: 15rpx;
+    margin-left: 6rpx;
+}
+
+.picker {
+    display: inline-flex;
+    align-items: center;
+}
+
 .header {
     font-weight: bold;
     padding: 20rpx 30rpx;
@@ -32,10 +43,6 @@
     margin-top: 20rpx;
     display: block;
     height: 250rpx;
-}
-
-.fa-caret-down {
-    color: #26b802;
 }
 
 .form-group {
@@ -80,15 +87,15 @@
     border-bottom: 1px solid #eeeeee;
     margin: 0 -30rpx;
     padding-left: 30rpx;
-    padding-right: 30rpx; 
+    padding-right: 30rpx;
     padding-top: 20rpx;
 }
 
-.goods:first-of-type{
+.goods:first-of-type {
     padding-top: 0;
 }
 
-.goods image {
+.goods .thumb {
     width: 160rpx;
     height: 160rpx;
     border: 1px solid #eeeeee;
@@ -115,10 +122,14 @@
     width: 100%;
     font-size: 32rpx;
     color: rgb(219, 109, 50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.goods .info .price .select {
-    float: right;
+.goods .info .price .delete {
+    width: 30rpx;
+    height: 30rpx;
 }
 
 .goods .shop {
@@ -131,14 +142,17 @@
     right: -30rpx;
 }
 
-.goods .fa {
-    color: red;
-}
-
-.part.two .add{
+.part.two .add {
     color: #26b802;
-    text-align: center;
     padding-top: 20rpx;
     font-size: 28rpx;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.part.two .add image {
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 6rpx;
 }

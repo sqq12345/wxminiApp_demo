@@ -7,7 +7,6 @@
     font-weight: 400;
     font-style: normal;
     text-align: left;
-    font-size: 24px;
 }
 
 .wux-rater:after, .wux-rater:before {
@@ -49,7 +48,7 @@
 .wux-rater__inner {
     position: relative;
     display: inline-block;
-    font-size: 20px;
+    font-size: inherit;
 }
 
 .wux-rater__outer {
@@ -57,5 +56,6 @@
     left: 0;
     top: 0;
     display: inline-block;
-    overflow: hidden
+    overflow: hidden;
+    font-size: inherit;
 }

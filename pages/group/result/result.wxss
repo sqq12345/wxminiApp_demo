@@ -17,24 +17,10 @@
     margin-bottom: 170rpx;
 }
 
-.select {
-    border-radius: 50%;
+.select-icon {
     width: 36rpx;
     height: 36rpx;
-    display: inline-block;
-    border: 1px solid #ccc;
-    margin-right: 20rpx;
-    flex-shrink: 0;
-    line-height: 36rpx;
-    text-align: center;
-    font-size: 0;
-}
-
-.select.selected {
-    background: #26b802;
-    color: #fff;
-    border-color: #26b802;
-    font-size: 26rpx;
+    margin-right: 15rpx;
 }
 
 .goods {
@@ -46,7 +32,7 @@
     position: relative;
 }
 
-.goods image {
+.goods .thumb {
     width: 160rpx;
     height: 160rpx;
     border: 1px solid #eeeeee;
@@ -75,7 +61,7 @@
     color: rgb(219, 109, 50);
 }
 
-.goods .info .price .select {
+.goods .info .price .select-icon {
     float: right;
 }
 
@@ -91,15 +77,7 @@
 
 .done {
     position: fixed;
-    bottom: 30rpx;
-    background: #26b802;
-    text-align: center;
-    padding: 30rpx;
-    color: #fff;
-    width: 70%;
+    bottom: 0;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    border-radius: 30px;
-    box-shadow: 2px 2px 10px #ccc;
 }

@@ -16,26 +16,23 @@
     align-items: center;
     border-bottom: 1px solid #eeeeee;
     padding: 20rpx;
+    justify-content: space-between;
+}
+
+.item .header>view {
+    display: flex;
+    align-items: center;
 }
 
 .select {
-    border-radius: 50%;
-    width: 36rpx;
-    height: 36rpx;
-    display: inline-block;
-    border: 1px solid #ccc;
-    margin-right: 20rpx;
-    flex-shrink: 0;
-    line-height: 36rpx;
-    text-align: center;
-    font-size: 0;
+    display: flex;
+    align-items: center;
 }
 
-.select.selected {
-    background: #26b802;
-    color: #fff;
-    border-color: #26b802;
-    font-size: 26rpx;
+.select-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 15rpx;
 }
 
 .item .goods {
@@ -44,7 +41,7 @@
     padding: 20rpx;
 }
 
-.item .goods image {
+.item .goods .thumb {
     width: 160rpx;
     height: 160rpx;
     border: 1px solid #eeeeee;
@@ -69,23 +66,20 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 32rpx;
-    color: rgb(219, 109, 50);
+    font-size: 28rpx;
+    color: #FF6600;
 }
 
 .goods .info .calc {
     float: right;
     color: #25CE41;
+    display: inline-flex;
 }
 
-.goods .info .calc .add, .goods .info .calc .sub {
+.goods .info .calc .op{
     display: inline-block;
-    width: 44rpx;
-    height: 44rpx;
-    border: 1px solid #25CE41;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 44rpx;
+    width: 38rpx;
+    height: 38rpx;
 }
 
 .goods .info .num {
@@ -96,6 +90,7 @@
 
 .goods .title {
     line-height: 1;
+    font-weight: 500;
 }
 
 .bottom-btn {
@@ -123,13 +118,13 @@
     vertical-align: text-top;
 }
 
-.bottom-btn .price{
+.bottom-btn .price {
     color: rgb(219, 109, 50);
 }
 
-.bottom-btn .extr{
-    font-size: 24rpx;
-    color: #666666;
+.bottom-btn .extr {
+    font-size: .75em !important;
+    color: #999;
 }
 
 .bottom-btn .buy {

@@ -26,10 +26,11 @@ swiper{
 .sort .btns text{
     border-radius: 40rpx;
     padding: 10rpx 30rpx;
+    color: #25CE41;
 }
 
 .sort .btns text.selected{
-    background: #ccc;
+    background: #25CE41;
     color: #fff;
 }
 
