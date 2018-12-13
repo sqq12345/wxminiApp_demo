@@ -61,3 +61,8 @@ page {
     border: 1px solid #25CE41;
     box-sizing: border-box;
 }
+
+button{
+    background: #25CE41;
+    color: #fff;
+}

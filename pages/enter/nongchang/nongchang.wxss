@@ -1,25 +1,31 @@
 /* pages/enter/step2/step2.wxss */
-.container{
+
+.container {
     padding: 30rpx;
 }
 
-page{
+page {
     background: #fff;
 }
 
-.form-group{
+.form-group {
     border-bottom: 1px solid #eeeeee;
     padding: 24rpx 0;
-    display: block;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.form-group text{
+.form-group text {
     float: left;
     font-weight: 400;
-    width:5.5em;
+    width: 5.5em;
 }
 
-.form-group textarea{
+.form-group input,.form-group textarea{
+    flex: 1;
+}
+
+.form-group textarea {
     padding-right: 1em;
-    margin-left: 4.5em;
 }

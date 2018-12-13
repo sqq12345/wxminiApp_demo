@@ -51,6 +51,10 @@ button {
   z-index: -1;
 }
 
+._rmb{
+  font-size: 70%;
+}
+
 .loading {
   text-align: center;
   color: #666;

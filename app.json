@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/tabbar/home/home",
     "pages/tabbar/user/user",
     "pages/detail/detail",
-    "pages/tabbar/home/home",
     "pages/goods/goods",
     "pages/tabbar/cart/settle/settle",
     "pages/goodslist/goodslist",
@@ -26,7 +26,8 @@
         "points/points",
         "address/address",
         "profile/profile",
-        "orders/orders"
+        "orders/orders",
+        "draw/draw"
       ]
     },
     {

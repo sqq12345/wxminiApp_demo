@@ -1,3 +1,4 @@
+// pages/user/draw/draw.js
 Page({
 
   /**
@@ -6,7 +7,9 @@ Page({
   data: {
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
-      transparent: true //透明导航栏
+      title: '提现', //导航栏 中间的标题
+      transparent: true, //透明导航栏
+      color: '#fff'
     },
   },
 
@@ -16,4 +19,5 @@ Page({
   onLoad: function (options) {
 
   },
+
 })

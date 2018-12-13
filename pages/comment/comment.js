@@ -1,4 +1,5 @@
 // pages/comment/comment.js
+import http from '../../utils/http';
 Page({
 
   /**
@@ -10,7 +11,16 @@ Page({
       title: '留言评论', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    raterValue:3.5,
+    raterValue: 3.5,
+    uploadOptions: {
+      header: {
+        'content-Type': 'multipart/form-data',
+        'accesstoken': http.accesstoken
+      },
+      max: 4,
+      url: 'https://anfou.cc/api/basics/upload',
+      name: 'images'
+    }
   },
 
   /**
@@ -20,9 +30,20 @@ Page({
 
   },
 
-  raterChange(e){
+  raterChange(e) {
     this.setData({
       raterValue: e.detail.value,
-  })
+    })
+  },
+
+  /* upload */
+  onUploadSuccess(e) {
+
+  },
+  onUploadFail(e) {
+
+  },
+  onUploadComplete(e) {
+    console.log(e);
   }
 })

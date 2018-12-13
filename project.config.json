@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/comments/comments",
+					"pathName": "pages/comment/comment",
 					"query": ""
 				}
 			]

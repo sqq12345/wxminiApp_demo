@@ -10,12 +10,10 @@
         </view>
         <view class="textarea">
             <textarea placeholder="请输入您的评论..." />
-            <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
-                <image src="/static/icons/upload.png"/>
+            <wux-upload listType="picture-card" header="{{uploadOptions.header}}" name="{{uploadOptions.name}}" max="{{uploadOptions.max}}" url="{{uploadOptions.url}}" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <image src="/static/icons/upload.png" />
             </wux-upload>
         </view>
-        <view class="_button">
-            提交评论
-        </view>
+        <view class="_button">提交评论</view>
     </view>
 </view>

@@ -29,7 +29,7 @@
                         <navigator hover-class="none" url="/pages/user/earnings/earnings">
                             收益明细
                         </navigator>
-                        <navigator hover-class="none">提现</navigator>
+                        <navigator hover-class="none" url="/pages/user/draw/draw">提现</navigator>
                     </view>
                 </view>
             </view>
@@ -83,10 +83,10 @@
         </view>
         <view class="block">
             <view class="icons">
-                <view class="icon">
+                <navigator class="icon" hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
                     <image src="/static/icons/user/7.png" />
                     购物车
-                </view>
+                </navigator>
                 <view class="icon">
                     <image src="/static/icons/user/8.png" />
                     优惠券

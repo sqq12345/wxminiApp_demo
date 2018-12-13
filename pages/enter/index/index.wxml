@@ -17,7 +17,7 @@
                     wx:key="{{index}}" bind:tap="select" data-value="{{item}}">{{item.text}}</text>
                 </view>
             </view>
-            <navigator hover-class="none" url="{{nextUrl}}"><button type="primary">下一步</button></navigator>
+            <navigator hover-class="none" url="{{nextUrl}}"><button hover-class="none">下一步</button></navigator>
         </form>
     </view>
 </view>

@@ -78,7 +78,7 @@
                 </view>
             </view>
         </view>
-        <view class="btn-all">查看全部</view>
+        <navigator url="/pages/comments/comments" class="btn-all">查看全部</navigator>
     </view>
     <view class="shop">
         <image class="logo" />

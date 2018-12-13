@@ -1,4 +1,3 @@
-/* pages/goodslist/goodslist.wxss */
 
 .header {
     display: flex;

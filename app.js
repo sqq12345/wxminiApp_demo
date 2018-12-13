@@ -1,6 +1,8 @@
 const AppID = 'wxe03bb6c88e343ca6';
 const AppSecret = 'c2b577b604e9deb660594917987f000c';
-global.regeneratorRuntime = require('./utils/regenerator/runtime-module')
+global.regeneratorRuntime = require('./utils/regenerator/runtime-module');
+const { regeneratorRuntime } = global;
+import http from './utils/http';
 //app.js
 App({
   onLaunch: function (options) {
@@ -10,10 +12,6 @@ App({
     } else {
       this.globalData.share = false
     };
-    //获取设备顶部窗口的高度（不同设备窗口高度不一样，根据这个来设置自定义导航栏的高度）
-    //这个最初我是在组件中获取，但是出现了一个问题，当第一次进入小程序时导航栏会把
-    //页面内容盖住一部分,当打开调试重新进入时就没有问题，这个问题弄得我是莫名其妙
-    //虽然最后解决了，但是花费了不少时间
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
@@ -21,27 +19,59 @@ App({
     })
 
     //登录
-    // wx.login({
-    //   success: res => {
-    //     if (res.code) {
-    //       //请求用户信息
-    //       wx.request({
-    //         url: `https://api.weixin.qq.com/sns/jscode2session?appid=${AppID}&secret=${AppSecret}&js_code=${res.code}&grant_type=authorization_code`,
-    //         success:  (response)=> {
-    //           this.globalData.openId = response.data.openid;
-    //           console.log(this.globalData.openId);
-    //         },
-    //       })
-    //     } else {
-    //       console.warn('获取用户登录态失败！' + res.errMsg)
-    //     }
-    //   }
-    // })
+    wx.login({
+      success: async (res) => {
+        if (res.code) {
+          //请求用户信息
+          // wx.request({
+          //   url: `https://api.weixin.qq.com/sns/jscode2session?appid=${AppID}&secret=${AppSecret}&js_code=${res.code}&grant_type=authorization_code`,
+          //   success:  (response)=> {
+          //     this.globalData.openId = response.data.openid;
+          //     console.log(this.globalData.openId);
+          //   },
+          // })
+          //获取openid
+          const { session_key, openid, reg, user_token } = await http.request({
+            url: '/api/wx/openid',
+            data: { code: res.code },
+            method: 'POST',
+          });
+          if (reg === 0) {
+            wx.getUserInfo({
+              success(res) {
+                const userInfo = res.userInfo;
+                const { nickName, avatarUrl } = userInfo;
+                //注册
+                http.request({
+                  url: '/api/wx/reg',
+                  data: {
+                    openid: openid,
+                    nickName: nickName,
+                    avatarUrl: avatarUrl,
+                    unionid: ''
+                  },
+                  method: 'POST',
+                  success(response) {
 
+                  }
+                })
+              }
+            })
+          } else {  //已注册
+            this.globalData.openid = openid;
+            this.globalData.session_key = session_key;
+            this.globalData.user_token = user_token;
+          }
+        } else {
+          console.warn('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    })
   },
   globalData: {
-    openId: null,
-    userInfo: null,
+    openid: null,
+    session_key: null,
+    user_token: null,
     share: false,  // 分享默认为false
     height: 0,
   }

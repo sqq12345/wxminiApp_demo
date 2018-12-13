@@ -1,0 +1,64 @@
+/* pages/user/draw/draw.wxss */
+
+.block {
+    background: #fff;
+    margin-bottom: 20rpx;
+    padding: 20rpx;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    height: 30vh;
+    background: #32CC4A;
+    font-weight: bold;
+}
+
+.head view {
+    font-size: 50rpx;
+}
+
+.form-group {
+    padding: 10rpx 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-group text {
+    float: left;
+    font-weight: 400;
+    width: 5.5em;
+}
+
+.block .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block .item text {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.money{
+    padding: 30rpx 0;
+    font-size: 50rpx;
+    display: flex;
+    border-bottom: 1px solid #E1E1E1;
+    align-items: center;
+}
+
+.money input{
+    height: 100%;
+}
+
+.block .item:last-of-type{
+    margin-top: 20rpx;
+}
+
+.block .item:last-of-type .all{
+    color: #00A3EF;
+}

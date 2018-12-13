@@ -1,6 +1,51 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        
+        <view class="comments">
+            <view class="header">
+                4.0
+                <view>
+                    <wux-rater allow-half defaultValue="{{3.5}}" disabled fontSize="14" starSize="14" />
+                </view>
+            </view>
+            <view class="comment">
+                <image class="head" />
+                <view class="content">
+                    <view class="username">
+                        username
+                        <wux-rater allow-half defaultValue="{{2.5}}" disabled fontSize="12" starSize="12" />
+                    </view>
+                    <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
+                    <view class="pics">
+                        <image />
+                        <image />
+                        <image />
+                    </view>
+                    <view class="bottom">
+                        <text>time</text>
+                        <text>规格</text>
+                    </view>
+                </view>
+            </view>
+            <view class="comment">
+                <image class="head" />
+                <view class="content">
+                    <view class="username">
+                        username
+                        <wux-rater allow-half defaultValue="{{4}}" disabled fontSize="12" starSize="12" />
+                    </view>
+                    <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
+                    <view class="pics">
+                        <image />
+                        <image />
+                        <image />
+                    </view>
+                    <view class="bottom">
+                        <text>time</text>
+                        <text>规格</text>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
 </view>

@@ -1,1 +1,74 @@
 /* pages/comments/comments.wxss */
+.comments {
+    text-align: center;
+}
+
+.comments .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 36rpx;
+    margin-bottom: 20rpx;
+    background: #fff;
+    padding: 20rpx 30rpx;
+    font-weight: bold;
+}
+
+.comments .header>view {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+
+.comments .comment {
+    margin-bottom: 20rpx;
+    background: #fff;
+    padding: 20rpx 30rpx;
+}
+
+.comments .comment .head {
+    border-radius: 50%;
+    float: left;
+    border: 1px solid #eeeeee;
+    width: 75rpx;
+    height: 75rpx;
+    margin-right: 20rpx;
+}
+
+.comments .comment .content {
+    padding-left: 95rpx;
+    text-align: left;
+}
+
+.comments .comment .content .username {
+    color: #25CE41;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comments .comment .content .desc {
+    margin-bottom: 10rpx;
+}
+
+.comments .comment .content .bottom text {
+    font-size: 24rpx !important;
+    color: #aaaaaa;
+}
+
+.comments .comment .pics image {
+    border: 1px solid #eeeeee;
+    position: relative;
+    width: 31%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 30%;
+    margin-right: 3.5%;
+    box-sizing: border-box;
+}
+
+.comments .comment .pics>image:last-child {
+    margin: 0;
+}
