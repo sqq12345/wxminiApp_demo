@@ -9,7 +9,7 @@
     </swiper>
     <view class="info">
         <view class="price">
-            <text>￥12</text>
+            <text><text class="_rmb">￥</text>12</text>
             <text>.08</text>
         </view>
         <view class="unit">
@@ -86,7 +86,7 @@
             <view class="title">安否自营农场</view>
             <view class="sale">总销量9999</view>
         </view>
-        <navigator hover-class="none">进店逛逛</navigator>
+        <navigator hover-class="none" url="/pages/goodslist/goodslist">进店逛逛<image src="/static/icons/goods/right.png"/></navigator>
     </view>
     <view class="detail">
         <view class="text">- 商品详情 -</view>

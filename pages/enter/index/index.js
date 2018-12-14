@@ -1,4 +1,5 @@
 // pages/enter/step1/step1.js
+import http from '../../../utils/http';
 Page({
 
   /**
@@ -41,6 +42,18 @@ Page({
         fields = data.jishi;
         break;
     }
+    http.request({
+      url: 'api/shop/merchant',
+      data: {
+        shoptype: '' + options.index
+      },
+      method: 'POST',
+      success: (response) => {
+        this.setData({
+          fields: response.data.data
+        })
+      }
+    });
     this.setData({ 'nvabarData.title': title, type, nextUrl: url, fields })
   },
   data: {

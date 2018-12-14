@@ -3,6 +3,7 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
         <view class="head">
+            <image src="/static/bg/money.png" class="_bg"/>
             <view>
                 <text class="_rmb">￥</text>8848.00
             </view>

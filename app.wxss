@@ -37,6 +37,15 @@ button {
   margin: 40rpx auto;
   border-radius: 30px;
   background: linear-gradient(to right, #38E56A, #1FC13B);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._button image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 14rpx;
 }
 
 ._right {
@@ -51,7 +60,7 @@ button {
   z-index: -1;
 }
 
-._rmb{
+._rmb {
   font-size: 70%;
 }
 

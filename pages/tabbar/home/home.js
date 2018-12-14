@@ -1,5 +1,6 @@
 // pages/tabbar/home/home.js
 import { observer } from '../../../utils/mobx/observer';
+import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
 const app = getApp();
 Page(observer({
@@ -53,7 +54,7 @@ Page(observer({
   },
 
   onReady() {
-    this.mapCtx = wx.createMapContext('map')
+    this.mapCtx = wx.createMapContext('map');
   },
   onLoad() {
     

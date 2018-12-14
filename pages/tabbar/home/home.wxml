@@ -4,9 +4,11 @@
     <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" />
     <view class="type">
       <scroll-view scroll-x>
-        <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="{{selectedTypeId==item.id?'selected':''}}">{{item.name}}</text>
+        <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="item {{selectedTypeId==item.id?'selected':''}}">{{item.name}}<text class="line" wx:if="{{selectedTypeId==item.id}}"/></text>
       </scroll-view>
-      <navigator hover-class="none" class="button" url="/pages/enter/enter"><image src="/static/icons/plus.png"/>入驻</navigator>
+      <view class="right">
+        <navigator hover-class="none" class="button" url="/pages/enter/enter"><image src="/static/icons/plus.png"/>入驻</navigator>
+      </view>
     </view>
     <map id="map" class="map" scale="12" show-location markers="{{props.city.markers}}" latitude="{{props.city.latitude}}" longitude="{{props.city.longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
       <cover-view class="detail" wx:if="{{detailShow}}">

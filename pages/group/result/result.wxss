@@ -2,7 +2,7 @@
     background: #eeeeee;
     border-radius: 15px;
     flex: 1;
-    height: 70rpx;
+    height: 64rpx;
     padding-left: 1em;
 }
 

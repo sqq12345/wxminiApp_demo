@@ -5,6 +5,14 @@
     margin-bottom: 20rpx;
 }
 
+._bg-color{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    z-index: -2;
+}
+
 .block .title {
     display: flex;
     justify-content: space-between;
@@ -32,12 +40,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 28rpx;
+    font-size: 24rpx;
 }
 
 .icons .icon image {
-    width: 50rpx;
-    height: 50rpx;
+    width: 40rpx;
+    height: 40rpx;
     margin-bottom: 10rpx;
 }
 
@@ -45,10 +53,9 @@
     display: flex;
     position: relative;
     align-items: center;
-    height: 440rpx;
-    background: #54f52c;
+    height: 400rpx;
     color: #ffffff;
-    margin-bottom: 80rpx;
+    margin-bottom: 20rpx;
 }
 
 .head .info {
@@ -57,6 +64,12 @@
     align-items: center;
     padding: 30rpx;
     justify-content: space-between;
+}
+
+.head .info .edit{
+    width: 26rpx;
+    height: 22rpx;
+    margin-left: 10rpx;
 }
 
 .head .info .avatar {
@@ -104,7 +117,9 @@
     justify-content: space-between;
 }
 
-.head .bottom .buttons {}
+.head .bottom .buttons {
+    
+}
 
 .head .bottom .buttons navigator {
     color: #fff;
@@ -116,14 +131,17 @@
 }
 
 .head .bottom .buttons navigator:first-of-type{
+    font-size: 26rpx;
     background: linear-gradient(to right, #FFCC00 , #FFA230);
 }
 
 .head .bottom .buttons navigator:last-of-type{
+    font-size: 26rpx;
     background: linear-gradient(to right, #38E56A , #1FC13B);
 }
 
 .head .bottom .price {
     color: #FF8A00;
     font-size: 32rpx;
+    font-weight: 500;
 }

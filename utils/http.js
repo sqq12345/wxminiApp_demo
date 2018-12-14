@@ -6,21 +6,21 @@ const datestr = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
 const accesstoken = common.doMD5Encode(datestr + '_af_api_key');
 
 function request(options) {
-  const app = getApp();
   const {
     url,
     data,
     method,
     success,
+    header,
   } = options;
   return new Promise((resolve, reject) => {
     wx.request({
       url: domain + url,
       data: data,
-      header: {
+      header: Object.assign(header || {}, {
         'content-type': 'application/x-www-form-urlencoded',
         'accesstoken': accesstoken
-      },
+      }),
       method: method,
       success: (response) => {
         if (typeof success === 'function') {

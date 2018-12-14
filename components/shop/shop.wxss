@@ -34,6 +34,10 @@
     flex-grow: 1;
 }
 
+.shop .text .info text{
+    font-size: 24rpx;
+}
+
 .shop .text>view {
     flex-grow: 1;
     display: flex;
@@ -42,7 +46,7 @@
 
 .shop .text .title {
     color: #000000;
-    font-size: 32rpx;
+    font-size: 30rpx;
 }
 
 .activity {
@@ -70,5 +74,5 @@
 }
 
 .activity>navigator .price {
-    color: red;
+    color: #FF6600;
 }

@@ -10,6 +10,7 @@
                 <text>address</text>
                 <image class="_right" src="/static/icons/right.png" />
             </view>
+            <image src="/static/icons/cart/line.png" class="line"/>
         </view>
         <view class="box">
             <view class="cart">
@@ -51,7 +52,7 @@
                 </view>
                 <view class="line">
                     <text>买家留言</text>
-                    <text></text>
+                    <input placeholder="选填，可填写您与卖家达成一致的要求"/>
                 </view>
             </view>
         </view>
@@ -59,7 +60,7 @@
     <view class="bottom-btn">
         <view class="all">
             实付款
-            <text class="price">￥{{props.cart.total}}</text>
+            <text class="price"><text class="_rmb">￥</text>{{props.cart.total}}</text>
         </view>
         <view class="buy">确认付款</view>
     </view>

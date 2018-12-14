@@ -8,6 +8,7 @@
 .box {
     background: #fff;
     border-radius: 5px;
+    box-shadow: 0px 10px 20px 1px rgba(152, 152, 152, 0.03);
 }
 
 .cart {
@@ -16,6 +17,7 @@
 
 .bottom-btn {
     position: fixed;
+    z-index: 999;
     bottom: 0;
     width: 100%;
     height: 100rpx;
@@ -31,14 +33,15 @@
     padding-left: 30rpx;
     justify-content: flex-end;
     padding-right: 20rpx;
+    font-size: 24rpx;
 }
 
-.bottom-btn .all .price{
+.bottom-btn .all .price {
     color: #FF6600;
 }
 
 .bottom-btn .buy {
-    background: #26b802;
+    background: #25CE41;
     color: #fff;
     display: flex;
     align-items: center;
@@ -48,13 +51,17 @@
 }
 
 .line {
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid rgba(244, 244, 244, 1);
     line-height: 90rpx;
     padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.line text:last-child {
-    float: right;
+.line input{
+    flex: 1;
+    margin-left: 2em;
 }
 
 .item {}
@@ -62,7 +69,6 @@
 .item .header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #eeeeee;
     padding: 20rpx;
     justify-content: space-between;
 }
@@ -70,6 +76,7 @@
 .item .header>view {
     display: flex;
     align-items: center;
+    font-size: 24rpx;
 }
 
 .select {
@@ -101,7 +108,7 @@
 
 .goods .unit {
     margin-top: 10rpx;
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #555555;
 }
 
@@ -146,6 +153,8 @@
     background: #fff;
     border-radius: 5px;
     padding: 20rpx;
+    position: relative;
+    overflow: hidden;
 }
 
 .user>view {
@@ -161,8 +170,22 @@
 
 .user .phone {
     color: #25CE41;
+    font-size: 28rpx;
 }
 
 .user .address {
     color: #666666;
+}
+
+.user .address text {
+    font-size: 24rpx;
+}
+
+.user .line {
+    position: absolute;
+    width: 100%;
+    height: 6rpx;
+    bottom: 0;
+    left: -16rpx;
+    right: 0;
 }

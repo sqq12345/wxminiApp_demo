@@ -38,7 +38,7 @@ swiper {
 .info .title {
     color: #000000;
     font-weight: bold;
-    font-size: 32rpx;
+    font-size: 30rpx;
 }
 
 .info .price {
@@ -54,19 +54,23 @@ swiper {
 }
 
 .info .desc {
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #888888;
 }
 
 .info .extr {
-    font-size: 28rpx;
     display: flex;
     justify-content: space-between;
 }
 
-.info .unit {
+.info .extr text{
+    font-size: 24rpx;
+    color: #666;
+}
+
+.info .unit view,.info .unit text{
     color: #666666;
-    font-size: 28rpx;
+    font-size: 24rpx;
 }
 
 .info .unit>view {
@@ -90,7 +94,7 @@ swiper {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 32rpx;
+    font-size: 28rpx;
     margin-bottom: 10rpx;
 }
 
@@ -171,7 +175,7 @@ swiper {
 }
 
 .shop .name .title {
-    font-size: 32rpx;
+    font-size: 30rpx;
     font-weight: 500;
 }
 
@@ -181,8 +185,16 @@ swiper {
 }
 
 .shop>navigator {
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #25CE41;
+    display: inline-flex;
+    align-items: center;
+}
+
+.shop>navigator image{
+    width: 28rpx;
+    height:28rpx;
+    margin-left: 6rpx;
 }
 
 .bottom-btn {
@@ -193,7 +205,7 @@ swiper {
     background: #ffffff;
     text-align: center;
     height: 100rpx;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #EEEEEE;
 }
 
 .bottom-btn .nav {

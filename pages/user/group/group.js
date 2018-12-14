@@ -1,4 +1,4 @@
-// pages/detail/detail.js
+// pages/group/my/my.js
 Page({
 
   /**
@@ -6,9 +6,9 @@ Page({
    */
   data: {
     nvabarData: {
-      position:'absolute',
       showCapsule: true, //是否显示左上角图标
-      transparent: true //透明导航栏
+      title: '我的接龙', //导航栏 中间的标题
+      transparent: false, //透明导航栏
     },
   },
 
@@ -16,7 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
-
 })

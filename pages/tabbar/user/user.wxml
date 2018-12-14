@@ -2,28 +2,32 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        <view class="head">
-            <view class="info">
+        <view class="head" style="{{userinfo.ismerchant!=0?'margin-bottom:80rpx':''}}">
+            <image class="_bg" src="/static/bg/user.png" />
+            <view class="info"  style="{{userinfo.ismerchant==0?'margin-top:40rpx':''}}">
                 <navigator hover-class="none" url="/pages/user/profile/profile">
                     <open-data class="avatar" type="userAvatarUrl"></open-data>
                     <open-data class="username" type="userNickName"></open-data>
+                    <image src="/static/icons/user/edit.png" class="edit" />
                 </navigator>
                 <view>
                     <navigator hover-class="none" class="num" url="/pages/user/points/points">
-                        <view>180</view>
+                        <view>{{userinfo.points}}</view>
                         <view>安积分</view>
                     </navigator>
                     <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
-                        <view>30</view>
+                        <view>{{userinfo.fans}}</view>
                         <view>粉丝</view>
                     </navigator>
                 </view>
             </view>
-            <view class="bottom">
+            <view class="bottom" wx:if="{{userinfo.ismerchant!=0}}">
                 <view>
                     <view>
                         可提现金额:
-                        <text class="price">￥8888</text>
+                        <text class="price">
+                            <text class="_rmb">￥</text>8888
+                        </text>
                     </view>
                     <view class="buttons">
                         <navigator hover-class="none" url="/pages/user/earnings/earnings">
@@ -72,10 +76,10 @@
                         <image src="/static/icons/user/5.png" />
                         发起接龙
                     </navigator>
-                    <view class="icon">
+                    <navigator hover-class="none" class="icon" url="/pages/user/group/group">
                         <image src="/static/icons/user/6.png" />
                         我的拼团
-                    </view>
+                    </navigator>
                     <view class="icon" style="visibility:hidden"></view>
                     <view class="icon" style="visibility:hidden"></view>
                 </view>

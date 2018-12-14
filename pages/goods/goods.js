@@ -6,6 +6,7 @@ Page({
    */
   data: {
     nvabarData: {
+      position: 'absolute',
       showCapsule: true, //是否显示左上角图标
       transparent: true //透明导航栏
     },

@@ -2,6 +2,7 @@
 const ak = 'vhxahuEGUT0LuHNexQPRsxmxIaDkSKED';
 const { regeneratorRuntime } = global;
 const extendObservable = require('../utils/mobx/mobx').extendObservable;
+import http from '../utils/http';
 let City = function () {
   extendObservable(this, {
     selected: -1,
@@ -49,34 +50,41 @@ setTimeout(function () {
     type: 'wgs84',
     success: (res) => {
       // success  
-      // const longitude = res.longitude;
-      // const latitude = res.latitude;
-      Store.latitude = 23.099994;
-      Store.longitude = 113.324520;
+      Store.longitude = res.longitude;
+      Store.latitude = res.latitude;
+      // Store.latitude = 23.099994;
+      // Store.longitude = 113.324520;
       Store.getMarkers();
-      // wx.request({
-      //   url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + Store.latitude + ',' + Store.longitude + '&output=json',
-      //   data: {},
-      //   success: (res) => {
-      //     // success  
-      //     const name = res.data.result.addressComponent.city;
-      //     //根据名字找到数组中的城市
-      //     const selected = Store.list.findIndex(item => {
-      //       return item.city === name;
-      //     });
-      //     Store.selected = selected;
-      //   },
-      //   fail: function () {
-      //     wx.showToast({
-      //       icon: 'none',
-      //       title: '获取地址失败',
-      //       duration: 2000
-      //     })
-      //   },
-      // })
+      wx.request({
+        url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + Store.latitude + ',' + Store.longitude + '&output=json',
+        data: {},
+        success: (res) => {
+          // success  
+          const name = res.data.result.addressComponent.city;
+          //根据名字找到数组中的城市
+          const selected = Store.list.findIndex(item => {
+            return item.city === name;
+          });
+          Store.selected = selected;
+        },
+        fail: function () {
+          wx.showToast({
+            icon: 'none',
+            title: '获取地址失败',
+            duration: 2000
+          })
+        },
+      })
     }
   })
-
 }, 2000);
+//获取城市列表
+http.request({
+  url: 'api/basics/geographic',
+  method: 'POST',
+  success: (response) => {
+
+  }
+})
 
 module.exports = Store

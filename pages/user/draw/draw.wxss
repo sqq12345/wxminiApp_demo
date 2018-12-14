@@ -12,8 +12,8 @@
     justify-content: center;
     color: #fff;
     height: 30vh;
-    background: #32CC4A;
     font-weight: bold;
+    position: relative;
 }
 
 .head view {

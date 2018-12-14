@@ -2,7 +2,6 @@
   "pages": [
     "pages/tabbar/home/home",
     "pages/tabbar/user/user",
-    "pages/detail/detail",
     "pages/goods/goods",
     "pages/tabbar/cart/settle/settle",
     "pages/goodslist/goodslist",
@@ -27,7 +26,8 @@
         "address/address",
         "profile/profile",
         "orders/orders",
-        "draw/draw"
+        "draw/draw",
+        "group/group"
       ]
     },
     {
@@ -36,6 +36,11 @@
         "search/search",
         "start",
         "result/result"
+      ]
+    },{
+      "root": "pages/detail/",
+      "pages": [
+        "detail"
       ]
     }
   ],

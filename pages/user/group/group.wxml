@@ -1,0 +1,18 @@
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <navigator url="/pages/group/start" hover-class="none" class="_button"><image src="/static/icons/user/plane.png"/>发起接龙</navigator>
+        <view class="item">
+            <view class="start">创建时间 : 2018.11.11 20 : 00</view>
+            <view class="title">安否自营农场精致礼盒拼团满360…</view>
+            <view class="desc">
+                礼盒拼盘来自五家原生态农场，均为无农药，无添加的有 机食品。礼盒总重5公斤：萝卜（1公斤），秋葵（1公斤）， 香菇（1公斤），
+            </view>
+            <view class="end">截止时间 : 2018.11.11 20 : 00</view>
+            <view class="more">
+                <navigator class="btn">更多</navigator>
+            </view>
+        </view>
+    </view>
+</view>

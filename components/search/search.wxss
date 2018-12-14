@@ -5,15 +5,17 @@
     align-items: center;
 }
 
-.search picker{
+.search .picker{
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color: #333333;
 }
 
-.search image{
-    width: 24rpx;
-    height: 24rpx;
-    display: inline-block;
-    vertical-align: middle;
+.search .down{
+    width: 12rpx;
+    height: 8rpx;
+    margin-left: 6rpx;
 }
 
 .search>view{
@@ -26,14 +28,14 @@
 .search input{
     background: #F4F4F4;
     border-radius: 20px;
-    height: 70rpx;
+    height: 64rpx;
     padding-left: 2.25em;
     flex: 1;
 }
 
-.search image{
+.search .search_icon{
     position: absolute;
-    width: 35rpx;
-    height: 35rpx;
+    width: 32rpx;
+    height: 30rpx;
     left: .75em;
 }

@@ -4,6 +4,7 @@ page {
     position: absolute;
     width: 100%;
     height: 100%;
+    background: #fff;
 }
 
 .container {
@@ -33,38 +34,67 @@ page {
 }
 
 .type {
+    margin-top: -20rpx;
     background: #ffffff;
     padding: 0 20rpx;
-    padding-bottom: 10rpx;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 88rpx;
 }
 
 .type scroll-view {
     white-space: nowrap;
     max-width: calc(100% - 5.5em);
-    border-right: 1px solid #cccccc;
+    color: #555555;
+    height: 100%;
 }
 
-.type scroll-view text {
+.type scroll-view .item {
     margin-right: 20rpx;
+    position: relative;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10rpx;
 }
 
-.type scroll-view text.selected{
+.type scroll-view .item.selected {
     color: #26b802;
+}
+
+.type scroll-view .item.selected .line {
+    display: block;
+    height: 6rpx;
+    background: #25CE41;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80rpx;
+    margin: 0 auto;
+    border-radius: 6rpx;
+}
+
+.type .right {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
 }
 
 .type .button {
     word-break: keep-all;
     border: 1px solid #26b802;
-    padding: 6rpx 24rpx;
+    padding: 6rpx 20rpx;
     border-radius: 20px;
     font-size: 24rpx;
     color: #26b802;
+    margin-left: 20rpx;
+    font-size: 24rpx;
 }
 
-.type .button image{
+.type .button image {
     width: 20rpx;
     height: 20rpx;
     margin-right: 6rpx;
@@ -88,36 +118,36 @@ page {
     padding: 30rpx 20rpx;
 }
 
-.detail .head{
+.detail .head {
     display: flex;
     justify-content: space-between;
     padding-bottom: 10rpx;
 }
 
-.detail .footer{
+.detail .footer {
     padding: 10rpx 0;
 }
 
-.detail .name{
+.detail .name {
     font-weight: bold;
 }
 
-.detail .url{
+.detail .url {
     font-size: 24rpx;
     color: #555555;
 }
 
-.detail .footer cover-view{
+.detail .footer cover-view {
     margin-top: 10rpx;
     font-size: 26rpx;
 }
 
-.detail .footer cover-view .text{
+.detail .footer cover-view .text {
     display: inline-block;
 }
 
-.detail .footer cover-image{
-    width:30rpx;
+.detail .footer cover-image {
+    width: 30rpx;
     height: 30rpx;
     margin-right: 10rpx;
     display: inline-block;

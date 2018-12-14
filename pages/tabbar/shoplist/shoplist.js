@@ -1,5 +1,7 @@
 // pages/tabbar/shoplist/shoplist.js
 import { observer } from '../../../utils/mobx/observer';
+import http from '../../../utils/http';
+
 Page(observer({
   props: {
     city: require('../../../stores/City'),
@@ -31,9 +33,7 @@ Page(observer({
     loading: false,
 
     imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+
     ],
   },
   fetchList() {
@@ -43,12 +43,29 @@ Page(observer({
       }, () => {
         this.setData({ loading: false });
       })
-    }, 100)
+    }, 1000)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //请求轮播图
+    http.request({
+      url: '/api/basics/slides',
+      method: 'POST',
+      success: (response) => {
+        //排序图片
+        const arr = response.data.data;
+        arr.sort((a, b) => {
+          return b.sort - a.sort;
+        });
+        //temp
+        arr.map(item=>{
+          item.avatar = item.avatar.replace('http://af.dev.com','')
+        });
+        this.setData({ imgUrls: response.data.data })
+      }
+    });
     this.fetchList();
   },
   //切换城市

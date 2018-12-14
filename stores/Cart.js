@@ -52,6 +52,22 @@ setTimeout(function () {
                 },
             ]
         },
+        {
+            shop: { id: 1, name: '农场名3' },
+            goods: [
+                {
+                    thumb: '', name: 'goods3', price: 36, unit: '规格', count: 1
+                },
+            ]
+        },
+        {
+            shop: { id: 1, name: '农场名4' },
+            goods: [
+                {
+                    thumb: '', name: 'goods3', price: 36, unit: '规格', count: 1
+                },
+            ]
+        },
     ];
     json.map(item => {
         item.selected = true;

@@ -1,6 +1,6 @@
 <!-- components/header/header.wxml -->
 <view>
-  <view class='nav-wrap' style='height: {{height*2 + 20}}px;background:{{navbarData.transparent?"transparent":"#fff"}}'>
+  <view class='nav-wrap' style='height: {{height*2 + 20}}px;background:{{navbarData.transparent?"transparent":"#fff"}};position:{{navbarData.position||"fixed"}}'>
     <view class='nav-title' style='line-height:{{height*2 + 44}}px;color:{{navbarData.color?navbarData.color:"#000"}}'>
       {{navbarData.title}}
     </view>
