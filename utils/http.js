@@ -29,6 +29,7 @@ function request(options) {
         resolve(response)
       },
       fail: (error) => {
+        console.warn('request' + url + ':error');
         reject(error)
       },
       complete: () => { }

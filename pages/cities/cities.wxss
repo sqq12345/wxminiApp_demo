@@ -1,0 +1,39 @@
+/* pages/cities/cities.wxss */
+
+page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.city {
+    background: #fff;
+    padding: 20rpx 1em;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.letter {
+    padding: 20rpx 1em;
+    font-weight: bold;
+}
+
+.side {
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 2em;
+    background: #fff;
+    text-align: center;
+}
+
+.side view {
+    padding: 4rpx 0;
+}

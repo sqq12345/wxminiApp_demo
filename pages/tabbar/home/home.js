@@ -48,11 +48,6 @@ Page(observer({
     })
   },
 
-  //切换城市
-  onCityChange(e) {
-    this.props.city.selected = e.detail.detail.value;
-  },
-
   onReady() {
     this.mapCtx = wx.createMapContext('map');
   },

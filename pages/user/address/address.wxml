@@ -22,8 +22,8 @@
                 </view>
             </view>
         </view>
-        <view class="button">
+        <navigator url="add/add" hover-class="none" class="button">
             <image src="/static/icons/group/add.png"/>添加收货地址
-        </view>
+        </navigator>
     </view>
 </view>

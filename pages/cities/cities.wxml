@@ -1,0 +1,16 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <scroll-view class="container" scroll-into-view="{{toView}}" scroll-y scroll-with-animation>
+        <view wx:for="{{props.city.list}}" wx:for-index="key" wx:for-item="value" wx:key="{{key}}" id="{{key}}">
+            <view class="letter">{{key}}</view>
+            <view class="city" wx:for="{{value}}" wx:key="{{index}}" bind:tap="select" data-value="{{item}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+    <view class="side" style="top:{{60}}px">
+        <view wx:for="{{props.city.list}}" wx:for-index="key" wx:key="{{key}}" bind:tap="scroll" data-key="{{key}}">
+            {{key}}
+        </view>
+    </view>
+</view>

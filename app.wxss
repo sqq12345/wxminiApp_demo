@@ -61,7 +61,7 @@ button {
 }
 
 ._rmb {
-  font-size: 70%;
+  font-size: 75%;
 }
 
 .loading {

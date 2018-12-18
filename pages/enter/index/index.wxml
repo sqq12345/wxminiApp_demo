@@ -3,21 +3,21 @@
     <header navbar-data='{{nvabarData}}' />
     <view class='container'>
         <view class='code'>
-            <input placeholder="点击输入邀请码" placeholder-class='placeholder'/>
+            <input placeholder="点击输入邀请码" placeholder-class='placeholder' bindinput="onInput" data-field="icode"/>
         </view>
         <form class='form'>
             <view class='form-group'>
                 <label>{{type}}名称</label>
-                <input placeholder="输入名称" />
+                <input placeholder="输入名称" bindinput="onInput" data-field="name"/>
             </view>
             <view class='form-group' wx:for="{{fields}}" wx:key="{{index}}" wx:for-item="field">
-                <label>{{field.name}}</label>
+                <label>{{field.title}}</label>
                 <view class='select'>
-                    <text wx:for="{{field.items}}"  data-field="{{field.field}}" class="{{item.selected?'selected':''}}"
-                    wx:key="{{index}}" bind:tap="select" data-value="{{item}}">{{item.text}}</text>
+                    <text wx:for="{{field.son}}"  data-field="{{field.alias}}" class="{{item.selected?'selected':''}}"
+                    wx:key="{{index}}" bind:tap="select" data-value="{{item}}" data-multiple="{{field.multiple}}">{{item.title}}</text>
                 </view>
             </view>
-            <navigator hover-class="none" url="{{nextUrl}}"><button hover-class="none">下一步</button></navigator>
+            <button hover-class="none" bind:tap="navigation">下一步</button>
         </form>
     </view>
 </view>

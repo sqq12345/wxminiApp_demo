@@ -4,6 +4,7 @@
     top: 0;
     color: #000;
     z-index: 9999999;
+    overflow: hidden;
   }
   /* 标题要居中 */
   .nav-title {

@@ -1,105 +1,124 @@
 /* pages/tabbar/user/orders/orders.wxss */
-.tabbar{
+
+.tabbar {
     display: flex;
     background: #fff;
-    padding-top: 20rpx;
     border-top: 1px solid #eee;
 }
 
-.tabbar view{
+.tabbar view {
+    height: 82rpx;
     flex: 1;
-    text-align: center;
-    padding-bottom: 20rpx;
+    display: flex;
+    justify-content: center;
 }
 
-.tabbar view text{
-    padding-bottom: 20rpx;
+.tabbar view text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: auto;
+    font-size: 24rpx;
 }
 
-.tabbar text.active{
+.tabbar text.active {
     color: #26CE42;
     border-bottom: 2px solid #26CE42;
 }
 
-.order{
+.order {
     background: #fff;
     margin-top: 20rpx;
     padding: 20rpx;
 }
 
-.order .top{
+.order .top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20rpx;
-    padding-bottom : 20rpx;
+    padding-bottom: 20rpx;
     margin: 0 -20rpx;
     border-bottom: 1px solid #eee;
-    font-size: 30rpx;
-    color: #555555; 
+    color: #555555;
 }
 
-.order .top .status{
+.order .top text {
+    font-size: 24rpx;
+}
+
+.order .top .status {
     color: #FF8A00
 }
 
-.order image{
+.order image {
     width: 160rpx;
     height: 160rpx;
-    border:1px solid #eee;
+    border: 1px solid #eee;
     border-radius: 5px;
     margin-right: 20rpx;
 }
 
-.order .middle{
+.order .middle {
     display: flex;
     padding: 30rpx 0;
-    border-bottom: 1px solid #eee; 
+    border-bottom: 1px solid #eee;
 }
 
-.order .middle .name{
+.order .middle .name {
     font-weight: bold;
+    color: #333;
 }
 
-.order .middle .unit{
-    font-size: 30rpx;
+.order .middle .unit {
+    font-size: 24rpx;
     color: #555555;
     margin-top: 10rpx;
 }
 
-.order .middle .unit .num{
+.order .middle .unit .num {
     float: right;
 }
 
-.order .middle>view{
+.order .middle>view {
     position: relative;
     flex: 1;
 }
 
-.order .middle .price{
+.order .middle .price {
     position: absolute;
     bottom: 6rpx;
     color: #FF8A00
 }
 
-.order .bottom{
+.order .bottom {
     display: flex;
     flex-direction: row-reverse;
     padding-top: 20rpx;
     align-items: center;
 }
 
-.order .bottom .button{
+.order .bottom .button {
     color: #999999;
     padding: 6rpx 20rpx;
     background: #fff;
     border-radius: 20px;
-    margin-left: 30rpx;
+    margin-left: 20rpx;
     border: 1px solid #DADADA;
+    font-size: 24rpx;
 }
 
-.order .bottom .button.solid{
+.order .bottom .button.solid {
     color: #fff;
     border: 0;
-    background: linear-gradient(to right, #38E56A , #1FC13B);
+    background: linear-gradient(to right, #38E56A, #1FC13B);
+}
+
+.total {
+    font-size: 24rpx;
+}
+
+.total .price{
+    font-size: 28rpx;
 }

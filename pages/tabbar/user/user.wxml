@@ -95,10 +95,10 @@
                     <image src="/static/icons/user/8.png" />
                     优惠券
                 </view>
-                <view class="icon">
+                <navigator class="icon" hover-class="none" url="/pages/user/collection/collection">
                     <image src="/static/icons/user/9.png" />
                     收藏
-                </view>
+                </navigator>
                 <view class="icon">
                     <image src="/static/icons/user/10.png" />
                     客服

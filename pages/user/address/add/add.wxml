@@ -1,0 +1,24 @@
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <view class="form">
+            <view class='form-group'>
+                <text>姓名</text>
+                <input placeholder="请输入姓名" type="number" data-field="" bindinput="onInput" />
+            </view>
+            <view class='form-group'>
+                <text>电话</text>
+                <input placeholder="请输入电话" type="number" data-field="" bindinput="onInput" />
+            </view>
+            <view class='form-group'>
+                <text>省市区</text>
+                <input placeholder="请选择省市区" data-field="" bindinput="onInput" />
+            </view>
+            <view class='form-group'>
+                <text>地址</text>
+                <input placeholder="请输入地址" data-field="" bindinput="onInput" />
+            </view>
+        </view>
+        <view class="_button" bind:tap="insert">新增</view>
+    </view>
+</view>

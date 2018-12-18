@@ -16,7 +16,8 @@ App({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
       }
-    })
+    });
+    login.apply(this)
   },
 
   globalData: {

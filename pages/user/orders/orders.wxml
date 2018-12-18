@@ -9,7 +9,7 @@
         </view>
         <view class="order">
             <view class="top">
-                <text>订单号：66666666666</text>
+                <text class="orderNo">订单号：66666666666</text>
                 <text class="status">状态</text>
             </view>
             <navigator hover-class="none" class="middle" url="/pages/user/orders/order/order">
@@ -20,13 +20,13 @@
                         规格
                         <text class="num">x1</text>
                     </view>
-                    <view class="price">￥399</view>
+                    <view class="price"><text class="_rmb">￥</text>399</view>
                 </view>
             </navigator>
             <view class="bottom">
                 <text class="button solid">去支付</text>
                 <text class="button">取消订单</text>
-                <text>实付:￥399</text>
+                <text class="total">实付:<text class="price"><text class="_rmb">￥</text>399</text></text>
             </view>
         </view>
     </view>

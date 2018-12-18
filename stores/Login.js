@@ -2,9 +2,13 @@ import http from '../utils/http';
 const regeneratorRuntime = require('../utils/regenerator/runtime-module');
 
 
-const login = () => {
+const login = function () {
+    let app = getApp();
+    if (app === undefined) {
+        app = this;
+    }
     return new Promise((resolve, reject) => {
-        const result = getApp().globalData;
+        const result = app.globalData;
         if (result.user_token) {
             resolve(result);
             return true;

@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/draw/draw",
-					"query": ""
+					"pathName": "pages/enter/index/index",
+					"query": "index=1"
 				}
 			]
 		}

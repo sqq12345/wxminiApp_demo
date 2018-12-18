@@ -14,8 +14,8 @@
 .shop .logo {
     border-radius: 50%;
     border: 1px solid red;
-    width: 140rpx;
-    height: 140rpx;
+    width: 128rpx;
+    height: 128rpx;
     margin-right: 30rpx;
 }
 

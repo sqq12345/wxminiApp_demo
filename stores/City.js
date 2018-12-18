@@ -5,7 +5,7 @@ const extendObservable = require('../utils/mobx/mobx').extendObservable;
 import http from '../utils/http';
 let City = function () {
   extendObservable(this, {
-    selected: -1,
+    selected: null,
     list: [
 
     ],
@@ -39,52 +39,49 @@ City.prototype.getMarkers = function () {
   }]
 }
 const Store = new City();
-setTimeout(function () {
-  Store.list = [
-    { city: '北京市', },
-    { city: '武汉市', },
-    { city: '十堰市', },
-    { city: '广州市', },
-  ];
-  wx.getLocation({
-    type: 'wgs84',
-    success: (res) => {
-      // success  
-      Store.longitude = res.longitude;
-      Store.latitude = res.latitude;
-      // Store.latitude = 23.099994;
-      // Store.longitude = 113.324520;
-      Store.getMarkers();
-      wx.request({
-        url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + Store.latitude + ',' + Store.longitude + '&output=json',
-        data: {},
-        success: (res) => {
-          // success  
-          const name = res.data.result.addressComponent.city;
-          //根据名字找到数组中的城市
-          const selected = Store.list.findIndex(item => {
-            return item.city === name;
-          });
-          Store.selected = selected;
-        },
-        fail: function () {
-          wx.showToast({
-            icon: 'none',
-            title: '获取地址失败',
-            duration: 2000
-          })
-        },
-      })
-    }
-  })
-}, 2000);
-//获取城市列表
 http.request({
-  url: 'api/basics/geographic',
+  url: '/api/basics/geographic',
   method: 'POST',
   success: (response) => {
+    Store.list = response.data.data;
 
+    wx.getLocation({
+      type: 'wgs84',
+      success: (res) => {
+        // success  
+        Store.longitude = res.longitude;
+        Store.latitude = res.latitude;
+        // Store.latitude = 23.099994;
+        // Store.longitude = 113.324520;
+        Store.getMarkers();
+        wx.request({
+          url: 'https://api.map.baidu.com/geocoder/v2/?ak=' + ak + '&location=' + Store.latitude + ',' + Store.longitude + '&output=json',
+          data: {},
+          success: (res) => {
+            // success
+            const name = res.data.result.addressComponent.city;
+            //根据名字找到数组中的城市
+            for (const key in Store.list) {
+              const find = Store.list[key].find(item => {
+                return item.name + '市' == name;
+              });
+              if (find) {
+                Store.selected = find;
+                break;
+              }
+            }
+          },
+          fail: function () {
+            wx.showToast({
+              icon: 'none',
+              title: '获取地址失败',
+              duration: 2000
+            })
+          },
+        })
+      }
+    })
   }
-})
+});
 
 module.exports = Store

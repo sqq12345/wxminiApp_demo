@@ -12,7 +12,8 @@
     "pages/enter/nongchang/nongchang",
     "pages/enter/index/index",
     "pages/comment/comment",
-    "pages/comments/comments"
+    "pages/comments/comments",
+    "pages/cities/cities"
   ],
   "subpackages": [
     {
@@ -27,7 +28,9 @@
         "profile/profile",
         "orders/orders",
         "draw/draw",
-        "group/group"
+        "group/group",
+        "address/add/add",
+        "collection/collection"
       ]
     },
     {
@@ -37,7 +40,8 @@
         "start",
         "result/result"
       ]
-    },{
+    },
+    {
       "root": "pages/detail/",
       "pages": [
         "detail"

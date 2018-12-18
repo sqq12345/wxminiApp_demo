@@ -1,0 +1,46 @@
+/* pages/user/collectioin/collection.wxss */
+
+.item image {
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-right: 20rpx;
+}
+
+.item {
+    display: flex;
+    padding: 30rpx 0;
+    background: #fff;
+    margin-top: 20rpx;
+    padding: 20rpx;
+}
+
+.item .name {
+    font-weight: bold;
+    font-size: 28rpx;
+}
+
+.item .unit {
+    font-size: 24rpx;
+    color: #555555;
+    margin-top: 10rpx;
+}
+
+.item>view {
+    position: relative;
+    flex: 1;
+}
+
+.item .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10rpx 0;
+}
+
+.price {
+    float: right;
+    color: #FF8A00;
+    font-weight: normal;
+}
