@@ -38,7 +38,8 @@
       "pages": [
         "search/search",
         "start",
-        "result/result"
+        "result/result",
+        "success/success"
       ]
     },
     {

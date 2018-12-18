@@ -1,6 +1,10 @@
 // pages/enter/step1/step1.js
 import http from '../../../utils/http';
 import { observer } from '../../../utils/mobx/observer';
+import login from '../../../stores/Login';
+const { regeneratorRuntime } = global;
+//表单提交地址
+let submitUrl = '';
 Page(observer({
   props: {
     form: require('../../../stores/Form'),
@@ -14,55 +18,74 @@ Page(observer({
   /**
    * 页面的初始数据
    */
-  onLoad(options) {
+  async onLoad(options) {
     let title = '';
     let type = '';
     let url = '';
+    let progressUrl = '';
     switch (options.index) {
       case '1':
         url = '/pages/enter/nongchang/nongchang';
+        progressUrl = '/api/shop/merchantProgress';
+        submitUrl = '';
         type = '农场';
         title = '农场入户';
         break;
       case '2':
         url = '/pages/enter/shequn/shequn';
+        progressUrl = '/api/shop/groupProgress';
+        submitUrl = '/api/shop/setgroupone';
         type = '社群';
         title = '社群入驻';
         break;
       case '3':
         url = '/pages/enter/canting/canting';
+        progressUrl = '/api/shop/setdiningone';
+        submitUrl = '/api/shop/setdiningone';
         type = '餐厅';
         title = '餐厅入驻';
         break;
       case '4':
         url = '/pages/enter/chaoshi/chaoshi';
+        progressUrl = '/api/shop/supermarketProgress';
+        submitUrl = '/api/shop/setSupermarketone';
         type = '超市';
         title = '超市入驻';
         break;
       case '5':
         url = '/pages/enter/jishi/jishi';
+        progressUrl = '/api/shop/marketProgress';
+        submitUrl = '/api/shop/setmarketone';
         type = '集市';
         title = '集市入驻';
         break;
     }
-    http.request({
+    const loginResult = await login();
+    //查询进度
+    const progressResult = await http.request({
+      url: progressUrl,
+      method: 'POST',
+      header: {
+        token: loginResult.user_token
+      },
+    });
+    //读取数据
+    const response = await http.request({
       url: 'api/shop/merchant',
       data: {
         shoptype: '' + options.index
       },
       method: 'POST',
-      success: (response) => {
-        const fields = response.data.data;
-        //默认选中第一个
-        fields.map(item => {
-          this.props.form[item.alias] = [item.son[0].id];
-          item.son[0].selected = true;
-        });
-        this.setData({
-          'nvabarData.title': title, type, nextUrl: url, fields
-        })
-      }
     });
+    const fields = response.data.data;
+    //默认选中第一个
+    fields.map(item => {
+      this.props.form[item.alias] = [item.son[0].id];
+      item.son[0].selected = true;
+    });
+    this.setData({
+      'nvabarData.title': title, type, nextUrl: url, fields
+    })
   },
   data: {
     type: '',
@@ -128,16 +151,21 @@ Page(observer({
     if (pass) {
       //提交第一页
       http.request({
-        
+        url: submitUrl,
+        method: 'POST',
+        data: from,
+        success(response) {
+
+        }
       });
-      wx.navigateTo({
-        url: this.data.nextUrl + '?id='
-      });
+      // wx.navigateTo({
+      //   url: this.data.nextUrl + '?id='
+      // });
     } else {
       wx.showToast({
         title: '请填写完整信息',
         icon: 'none',
-        duration: 1500,
+        duration: 2000,
         mask: false,
       });
     }
