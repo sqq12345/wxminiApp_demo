@@ -7,10 +7,7 @@
     "pages/goodslist/goodslist",
     "pages/tabbar/cart/cart",
     "pages/tabbar/shoplist/shoplist",
-    "pages/enter/enter",
     "pages/tabbar/home/search/search",
-    "pages/enter/nongchang/nongchang",
-    "pages/enter/index/index",
     "pages/comment/comment",
     "pages/comments/comments",
     "pages/cities/cities"
@@ -46,6 +43,17 @@
       "root": "pages/detail/",
       "pages": [
         "detail"
+      ]
+    },{
+      "root": "pages/enter/",
+      "pages": [
+        "enter",
+        "index/index",
+        "nongchang/nongchang",
+        "canting/canting",
+        "chaoshi/chaoshi",
+        "shequn/shequn",
+        "jishi/jishi"
       ]
     }
   ],

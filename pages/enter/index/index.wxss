@@ -50,7 +50,7 @@ page {
     margin-right: 20rpx;
     display: inline-block;
     margin-bottom: 20rpx;
-    font-size: 28rpx;
+    font-size: 26rpx;
     border-radius: 5px;
     border: 1px solid transparent;
 }
@@ -65,4 +65,5 @@ page {
 button{
     background: #25CE41;
     color: #fff;
+    font-size: 30rpx;
 }

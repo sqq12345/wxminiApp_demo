@@ -21,6 +21,7 @@ App({
   },
 
   globalData: {
+    upload: 'https://anfou.cc/api/basics/upload',
     openid: null,
     session_key: null,
     user_token: null,

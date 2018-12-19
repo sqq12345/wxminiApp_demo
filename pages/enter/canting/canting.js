@@ -5,7 +5,6 @@ import regex from '../../../utils/regex';
 import { observer } from '../../../utils/mobx/observer';
 const { regeneratorRuntime } = global;
 import verify from '../../../utils/verify';
-const app = getApp();
 Page(observer({
   props: {
     form: require('../../../stores/Form')
@@ -16,11 +15,10 @@ Page(observer({
   data: {
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
-      title: '农场入驻', //导航栏 中间的标题
+      title: '餐厅入驻', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    address: '',
-    //upload: app.globalData.upload,
+    address: ''
   },
   onInput(e) {
     const value = e.detail.value;
@@ -30,36 +28,28 @@ Page(observer({
   chooseAddress() {
     wx.chooseLocation({
       success: (result) => {
-        //选择地址赋值 经纬度赋值
+        //选择地址赋值
         const str = result.address + ' ' + result.name;
         this.props.form['address'] = str;
         this.props.form['latitude'] = result.latitude;
         this.props.form['longitude'] = result.longitude;
         this.setData({ address: str });
+        //赋值经纬度
       },
     });
   },
   onLoad(options) {
-
+    
   },
   /* upload */
-  onFileChange(e) {
-    const { file: { url, uid } } = e.detail;
-    const { field } = e.target.dataset;
-    const arrayBuffer = wx.getFileSystemManager().readFileSync(url);
-    var bytes = new Uint8Array(arrayBuffer);
-    console.log(bytes);
-    var reqTask = wx.request({
-      url: 'http://localhost:8888/upload',
-      data: {
-        file: bytes
-      },
-      
-      method: 'POST',
-      success: (result) => {
+  onUploadSuccess(e) {
 
-      },
-    });
+  },
+  onUploadFail(e) {
+
+  },
+  onUploadComplete(e) {
+    console.log(e);
   },
 
   async submit() {
@@ -71,8 +61,7 @@ Page(observer({
         url: '/api/shop/setmerchant',
         method: 'POST',
         header: {
-          token: result.user_token,
-          'Content-Type': 'multipart/form-data'
+          token: result.user_token
         },
         data: form,
         success: (response) => {
@@ -135,7 +124,7 @@ const config = {
     require: true,
     max: 300
   },
-  licence: {
+  licence:{
     name: '营业执照',
     require: true,
   },

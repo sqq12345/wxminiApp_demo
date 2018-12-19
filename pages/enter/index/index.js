@@ -27,7 +27,7 @@ Page(observer({
       case '1':
         url = '/pages/enter/nongchang/nongchang';
         progressUrl = '/api/shop/merchantProgress';
-        submitUrl = '';
+        submitUrl = '/api/shop/setmerchantone';
         type = '农场';
         title = '农场入户';
         break;
@@ -62,13 +62,24 @@ Page(observer({
     }
     const loginResult = await login();
     //查询进度
-    const progressResult = await http.request({
+    http.request({
       url: progressUrl,
       method: 'POST',
       header: {
         token: loginResult.user_token
       },
+      success: (response) => {
+        //第一页已经提交
+        if (response.data.data.state == 1) {
+          //直接跳第二页  第一页只能填一次
+          wx.redirectTo({
+            url: url + '?id=',
+          });
+          return
+        }
+      }
     });
+
     //读取数据
     const response = await http.request({
       url: 'api/shop/merchant',
@@ -129,7 +140,7 @@ Page(observer({
     })
   },
 
-  navigation() {
+  async navigation() {
     let pass = true;
     //非空检查
     const form = this.props.form;
@@ -142,20 +153,21 @@ Page(observer({
       }
     }
     if (filledCount !== this.data.fields.length) {
-      pass = false;
+      //pass = false;
     }
     //input检查
     if (!form['name'] || form['name'].length === 0) {
-      pass = false;
+      //pass = false;
     }
     if (pass) {
+      const loginResult = await login();
       //提交第一页
-      http.request({
+      const result = await http.request({
         url: submitUrl,
         method: 'POST',
-        data: from,
-        success(response) {
-
+        data: form,
+        header: {
+          token: loginResult.user_token
         }
       });
       // wx.navigateTo({

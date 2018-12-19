@@ -15,28 +15,37 @@ let City = function () {
   });
 }
 City.prototype.getMarkers = function () {
-  this.markers = [{
-    id: 111111,
-    latitude: 23.099994,
-    longitude: 113.324520,
-    iconPath: '/static/icons/map/1-1.png',
-    width: '80rpx',
-    height: '80rpx',
-  }, {
-    id: 2334232,
-    latitude: 23.099994,
-    longitude: 113.344520,
-    iconPath: '/static/icons/map/1-1.png',
-    width: '80rpx',
-    height: '80rpx',
-  }, {
-    id: '奥术大师多撒阿萨德',
-    latitude: 23.099994,
-    longitude: 113.304520,
-    iconPath: '/static/icons/map/1-1.png',
-    width: '80rpx',
-    height: '80rpx',
-  }]
+  // this.markers = [{
+  //   id: 111111,
+  //   latitude: 23.099994,
+  //   longitude: 113.324520,
+  //   iconPath: '/static/icons/map/1-1.png',
+  //   width: '80rpx',
+  //   height: '80rpx',
+  // }, {
+  //   id: 2334232,
+  //   latitude: 23.099994,
+  //   longitude: 113.344520,
+  //   iconPath: '/static/icons/map/1-1.png',
+  //   width: '80rpx',
+  //   height: '80rpx',
+  // }, {
+  //   id: '奥术大师多撒阿萨德',
+  //   latitude: 23.099994,
+  //   longitude: 113.304520,
+  //   iconPath: '/static/icons/map/1-1.png',
+  //   width: '80rpx',
+  //   height: '80rpx',
+  // }];
+  http.request({
+    url:'/getmarker',
+    data:{},
+    header:{},
+    method:'POST',
+    success:(response)=>{
+
+    }
+  })
 }
 const Store = new City();
 http.request({

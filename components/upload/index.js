@@ -134,7 +134,7 @@ Component({
             const { uploadCount: count } = this.calcValue(uploadCount, uploadMax - fileList.length)
             const success = (res) => {
                 this.tempFilePaths = res.tempFilePaths.map((item) => ({ url: item, uid: this.getUid() }))
-                this.triggerEvent('before', {...res, fileList })
+                this.triggerEvent('before', { ...res, fileList })
 
                 // 判断是否取消默认的上传行为
                 if (uploaded) {
@@ -270,13 +270,13 @@ Component({
         uploadFile() {
             if (!this.tempFilePaths.length) return
 
-            const { url, name, header, formData, disabled, progress } = this.data
+            let { url, name, header, formData, disabled, progress } = this.data
+            name = 'images'
             const file = this.tempFilePaths.shift()
             const { uid, url: filePath } = file
-
-            if (!url || !filePath || disabled) return
-
             this.onStart(file)
+            
+            if (!url || !filePath || disabled) return
 
             this.uploadTask[uid] = wx.uploadFile({
                 url,
@@ -303,7 +303,7 @@ Component({
          * @param {Object} e 参数对象
          */
         onPreview(e) {
-            this.triggerEvent('preview', {...e.currentTarget.dataset, fileList: this.data.uploadFileList })
+            this.triggerEvent('preview', { ...e.currentTarget.dataset, fileList: this.data.uploadFileList })
         },
         /**
          * 点击删除图标时的回调函数
@@ -327,7 +327,7 @@ Component({
                 // delete
                 fileList.splice(index, 1)
 
-                this.triggerEvent('remove', {...e.currentTarget.dataset, ...info })
+                this.triggerEvent('remove', { ...e.currentTarget.dataset, ...info })
 
                 this.onChange(info)
             }
