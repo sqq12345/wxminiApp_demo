@@ -14,7 +14,7 @@ Component({
       showCapsule: true,
     },
     //占位view高度
-    occupation:app.globalData.height * 2 + 20
+    occupation:app.globalData.height + 46
   },
   attached: function () {
     // 获取是否是通过分享进入的小程序
