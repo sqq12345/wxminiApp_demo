@@ -7,7 +7,7 @@ const { regeneratorRuntime } = global;
 let submitUrl = '';
 Page(observer({
   props: {
-    form: require('../../../stores/Form'),
+    form: require('../../../stores/Form').values,
   },
   //input赋值
   onInput(e) {
@@ -19,6 +19,10 @@ Page(observer({
    * 页面的初始数据
    */
   async onLoad(options) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    });
     let title = '';
     let type = '';
     let url = '';
@@ -40,7 +44,7 @@ Page(observer({
         break;
       case '3':
         url = '/pages/enter/canting/canting';
-        progressUrl = '/api/shop/setdiningone';
+        progressUrl = '/api/shop/diningProgress';
         submitUrl = '/api/shop/setdiningone';
         type = '餐厅';
         title = '餐厅入驻';
@@ -62,23 +66,65 @@ Page(observer({
     }
     const loginResult = await login();
     //查询进度
-    http.request({
+    const progressResult = await http.request({
       url: progressUrl,
       method: 'POST',
       header: {
         token: loginResult.user_token
       },
-      success: (response) => {
-        //第一页已经提交
-        if (response.data.data.state == 1) {
-          //直接跳第二页  第一页只能填一次
-          wx.redirectTo({
-            url: url + '?id=',
-          });
-          return
-        }
-      }
     });
+
+    //第一页已经填写
+    if (progressResult.data.data.state == 1) {
+      setTimeout(() => {
+        //直接跳第二页  第一页只能填一次
+        wx.redirectTo({
+          url: url + '?id=' + progressResult.data.data.mid,
+        });
+      }, 1000)
+      return false;
+    }
+
+    //已经申请
+    if (progressResult.data.data.state == 2) {
+      wx.hideLoading();
+      wx.showModal({
+        title: '提示',
+        content: '您已提交了相关申请，请耐心等待',
+        success(res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '/pages/tabbar/home/home'
+            });
+          } else if (res.cancel) {
+            wx.switchTab({
+              url: '/pages/tabbar/home/home'
+            });
+          }
+        }
+      })
+      return false;
+    }
+    //已经通过
+    if (progressResult.data.data.state == 3) {
+      wx.hideLoading();
+      wx.showModal({
+        title: '提示',
+        content: '您提交的申请已通过，无须再次申请',
+        success(res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '/pages/tabbar/home/home'
+            });
+          } else if (res.cancel) {
+            wx.switchTab({
+              url: '/pages/tabbar/home/home'
+            });
+          }
+        }
+      })
+      return false;
+    }
 
     //读取数据
     const response = await http.request({
@@ -94,8 +140,9 @@ Page(observer({
       this.props.form[item.alias] = [item.son[0].id];
       item.son[0].selected = true;
     });
+    wx.hideLoading();
     this.setData({
-      'nvabarData.title': title, type, nextUrl: url, fields
+      'nvabarData.title': title, type, nextUrl: url, fields, loading: false
     })
   },
   data: {
@@ -106,7 +153,8 @@ Page(observer({
       title: '', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    fields: []
+    fields: [],
+    loading: true
   },
 
   select(e) {
@@ -144,6 +192,7 @@ Page(observer({
     let pass = true;
     //非空检查
     const form = this.props.form;
+    console.log('表单值', form);
     let filledCount = 0;
     for (const field in form) {
       if (form[field] instanceof Array) {
@@ -153,11 +202,11 @@ Page(observer({
       }
     }
     if (filledCount !== this.data.fields.length) {
-      //pass = false;
+      pass = false;
     }
     //input检查
     if (!form['name'] || form['name'].length === 0) {
-      //pass = false;
+      pass = false;
     }
     if (pass) {
       const loginResult = await login();
@@ -170,9 +219,20 @@ Page(observer({
           token: loginResult.user_token
         }
       });
-      // wx.navigateTo({
-      //   url: this.data.nextUrl + '?id='
-      // });
+      if (result.data.code == 0) {
+        wx.showToast({
+          title: result.data.msg,
+          icon: 'none',
+          duration: 2000,
+          mask: false,
+        });
+        return
+      }
+      //用重定向 避免返回上一页  这个页面提交后不能修改
+      wx.redirectTo({
+        url: this.data.nextUrl + '?id=' + result.data.data.mid
+        //url: this.data.nextUrl
+      });
     } else {
       wx.showToast({
         title: '请填写完整信息',
@@ -181,5 +241,8 @@ Page(observer({
         mask: false,
       });
     }
+  },
+  onUnload() {
+    this.props.form = {};
   }
 }))

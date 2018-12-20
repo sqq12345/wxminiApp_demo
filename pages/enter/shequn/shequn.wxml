@@ -23,9 +23,9 @@
                 <input placeholder="请输入其他联系方式" data-field="other" bindinput="onInput"/>
             </view>
             <view class='form-group'>
-                <text>农场规模</text>
-                <input placeholder="只可填写数字" type="number" data-field="farmsize" bindinput="onInput"/>
-                <text style="text-align:right">（亩）</text>
+                <text>社群人数</text>
+                <input placeholder="只可填写数字" type="number" data-field="nums" bindinput="onInput"/>
+                <text style="text-align:right">（人）</text>
             </view>
             <view class='form-group'>
                 <text>地址</text>
@@ -34,60 +34,48 @@
             </view>
             <view class='form-group'>
                 <text>封面</text>
-                <wux-upload data-field="cover" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <wux-upload data-field="cover" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text>简介</text>
-                <textarea bindinput="onInput" data-field="memo"  placeholder='可介绍下农场成立的初衷，农场特色，农场产品等。' maxlength="300"></textarea>
+                <textarea bindinput="onInput" data-field="memo"  placeholder='可以简单介绍一下你的社群，需要的产品。' maxlength="300"></textarea>
             </view>
             <view class='form-group'>
-                <text>农场图片</text>
-                <wux-upload data-field="Idaho" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <text>产品图片</text>
+                <wux-upload data-field="pics" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
-                <text>农夫故事</text>
-                <textarea bindinput="onInput" data-field="story" placeholder='可以说说自己的故事，让更多的人了解你' maxlength="300"></textarea>
+                <text>社群故事</text>
+                <textarea bindinput="onInput" data-field="story" placeholder='可以说说社群的故事，成立的时间，让更多的人了解。' maxlength="300"></textarea>
             </view>
             <view class='form-group'>
                 <text>营业执照</text>
-                <wux-upload data-field="licence" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <wux-upload data-field="licence" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text>个人身份证</text>
-                <wux-upload data-field="idcard" listType="picture-card" max="1" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <wux-upload data-field="idcard" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
                     <text>正面</text>
                 </wux-upload>
-                <wux-upload data-field="idcardback" style="margin-left:30rpx" listType="picture-card" max="1" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <wux-upload data-field="idcardback" style="margin-left:20rpx" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text>反面</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text>品牌授权</text>
-                <wux-upload data-field="brand" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <wux-upload data-field="brand" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
-                <text style="display:block;width:100%;margin-bottom:20rpx">企业生产许可证/食品经营许可证/食品流通许可证(3选1)</text>
-                <wux-upload data-field="enterprise" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text style="display:block;width:100%;margin-bottom:20rpx">质检报告(质监局/SGS等专业检测机构)</text>
-                <wux-upload data-field="report" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text style="display:block;width:100%;margin-bottom:20rpx">有机认证/绿色认证</text>
-                <wux-upload data-field="organic" listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+                <text style="display:block;width:100%;margin-bottom:20rpx">食品经营许可证/食品流通许可证(2选1)</text>
+                <wux-upload data-field="qs" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>

@@ -29,10 +29,27 @@ function request(options) {
         resolve(response)
       },
       fail: (error) => {
-        console.warn('request' + url + ':error');
-        reject(error)
+        console.log('shit happen');
+        //reject(error)
       },
-      complete: () => { }
+      complete: (e) => {
+        let msg = '';
+        switch (e.statusCode) {
+          case 404:
+            msg = '找不到服务器';
+            break;
+          case 500:
+            msg = '服务器错误';
+            break;
+        }
+        if (msg != '') {
+          wx.showToast({
+            title: '网络请求失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
     })
   });
 }

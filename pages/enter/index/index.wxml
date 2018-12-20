@@ -1,7 +1,7 @@
 <!-- pages/enter/step1/step1.wxml -->
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class='container'>
+    <view class='container' wx:if="{{!loading}}">
         <view class='code'>
             <input placeholder="点击输入邀请码" placeholder-class='placeholder' bindinput="onInput" data-field="icode"/>
         </view>

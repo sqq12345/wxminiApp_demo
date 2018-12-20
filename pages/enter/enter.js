@@ -1,5 +1,7 @@
 // pages/enter/enter.js
 const app = getApp();
+import login from '../../stores/Login';
+const { regeneratorRuntime } = global;
 Page({
 
   /**
@@ -13,4 +15,8 @@ Page({
     },
     occupation:app.globalData.height * 2 + 20,
   },
+
+  onLoad(){
+    
+  }
 })

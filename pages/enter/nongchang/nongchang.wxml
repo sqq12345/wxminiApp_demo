@@ -34,7 +34,7 @@
             </view>
             <view class='form-group'>
                 <text>封面</text>
-                <wux-upload data-field="cover" listType="picture-card" max="4" bind:change="onFileChange">
+                <wux-upload data-field="cover" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
@@ -44,7 +44,7 @@
             </view>
             <view class='form-group'>
                 <text>农场图片</text>
-                <wux-upload data-field="Idaho" listType="picture-card" max="4">
+                <wux-upload data-field="Idaho" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
@@ -54,40 +54,40 @@
             </view>
             <view class='form-group'>
                 <text>营业执照</text>
-                <wux-upload data-field="licence" listType="picture-card" max="4">
+                <wux-upload data-field="licence" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text>个人身份证</text>
-                <wux-upload data-field="idcard" listType="picture-card" max="1">
+                <wux-upload data-field="idcard" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
                     <text>正面</text>
                 </wux-upload>
-                <wux-upload data-field="idcardback" style="margin-left:30rpx" listType="picture-card" max="1">
+                <wux-upload data-field="idcardback" style="margin-left:20rpx" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text>反面</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text>品牌授权</text>
-                <wux-upload data-field="brand" listType="picture-card" max="4">
+                <wux-upload data-field="brand" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text style="display:block;width:100%;margin-bottom:20rpx">企业生产许可证/食品经营许可证/食品流通许可证(3选1)</text>
-                <wux-upload data-field="enterprise" listType="picture-card" max="4">
+                <wux-upload data-field="enterprise" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text style="display:block;width:100%;margin-bottom:20rpx">质检报告(质监局/SGS等专业检测机构)</text>
-                <wux-upload data-field="report" listType="picture-card" max="4">
+                <wux-upload data-field="report" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>
             <view class='form-group'>
                 <text style="display:block;width:100%;margin-bottom:20rpx">有机认证/绿色认证</text>
-                <wux-upload data-field="organic" listType="picture-card" max="4">
+                <wux-upload data-field="organic" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>

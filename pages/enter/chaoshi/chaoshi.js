@@ -7,7 +7,7 @@ const { regeneratorRuntime } = global;
 import verify from '../../../utils/verify';
 Page(observer({
   props: {
-    form: require('../../../stores/Form')
+    form: require('../../../stores/Form').values
   },
   /**
    * 页面的初始数据
@@ -39,26 +39,40 @@ Page(observer({
     });
   },
   onLoad(options) {
-    
+    this.props.form['mid'] = options.id;
   },
   /* upload */
-  onUploadSuccess(e) {
-
-  },
   onUploadFail(e) {
 
   },
-  onUploadComplete(e) {
-    console.log(e);
+  onRemove(e) {
+    const data = e.detail.file.res.data;
+    if (data) {
+      const { field } = e.target.dataset;
+      const json = JSON.parse(data);
+      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '')
+    }
+  },
+  onComplete(e) {
+    const { detail: { data } } = e;
+    if (data) {
+      const { field } = e.target.dataset;
+      const json = JSON.parse(data);
+      if (this.props.form[field] == undefined) {
+        this.props.form[field] = json.data.img
+      } else {
+        this.props.form[field] += ',' + json.data.img
+      }
+    }
   },
 
   async submit() {
     const result = await login();
     const form = this.props.form;
-    //console.log(form);
+    console.log(form);
     if (verify(form, config)) {
       http.request({
-        url: '/api/shop/setmerchant',
+        url: '/api/shop/setSupermarkettwo',
         method: 'POST',
         header: {
           token: result.user_token
@@ -73,7 +87,21 @@ Page(observer({
             });
           } else {
             //success
-
+            wx.showModal({
+              title: '提示',
+              content: '申请成功，请等待耐心等待',
+              success(res) {
+                if (res.confirm) {
+                  wx.switchTab({
+                    url: '/pages/tabbar/home/home'
+                  });
+                } else if (res.cancel) {
+                  wx.switchTab({
+                    url: '/pages/tabbar/home/home'
+                  });
+                }
+              }
+            })
           }
         }
       })
@@ -89,17 +117,25 @@ const config = {
   },
   mobile: {
     name: '手机号码',
-    regex: regex.cellphone
+    regex: regex.cellphone,
+    require: true,
   },
   telephone: {
     name: '固定电话',
-    regex: regex.telphone
+    regex: regex.telphone,
+    require: true,
   },
   other: {
     name: '其他',
+    require: true,
   },
-  farmsize: {
-    name: '农场规模',
+  idcard: {
+    name: '身份证号',
+    require: true,
+    regex: regex.idcard
+  },
+  nums: {
+    name: '产品种类',
     require: true,
   },
   address: {
@@ -115,41 +151,13 @@ const config = {
     require: true,
     max: 300
   },
-  Idaho: {
-    name: '农场图片',
+  pics: {
+    name: '产品图片',
     require: true,
   },
   story: {
-    name: '农夫故事',
+    name: '超市故事',
     require: true,
     max: 300
   },
-  licence:{
-    name: '营业执照',
-    require: true,
-  },
-  idcard: {
-    name: '身份证正面',
-    require: true,
-  },
-  idcardback: {
-    name: '身份证反面',
-    require: true,
-  },
-  brand: {
-    name: '品牌授权',
-    require: true,
-  },
-  enterprise: {
-    name: '企业生产许可证/食品经营许可证/食品流通许可证',
-    require: true,
-  },
-  report: {
-    name: '质检报告(质监局/SGS等专业检测机构)',
-    require: true,
-  },
-  organic: {
-    name: '有机认证/绿色认证',
-    require: true,
-  }
 }

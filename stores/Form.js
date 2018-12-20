@@ -4,7 +4,7 @@
 const extendObservable = require('../utils/mobx/mobx').extendObservable;
 let Form = function () {
     extendObservable(this, {
-       
+        values: {}
     })
 }
 const Store = new Form();

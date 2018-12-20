@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/enter/nongchang/nongchang",
+					"pathName": "pages/tabbar/shoplist/shoplist",
 					"query": "index=1"
 				}
 			]

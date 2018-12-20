@@ -58,3 +58,11 @@ button {
     color: #fff;
     font-size: 30rpx;
 }
+
+.half{
+    display: flex;
+}
+
+.half .form-group>text:last-of-type{
+    width: auto;
+}

@@ -11,6 +11,8 @@ let City = function () {
     ],
     latitude: null,
     longitude: null,
+    user_latitude: null,
+    user_longitude: null,
     markers: []
   });
 }
@@ -38,11 +40,11 @@ City.prototype.getMarkers = function () {
   //   height: '80rpx',
   // }];
   http.request({
-    url:'/getmarker',
-    data:{},
-    header:{},
-    method:'POST',
-    success:(response)=>{
+    url: '/getmarker',
+    data: {},
+    header: {},
+    method: 'POST',
+    success: (response) => {
 
     }
   })
@@ -60,6 +62,9 @@ http.request({
         // success  
         Store.longitude = res.longitude;
         Store.latitude = res.latitude;
+        //用户所处位置
+        Store.user_latitude = res.latitude;
+        Store.user_longitude = res.latitude;
         // Store.latitude = 23.099994;
         // Store.longitude = 113.324520;
         Store.getMarkers();

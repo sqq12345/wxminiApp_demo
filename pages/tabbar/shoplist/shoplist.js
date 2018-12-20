@@ -1,6 +1,7 @@
 // pages/tabbar/shoplist/shoplist.js
 import { observer } from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
+const { regeneratorRuntime } = global;
 
 Page(observer({
   props: {
@@ -23,10 +24,10 @@ Page(observer({
     selectedType: '1',
     //排序
     sorts: [
-      { text: '默认排序', value: '1' },
-      { text: '销量', value: '2' },
+      { text: '默认排序', value: '0' },
+      { text: '销量', value: '1' },
     ],
-    selectedSort: '1',
+    selectedSort: '0',
     //当前页数
     page: 1,
     list: [],
@@ -38,12 +39,35 @@ Page(observer({
   },
   fetchList() {
     setTimeout(() => {
-      this.setData({
-        list: this.data.list.concat([{}, {}, {}])
-      }, () => {
-        this.setData({ loading: false });
+      // this.setData({
+      //   list: this.data.list.concat([{}, {}, {}])
+      // }, () => {
+      //   this.setData({ loading: false });
+      // })
+
+      http.request({
+        url: '/api/shop/allbusinesses',
+        method: 'POST',
+        header: {
+          longitude: this.props.city.user_longitude,
+          latitude: this.props.city.user_latitude
+        },
+        data: {
+          cityid: this.props.city.selected.id,
+          order: this.data.selectedSort,
+          btype: this.data.selectedType,
+          page: this.data.page,
+        },
+        success: (response) => {
+  
+        }
       })
-    }, 1000)
+
+    }, 1000);
+    
+
+
+    
   },
   /**
    * 生命周期函数--监听页面加载
@@ -60,8 +84,8 @@ Page(observer({
           return b.sort - a.sort;
         });
         //temp
-        arr.map(item=>{
-          item.avatar = item.avatar.replace('http://af.dev.com','')
+        arr.map(item => {
+          item.avatar = item.avatar.replace('http://af.dev.com', '')
         });
         this.setData({ imgUrls: response.data.data })
       }
@@ -86,11 +110,7 @@ Page(observer({
     }
     //重新加载数据
     this.setData({ loading: true, list: [] }, () => {
-      setTimeout(() => {
-        this.setData({ list: [{}, {}, {}] }, () => {
-          this.setData({ loading: false });
-        });
-      }, 1000)
+      this.fetchList();
     });
   },
 

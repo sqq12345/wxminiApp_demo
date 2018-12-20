@@ -11,10 +11,10 @@ Page(observer({
     // 组件所需的参数
     nvabarData: {
       showCapsule: false, //是否显示左上角图标
-      title: '附件商家', //导航栏 中间的标题
+      title: '附近商家', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    occupation: app.globalData.height * 2 + 20,
+    occupation: app.globalData.height + 40,
     //杂项
     types: [
       { name: '附件农场', id: 1 },

@@ -5,10 +5,9 @@ import regex from '../../../utils/regex';
 import { observer } from '../../../utils/mobx/observer';
 const { regeneratorRuntime } = global;
 import verify from '../../../utils/verify';
-const app = getApp();
 Page(observer({
   props: {
-    form: require('../../../stores/Form')
+    form: require('../../../stores/Form').values
   },
   /**
    * 页面的初始数据
@@ -19,8 +18,7 @@ Page(observer({
       title: '农场入驻', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    address: '',
-    //upload: app.globalData.upload,
+    address: ''
   },
   onInput(e) {
     const value = e.detail.value;
@@ -30,7 +28,7 @@ Page(observer({
   chooseAddress() {
     wx.chooseLocation({
       success: (result) => {
-        //选择地址赋值 经纬度赋值
+        //选择地址赋值 赋值经纬度
         const str = result.address + ' ' + result.name;
         this.props.form['address'] = str;
         this.props.form['latitude'] = result.latitude;
@@ -40,39 +38,45 @@ Page(observer({
     });
   },
   onLoad(options) {
+    this.props.form['mid'] = options.id;
+    const pages = getCurrentPages();
+    const prevPage = pages[pages.length - 2];  //上一个页面
+    //prevPage.setData({ mid: options.id })
+  },
+  onUploadFail(e) {
 
   },
-  /* upload */
-  onFileChange(e) {
-    const { file: { url, uid } } = e.detail;
-    const { field } = e.target.dataset;
-    const arrayBuffer = wx.getFileSystemManager().readFileSync(url);
-    var bytes = new Uint8Array(arrayBuffer);
-    console.log(bytes);
-    var reqTask = wx.request({
-      url: 'http://localhost:8888/upload',
-      data: {
-        file: bytes
-      },
-      
-      method: 'POST',
-      success: (result) => {
-
-      },
-    });
+  onRemove(e) {
+    const data = e.detail.file.res.data;
+    if (data) {
+      const { field } = e.target.dataset;
+      const json = JSON.parse(data);
+      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '')
+    }
+  },
+  onComplete(e) {
+    const { detail: { data } } = e;
+    if (data) {
+      const { field } = e.target.dataset;
+      const json = JSON.parse(data);
+      if (this.props.form[field] == undefined) {
+        this.props.form[field] = json.data.img
+      } else {
+        this.props.form[field] += ',' + json.data.img
+      }
+    }
   },
 
   async submit() {
     const result = await login();
     const form = this.props.form;
-    //console.log(form);
+    console.log(form);
     if (verify(form, config)) {
       http.request({
-        url: '/api/shop/setmerchant',
+        url: '/api/shop/setmerchanttwo',
         method: 'POST',
         header: {
-          token: result.user_token,
-          'Content-Type': 'multipart/form-data'
+          token: result.user_token
         },
         data: form,
         success: (response) => {
@@ -84,7 +88,21 @@ Page(observer({
             });
           } else {
             //success
-
+            wx.showModal({
+              title: '提示',
+              content: '申请成功，请等待耐心等待',
+              success(res) {
+                if (res.confirm) {
+                  wx.switchTab({
+                    url: '/pages/tabbar/home/home'
+                  });
+                } else if (res.cancel) {
+                  wx.switchTab({
+                    url: '/pages/tabbar/home/home'
+                  });
+                }
+              }
+            })
           }
         }
       })
@@ -100,14 +118,17 @@ const config = {
   },
   mobile: {
     name: '手机号码',
-    regex: regex.cellphone
+    regex: regex.cellphone,
+    require: true,
   },
   telephone: {
     name: '固定电话',
-    regex: regex.telphone
+    regex: regex.telphone,
+    require: true,
   },
   other: {
     name: '其他',
+    require: true,
   },
   farmsize: {
     name: '农场规模',
@@ -162,5 +183,13 @@ const config = {
   organic: {
     name: '有机认证/绿色认证',
     require: true,
+  },
+  latitude: {
+    require: true,
+    msg: '请在地图上选择位置'
+  },
+  longitude: {
+    require: true,
+    msg: '请在地图上选择位置'
   }
 }
