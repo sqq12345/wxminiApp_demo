@@ -2,12 +2,12 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="header">
         <image src="/static/bg/goodslist/bg.png" class="_bg"/>
-        <image class="logo" />
-        <text class="title">Title</text>
+        <image class="logo" src="{{detail.logo}}"/>
+        <text class="title">{{detail.name}}</text>
         <view class="info">
-            <text>农场ID</text>
-            <text class="total">总销量:<text>123456</text></text>
-            <navigator hover-class="none" url="/pages/detail/detail">详情</navigator>
+            <text>农场ID：{{detail.id}}</text>
+            <text class="total">总销量：<text>{{detail.sales==null?0:detail.sales}}</text></text>
+            <navigator hover-class="none" url="/pages/detail/detail?id={{detail.id}}&type={{detail.type}}">详情</navigator>
         </view>
     </view>
     <view class="container">
@@ -16,15 +16,14 @@
             <text>默认排序</text>
         </view>
         <view class="list">
-            <view class="item">
-                <image />
+            <navigator hover-class="none" url="/pages/goods/goods?id={{item.id}}" class="item" wx:for="{{detail.goods}}" wx:key="{{index}}">
+                <image src="{{item.thumb_image}}"/>
                 <view class="info">
-                    <text class="name">商品名</text>
-                    <text class="price">￥99.99</text>
-                    <text class="extr">已售888 评分5.0</text>
+                    <text class="name">{{item.title}}</text>
+                    <text class="price">￥{{item.price}}</text>
+                    <text class="extr">已售888 评分{{item.score}}</text>
                 </view>
-            </view>
-            
+            </navigator>
         </view>
     </view>
 </view>

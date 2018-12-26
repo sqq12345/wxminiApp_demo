@@ -50,7 +50,8 @@ Page(observer({
     if (data) {
       const { field } = e.target.dataset;
       const json = JSON.parse(data);
-      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '')
+      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '');
+      this.props.form[field] = this.props.form[field].replace(',' + json.data.img, '');
     }
   },
   onComplete(e) {
@@ -134,8 +135,12 @@ const config = {
     require: true,
     regex: regex.idcard
   },
-  farmsize: {
-    name: '农场规模',
+  nums:{
+    name: '餐桌数',
+    require: true,
+  },
+  person_nums:{
+    name: '可接待',
     require: true,
   },
   address: {

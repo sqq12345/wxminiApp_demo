@@ -32,42 +32,35 @@ Page(observer({
     page: 1,
     list: [],
     loading: false,
+    //没有更多数据了
+    end: false,
 
     imgUrls: [
 
     ],
   },
-  fetchList() {
-    setTimeout(() => {
-      // this.setData({
-      //   list: this.data.list.concat([{}, {}, {}])
-      // }, () => {
-      //   this.setData({ loading: false });
-      // })
-
-      http.request({
-        url: '/api/shop/allbusinesses',
-        method: 'POST',
-        header: {
-          longitude: this.props.city.user_longitude,
-          latitude: this.props.city.user_latitude
-        },
-        data: {
-          cityid: this.props.city.selected.id,
-          order: this.data.selectedSort,
-          btype: this.data.selectedType,
-          page: this.data.page,
-        },
-        success: (response) => {
-  
-        }
-      })
-
-    }, 1000);
-    
-
-
-    
+  async fetchList() {
+    await this.props.city.fetchData();
+    http.request({
+      url: '/api/shop/allbusinesses',
+      method: 'POST',
+      header: {
+        longitude: this.props.city.user_longitude,
+        latitude: this.props.city.user_latitude
+      },
+      data: {
+        cityid: this.props.city.selected.id,
+        order: this.data.selectedSort,
+        btype: this.data.selectedType,
+        page: this.data.page,
+      },
+      success: (response) => {
+        const list = this.data.list;
+        //没有更多了
+        const end = response.data.data.last_page == this.data.page;
+        this.setData({ list: list.concat(response.data.data.data), end, loading: false, page: this.data.page + 1 })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -85,7 +78,7 @@ Page(observer({
         });
         //temp
         arr.map(item => {
-          item.avatar = item.avatar.replace('http://af.dev.com', '')
+          item.avatar = item.avatar.replace('http://af.dev.com/', '')
         });
         this.setData({ imgUrls: response.data.data })
       }
@@ -109,13 +102,13 @@ Page(observer({
         break;
     }
     //重新加载数据
-    this.setData({ loading: true, list: [] }, () => {
+    this.setData({ page: 1, loading: true, end: false, list: [] }, () => {
       this.fetchList();
     });
   },
 
   onReachBottom() {
-    if (this.data.loading) return;
+    if (this.data.loading || this.data.end) return;
     this.setData({ loading: true }, () => {
       this.fetchList();
     });

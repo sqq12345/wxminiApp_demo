@@ -91,10 +91,10 @@
                     <image src="/static/icons/user/7.png" />
                     购物车
                 </navigator>
-                <view class="icon">
+                <navigator class="icon" hover-class="none" url="/pages/user/coupon/coupon">
                     <image src="/static/icons/user/8.png" />
                     优惠券
-                </view>
+                </navigator>
                 <navigator class="icon" hover-class="none" url="/pages/user/collection/collection">
                     <image src="/static/icons/user/9.png" />
                     收藏

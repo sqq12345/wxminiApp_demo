@@ -54,7 +54,7 @@
             </view>
             <view class='form-group'>
                 <text>营业执照</text>
-                <wux-upload data-field="licence" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <wux-upload data-field="enterprise" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                     <text class="plus">+</text>
                 </wux-upload>
             </view>

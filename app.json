@@ -27,7 +27,8 @@
         "draw/draw",
         "group/group",
         "address/add/add",
-        "collection/collection"
+        "collection/collection",
+        "coupon/coupon"
       ]
     },
     {
@@ -44,7 +45,8 @@
       "pages": [
         "detail"
       ]
-    },{
+    },
+    {
       "root": "pages/enter/",
       "pages": [
         "enter",
@@ -75,7 +77,7 @@
       },
       {
         "pagePath": "pages/tabbar/shoplist/shoplist",
-        "iconPath": "/static/icons/tabbar/3-copy.png",
+        "iconPath": "/static/icons/tabbar/2.png",
         "selectedIconPath": "/static/icons/tabbar/2-selected.png",
         "text": "商家列表"
       },

@@ -213,7 +213,7 @@ swiper {
     display: flex;
 }
 
-.bottom-btn .nav>view {
+.bottom-btn .nav>view,.bottom-btn .nav>navigator {
     font-size: 24rpx !important;
     flex: 1;
     display: inline-flex;
@@ -247,6 +247,7 @@ swiper {
 
 .detail {
     background: #fff;
+    padding: 0 20rpx;
 }
 
 .detail .text {

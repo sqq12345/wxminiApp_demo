@@ -1,20 +1,26 @@
 /* pages/tabbar/shoplist/shoplist.wxss */
-swiper image{
+
+swiper image {
     width: 100%;
     border-radius: 5px;
 }
 
-swiper{
+swiper {
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0px 10px 20px 10px #eeeeee
 }
 
-.container{
+swiper-item{
+    border-radius: 5px;
+}
+
+.container {
     padding: 0 30rpx;
     background: #fff;
 }
 
-.sort{
+.sort {
     display: flex;
     align-items: center;
     padding: 10rpx 0;
@@ -23,25 +29,31 @@ swiper{
     padding-bottom: 30rpx;
 }
 
-.sort .btns text{
+.sort .btns text {
     border-radius: 40rpx;
     padding: 10rpx 30rpx;
     color: #25CE41;
 }
 
-.sort .btns text.selected{
+.sort .btns text.selected {
     background: #25CE41;
     color: #fff;
 }
 
-.sort>view:last-of-type text{
+.sort>view:last-of-type text {
     margin-left: 20rpx;
 }
 
-.sort .sorts text{
+.sort .sorts text {
     color: #777;
 }
 
-.sort .sorts .selected{
+.sort .sorts .selected {
     color: #000;
+}
+
+.nomore{
+    text-align: center;
+    padding-bottom: 30rpx;
+    color: #777;
 }

@@ -15,21 +15,21 @@
         <view class="unit">
             <view>
                 规格:
-                <text>500g/斤</text>
+                <text>{{goods.specification}}</text>
             </view>
             <view>
                 配送范围:
                 <text>北京市</text>
             </view>
         </view>
-        <view class="title">精品牛腩块</view>
+        <view class="title">{{goods.title}}</view>
         <view class="desc">
             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         </view>
         <view class="extr">
             <text>快递</text>
-            <text>已售</text>
-            <text>库存</text>
+            <text>已售{{goods.sales}}</text>
+            <text>库存{{goods.stock}}件</text>
         </view>
     </view>
     <view class="comments">
@@ -78,7 +78,7 @@
                 </view>
             </view>
         </view>
-        <navigator url="/pages/comments/comments" class="btn-all">查看全部</navigator>
+        <navigator url="/pages/comments/comments?id={{goods.id}}" class="btn-all">查看全部</navigator>
     </view>
     <view class="shop">
         <image class="logo" />
@@ -91,6 +91,7 @@
     <view class="detail">
         <view class="text">- 商品详情 -</view>
         <!-- 商品长图 -->
+        <rich-text type="text" nodes="{{goods.content}}"></rich-text>
     </view>
     <view class="bottom-btn">
         <view class="nav">
@@ -98,12 +99,12 @@
                 <image src="/static/icons/goods/1.png" />
                 收藏
             </view>
-            <view>
+            <navigator hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
                 <image src="/static/icons/goods/2.png" />
                 购物车
-            </view>
+            </navigator>
         </view>
-        <view class="add">加入购物车</view>
+        <view class="add" bind:tap="addCart">加入购物车</view>
         <view class="buy">立即购买</view>
     </view>
 </view>

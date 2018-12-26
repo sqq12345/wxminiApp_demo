@@ -4,16 +4,16 @@
         <view class="rater">
             <text>商品评价</text>
             <view>
-                <wux-rater allow-half allow-clear allow-touch-move value="{{raterValue}}" controlled bind:change="raterChange" />
-                <text class="score">{{raterValue}}分</text>
+                <wux-rater allow-half allow-clear allow-touch-move value="{{form.ranks}}" controlled bind:change="raterChange" />
+                <text class="score">{{form.ranks}}分</text>
             </view>
         </view>
         <view class="textarea">
-            <textarea placeholder="请输入您的评论..." />
-            <wux-upload listType="picture-card" header="{{uploadOptions.header}}" name="{{uploadOptions.name}}" max="{{uploadOptions.max}}" url="{{uploadOptions.url}}" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
+            <textarea placeholder="请输入您的评论..." bindinput="onInput"/>
+            <wux-upload listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                 <image src="/static/icons/upload.png" />
             </wux-upload>
         </view>
-        <view class="_button">提交评论</view>
+        <view class="_button" bindtap="submit">提交评论</view>
     </view>
 </view>

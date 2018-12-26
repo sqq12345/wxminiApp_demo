@@ -1,9 +1,9 @@
 <!-- components/shop/shpo.wxml -->
 <view>
     <view class='shop'>
-        <navigator url="/pages/goodslist/goodslist" hover-class="none"><image class="logo" /></navigator>
+        <navigator url="/pages/goodslist/goodslist?id={{item.id}}" hover-class="none"><image class="logo" /></navigator>
         <view class="text">
-            <view class="title">商家名称</view>
+            <view class="title">{{item.name}}</view>
             <view class="info">
                 <view><image class="icon" src="/static/icons/shops/1.png"/><text>地址</text></view>
                 <text>距离</text>

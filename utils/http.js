@@ -44,7 +44,7 @@ function request(options) {
         }
         if (msg != '') {
           wx.showToast({
-            title: '网络请求失败',
+            title: msg,
             icon: 'none',
             duration: 2000
           })

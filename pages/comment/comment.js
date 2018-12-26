@@ -1,5 +1,7 @@
 // pages/comment/comment.js
 import http from '../../utils/http';
+import login from '../../stores/Login';
+const { regeneratorRuntime } = global;
 Page({
 
   /**
@@ -11,16 +13,14 @@ Page({
       title: '留言评论', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    raterValue: 3.5,
-    uploadOptions: {
-      header: {
-        'content-Type': 'multipart/form-data',
-        'accesstoken': http.accesstoken
-      },
-      max: 4,
-      url: 'https://anfou.cc/api/basics/upload',
-      name: 'images'
-    }
+    form: {
+      mid: 1,
+      gid: 1,
+      content_text: '',
+      ranks: 5,
+      content_img: '',
+      parent_id: undefined
+    },
   },
 
   /**
@@ -32,18 +32,66 @@ Page({
 
   raterChange(e) {
     this.setData({
-      raterValue: e.detail.value,
+      'form.ranks': e.detail.value,
     })
   },
-
-  /* upload */
-  onUploadSuccess(e) {
-
+  onInput(e) {
+    this.setData({
+      'form.content_text': e.detail.value,
+    })
   },
   onUploadFail(e) {
 
   },
-  onUploadComplete(e) {
-    console.log(e);
+  onRemove(e) {
+    const data = e.detail.file.res.data;
+    if (data) {
+      const json = JSON.parse(data);
+      this.setData({
+        'form.content_img': this.data.form.content_img.replace(json.data.img + ',', '')
+      });
+      this.setData({
+        'form.content_img': this.data.form.content_img.replace(',' + json.data.img, '')
+      })
+    }
+  },
+  onComplete(e) {
+    const { detail: { data } } = e;
+    if (data) {
+      const json = JSON.parse(data);
+      if (this.data.form.content_img == '') {
+        this.setData({
+          'form.content_img': json.data.img
+        })
+      } else {
+        this.setData({
+          'form.content_img': this.data.form.content_img + ',' + json.data.img
+        })
+      }
+    }
+  },
+  submit: async function () {
+    console.log(this.data.form);
+    if (this.data.form.content_text == '') {
+      wx.showToast({
+        title: '评论内容不能为空',
+        icon: 'none',
+        duration: 1500,
+        mask: false,
+      });
+      return false;
+    }
+    const result = await login();
+    http.request({
+      url: '/api/user/message',
+      method: 'POST',
+      header: {
+        token: result.user_token
+      },
+      data: this.data.form,
+      success: (response) => {
+
+      }
+    })
   }
 })

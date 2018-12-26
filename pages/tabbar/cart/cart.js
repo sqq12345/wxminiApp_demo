@@ -13,7 +13,8 @@ Page(observer({
       showCapsule: true, //是否显示左上角图标
       title: '购物车', //导航栏 中间的标题
       transparent: false //透明导航栏
-    }
+    },
+    editing: false,
   },
   //商品数量增加
   increase(e) {
@@ -34,15 +35,20 @@ Page(observer({
       this.props.cart.list[cartIndex].select()
     }
   },
+  edit() {
+    this.setData({ editing: !this.data.editing });
+  },
+  delete() {
+    this.props.cart.delete();
+  },
   //全部选中
-  selectAll(){
+  selectAll() {
     this.props.cart.selectAll();
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    
   },
-
+  onShow(){
+    this.props.cart.fetchData()
+  }
 }))

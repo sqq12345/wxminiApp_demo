@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/tabbar/shoplist/shoplist",
-					"query": "index=1"
+					"pathName": "pages/detail/detail",
+					"query": "id=1&type=1"
 				}
 			]
 		}

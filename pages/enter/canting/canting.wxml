@@ -29,12 +29,12 @@
             <view class="half">
                 <view class='form-group'>
                     <text>餐桌数</text>
-                    <input placeholder="必填" type="number" data-field="" bindinput="onInput" />
+                    <input data-field="nums" placeholder="必填" type="number" bindinput="onInput" />
                     <text style="text-align:right">（数）</text>
                 </view>
                 <view class='form-group'>
                     <text>可接待</text>
-                    <input placeholder="必填" type="number" data-field="" bindinput="onInput" />
+                    <input data-field="person_nums" placeholder="必填" type="number" bindinput="onInput" />
                     <text style="text-align:right">（人）</text>
                 </view>
             </view>

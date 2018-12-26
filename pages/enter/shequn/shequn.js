@@ -50,7 +50,8 @@ Page(observer({
     if (data) {
       const { field } = e.target.dataset;
       const json = JSON.parse(data);
-      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '')
+      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '');
+      this.props.form[field] = this.props.form[field].replace(',' + json.data.img, '');
     }
   },
   onComplete(e) {
@@ -152,7 +153,7 @@ const config = {
     require: true,
     max: 300
   },
-  licence:{
+  enterprise: {
     name: '营业执照',
     require: true,
   },

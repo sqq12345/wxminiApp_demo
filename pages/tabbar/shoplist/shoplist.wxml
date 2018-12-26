@@ -18,8 +18,8 @@
                 <text data-condition="sort" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
             </view>
         </view>
-        <shop wx:for="{{list}}" wx:key="{{index}}" />
-        <view class='loading'>
+        <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"/>
+        <view class='loading' wx:if="{{!end}}">
             <view class='loading-gif'>
                 <view class='a' />
                 <view class='b' />
@@ -27,6 +27,9 @@
                 <view class='d' />
                 <view class='e' />
             </view>
+        </view>
+        <view class='nomore' wx:if="{{end}}">
+            没有更多
         </view>
     </view>
 </view>

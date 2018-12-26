@@ -1,7 +1,7 @@
 <view class="container">
     <header navbar-data='{{nvabarData}}' />
     <view class="head">
-        <image src="x3.png" class="_bg" />
+        <image src="1.png" class="_bg" />
         <image class="logo" />
         <view class="title">安否有机自营农场</view>
         <view>农场规模:25亩</view>

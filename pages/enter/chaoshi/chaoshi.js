@@ -50,7 +50,8 @@ Page(observer({
     if (data) {
       const { field } = e.target.dataset;
       const json = JSON.parse(data);
-      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '')
+      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '');
+      this.props.form[field] = this.props.form[field].replace(',' + json.data.img, '');
     }
   },
   onComplete(e) {
