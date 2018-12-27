@@ -25,7 +25,7 @@
         </view>
         <view class="title">{{goods.title}}</view>
         <view class="desc">
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            {{goods.summary}}
         </view>
         <view class="extr">
             <text>快递</text>
@@ -37,8 +37,8 @@
         <view class="header">
             大家都在说
             <view>
-                <wux-rater allow-half defaultValue="{{3.5}}" disabled fontSize="14" starSize="14" />
-                4.0
+                <wux-rater allow-half value="{{score}}" controlled disabled fontSize="14" starSize="14" />
+                {{score}}
             </view>
         </view>
         <view class="comment" wx:for="{{goods.comments.list}}" wx:key="{{index}}">
@@ -63,8 +63,8 @@
     <view class="shop">
         <image class="logo" />
         <view class="name">
-            <view class="title">安否自营农场</view>
-            <view class="sale">总销量9999</view>
+            <view class="title">{{goods.mname}}</view>
+            <view class="sale">总销量{{goods.totalsales}}</view>
         </view>
         <navigator hover-class="none" url="/pages/goodslist/goodslist?id={{goods.mid}}">进店逛逛<image src="/static/icons/goods/right.png"/></navigator>
     </view>

@@ -21,7 +21,8 @@ Page({
     ],
     goods: {},
     //整数部分和小数部分
-    price: []
+    price: [],
+    score: '0.0'
   },
 
   /**
@@ -35,8 +36,12 @@ Page({
       method: 'GET',
       success: (response) => {
         const price = Number.parseFloat(response.data.data.price).toFixed(2);
-        this.setData({ goods: response.data.data, price: price.split('.') },()=>{
-          
+        this.setData({
+          goods: response.data.data,
+          price: price.split('.'),
+          score: Number.parseFloat(response.data.data.score).toFixed(1),
+        }, () => {
+
         });
       }
     })

@@ -42,14 +42,49 @@ City.prototype.getMarkers = function (type, latitude, longitude) {
     url: '/api/shop/near',
     data: { btype: type || '1' },
     showLoading: true,
-    loadingTitle:'获取周边商家',
+    loadingTitle: '获取周边商家',
     header: {
       latitude: latitude || this.latitude,
       longitude: longitude || this.longitude
     },
     method: 'POST',
     success: (response) => {
-
+      let icon = '';
+      switch (Number.parseInt(type)) {
+        case 1:
+          icon = '/static/icons/map/1-1.png';
+          break;
+        case 2:
+          icon = '/static/icons/map/2.png';
+          break;
+        case 3:
+          icon = '/static/icons/map/3.png';
+          break;
+        case 4:
+          icon = '/static/icons/map/4.png';
+          break;
+        case 5:
+          icon = '/static/icons/map/5.png';
+          break;
+        default:
+          icon = '/static/icons/map/1-1.png';
+      }
+      if (response.data.code != '999') {
+        const markers = [];
+        response.data.data.forEach(item => {
+          const marker = {};
+          marker.id = item.id;
+          marker.latitude = item.latitude;
+          marker.longitude = item.longitude;
+          marker.width = '80rpx';
+          marker.height = '80rpx';
+          marker.iconPath = icon;
+          marker.title = item.name;
+          markers.push(marker);
+        });
+        console.log(markers);
+        this.markers = markers;
+      }
     }
   })
 }
@@ -73,8 +108,8 @@ City.prototype.fetchData = function () {
             //用户所处位置
             this.user_latitude = res.latitude;
             this.user_longitude = res.longitude;
-            //console.log('latitude', res.latitude);
-            //console.log('longitude', res.longitude);
+            console.log('latitude', res.latitude);
+            console.log('longitude', res.longitude);
             //this.getMarkers();
             http.request({
               url: '/api/basics/position',
