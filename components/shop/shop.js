@@ -22,7 +22,7 @@ Component({
       element.price = Number.parseFloat(element.price).toFixed(2)
     });
     this.setData({
-      distance: this.properties.item.distance.toFixed(2),
+      distance: (this.properties.item.distance * 1000).toFixed(2),
       goods: this.properties.item.goods,
     })
   },

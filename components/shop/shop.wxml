@@ -6,7 +6,7 @@
             <navigator url="/pages/goodslist/goodslist?id={{item.id}}" hover-class="none" class="title">{{item.name}}</navigator>
             <view class="info">
                 <view><image class="icon" src="/static/icons/shops/1.png"/><text>{{item.district}}</text></view>
-                <text>距离{{distance}}</text>
+                <text>距离{{distance}}米</text>
             </view>
             <view class="info">
                 <view><image class="icon" src="/static/icons/shops/2.png"/><text>优惠券</text></view>
