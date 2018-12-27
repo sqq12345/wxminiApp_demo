@@ -3,46 +3,25 @@
     <view class="container">
         <view class="comments">
             <view class="header">
-                4.0
+                {{score}}
                 <view>
-                    <wux-rater allow-half defaultValue="{{3.5}}" disabled fontSize="14" starSize="14" />
+                    <wux-rater allow-half value="{{score}}" controlled disabled fontSize="14" starSize="14" />
                 </view>
             </view>
-            <view class="comment">
+            <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
                 <image class="head" />
                 <view class="content">
                     <view class="username">
-                        username
-                        <wux-rater allow-half defaultValue="{{2.5}}" disabled fontSize="12" starSize="12" />
+                        {{item.nickname}}
+                        <wux-rater allow-half defaultValue="{{item.ranks}}" disabled fontSize="12" starSize="12" />
                     </view>
-                    <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
-                    <view class="pics">
-                        <image />
-                        <image />
-                        <image />
+                    <view class="desc">{{item.content_text}}</view>
+                    <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
+                        <image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>
                     </view>
                     <view class="bottom">
-                        <text>time</text>
-                        <text>规格</text>
-                    </view>
-                </view>
-            </view>
-            <view class="comment">
-                <image class="head" />
-                <view class="content">
-                    <view class="username">
-                        username
-                        <wux-rater allow-half defaultValue="{{4}}" disabled fontSize="12" starSize="12" />
-                    </view>
-                    <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
-                    <view class="pics">
-                        <image />
-                        <image />
-                        <image />
-                    </view>
-                    <view class="bottom">
-                        <text>time</text>
-                        <text>规格</text>
+                        <text>{{item.create_at}}</text>
+                        <text>  {{item.specification}}</text>
                     </view>
                 </view>
             </view>

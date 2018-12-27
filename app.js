@@ -3,6 +3,7 @@ const AppSecret = 'c2b577b604e9deb660594917987f000c';
 global.regeneratorRuntime = require('./utils/regenerator/runtime-module');
 const { regeneratorRuntime } = global;
 import login from './stores/Login';
+import http from './utils/http';
 //app.js
 App({
   onLaunch: async function (options) {
@@ -17,7 +18,7 @@ App({
         this.globalData.height = res.statusBarHeight
       }
     });
-    login.apply(this)
+    login.apply(this);
   },
 
   globalData: {
@@ -27,5 +28,23 @@ App({
     user_token: null,
     share: false,  // 分享默认为false
     height: 0,
+    _roles: [],
+    roles: async function () {
+      return new Promise((resolve, reject) => {
+        if(this._roles.length > 0){
+          resolve(this._roles)
+        }
+        http.request({
+          url: '/api/shop/role',
+          method: 'POST',
+          success: (response) => {
+            for (const key in response.data.data) {
+              this._roles.push({ id: key, name: response.data.data[key] })
+            }
+            resolve(this._roles)
+          }
+        })
+      })
+    }
   }
 })

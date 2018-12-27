@@ -1,0 +1,7 @@
+<!-- pages/login/login.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container">
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="_button">授权登录</button>
+    </view>
+</view>

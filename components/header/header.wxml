@@ -17,5 +17,5 @@
     </view>
   </view>
   <!-- 用高度把主要内容压下去 -->
-  <view wx:if="{{!navbarData.transparent}}" style="height:60px"></view>
+  <view wx:if="{{!navbarData.transparent}}" style="height:{{height*2 + 20}}px"></view>
 </view>

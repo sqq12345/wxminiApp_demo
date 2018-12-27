@@ -43,6 +43,7 @@ Cart.prototype.fetchData = async function () {
         header: {
             token: result.user_token,
         },
+        showLoading: true,
         success: (response) => {
             const data = response.data.data;
             let allSelected = true;
@@ -144,7 +145,7 @@ Cart.prototype.fetchData = async function () {
             });
         }
     });
-    //Store.list = list;
+    Store.list = list;
 }
 //全选
 Cart.prototype.selectAll = async function () {

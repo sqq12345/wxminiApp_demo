@@ -30,7 +30,7 @@ const login = function () {
                         method: 'POST',
                     });
                     const { session_key, openid, reg, user_token } = response.data.data;
-                    if (reg === 0) {
+                    if (reg == 0) {
                         wx.getUserInfo({
                             success(res) {
                                 const userInfo = res.userInfo;
@@ -47,6 +47,26 @@ const login = function () {
                                     method: 'POST',
                                     success(response) {
 
+                                    }
+                                })
+                            },
+                            fail(err) {
+                                // wx.showToast({
+                                //     title: '用户授权失败',
+                                //     icon: 'none',
+                                //     image: '',
+                                //     duration: 1500,
+                                //     mask: false,
+                                // });
+                                wx.showModal({
+                                    title: '提示',
+                                    content: '尚未进行授权，请点击确定跳转到授权页面进行授权。',
+                                    success: function (res) {
+                                        if (res.confirm) {
+                                            wx.navigateTo({
+                                                url: '/pages/login/login',
+                                            })
+                                        }
                                     }
                                 })
                             }

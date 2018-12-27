@@ -3,6 +3,7 @@
     /* padding: 15px; */
     padding-top: 30rpx;
     border-top: 1px solid #eeeeee;
+    padding-bottom: 30rpx;
 }
 
 .ellipsis {
@@ -13,7 +14,7 @@
 
 .shop .logo {
     border-radius: 50%;
-    border: 1px solid red;
+    border: 1px solid #ccc;
     width: 128rpx;
     height: 128rpx;
     margin-right: 30rpx;
@@ -51,7 +52,6 @@
 
 .activity {
     /* padding: 15px; */
-    margin-top: 30rpx;
     padding-bottom: 30rpx;
 }
 

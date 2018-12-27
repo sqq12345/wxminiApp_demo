@@ -14,14 +14,10 @@ Page(observer({
       title: '附近商家', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    occupation:app.globalData.height + 46,
-    //杂项
+    occupation: app.globalData.height + 46,
+    //类型
     types: [
-      { name: '附件农场', id: 1 },
-      { name: '附件社群', id: 2 },
-      { name: '有机超市', id: 3 },
-      { name: '生态餐厅', id: 4 },
-      { name: '农夫集市', id: 5 },
+
     ],
     selectedTypeId: 1,
     detailShow: false, //显示详情?
@@ -37,22 +33,16 @@ Page(observer({
     }, () => {
       this.props.city.markers = [];
       //模拟请求
-      wx.showLoading({
-        title: '获取周边商家',
-        mask: true,
-      });
-      setTimeout(() => {
-        wx.hideLoading();
-        this.props.city.getMarkers();
-      }, 1000)
+      this.props.city.getMarkers(this.selectedTypeId);
     })
   },
 
   onReady() {
     this.mapCtx = wx.createMapContext('map');
   },
-  onLoad() {
-    
+  async onLoad() {
+    const arr = await app.globalData.roles();
+    this.setData({ types: arr });
   },
   //点击marker
   tapMarker(e) {
@@ -74,9 +64,10 @@ Page(observer({
     if (e.type === 'end') {
       this.mapCtx.getCenterLocation(
         {
-          success: function (res) {
+          success: (res) => {
             // console.log(res.longitude)
             // console.log(res.latitude)
+            this.props.city.getMarkers(this.selectedTypeId, res.latitude, res.longitude);
           }
         }
       );

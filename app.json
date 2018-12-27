@@ -10,7 +10,9 @@
     "pages/tabbar/home/search/search",
     "pages/comment/comment",
     "pages/comments/comments",
-    "pages/cities/cities"
+    "pages/cities/cities",
+    "pages/test/test",
+    "pages/login/login"
   ],
   "subpackages": [
     {

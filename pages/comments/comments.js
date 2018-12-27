@@ -15,6 +15,7 @@ Page({
     },
     gid: 0,
     page: 1,
+    loading: false,
     //没有更多数据了
     end: false,
     score: 0,
@@ -39,7 +40,13 @@ Page({
         gid: this.data.gid
       },
       success: (response) => {
-
+        this.setData({
+          score: response.data.data.score.toFixed(1),
+          list: this.data.list.concat(response.data.data.comments.list),
+          page: this.data.page + 1,
+          loading: false,
+          end: this.data.page == response.data.data.comments.totalpage
+        })
       }
     });
   },

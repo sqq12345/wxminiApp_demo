@@ -15,7 +15,7 @@ let City = function () {
     markers: []
   });
 }
-City.prototype.getMarkers = function () {
+City.prototype.getMarkers = function (type, latitude, longitude) {
   // this.markers = [{
   //   id: 111111,
   //   latitude: 23.099994,
@@ -38,15 +38,20 @@ City.prototype.getMarkers = function () {
   //   width: '80rpx',
   //   height: '80rpx',
   // }];
-  // http.request({
-  //   url: '/getmarker',
-  //   data: {},
-  //   header: {},
-  //   method: 'POST',
-  //   success: (response) => {
+  http.request({
+    url: '/api/shop/near',
+    data: { btype: type || '1' },
+    showLoading: true,
+    loadingTitle:'获取周边商家',
+    header: {
+      latitude: latitude || this.latitude,
+      longitude: longitude || this.longitude
+    },
+    method: 'POST',
+    success: (response) => {
 
-  //   }
-  // })
+    }
+  })
 }
 City.prototype.fetchData = function () {
   return new Promise((resolve, reject) => {
@@ -70,7 +75,7 @@ City.prototype.fetchData = function () {
             this.user_longitude = res.longitude;
             //console.log('latitude', res.latitude);
             //console.log('longitude', res.longitude);
-            this.getMarkers();
+            //this.getMarkers();
             http.request({
               url: '/api/basics/position',
               header: {

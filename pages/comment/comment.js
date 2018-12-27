@@ -71,7 +71,8 @@ Page({
     }
   },
   submit: async function () {
-    console.log(this.data.form);
+    //console.log(this.data.form);
+    //todo 判断是哪里的评论
     if (this.data.form.content_text == '') {
       wx.showToast({
         title: '评论内容不能为空',
@@ -83,7 +84,7 @@ Page({
     }
     const result = await login();
     http.request({
-      url: '/api/user/message',
+      url: '/api/shop/message',
       method: 'POST',
       header: {
         token: result.user_token

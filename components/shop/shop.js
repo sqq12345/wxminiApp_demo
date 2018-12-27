@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    item:{
+    item: {
       type: Object,
     }
   },
@@ -13,7 +13,18 @@ Component({
    * 组件的初始数据
    */
   data: {
+    distance: '',
+    goods: [],
+  },
 
+  ready() {
+    this.properties.item.goods.forEach(element => {
+      element.price = Number.parseFloat(element.price).toFixed(2)
+    });
+    this.setData({
+      distance: this.properties.item.distance.toFixed(2),
+      goods: this.properties.item.goods,
+    })
   },
 
   /**

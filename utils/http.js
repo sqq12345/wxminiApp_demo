@@ -12,8 +12,16 @@ function request(options) {
     method,
     success,
     header,
+    showLoading,
+    loadingTitle,
   } = options;
   return new Promise((resolve, reject) => {
+    if(showLoading){
+      wx.showLoading({
+        title: loadingTitle || '加载中',
+        mask: true,
+      });
+    }
     wx.request({
       url: domain + url,
       data: data,
@@ -33,6 +41,9 @@ function request(options) {
         //reject(error)
       },
       complete: (e) => {
+        setTimeout(()=>{
+          wx.hideLoading();
+        },500)
         let msg = '';
         switch (e.statusCode) {
           case 404:

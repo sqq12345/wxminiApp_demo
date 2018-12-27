@@ -12,7 +12,7 @@
     </view>
     <view class="container">
         <view class="sort">
-            <text>全部宝贝</text>
+            <view><image class="icon" src="/static/icons/list.png"/><text class="all">全部宝贝</text></view>
             <text>默认排序</text>
         </view>
         <view class="list">

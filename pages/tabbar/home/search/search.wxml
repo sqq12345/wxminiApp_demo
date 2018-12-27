@@ -3,6 +3,6 @@
     <header navbar-data='{{nvabarData}}' />
     <search query='{{query}}' cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange"/>
     <view class="container">
-        <shop></shop>
+        <!-- <shop></shop> -->
     </view>
 </view>

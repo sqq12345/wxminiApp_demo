@@ -58,10 +58,28 @@
 
 .sort {
     padding: 20rpx 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-.sort text:last-of-type {
-    float: right;
+.sort view{
+    display: flex;
+    align-items: center;
+}
+
+.sort .icon{
+    width: 22rpx;
+    height: 24rpx;
+    margin-right: 6rpx;
+}
+
+.sort .all{
+    font-weight: bold;
+}
+
+.sort>text{
+    color: #999999;
+    font-size: 24rpx;
 }
 
 .list .item {

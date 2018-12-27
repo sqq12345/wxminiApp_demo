@@ -2,8 +2,8 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="head">
         <image src="1.png" class="_bg" />
-        <image class="logo" />
-        <view class="title">安否有机自营农场</view>
+        <image class="logo" src="{{detail.logo}}"/>
+        <view class="title">{{detail.name}}</view>
         <view>农场规模:25亩</view>
         <view>农场主:王恺</view>
         <view>地址:addressssssssssssss</view>
@@ -59,7 +59,7 @@
             </view>
         </view>
     </view>
-    <view class="bottom-btn">
+    <navigator class="bottom-btn" hover-class="none" url="/pages/comment/comment">
         <image src="/static/icons/comment.png"/>留言
-    </view>
+    </navigator>
 </view>

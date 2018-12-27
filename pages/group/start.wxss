@@ -106,8 +106,8 @@
 
 .goods .unit {
     margin-top: 10rpx;
-    font-size: 28rpx;
-    color: #555555;
+    color: #999999;
+    font-size: 24rpx;
 }
 
 .goods .info {
@@ -120,8 +120,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 32rpx;
-    color: rgb(219, 109, 50);
+    color: #FF8A00;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,13 +132,15 @@
 }
 
 .goods .shop {
-    background: #cccccc;
+    background: #DFF7E3;
+    color: #32CC4A;
     padding: 12rpx 26rpx;
     font-size: 28rpx;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     position: absolute;
     right: -30rpx;
+    font-size: 22rpx !important;
 }
 
 .part.two .add {

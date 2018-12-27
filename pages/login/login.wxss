@@ -1,0 +1,17 @@
+/* pages/login/login.wxss */
+
+page {}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+._button {
+    margin-top: 150px;
+    padding: 0;
+    border: 0;
+    overflow: ß∑;
+}

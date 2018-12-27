@@ -20,6 +20,8 @@ Page({
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
     ],
     goods: {},
+    //整数部分和小数部分
+    price: []
   },
 
   /**
@@ -28,10 +30,14 @@ Page({
   onLoad: async function (options) {
     await city.fetchData();
     http.request({
+      showLoading: true,
       url: '/api/shop/goods?cityid=' + city.selected.id + '&gid=' + options.id,
       method: 'GET',
       success: (response) => {
-        this.setData({ goods: response.data.data });
+        const price = Number.parseFloat(response.data.data.price).toFixed(2);
+        this.setData({ goods: response.data.data, price: price.split('.') },()=>{
+          
+        });
       }
     })
   },
@@ -42,6 +48,7 @@ Page({
     const result = await login();
     http.request({
       url: '/api/order/cart',
+      showLoading: true,
       header: {
         token: result.user_token,
       },
@@ -56,7 +63,30 @@ Page({
       success: (response) => {
         wx.showToast({
           title: '添加成功',
-          icon: 'none',
+          icon: 'success',
+          duration: 1500,
+          mask: false,
+        });
+      }
+    });
+  },
+  collect: async function () {
+    const result = await login();
+    http.request({
+      url: '/api/order/cart',
+      showLoading: true,
+      header: {
+        token: result.user_token,
+      },
+      data: {
+        mid: this.data.goods.mid,
+        gid: this.data.goods.id,
+      },
+      method: 'POST',
+      success: (response) => {
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'success',
           duration: 1500,
           mask: false,
         });

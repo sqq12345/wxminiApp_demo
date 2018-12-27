@@ -22,7 +22,7 @@
                         <view class="title">{{item.name}}</view>
                         <view class="unit">{{item.unit}}</view>
                         <view class="price">
-                            ￥{{item.price}}
+                            <text><text class="_rmb">￥</text>{{item.price}}</text>
                             <image class="delete" src="/static/icons/group/delete.png" bind:tap="remove" data-id="{{item.id}}"/>
                         </view>
                     </view>

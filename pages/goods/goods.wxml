@@ -1,16 +1,17 @@
 <view class='container'>
     <header navbar-data='{{nvabarData}}' />
-    <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
+    <!-- <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
         <block wx:for="{{imgUrls}}" wx:key="{{index}}">
             <swiper-item>
                 <image src="{{item}}" class="slide-image" />
             </swiper-item>
         </block>
-    </swiper>
+    </swiper> -->
+    <image src="{{goods.image}}" class="swiper" />
     <view class="info">
         <view class="price">
-            <text><text class="_rmb">￥</text>12</text>
-            <text>.08</text>
+            <text><text class="_rmb">￥</text>{{price[0]}}</text>
+            <text>.{{price[1]}}</text>
         </view>
         <view class="unit">
             <view>
@@ -19,7 +20,7 @@
             </view>
             <view>
                 配送范围:
-                <text>北京市</text>
+                <text>{{goods.area}}</text>
             </view>
         </view>
         <view class="title">{{goods.title}}</view>
@@ -40,41 +41,20 @@
                 4.0
             </view>
         </view>
-        <view class="comment">
+        <view class="comment" wx:for="{{goods.comments.list}}" wx:key="{{index}}">
             <image class="head" />
             <view class="content">
                 <view class="username">
-                    username
-                    <wux-rater allow-half defaultValue="{{2.5}}" disabled fontSize="12" starSize="12" />
+                    {{item.nickname}}
+                    <wux-rater allow-half defaultValue="{{item.ranks}}" disabled fontSize="12" starSize="12" />
                 </view>
-                <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
-                <view class="pics">
-                    <image />
-                    <image />
-                    <image />
+                <view class="desc">{{item.content_text}}</view>
+                <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
+                    <image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>
                 </view>
                 <view class="bottom">
-                    <text>time</text>
-                    <text>规格</text>
-                </view>
-            </view>
-        </view>
-        <view class="comment">
-            <image class="head" />
-            <view class="content">
-                <view class="username">
-                    username
-                    <wux-rater allow-half defaultValue="{{4}}" disabled fontSize="12" starSize="12" />
-                </view>
-                <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
-                <view class="pics">
-                    <image />
-                    <image />
-                    <image />
-                </view>
-                <view class="bottom">
-                    <text>time</text>
-                    <text>规格</text>
+                    <text>{{item.create_at}}</text>
+                    <text>  {{item.specification}}</text>
                 </view>
             </view>
         </view>
@@ -86,7 +66,7 @@
             <view class="title">安否自营农场</view>
             <view class="sale">总销量9999</view>
         </view>
-        <navigator hover-class="none" url="/pages/goodslist/goodslist">进店逛逛<image src="/static/icons/goods/right.png"/></navigator>
+        <navigator hover-class="none" url="/pages/goodslist/goodslist?id={{goods.mid}}">进店逛逛<image src="/static/icons/goods/right.png"/></navigator>
     </view>
     <view class="detail">
         <view class="text">- 商品详情 -</view>
@@ -95,7 +75,7 @@
     </view>
     <view class="bottom-btn">
         <view class="nav">
-            <view>
+            <view bind:tap="collect">
                 <image src="/static/icons/goods/1.png" />
                 收藏
             </view>

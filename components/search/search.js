@@ -22,9 +22,16 @@ Component({
    */
   methods: {
     search(e) {
-      wx.navigateTo({
-        url: "/pages/tabbar/home/search/search?query=" + e.detail.value,
-      })
+      const pages = getCurrentPages();
+      const currentPage = pages[pages.length - 1];
+      const url = currentPage.route;
+      if (url != 'pages/tabbar/home/search/search') {
+        wx.navigateTo({
+          url: "/pages/tabbar/home/search/search?query=" + e.detail.value,
+        })
+      } else {
+        currentPage.search(e.detail.value);
+      }
     }
   }
 })

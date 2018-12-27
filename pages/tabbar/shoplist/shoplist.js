@@ -44,6 +44,7 @@ Page(observer({
     http.request({
       url: '/api/shop/allbusinesses',
       method: 'POST',
+      showLoading: true,
       header: {
         longitude: this.props.city.user_longitude,
         latitude: this.props.city.user_latitude

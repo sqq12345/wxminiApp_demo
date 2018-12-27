@@ -1,5 +1,6 @@
 // pages/tabbar/search/search.js
 import { observer } from '../../../../utils/mobx/observer';
+import http from '../../../../utils/http';
 Page(observer({
   props: {
     city: require('../../../../stores/City'),
@@ -23,5 +24,24 @@ Page(observer({
 
   onLoad(params) {
     this.setData({ query: params.query || '' });
+    this.search(params.query)
+  },
+
+  search(query) {
+    console.log('ssss');
+    if (query == "") {
+      return false;
+    }
+    http.request({
+      url: '/api/shop/searchfarm',
+      method: 'POST',
+      data: {
+        cityid: this.props.city.selected.id,
+        mname: query
+      },
+      success: (response) => {
+
+      }
+    })
   }
 }))
