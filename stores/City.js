@@ -5,9 +5,7 @@ import http from '../utils/http';
 let City = function () {
   extendObservable(this, {
     selected: null,
-    list: [
-
-    ],
+    list: [],
     latitude: null,
     longitude: null,
     user_latitude: null,
@@ -38,22 +36,35 @@ City.prototype.getMarkers = async function (type, latitude, longitude) {
   //   width: '80rpx',
   //   height: '80rpx',
   // }];
-  await this.fetchData();
+  if (type == undefined) {
+    await this.fetchData();
+  }
+  if (latitude && longitude) {
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
+  //打印数据
+  // console.log('latitude', this.latitude);
+  // console.log('longitude', this.longitude);
+  // wx.showToast({
+  //   title: `${type},${this.latitude},${this.longitude}`,
+  //   icon: 'none',
+  //   image: '',
+  //   duration: 5000,
+  // });
   http.request({
     url: '/api/shop/near',
     data: { btype: type || '1' },
     showLoading: latitude == undefined,
     loadingTitle: '获取周边商家',
     header: {
-      latitude: latitude || this.latitude,
-      longitude: longitude || this.longitude
+      latitude: this.latitude,
+      longitude: this.longitude,
+      // latitude: this.latitude,
+      // longitude: this.longitude,
     },
     method: 'POST',
     success: (response) => {
-      setTimeout(() => {
-        wx.hideLoading();
-      }, 400)
-
       let icon = '';
       switch (Number.parseInt(type)) {
         case 1:
@@ -102,10 +113,6 @@ City.prototype.fetchData = function () {
       resolve();
       return
     }
-    wx.showLoading({
-      title: "加载商家中",
-      mask: true,
-    });
     http.request({
       url: '/api/basics/geographic',
       method: 'POST',
@@ -175,4 +182,5 @@ City.prototype.fetchData = function () {
 
 const Store = new City();
 //Store.fetchData();
+Store.getMarkers();
 module.exports = Store

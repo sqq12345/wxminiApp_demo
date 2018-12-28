@@ -41,6 +41,10 @@ Page(observer({
     const arr = await app.globalData.roles();
     this.setData({ types: arr });
   },
+  //显示页面时隐藏marker
+  onShow() {
+    this.setData({ detailShow: false })
+  },
   //点击marker
   tapMarker(e) {
     const markerId = e.markerId;
@@ -66,6 +70,8 @@ Page(observer({
           success: (res) => {
             // console.log(res.longitude)
             // console.log(res.latitude)
+            //this.props.city.latitude = res.longitude;
+            //this.props.city.longitude = res.latitude;
             this.props.city.getMarkers(this.data.selectedTypeId, res.latitude, res.longitude);
           }
         }
