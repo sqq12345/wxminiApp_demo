@@ -28,7 +28,7 @@
             {{goods.summary}}
         </view>
         <view class="extr">
-            <text>快递</text>
+            <text>快递 {{goods.fee==null?'免运费':goods.fee}}</text>
             <text>已售{{goods.sales}}</text>
             <text>库存{{goods.stock}}件</text>
         </view>
@@ -42,7 +42,7 @@
             </view>
         </view>
         <view class="comment" wx:for="{{goods.comments.list}}" wx:key="{{index}}">
-            <image class="head" />
+            <image class="head" src="{{item.avatar}}"/>
             <view class="content">
                 <view class="username">
                     {{item.nickname}}

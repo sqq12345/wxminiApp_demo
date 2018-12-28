@@ -30,7 +30,8 @@
         "group/group",
         "address/add/add",
         "collection/collection",
-        "coupon/coupon"
+        "coupon/coupon",
+        "setting/setting"
       ]
     },
     {

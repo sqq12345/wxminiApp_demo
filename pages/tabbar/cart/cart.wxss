@@ -157,9 +157,18 @@
     color: #888888;
 }
 
-.empty{
-    margin-top: 400rpx;
+.empty {
+    margin-top: 300rpx;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    color: #999999;
+}
+
+.empty image {
+    display: block;
+    width: 410rpx;
+    height: 172rpx;
+    margin-bottom: 30rpx
 }

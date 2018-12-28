@@ -13,21 +13,31 @@ Page({
       title: '留言评论', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    form: {
-      mid: 1,
-      gid: 1,
-      content_text: '',
-      ranks: 5,
-      content_img: '',
-      parent_id: undefined
-    },
+    form: {},
+    //提交地址
+    commitUrl: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let url = '';
+    const form = {
+      content_text: '',
+      ranks: 5,
+      content_img: '',
+    };
+    switch (options.type) {
+      case 'shop':
+        url = '/api/shop/message';
+        form.mid = options.mid;
+        break;
+      case 'goods':
+        url = '';
+        break;
+    }
+    this.setData({ commitUrl: url, form })
   },
 
   raterChange(e) {
@@ -84,14 +94,31 @@ Page({
     }
     const result = await login();
     http.request({
-      url: '/api/shop/message',
+      url: this.data.commitUrl,
       method: 'POST',
       header: {
         token: result.user_token
       },
       data: this.data.form,
       success: (response) => {
-
+        if (response.data.code == 1) {
+          wx.showToast({
+            title: '评论成功',
+            icon: 'success',
+            duration: 1000,
+            mask: false,
+            success: (result) => {
+              const pages = getCurrentPages();
+              const lastPage = pages[pages.length - 2];
+              lastPage.resetComments();
+              setTimeout(() => {
+                wx.navigateBack({
+                  delta: 1
+                });
+              }, 1000)
+            },
+          });
+        }
       }
     })
   }

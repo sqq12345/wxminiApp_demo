@@ -105,10 +105,10 @@
                 </view>
             </view>
             <view class="icons">
-                <view class="icon">
+                <navigator class="icon" hover-class="none" url="/pages/user/setting/setting">
                     <image src="/static/icons/user/11.png" />
                     设置
-                </view>
+                </navigator>
                 <view class="icon" style="visibility:hidden"></view>
                 <view class="icon" style="visibility:hidden"></view>
                 <view class="icon" style="visibility:hidden"></view>

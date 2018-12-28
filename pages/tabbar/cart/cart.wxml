@@ -57,6 +57,7 @@
         <view wx:if="{{editing}}" class="buy delete" bind:tap="delete">删除</view>
     </view>
     <view class="empty" wx:if="{{props.cart.list.length == 0}}">
+        <image src="/static/images/dingdan.png"/>
         购物车为空
     </view>
 </view>

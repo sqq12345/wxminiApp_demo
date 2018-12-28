@@ -1,65 +1,65 @@
 <view class="container">
     <header navbar-data='{{nvabarData}}' />
     <view class="head">
-        <image src="1.png" class="_bg" />
-        <image class="logo" src="{{detail.logo}}"/>
+        <image src="{{bg}}" class="_bg" />
+        <image class="logo" src="{{detail.logo}}" />
         <view class="title">{{detail.name}}</view>
-        <view>农场规模:25亩</view>
-        <view>农场主:王恺</view>
-        <view>地址:addressssssssssssss</view>
+        <block wx:if="{{type=='1'}}">
+            <view>农场规模:{{detail.farmsize}}亩</view>
+            <view>农场主:{{detail.linkman}}</view>
+        </block>
+        <block wx:if="{{type=='2'}}">
+            <view>社群人数:{{detail.nums}}</view>
+            <view>社群主:{{detail.linkman}}</view>
+        </block>
+        <block wx:if="{{type=='3'}}">
+            <view>餐桌:{{detail.nums}} 可接待:{{detail.person_nums}}</view>
+            <view>店主:{{detail.linkman}}</view>
+        </block>
+        <block wx:if="{{type=='4'}}">
+            <view>产品种类:{{detail.nums}}</view>
+            <view>超市:{{detail.linkman}}</view>
+        </block>
+        <block wx:if="{{type=='5'}}">
+            <view>产品种类:{{detail.nums}}</view>
+            <view>市集主板方:{{detail.linkman}}</view>
+        </block>
+        <view>地址:{{detail.address}}</view>
     </view>
+    <!-- tags -->
     <view class="block one">
-        <view class="item">
-            <view class="label">农场类型</view>
+        <view class="item" wx:for="{{labels}}" wx:key="{{index}}">
+            <view class="label">{{item.name}}</view>
             <view class="tags">
-                <text>有机</text>
-            </view>
-        </view>
-        <view class="item">
-            <view class="label">农场产品</view>
-            <view class="tags">
-                <text>有机</text>
-                <text>有机</text>
-                <text>有机</text>
-            </view>
-        </view>
-        <view class="item">
-            <view class="label">农场服务</view>
-            <view class="tags">
-                <text>有机</text>
-                <text>有机</text>
-                <text>有机</text>
-                <text>有机</text>
-                <text>有机</text>
-                <text>有机</text>
+                <text wx:for="{{item.arr}}" wx:key="{{index}}">{{item}}</text>
             </view>
         </view>
     </view>
+    
     <view class="block desc">
-        <view class="title">农场简介</view>
+        <view class="title">{{descLabel}}</view>
         <view class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</view>
     </view>
     <view class="block two">
         <view class="title">留言评论</view>
         <view class="comments">
-            <view class="comment">
-                <image class="userhead" />
+            <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
+                <image class="userhead" src=""/>
                 <view class="content">
-                    <view class="username">用户名</view>
-                    <view class="desc">xxxxxxxxxxxxxxxxxxxxxxxxx</view>
-                    <view class="pics">
-                        <image />
-                        <image />
-                        <image />
+                    <view class="username">{{item.nickname}}</view>
+                    <view class="desc">{{item.content_text}}</view>
+                    <view class="pics" wx:if="{{item.content_img.length>0}}">
+                        <image src="{{img}}" wx:for-item="img" wx:for="{{item.content_img}}" wx:key="{{index}}"/>
                     </view>
                     <view class="bottom">
-                        <text class="time">yyyy-mm-dd</text>
+                        <text class="time">{{item.create_at}}</text>
                     </view>
                 </view>
             </view>
         </view>
     </view>
-    <navigator class="bottom-btn" hover-class="none" url="/pages/comment/comment">
-        <image src="/static/icons/comment.png"/>留言
+    <navigator class="bottom-btn" hover-class="none" url="/pages/comment/comment?type=shop&mid={{detail.id}}">
+        <image src="/static/icons/comment.png" />
+        留言
     </navigator>
 </view>

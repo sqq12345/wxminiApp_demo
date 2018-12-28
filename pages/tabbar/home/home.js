@@ -16,12 +16,10 @@ Page(observer({
     },
     occupation: app.globalData.height + 46,
     //类型
-    types: [
-
-    ],
+    types: [],
     selectedTypeId: 1,
     detailShow: false, //显示详情?
-    selectedMarker: -1, //选中的marker id
+    selectedMarker: -1, //选中的marker
   },
   //切换分类
   changeType(e) {
@@ -32,8 +30,7 @@ Page(observer({
       detailShow: false
     }, () => {
       this.props.city.markers = [];
-      //模拟请求
-      this.props.city.getMarkers(this.selectedTypeId);
+      this.props.city.getMarkers(this.data.selectedTypeId);
     })
   },
 
@@ -46,10 +43,12 @@ Page(observer({
   },
   //点击marker
   tapMarker(e) {
-    //console.log(e);
+    const markerId = e.markerId;
+    const marker = this.props.city.markers.find(item => item.id == markerId);
+    console.log(marker);
     this.setData({
       detailShow: true,
-      selectedMarker: e.markerId
+      selectedMarker: marker
     })
   },
   //点击map时关闭详情框
@@ -67,10 +66,15 @@ Page(observer({
           success: (res) => {
             // console.log(res.longitude)
             // console.log(res.latitude)
-            this.props.city.getMarkers(this.selectedTypeId, res.latitude, res.longitude);
+            this.props.city.getMarkers(this.data.selectedTypeId, res.latitude, res.longitude);
           }
         }
       );
     }
   },
+  goDetail() {
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${this.data.selectedMarker.id}&type=${this.data.selectedTypeId}`,
+    });
+  }
 }))

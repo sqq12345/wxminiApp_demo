@@ -116,6 +116,7 @@ page {
     left: 0px;
     right: 0px;
     padding: 30rpx 20rpx;
+    border: 1px solid #eee;
 }
 
 .detail .head {

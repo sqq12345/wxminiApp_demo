@@ -28,7 +28,6 @@ Page(observer({
   },
 
   search(query) {
-    console.log('ssss');
     if (query == "") {
       return false;
     }

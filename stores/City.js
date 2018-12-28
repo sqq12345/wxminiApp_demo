@@ -15,7 +15,7 @@ let City = function () {
     markers: []
   });
 }
-City.prototype.getMarkers = function (type, latitude, longitude) {
+City.prototype.getMarkers = async function (type, latitude, longitude) {
   // this.markers = [{
   //   id: 111111,
   //   latitude: 23.099994,
@@ -38,10 +38,11 @@ City.prototype.getMarkers = function (type, latitude, longitude) {
   //   width: '80rpx',
   //   height: '80rpx',
   // }];
+  await this.fetchData();
   http.request({
     url: '/api/shop/near',
     data: { btype: type || '1' },
-    showLoading: true,
+    showLoading: latitude == undefined,
     loadingTitle: '获取周边商家',
     header: {
       latitude: latitude || this.latitude,
@@ -49,6 +50,10 @@ City.prototype.getMarkers = function (type, latitude, longitude) {
     },
     method: 'POST',
     success: (response) => {
+      setTimeout(() => {
+        wx.hideLoading();
+      }, 400)
+
       let icon = '';
       switch (Number.parseInt(type)) {
         case 1:
@@ -79,10 +84,13 @@ City.prototype.getMarkers = function (type, latitude, longitude) {
           marker.width = '80rpx';
           marker.height = '80rpx';
           marker.iconPath = icon;
-          marker.title = item.name;
+          marker.name = item.name;
+          marker.address = item.district;
+
+          const dist = (item.distance * 1000);
+          marker.distance = (dist > 1000 ? dist / 1000 : dist).toFixed(2) + (dist > 1000 ? '公里' : '米');
           markers.push(marker);
         });
-        console.log(markers);
         this.markers = markers;
       }
     }
@@ -94,6 +102,10 @@ City.prototype.fetchData = function () {
       resolve();
       return
     }
+    wx.showLoading({
+      title: "加载商家中",
+      mask: true,
+    });
     http.request({
       url: '/api/basics/geographic',
       method: 'POST',
@@ -108,9 +120,9 @@ City.prototype.fetchData = function () {
             //用户所处位置
             this.user_latitude = res.latitude;
             this.user_longitude = res.longitude;
-            console.log('latitude', res.latitude);
-            console.log('longitude', res.longitude);
-            //this.getMarkers();
+            // console.log('latitude', res.latitude);
+            // console.log('longitude', res.longitude);
+            // this.getMarkers();
             http.request({
               url: '/api/basics/position',
               header: {
@@ -162,5 +174,5 @@ City.prototype.fetchData = function () {
 };
 
 const Store = new City();
-Store.fetchData();
+//Store.fetchData();
 module.exports = Store

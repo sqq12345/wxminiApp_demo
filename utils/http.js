@@ -16,7 +16,7 @@ function request(options) {
     loadingTitle,
   } = options;
   return new Promise((resolve, reject) => {
-    if(showLoading){
+    if (showLoading) {
       wx.showLoading({
         title: loadingTitle || '加载中',
         mask: true,
@@ -41,9 +41,9 @@ function request(options) {
         //reject(error)
       },
       complete: (e) => {
-        setTimeout(()=>{
+        setTimeout(() => {
           wx.hideLoading();
-        },500)
+        }, 500)
         let msg = '';
         switch (e.statusCode) {
           case 404:

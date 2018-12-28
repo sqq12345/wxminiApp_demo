@@ -97,7 +97,10 @@
     color: #666666;
 }
 
-.comments .comment {}
+.comments .comment {
+    padding-bottom: 20rpx;
+    margin-bottom: 20rpx;
+}
 
 .comments .comment .userhead {
     border-radius: 50%;
