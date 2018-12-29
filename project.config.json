@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/detail/detail",
-					"query": "id=1&type=1"
+					"pathName": "pages/user/address/add/add",
+					"query": "query=武"
 				}
 			]
 		}

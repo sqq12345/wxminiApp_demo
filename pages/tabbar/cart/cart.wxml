@@ -8,7 +8,7 @@
             <view class="header">
                 <view>
                     <image class="select-icon" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
-                    <image class="select-icon" src="" />
+                    <image class="select-icon" src="{{item.shop.logo}}" />
                     {{item.shop.name}}
                 </view>
                 <image class="_right" src="/static/icons/right.png" />

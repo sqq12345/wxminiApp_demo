@@ -17,7 +17,9 @@
           <cover-view class="url" bind:tap="goDetail">详情 ></cover-view>
         </cover-view>
         <cover-view class="footer">
-          <cover-view><cover-image src="/static/icons/tag.png"/><cover-view class="text">绿色，有机，纯天然</cover-view></cover-view>
+          <cover-view><cover-image src="/static/icons/tag.png"/>
+            <cover-view class="text">{{selectedMarker.tags}}</cover-view>
+          </cover-view>
           <cover-view><cover-image src="/static/icons/plane.png"/><cover-view class="text">距我{{selectedMarker.distance}}（{{selectedMarker.address}}）</cover-view></cover-view>
         </cover-view>
       </cover-view>

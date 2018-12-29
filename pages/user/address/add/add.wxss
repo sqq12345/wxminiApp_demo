@@ -19,7 +19,14 @@
     flex-wrap: wrap;
 }
 
-.form-group:last-of-type{
+.form-group .picker {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 520rpx;
+}
+
+.form-group:last-of-type {
     border: 0;
 }
 

@@ -1,6 +1,7 @@
 // pages/tabbar/search/search.js
 import { observer } from '../../../../utils/mobx/observer';
 import http from '../../../../utils/http';
+const { regeneratorRuntime } = global;
 Page(observer({
   props: {
     city: require('../../../../stores/City'),
@@ -15,6 +16,7 @@ Page(observer({
       transparent: false //透明导航栏
     },
     query: '',
+    list: [],
   },
 
   //切换城市
@@ -27,19 +29,25 @@ Page(observer({
     this.search(params.query)
   },
 
-  search(query) {
+  async search(query) {
     if (query == "") {
       return false;
     }
+    await this.props.city.fetchData();
     http.request({
       url: '/api/shop/searchfarm',
       method: 'POST',
+      showLoading: true,
       data: {
         cityid: this.props.city.selected.id,
         mname: query
       },
       success: (response) => {
-
+        if (response.data.code == 1) {
+          this.setData({ list: response.data.data });
+        } else {
+          this.setData({ list: [] });
+        }
       }
     })
   }

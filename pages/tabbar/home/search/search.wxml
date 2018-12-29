@@ -3,6 +3,7 @@
     <header navbar-data='{{nvabarData}}' />
     <search query='{{query}}' cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange"/>
     <view class="container">
-        <!-- <shop></shop> -->
+        <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"></shop>
+        <view wx:if="{{list.length==0}}" class="empty">没有搜索到相关商品</view>
     </view>
 </view>

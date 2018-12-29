@@ -49,7 +49,6 @@ Page(observer({
   tapMarker(e) {
     const markerId = e.markerId;
     const marker = this.props.city.markers.find(item => item.id == markerId);
-    console.log(marker);
     this.setData({
       detailShow: true,
       selectedMarker: marker

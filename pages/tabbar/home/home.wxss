@@ -145,6 +145,10 @@ page {
 
 .detail .footer cover-view .text {
     display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 50rpx);
 }
 
 .detail .footer cover-image {

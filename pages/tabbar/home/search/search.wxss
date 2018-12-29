@@ -4,3 +4,11 @@
     padding-top: 0;
     background: #fff;
 }
+
+.empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    margin-top: 30rpx;
+}

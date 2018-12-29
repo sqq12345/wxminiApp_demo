@@ -18,9 +18,12 @@ Component({
   },
 
   ready() {
-    this.properties.item.goods.forEach(element => {
-      element.price = Number.parseFloat(element.price).toFixed(2)
-    });
+    if(this.properties.item.goods){
+      this.properties.item.goods.forEach(element => {
+        element.price = Number.parseFloat(element.price).toFixed(2)
+      });
+    }
+    
     const dist = (this.properties.item.distance * 1000);
     this.setData({
       distance: (dist > 1000 ? dist / 1000 : dist).toFixed(2) + (dist > 1000 ? '公里' : '米'),

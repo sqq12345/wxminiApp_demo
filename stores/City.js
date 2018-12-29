@@ -97,6 +97,8 @@ City.prototype.getMarkers = async function (type, latitude, longitude) {
           marker.iconPath = icon;
           marker.name = item.name;
           marker.address = item.district;
+          //marker.tags = item.typename.split(',');
+          marker.tags = item.typename;
 
           const dist = (item.distance * 1000);
           marker.distance = (dist > 1000 ? dist / 1000 : dist).toFixed(2) + (dist > 1000 ? '公里' : '米');

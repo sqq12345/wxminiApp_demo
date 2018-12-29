@@ -4,19 +4,23 @@
         <view class="form">
             <view class='form-group'>
                 <text>姓名</text>
-                <input placeholder="请输入姓名" type="number" data-field="" bindinput="onInput" />
+                <input placeholder="请输入姓名" type="number" data-field="name" bindinput="onInput" />
             </view>
             <view class='form-group'>
                 <text>电话</text>
-                <input placeholder="请输入电话" type="number" data-field="" bindinput="onInput" />
+                <input placeholder="请输入电话" type="number" data-field="mobile" bindinput="onInput" />
             </view>
             <view class='form-group'>
                 <text>省市区</text>
-                <input placeholder="请选择省市区" data-field="" bindinput="onInput" />
+                <picker placeholder="请选择省市区" mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}" range-key="name" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange">
+                    <view class="picker">
+                        {{showArray[0][multiIndex[0]].name}}，{{showArray[1][multiIndex[1]].name}}，{{showArray[2][multiIndex[2]].name}}
+                    </view>
+                </picker>
             </view>
             <view class='form-group'>
                 <text>地址</text>
-                <input placeholder="请输入地址" data-field="" bindinput="onInput" />
+                <input placeholder="请输入地址" data-field="address" bindinput="onInput" />
             </view>
         </view>
         <view class="_button" bind:tap="insert">新增</view>

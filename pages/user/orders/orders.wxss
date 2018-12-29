@@ -101,7 +101,8 @@
 
 .order .bottom .button {
     color: #999999;
-    padding: 6rpx 20rpx;
+    padding: 0 20rpx;
+    line-height: 50rpx;
     background: #fff;
     border-radius: 20px;
     margin-left: 20rpx;

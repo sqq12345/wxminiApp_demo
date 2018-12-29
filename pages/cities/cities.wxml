@@ -1,6 +1,6 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <scroll-view class="container" scroll-into-view="{{toView}}" scroll-y scroll-with-animation>
+    <scroll-view class="container" scroll-into-view="{{toView}}" scroll-y>
         <view wx:for="{{props.city.list}}" wx:for-index="key" wx:for-item="value" wx:key="{{key}}" id="{{key}}">
             <view class="letter">{{key}}</view>
             <view class="city" wx:for="{{value}}" wx:key="{{index}}" bind:tap="select" data-value="{{item}}">
