@@ -1,0 +1,16 @@
+/**
+ * 订单  包含了地址和优惠券
+ */
+const extendObservable = require('../utils/mobx/mobx').extendObservable;
+let Order = function () {
+    extendObservable(this, {
+        payload: {},
+        //地址
+        address: {},
+        //优惠券
+        coupon: {},
+    })
+}
+
+const Store = new Order();
+module.exports = Store
