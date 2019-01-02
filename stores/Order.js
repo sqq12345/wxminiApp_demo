@@ -6,9 +6,9 @@ let Order = function () {
     extendObservable(this, {
         payload: {},
         //地址
-        address: {},
+        address: null,
         //优惠券
-        coupon: {},
+        coupon: null,
     })
 }
 

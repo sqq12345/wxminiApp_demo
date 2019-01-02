@@ -1,8 +1,12 @@
 // pages/settle/settle.js
 import { observer } from '../../../../utils/mobx/observer';
+import http from '../../../../utils/http';
+import login from '../../../../stores/Login';
+const { regeneratorRuntime } = global;
 Page(observer({
   props: {
     cart: require('../../../../stores/Cart'),
+    order: require('../../../../stores/Order'),
   },
   /**
    * 页面的初始数据
@@ -27,8 +31,48 @@ Page(observer({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    this.props.cart.fetchData();
+    const result = await login();
+    http.request({
+      url:'/api/order/confirmorder',
+      method: 'POST',
+      header: { token: result.user_token },
+      success:(response)=>{
+        if(response.data.address){
+          this.props.order.address = response.data.address;
+        }
+      }
+    })
   },
+  /**
+   * 预支付
+   */
+  async prePay() {
+    const result = await login();
+    http.request({
+      url: '',
+      method: 'POST',
+      header: { token: result.user_token },
+      success: (response) => {
 
+      }
+    });
+    wx.requestPayment({
+      timeStamp: '',
+      nonceStr: '',
+      package: '',
+      signType: 'MD5',
+      paySign: '',
+      success(res) {
+
+      },
+      fail(res) {
+
+      },
+      complete:function(res){
+
+      }
+    })
+  }
 }))

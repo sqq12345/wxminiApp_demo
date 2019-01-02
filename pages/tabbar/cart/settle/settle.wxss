@@ -88,6 +88,7 @@
     width: 36rpx;
     height: 36rpx;
     margin-right: 15rpx;
+    border-radius: 50%;
 }
 
 .item .goods {
@@ -155,6 +156,7 @@
     padding: 20rpx;
     position: relative;
     overflow: hidden;
+    display: block;
 }
 
 .user>view {

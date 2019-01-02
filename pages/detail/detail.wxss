@@ -162,3 +162,7 @@
     height: 26rpx;
     margin-right: 6rpx;
 }
+
+.empty{
+    color: #999;
+}

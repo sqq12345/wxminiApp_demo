@@ -16,7 +16,7 @@
             <view>
                 <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
                     <image class="select-icon" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
-                    <image class="thumb" />
+                    <image class="thumb" src="{{goods.image}}"/>
                     <view class="info">
                         <view class="title">{{goods.name}}</view>
                         <view class="unit">{{goods.unit}}</view>

@@ -38,11 +38,12 @@
     
     <view class="block desc">
         <view class="title">{{descLabel}}</view>
-        <view class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</view>
+        <view class="content">{{detail.memo}}</view>
     </view>
     <view class="block two">
         <view class="title">留言评论</view>
-        <view class="comments">
+        <view class="empty" wx:if="{{list.length==0}}">暂无评论</view>
+        <view class="comments" wx:if="{{list.length>0}}">
             <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
                 <image class="userhead" src=""/>
                 <view class="content">

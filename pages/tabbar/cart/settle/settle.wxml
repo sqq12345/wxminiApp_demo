@@ -1,30 +1,35 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        <view class="user">
-            <view>
-                <text class="username">马骄傲</text>
-                <text class="'phone'">13333333333</text>
+        <navigator hover-class="none" class="user" url="/pages/user/address/address?select=true">
+            <block wx:if="{{props.order.address!=null}}">
+                <view>
+                    <text class="username">{{props.order.address.name}}</text>
+                    <text class="'phone'">{{props.order.address.mobile}}</text>
+                </view>
+                <view class="address">
+                    <text>{{props.order.address.address}}</text>
+                    <image class="_right" src="/static/icons/right.png" />
+                </view>
+                <image src="/static/icons/cart/line.png" class="line" />
+            </block>
+            <view wx:if="{{props.order.address==null}}">
+                新增地址<image class="_right" src="/static/icons/right.png" />
             </view>
-            <view class="address">
-                <text>address</text>
-                <image class="_right" src="/static/icons/right.png" />
-            </view>
-            <image src="/static/icons/cart/line.png" class="line"/>
-        </view>
+        </navigator>
         <view class="box">
             <view class="cart">
                 <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
                     <view class="header">
                         <view>
-                            <image class="select-icon" src="" />
+                            <image class="select-icon" src="{{item.shop.logo}}" />
                             {{item.shop.name}}
                         </view>
                         <image class="_right" src="/static/icons/right.png" />
                     </view>
                     <view>
                         <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
-                            <image class="thumb" />
+                            <image class="thumb" src="{{goods.image}}" />
                             <view class="info">
                                 <view class="title">{{goods.name}}</view>
                                 <view class="unit">{{goods.unit}}</view>
@@ -52,7 +57,7 @@
                 </view>
                 <view class="line">
                     <text>买家留言</text>
-                    <input placeholder="选填，可填写您与卖家达成一致的要求"/>
+                    <input placeholder="选填，可填写您与卖家达成一致的要求" />
                 </view>
             </view>
         </view>
@@ -60,8 +65,10 @@
     <view class="bottom-btn">
         <view class="all">
             实付款
-            <text class="price"><text class="_rmb">￥</text>{{props.cart.total}}</text>
+            <text class="price">
+                <text class="_rmb">￥</text>{{props.cart.total}}
+            </text>
         </view>
-        <view class="buy">确认付款</view>
+        <view class="buy" bind:tap="prePay">确认付款</view>
     </view>
 </view>

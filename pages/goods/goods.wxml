@@ -33,7 +33,7 @@
             <text>库存{{goods.stock}}件</text>
         </view>
     </view>
-    <view class="comments">
+    <view class="comments" wx:if="{{goods.comments.list.length>0}}">
         <view class="header">
             大家都在说
             <view>

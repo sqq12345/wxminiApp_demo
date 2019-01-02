@@ -37,6 +37,8 @@
     max-width: 34rpx;
     height: 34rpx;
     margin-right: 15rpx;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .item .goods {

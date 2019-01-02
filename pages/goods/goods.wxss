@@ -252,7 +252,7 @@ swiper {
 
 .detail {
     background: #fff;
-    padding: 0 20rpx;
+    /* padding: 0 20rpx; */
 }
 
 .detail .text {
