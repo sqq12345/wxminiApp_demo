@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/tabbar/cart/settle/settle",
-					"query": "query=武"
+					"pathName": "pages/detail/detail",
+					"query": "id=1&type=1"
 				}
 			]
 		}

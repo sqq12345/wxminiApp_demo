@@ -2,4 +2,5 @@
     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
         <input value='{{time}}' placeholder='选择时间' />
     </picker>
+    <image src="https://anfou.cc/uploads/img/20181228/f91477eb46dba94a4c63d9658309ce18.png" />
 </view>

@@ -28,9 +28,17 @@ Page(observer({
     this.props.city.selected = value;
     this.props.city.user_latitude = value.location.lat;
     this.props.city.user_longitude = value.location.lng;
-    
+
     this.props.city.latitude = value.location.lat;
     this.props.city.longitude = value.location.lng;
+
+    let pages = getCurrentPages();
+    let prevpage = pages[pages.length - 2];
+    //重置地图缩放等级
+    if (prevpage.route == 'pages/tabbar/home/home') {
+      prevpage.setData({ scale: 14 });
+    }
+
     wx.navigateBack();
   },
 

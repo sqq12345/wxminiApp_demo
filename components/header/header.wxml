@@ -1,11 +1,11 @@
 <!-- components/header/header.wxml -->
 <view>
-  <view class='nav-wrap' style='height: {{height*2 + 20}}px;background:{{navbarData.transparent?"transparent":"#fff"}};position:{{navbarData.position||"fixed"}}'>
-    <view class='nav-title' style='line-height:{{height*2 + 44}}px;color:{{navbarData.color?navbarData.color:"#000"}}'>
+  <view class='nav-wrap' style='height: {{occupation}}px;background:{{navbarData.transparent?"transparent":"#fff"}};position:{{navbarData.position||"fixed"}}'>
+    <view class='nav-title' style='line-height:{{height*2 + 46}}px;color:{{navbarData.color?navbarData.color:"#000"}}'>
       {{navbarData.title}}
     </view>
     <view style='display: flex; justify-content: space-around;flex-direction: column'>
-      <view class='nav-capsule' style='height: {{height*2 + 44}}px;' wx:if='{{navbarData.showCapsule}}'>
+      <view class='nav-capsule' style='height: {{height*2 + 46}}px;' wx:if='{{navbarData.showCapsule}}'>
         <view bindtap='_navback' wx:if='{{!share}}' style="display:flex">
           <image src='/static/icons/back.png' mode='aspectFill' class='back-pre'></image>
         </view>

@@ -10,7 +10,7 @@ let City = function () {
     longitude: null,
     user_latitude: null,
     user_longitude: null,
-    markers: []
+    markers: [],
   });
 }
 City.prototype.getMarkers = async function (type, latitude, longitude) {

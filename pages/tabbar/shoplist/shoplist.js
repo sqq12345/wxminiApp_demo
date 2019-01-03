@@ -77,10 +77,6 @@ Page(observer({
         arr.sort((a, b) => {
           return b.sort - a.sort;
         });
-        //temp
-        arr.map(item => {
-          item.avatar = item.avatar.replace('http://af.dev.com/', '')
-        });
         this.setData({ imgUrls: response.data.data })
       }
     });

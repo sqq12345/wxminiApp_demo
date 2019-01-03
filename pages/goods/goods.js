@@ -22,7 +22,8 @@ Page({
     goods: {},
     //整数部分和小数部分
     price: [],
-    score: '0.0'
+    score: '0.0',
+    collected: false,
   },
 
   /**
@@ -95,6 +96,7 @@ Page({
           duration: 1500,
           mask: false,
         });
+        this.setData({collected:true});
       }
     });
   }

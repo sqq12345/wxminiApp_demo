@@ -29,13 +29,13 @@ Page(observer({
     }
     const result = await login();
     http.request({
-      url: '',
+      url: '/api/user/listaddress',
       method: 'GET',
       header: {
         token: result.user_token
       },
       success: (response) => {
-
+        this.setData({ list: response.data.data });
       }
     })
   },

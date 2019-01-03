@@ -17,6 +17,8 @@ Page(observer({
       title: '确认订单', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+    logisticsprc: 0, //运费
+    totalPrice: "",
   },
   //商品数量增加
   increase(e) {
@@ -35,13 +37,17 @@ Page(observer({
     this.props.cart.fetchData();
     const result = await login();
     http.request({
-      url:'/api/order/confirmorder',
+      url: '/api/order/confirmorder',
       method: 'POST',
       header: { token: result.user_token },
-      success:(response)=>{
-        if(response.data.address){
+      success: (response) => {
+        if (response.data.address) {
           this.props.order.address = response.data.address;
         }
+        this.setData({
+          logisticsprc: response.data.goods.logisticsprc,
+          totalPrice: response.data.goods.totalprc.toFixed(2)
+        });
       }
     })
   },
@@ -51,28 +57,31 @@ Page(observer({
   async prePay() {
     const result = await login();
     http.request({
-      url: '',
+      url: '/api/order/payment',
       method: 'POST',
       header: { token: result.user_token },
+      data: {
+
+      },
       success: (response) => {
 
       }
     });
-    wx.requestPayment({
-      timeStamp: '',
-      nonceStr: '',
-      package: '',
-      signType: 'MD5',
-      paySign: '',
-      success(res) {
+    // wx.requestPayment({
+    //   timeStamp: '',
+    //   nonceStr: '',
+    //   package: '',
+    //   signType: 'MD5',
+    //   paySign: '',
+    //   success(res) {
 
-      },
-      fail(res) {
+    //   },
+    //   fail(res) {
 
-      },
-      complete:function(res){
+    //   },
+    //   complete: function (res) {
 
-      }
-    })
+    //   }
+    // })
   }
 }))

@@ -7,8 +7,7 @@
             </swiper-item>
         </block>
     </swiper> -->
-    <image src="{{goods.image}}" class="swiper" />
-    <view class="info">
+    <image src="{{goods.image}}" class="swiper" /><view class="info">
         <view class="price">
             <text><text class="_rmb">￥</text>{{price[0]}}</text>
             <text>.{{price[1]}}</text>
@@ -76,7 +75,7 @@
     <view class="bottom-btn">
         <view class="nav">
             <view bind:tap="collect">
-                <image src="/static/icons/goods/1.png" />
+                <image src="{{collected?'/static/icons/goods/1-1.png':'/static/icons/goods/1.png'}}" />
                 收藏
             </view>
             <navigator hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">

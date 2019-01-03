@@ -10,7 +10,7 @@
         <navigator hover-class="none" class="button" url="/pages/enter/enter"><image src="/static/icons/plus.png"/>入驻</navigator>
       </view>
     </view>
-    <map id="map" class="map" scale="13" show-location enable-zoom="false" markers="{{props.city.markers}}" latitude="{{props.city.user_latitude}}" longitude="{{props.city.user_longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
+    <map id="map" class="map" scale="{{scale}}" show-location markers="{{props.city.markers}}" latitude="{{props.city.user_latitude}}" longitude="{{props.city.user_longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
       <cover-view class="detail" wx:if="{{detailShow}}">
         <cover-view class="head">
           <cover-view class="name">{{selectedMarker.name}}</cover-view>

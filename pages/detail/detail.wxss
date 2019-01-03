@@ -11,6 +11,7 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    font-size: 0;
 }
 
 .head .logo {
@@ -124,12 +125,11 @@
     border: 1px solid #eeeeee;
     position: relative;
     width: 31%;
-    height: 0;
     overflow: hidden;
-    padding-bottom: 30%;
-    margin-right: 3.5%;
+    margin-right: 2%;
     box-sizing: border-box;
     border-radius: 5px;
+    height: 25vw;
 }
 
 .comments .comment .pics>image:last-child {

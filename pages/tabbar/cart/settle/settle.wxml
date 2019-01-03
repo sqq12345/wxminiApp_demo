@@ -36,9 +36,9 @@
                                 <view class="price">
                                     ￥{{goods.total}}
                                     <view class="calc">
-                                        <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                        <!-- <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> -->
                                         <text class="num">{{goods.count}}</text>
-                                        <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                        <!-- <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> -->
                                     </view>
                                 </view>
                             </view>
@@ -49,7 +49,8 @@
             <view class="item">
                 <view class="line">
                     <text>运费</text>
-                    <text>10元</text>
+                    <text wx:if="{{logisticsprc>0}}">{{logisticsprc}}元</text>
+                    <text wx:if="{{logisticsprc==0}}">免运费</text>
                 </view>
                 <view class="line">
                     <text>优惠券</text>
@@ -66,7 +67,7 @@
         <view class="all">
             实付款
             <text class="price">
-                <text class="_rmb">￥</text>{{props.cart.total}}
+                <text class="_rmb">￥</text>{{totalPrice}}
             </text>
         </view>
         <view class="buy" bind:tap="prePay">确认付款</view>

@@ -32,6 +32,7 @@ swiper {
 .info {
     padding: 20rpx 30rpx;
     background: #ffffff;
+    margin-top: -10rpx;
 }
 
 .info>view {

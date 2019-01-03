@@ -14,12 +14,13 @@ Page(observer({
       title: '附近商家', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    occupation: app.globalData.height * 2 + 20,
+    occupation: app.globalData.height + 40,
     //类型
     types: [],
     selectedTypeId: 1,
     detailShow: false, //显示详情?
     selectedMarker: -1, //选中的marker
+    scale: 14,
   },
   //切换分类
   changeType(e) {
@@ -43,7 +44,7 @@ Page(observer({
   },
   //显示页面时隐藏marker
   onShow() {
-    this.setData({ detailShow: false })
+    this.setData({ detailShow: false});
   },
   //点击marker
   tapMarker(e) {
@@ -51,7 +52,7 @@ Page(observer({
     const marker = this.props.city.markers.find(item => item.id == markerId);
     this.setData({
       detailShow: true,
-      selectedMarker: marker
+      selectedMarker: marker,
     })
   },
   //点击map时关闭详情框
