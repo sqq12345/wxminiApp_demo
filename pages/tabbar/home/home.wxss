@@ -58,6 +58,7 @@ page {
     display: inline-flex;
     align-items: center;
     padding: 0 10rpx;
+    font-weight: bolder;
 }
 
 .type scroll-view .item.selected {
@@ -79,9 +80,16 @@ page {
 
 .type .right {
     flex: 1;
-    border-left: 1px solid #ccc;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.type .right .line {
+    width: 10rpx;
+    height: 60rpx;
+    position: absolute;
+    left: 0;
 }
 
 .type .button {
@@ -92,7 +100,7 @@ page {
     font-size: 24rpx;
     color: #26b802;
     margin-left: 20rpx;
-    font-size: 24rpx;
+    font-weight: bolder;
 }
 
 .type .button image {

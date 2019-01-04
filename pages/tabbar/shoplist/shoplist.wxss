@@ -33,6 +33,7 @@ swiper-item{
     border-radius: 40rpx;
     padding: 10rpx 30rpx;
     color: #25CE41;
+    font-weight: bolder;
 }
 
 .sort .btns text.selected {
@@ -45,11 +46,11 @@ swiper-item{
 }
 
 .sort .sorts text {
-    color: #777;
+    color: #999;
 }
 
 .sort .sorts .selected {
-    color: #000;
+    color: #666;
 }
 
 .nomore{

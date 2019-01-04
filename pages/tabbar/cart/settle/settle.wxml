@@ -8,7 +8,7 @@
                     <text class="'phone'">{{props.order.address.mobile}}</text>
                 </view>
                 <view class="address">
-                    <text>{{props.order.address.address}}</text>
+                    <text>{{props.order.address.provincename}} {{props.order.address.cityname}} {{props.order.address.areaname}} {{props.order.address.address}}</text>
                     <image class="_right" src="/static/icons/right.png" />
                 </view>
                 <image src="/static/icons/cart/line.png" class="line" />
@@ -58,7 +58,7 @@
                 </view>
                 <view class="line">
                     <text>买家留言</text>
-                    <input placeholder="选填，可填写您与卖家达成一致的要求" />
+                    <input placeholder="选填，可填写您与卖家达成一致的要求" bind:input="onInput"/>
                 </view>
             </view>
         </view>

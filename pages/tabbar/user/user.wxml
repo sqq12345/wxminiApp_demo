@@ -48,19 +48,19 @@
             <view class="block">
                 <view class="icons">
                     <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
-                        <image src="/static/icons/user/1.png" />
+                        <image src="/static/icons/user/1.png" style="height:38rpx"/>
                         待付款
                     </navigator>
                     <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
-                        <image src="/static/icons/user/2.png" />
+                        <image src="/static/icons/user/2.png" style="height:36rpx;width:44rpx;"/>
                         待发货
                     </navigator>
                     <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
-                        <image src="/static/icons/user/3.png" />
+                        <image src="/static/icons/user/3.png" style="height:36rpx"/>
                         待收货
                     </navigator>
                     <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=4">
-                        <image src="/static/icons/user/4.png" />
+                        <image src="/static/icons/user/4.png" style="height:36rpx"/>
                         待评价
                     </navigator>
                 </view>
@@ -73,11 +73,11 @@
             <view class="block">
                 <view class="icons">
                     <navigator hover-class="none" class="icon" url="/pages/group/start">
-                        <image src="/static/icons/user/5.png" />
+                        <image src="/static/icons/user/5.png" style="width:44rpx;height:42rpx"/>
                         发起接龙
                     </navigator>
                     <navigator hover-class="none" class="icon" url="/pages/user/group/group">
-                        <image src="/static/icons/user/6.png" />
+                        <image src="/static/icons/user/6.png" style="width:38rpx;height:34rpx;"/>
                         我的拼团
                     </navigator>
                     <view class="icon" style="visibility:hidden"></view>
@@ -88,25 +88,25 @@
         <view class="block">
             <view class="icons">
                 <navigator class="icon" hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
-                    <image src="/static/icons/user/7.png" />
+                    <image src="/static/icons/user/7.png" style="width:44rpx;"/>
                     购物车
                 </navigator>
                 <navigator class="icon" hover-class="none" url="/pages/user/coupon/coupon">
-                    <image src="/static/icons/user/8.png" />
+                    <image src="/static/icons/user/8.png" style="height:32rpx"/>
                     优惠券
                 </navigator>
                 <navigator class="icon" hover-class="none" url="/pages/user/collection/collection">
-                    <image src="/static/icons/user/9.png" />
+                    <image src="/static/icons/user/9.png" style="width:38rpx;height:36rpx;"/>
                     收藏
                 </navigator>
                 <view class="icon">
-                    <image src="/static/icons/user/10.png" />
+                    <image src="/static/icons/user/10.png" style="width:36rpx;height:32rpx;"/>
                     客服
                 </view>
             </view>
             <view class="icons">
                 <navigator class="icon" hover-class="none" url="/pages/user/setting/setting">
-                    <image src="/static/icons/user/11.png" />
+                    <image src="/static/icons/user/11.png" style="width:34rpx;height:34rpx;"/>
                     设置
                 </navigator>
                 <view class="icon" style="visibility:hidden"></view>

@@ -23,6 +23,7 @@ Page({
     multiArray: [],
     showArray: [],
     multiIndex: [0, 0, 0],
+    addressid: null
   },
   onInput(e) {
     const value = e.detail.value;
@@ -35,6 +36,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    let address = {};
+    //加载地址
+    if (options.id) {
+      this.setData({ addressid: options.id });
+      const response = await http.request({
+        url: '',
+        method: 'GET',
+        success: (response) => {
+
+        }
+      })
+    }
     const multiArray = [];
     const form = this.data.form;
     const provinces = await http.request({
@@ -66,6 +79,7 @@ Page({
     })
     multiArray.push(areas.data.data);
     form.area_id = areas.data.data[0].id;
+
     this.setData({ multiArray, showArray: multiArray, form });
   },
   bindPickerChange(e) {
@@ -126,13 +140,17 @@ Page({
     }
     this.setData({ multiArray })
   },
-  async insert() {
+  //新增或更新
+  async insertOrUpdate() {
     const form = this.data.form;
     //console.log(form);
+    if (this.data.addressid != null) {
+      form.addressid = this.data.addressid
+    }
     if (verify(form, config)) {
       const result = await login();
       http.request({
-        url: '/api/user/addaddress',
+        url: this.data.addressid == null ? '/api/user/addaddress' : '/api/user/modifyaddress',
         method: 'POST',
         header: {
           token: result.user_token
@@ -148,23 +166,58 @@ Page({
           }
           if (response.data.code == 1) {
             wx.showToast({
-              title: '添加成功',
+              title: this.data.addressid == null ? '添加成功' : '修改成功',
               icon: 'none',
               duration: 1500,
               mask: true,
-              success: (result)=>{
-                setTimeout(()=>{
+              success: (result) => {
+                setTimeout(() => {
                   wx.navigateBack({
                     delta: 1
                   });
-                },1500)
+                }, 1500)
               },
             });
           }
         }
       })
     }
-  }
+  },
+  async setDefault() {
+    const result = await login();
+    http.request({
+      url: '/api/user/defaultaddress',
+      method: 'POST',
+      header: {
+        token: result.user_token
+      },
+      data: { addressid: this.data.addressid },
+      success: (response) => {
+        wx.showToast({
+          title: '设置成功',
+          icon: 'success',
+          duration: 1500,
+          mask: false,
+        });
+      }
+    })
+  },
+  async delete() {
+    const result = await login();
+    http.request({
+      url: '/api/user/deladdress',
+      method: 'POST',
+      header: {
+        token: result.user_token
+      },
+      data: { addressid: this.data.addressid },
+      success: (response) => {
+        wx.navigateBack({
+          delta: 1
+        });
+      }
+    })
+  },
 })
 
 const config = {

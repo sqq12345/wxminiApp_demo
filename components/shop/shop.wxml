@@ -5,11 +5,11 @@
         <view class="text">
             <navigator url="/pages/goodslist/goodslist?id={{item.id}}" hover-class="none" class="title">{{item.name}}</navigator>
             <view class="info">
-                <view><image class="icon" src="/static/icons/shops/1.png"/><text>{{item.district}}</text></view>
+                <view><image class="icon location" src="/static/icons/shops/1.png"/><text>{{item.district}}</text></view>
                 <text>距离{{distance}}</text>
             </view>
             <view class="info">
-                <view><image class="icon" src="/static/icons/shops/2.png"/><text>优惠券</text></view>
+                <view><image class="icon coupon" src="/static/icons/shops/2.png"/><text>优惠券</text></view>
                 <text>{{item.goods.length}}个活动</text>
             </view>
         </view>

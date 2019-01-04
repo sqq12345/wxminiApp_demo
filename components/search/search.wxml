@@ -2,7 +2,7 @@
     <navigator url="/pages/cities/cities" hover-class="none">
         <view wx:if="{{selected!=null}}" class="picker">
             {{selected.name}}
-            <image src="/static/icons/down.png" class="down" />
+            <image src="/static/icons/down2.png" class="down" />
         </view>
         <view wx:if="{{selected==null}}" class="picker">定位中</view>
     </navigator>

@@ -19,6 +19,7 @@ page {
 view, text {
   word-break: break-all;
   font-size: 28rpx;
+  font-weight: 400;
 }
 
 navigator {

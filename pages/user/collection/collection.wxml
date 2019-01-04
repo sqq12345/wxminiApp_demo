@@ -1,13 +1,13 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        <navigator hover-class="none" class="item" url="/pages/user/orders/order/order">
-            <image />
+        <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}" wx:key="{{index}}">
+            <image src="{{item.goods.thumb_image}}"/>
             <view class="content">
-                <view class="name">商品名<text class="price">￥399.00</text></view>
+                <view class="name">{{item.goods.title}}<text class="price">￥{{item.goods.price}}</text></view>
                 <view>
-                    <view class="unit">规格</view>
-                    <view class="unit">配送范围</view>
+                    <view class="unit">{{item.goods.specification}}</view>
+                    <view class="unit">配送范围:{{item.goods.middata}}</view>
                 </view>
             </view>
         </navigator>

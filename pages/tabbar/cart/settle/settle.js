@@ -19,6 +19,7 @@ Page(observer({
     },
     logisticsprc: 0, //运费
     totalPrice: "",
+    remark: "", //买家备注
   },
   //商品数量增加
   increase(e) {
@@ -29,6 +30,11 @@ Page(observer({
   reduce(e) {
     const { cartIndex, goodsIndex } = e.currentTarget.dataset;
     this.props.cart.list[cartIndex].goods[goodsIndex].reduce()
+  },
+  //买家备注
+  onInput(e) {
+    const value = e.detail.value;
+    this.setData({ remark: value })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -61,27 +67,35 @@ Page(observer({
       method: 'POST',
       header: { token: result.user_token },
       data: {
-
+        
       },
       success: (response) => {
+        wx.requestPayment({
+          timeStamp: response.data.data.timestamp.toString(),
+          nonceStr: response.data.data.noncestr,
+          //package: response.data.data.package,
+          package: "prepay_id=" + response.data.data.prepayid,
+          signType: 'MD5',
+          paySign: response.data.data.sign,
+          success(res) {
 
+          },
+          fail(res) {
+            wx.showModal({
+              title: '',
+              content: JSON.stringify(res),
+              showCancel: true,
+              cancelText: '取消',
+              cancelColor: '#000000',
+              confirmText: '确定',
+              confirmColor: '#3CC51F',
+            });
+          },
+          complete: function (res) {
+
+          }
+        })
       }
     });
-    // wx.requestPayment({
-    //   timeStamp: '',
-    //   nonceStr: '',
-    //   package: '',
-    //   signType: 'MD5',
-    //   paySign: '',
-    //   success(res) {
-
-    //   },
-    //   fail(res) {
-
-    //   },
-    //   complete: function (res) {
-
-    //   }
-    // })
   }
 }))

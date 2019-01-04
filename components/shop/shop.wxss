@@ -2,7 +2,7 @@
     display: flex;
     /* padding: 15px; */
     padding-top: 30rpx;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #F4F4F4;
     padding-bottom: 30rpx;
 }
 
@@ -28,6 +28,16 @@
     margin-right: 8rpx;
 }
 
+.shop .icon.location{
+    width: 20rpx;
+    height: 26rpx;
+}
+
+.shop .icon.coupon{
+    width: 22rpx;
+    height: 22rpx;
+}
+
 .shop .text {
     font-size: 24rpx;
     color: #777;
@@ -41,7 +51,6 @@
 }
 
 .shop .text>view {
-    flex-grow: 1;
     display: flex;
     justify-content: space-between;
 }
@@ -49,6 +58,8 @@
 .shop .text .title {
     color: #000000;
     font-size: 30rpx;
+    font-weight: bolder;
+    margin-bottom: 10rpx;
 }
 
 .activity {
@@ -77,4 +88,5 @@
 
 .activity>navigator .price {
     color: #FF6600;
+    font-weight: bolder;
 }

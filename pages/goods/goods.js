@@ -79,7 +79,7 @@ Page({
   collect: async function () {
     const result = await login();
     http.request({
-      url: '/api/order/cart',
+      url: '/api/order/collection',
       showLoading: true,
       header: {
         token: result.user_token,

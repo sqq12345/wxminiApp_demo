@@ -35,3 +35,20 @@
     font-weight: 400;
     width: 5.5em;
 }
+
+.options{
+    text-align: right;
+    padding: 0 30rpx;
+}
+
+.options text{
+    margin-left: 30rpx;
+}
+
+.options .default{
+    color: #1FC13B;
+}
+
+.options .delete{
+    color: red;
+}

@@ -23,10 +23,13 @@ Page(observer({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  onLoad: function (options) {
     if (options.select) {
       this.setData({ select: true });
     }
+
+  },
+  async onShow() {
     const result = await login();
     http.request({
       url: '/api/user/listaddress',
@@ -41,8 +44,10 @@ Page(observer({
   },
   //选择地址
   select(e) {
-    if (this.data.select) {
-
-    }
+    const index = e.currentTarget.dataset.index;
+    this.props.order.address = this.data.list[index];
+    wx.navigateBack({
+      delta: 1
+    });
   }
 }))
