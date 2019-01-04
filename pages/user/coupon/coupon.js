@@ -13,7 +13,7 @@ Page({
       title: '优惠券', //导航栏 中间的标题
       transparent: false, //透明导航栏
     },
-
+    select: false,
     list: [
       {}, {}
     ],
@@ -23,6 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    if (options.select) {
+      this.setData({ select: true });
+    }
+
     const result = await login();
     http.request({
       url: '/api/order/coupon',

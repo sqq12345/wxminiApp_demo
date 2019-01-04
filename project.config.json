@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/tabbar/user/user",
+					"pathName": "pages/user/address/address",
 					"query": "id=1&type=1"
 				}
 			]

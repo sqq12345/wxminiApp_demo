@@ -4,11 +4,11 @@
         <view class="form">
             <view class='form-group'>
                 <text>姓名</text>
-                <input placeholder="请输入姓名" type="number" data-field="name" bindinput="onInput" value="{{from.name}}"/>
+                <input placeholder="请输入姓名" type="number" data-field="name" bindinput="onInput" value="{{form.name}}"/>
             </view>
             <view class='form-group'>
                 <text>电话</text>
-                <input placeholder="请输入电话" type="number" data-field="mobile" bindinput="onInput" value="{{from.mobile}}"/>
+                <input placeholder="请输入电话" type="number" data-field="mobile" bindinput="onInput" value="{{form.mobile}}"/>
             </view>
             <view class='form-group'>
                 <text>省市区</text>
@@ -20,7 +20,7 @@
             </view>
             <view class='form-group'>
                 <text>地址</text>
-                <input placeholder="请输入地址" data-field="address" bindinput="onInput" value="{{from.address}}"/>
+                <input placeholder="请输入地址" data-field="address" bindinput="onInput" value="{{form.address}}"/>
             </view>
         </view>
         <view class="options" wx:if="{{addressid!=null}}"><text class="default" bind:tap="setDefault">设为默认地址</text><text class="delete" bind:tap="delete">删除地址</text></view>

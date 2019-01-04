@@ -20,6 +20,7 @@ Page(observer({
     logisticsprc: 0, //运费
     totalPrice: "",
     remark: "", //买家备注
+    hasCoupon : false,   //是否有可用的优惠券
   },
   //商品数量增加
   increase(e) {
@@ -36,16 +37,43 @@ Page(observer({
     const value = e.detail.value;
     this.setData({ remark: value })
   },
+  onLoad: async function () {
+    //检查有没有可用优惠券
+    const result = await login();
+    http.request({
+      url: '/api/order/coupon',
+      method: 'GET',
+      header: {
+        token: result.user_token
+      },
+      success: (response) => {
+        if(response.data.code != 999){
+          //有优惠券
+          this.setData({hasCoupon:true});
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  onShow: async function (options) {
     this.props.cart.fetchData();
     const result = await login();
+    const data = {};
+    //地址算运费
+    if (this.props.order.address != null) {
+      data.addressid = this.props.order.address.id
+    }
+    //优惠券算金额
+    if (this.props.order.coupon != null) {
+      data.couponid = this.props.order.coupon.id
+    }
     http.request({
       url: '/api/order/confirmorder',
       method: 'POST',
       header: { token: result.user_token },
+      data: data,
       success: (response) => {
         if (response.data.address) {
           this.props.order.address = response.data.address;
@@ -67,7 +95,7 @@ Page(observer({
       method: 'POST',
       header: { token: result.user_token },
       data: {
-        
+
       },
       success: (response) => {
         wx.requestPayment({
@@ -77,18 +105,38 @@ Page(observer({
           signType: response.data.data.signType,
           paySign: response.data.data.paySign,
           success(res) {
-
+            // wx.redirectTo({
+            //   url: '/pages/user/orders/orders',
+            // });
           },
           fail(res) {
-            wx.showModal({
-              title: '',
-              content: JSON.stringify(res),
-              showCancel: true,
-              cancelText: '取消',
-              cancelColor: '#000000',
-              confirmText: '确定',
-              confirmColor: '#3CC51F',
-            });
+            // wx.showModal({
+            //   title: '',
+            //   content: JSON.stringify(res),
+            //   showCancel: true,
+            //   cancelText: '取消',
+            //   cancelColor: '#000000',
+            //   confirmText: '确定',
+            //   confirmColor: '#3CC51F',
+            // });
+            //取消支付
+            if(res.errMsg == 'requestPayment:fail cancel'){
+              wx.showModal({
+                title: '提示',
+                content: '您取消了支付，请及时支付',
+                showCancel: true,
+                cancelText: '取消',
+                cancelColor: '#000000',
+                confirmText: '确定',
+                confirmColor: '#3CC51F',
+                success: (result) => {
+                  wx.redirectTo({
+                    url: '/pages/user/orders/orders',
+                  });
+                },
+                fail: ()=>{},
+              });
+            }
           },
           complete: function (res) {
 

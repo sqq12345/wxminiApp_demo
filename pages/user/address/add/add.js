@@ -23,7 +23,7 @@ Page({
     multiArray: [],
     showArray: [],
     multiIndex: [0, 0, 0],
-    addressid: null
+    addressid: null,
   },
   onInput(e) {
     const value = e.detail.value;
@@ -37,50 +37,77 @@ Page({
    */
   onLoad: async function (options) {
     let address = {};
+    const multiIndex = [0, 0, 0];
+    let form = {};
     //加载地址
     if (options.id) {
       this.setData({ addressid: options.id });
       const response = await http.request({
-        url: '',
+        url: '/api/user/addressdetails?addressid=' + options.id,
         method: 'GET',
-        success: (response) => {
-
-        }
-      })
+      });
+      form = {
+        province_id: response.data.data.province_id,
+        city_id: response.data.data.city_id,
+        area_id: response.data.data.area_id,
+        name: response.data.data.name,
+        mobile: response.data.data.mobile,
+        address: response.data.data.address,
+      };
     }
-    const multiArray = [];
-    const form = this.data.form;
-    const provinces = await http.request({
-      url: '/api/basics/provincelists',
-      method: 'GET',
-    });
-    provinces.data.data.forEach(item => {
-      item.name = item.province_name
+    this.setData({ form }, async () => {
+      const multiArray = [];
+      const form = this.data.form;
+      //省
+      const provinces = await http.request({
+        url: '/api/basics/provincelists',
+        method: 'GET',
+      });
+      provinces.data.data.forEach(item => {
+        item.name = item.province_name
+      })
+      multiArray.push(provinces.data.data);
+      if (!options.id) {
+        form.province_id = provinces.data.data[0].id;
+      } else {
+        multiIndex[0] = provinces.data.data.findIndex(item => {
+          return item.id == form.province_id
+        })
+      }
+      //市
+      const cities = await http.request({
+        url: '/api/basics/citylist?province_id=' + form.province_id,
+        method: 'GET',
+      });
+      cities.data.data.forEach(item => {
+        item.name = item.city_name
+      })
+      multiArray.push(cities.data.data);
+      if (!options.id) {
+        form.city_id = cities.data.data[0].id;
+      } else {
+        multiIndex[1] = cities.data.data.findIndex(item => {
+          return item.id == form.city_id
+        })
+      }
+      //区
+      const areas = await http.request({
+        url: '/api/basics/arealists?city_id=' + form.city_id,
+        method: 'GET',
+      });
+      areas.data.data.forEach(item => {
+        item.name = item.area_name
+      })
+      multiArray.push(areas.data.data);
+      if (!options.id) {
+        form.area_id = areas.data.data[0].id;
+      } else {
+        multiIndex[2] = areas.data.data.findIndex(item => {
+          return item.id == form.area_id
+        })
+      }
+      this.setData({ multiArray, showArray: multiArray, form, multiIndex });
     })
-    multiArray.push(provinces.data.data);
-    form.province_id = provinces.data.data[0].id;
-
-    const cities = await http.request({
-      url: '/api/basics/citylist?province_id=' + form.province_id,
-      method: 'GET',
-    });
-    cities.data.data.forEach(item => {
-      item.name = item.city_name
-    })
-    multiArray.push(cities.data.data);
-    form.city_id = cities.data.data[0].id;
-
-    const areas = await http.request({
-      url: '/api/basics/arealists?city_id=' + form.city_id,
-      method: 'GET',
-    });
-    areas.data.data.forEach(item => {
-      item.name = item.area_name
-    })
-    multiArray.push(areas.data.data);
-    form.area_id = areas.data.data[0].id;
-
-    this.setData({ multiArray, showArray: multiArray, form });
   },
   bindPickerChange(e) {
     const form = this.data.form;

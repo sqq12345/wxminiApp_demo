@@ -36,7 +36,7 @@ Page(observer({
     let prevpage = pages[pages.length - 2];
     //重置地图缩放等级
     if (prevpage.route == 'pages/tabbar/home/home') {
-      prevpage.setData({ scale: 14 });
+      prevpage.setData({ scale: 12 });
     }
 
     wx.navigateBack();

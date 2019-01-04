@@ -20,7 +20,7 @@ Page(observer({
     selectedTypeId: 1,
     detailShow: false, //显示详情?
     selectedMarker: -1, //选中的marker
-    scale: 14,
+    scale: 12,
   },
   //切换分类
   changeType(e) {

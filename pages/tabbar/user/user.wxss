@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20rpx 30rpx;
+    padding: 17rpx 30rpx;
     border-bottom: 1px solid #eeeeee;
     font-weight: bold;
 }
@@ -31,7 +31,13 @@
 .icons {
     display: flex;
     background-color: #ffffff;
-    padding: 20rpx 0;
+    padding: 30rpx 0;
+}
+
+.bottom-line{
+  height: 1px;
+  margin: 0 30rpx;
+  background: #eee;
 }
 
 .icons .icon {
@@ -46,14 +52,13 @@
 .icons .icon image {
     width: 40rpx;
     height: 40rpx;
-    margin-bottom: 10rpx;
+    margin-bottom: 12rpx;
 }
 
 .head {
     display: flex;
     position: relative;
-    align-items: center;
-    height: 400rpx;
+    height: 396rpx;
     color: #ffffff;
     margin-bottom: 20rpx;
 }
@@ -61,7 +66,6 @@
 .head .info {
     display: flex;
     flex: 1;
-    align-items: center;
     padding: 30rpx;
     justify-content: space-between;
 }
@@ -73,8 +77,8 @@
 }
 
 .head .info .avatar {
-    width: 120rpx;
-    height: 120rpx;
+    width: 100rpx;
+    height: 100rpx;
     border-radius: 50%;
     border: 1px solid #eeeeee;
     margin-right: 20rpx;
@@ -86,6 +90,13 @@
     font-size: 30rpx;
 }
 
+.head .info .line{
+    width: 1px;
+    height: 24rpx;
+    background: #fff;
+    margin: 0 20rpx;
+}
+
 .head .info>view, .head .info>navigator {
     display: flex;
     align-items: center;
@@ -94,7 +105,6 @@
 
 .head .info>view .num {
     text-align: center;
-    margin-left: 40rpx;
 }
 
 .head .bottom {

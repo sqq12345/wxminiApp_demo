@@ -4,7 +4,7 @@
     <view class="container">
         <view class="head" style="{{userinfo.ismerchant!=0?'margin-bottom:80rpx':''}}">
             <image class="_bg" src="/static/bg/user.png" />
-            <view class="info"  style="{{userinfo.ismerchant==0?'margin-top:40rpx':''}}">
+            <view class="info"  style="{{userinfo.ismerchant==0?'margin-top:80rpx':''}}">
                 <navigator hover-class="none" url="/pages/user/profile/profile">
                     <open-data class="avatar" type="userAvatarUrl"></open-data>
                     <open-data class="username" type="userNickName"></open-data>
@@ -15,6 +15,7 @@
                         <view>{{userinfo.points}}</view>
                         <view>安积分</view>
                     </navigator>
+                    <view class="line"/>
                     <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
                         <view>{{userinfo.fans}}</view>
                         <view>粉丝</view>
@@ -77,7 +78,7 @@
                         发起接龙
                     </navigator>
                     <navigator hover-class="none" class="icon" url="/pages/user/group/group">
-                        <image src="/static/icons/user/6.png" style="width:38rpx;height:34rpx;"/>
+                        <image src="/static/icons/user/6.png" style="width:38rpx;height:34rpx;margin-bottom:20rpx;"/>
                         我的拼团
                     </navigator>
                     <view class="icon" style="visibility:hidden"></view>
@@ -104,6 +105,7 @@
                     客服
                 </view>
             </view>
+            <view class="bottom-line"/>
             <view class="icons">
                 <navigator class="icon" hover-class="none" url="/pages/user/setting/setting">
                     <image src="/static/icons/user/11.png" style="width:34rpx;height:34rpx;"/>

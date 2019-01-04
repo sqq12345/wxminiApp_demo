@@ -38,6 +38,10 @@ Page(observer({
       url: '/api/shop/searchfarm',
       method: 'POST',
       showLoading: true,
+      header:{
+        latitude: this.props.city.user_latitude,
+        longitude: this.props.city.user_longitude,
+      },
       data: {
         cityid: this.props.city.selected.id,
         mname: query

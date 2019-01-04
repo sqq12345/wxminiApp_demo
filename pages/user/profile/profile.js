@@ -13,6 +13,7 @@ Page({
       title: '编辑', //导航栏 中间的标题
       transparent: false, //透明导航栏
     },
+    user:{},
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
         token: result.user_token
       },
       success: (response) => {
-
+        this.setData({user:response.data.data});
       }
     })
   },

@@ -60,7 +60,7 @@
         <navigator url="/pages/comments/comments?id={{goods.id}}" class="btn-all">查看全部</navigator>
     </view>
     <view class="shop">
-        <image class="logo" />
+        <image class="logo" src="{{goods.logo}}"/>
         <view class="name">
             <view class="title">{{goods.mname}}</view>
             <view class="sale">总销量{{goods.totalsales}}</view>
@@ -75,7 +75,7 @@
     <view class="bottom-btn">
         <view class="nav">
             <view bind:tap="collect">
-                <image src="{{collected?'/static/icons/goods/1-1.png':'/static/icons/goods/1.png'}}" />
+                <image src="{{collected||goods.collection==1?'/static/icons/goods/1-1.png':'/static/icons/goods/1.png'}}" />
                 收藏
             </view>
             <navigator hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">

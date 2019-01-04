@@ -18,10 +18,10 @@
             </view>
             <view class="item">
                 手机号
-                <text>phone</text>
+                <input value="{{user.mobile}}" placeholder="填写您的手机号"/>
             </view>
             <navigator class="item address" hover-class="none" url="/pages/user/address/address">
-                地址管理
+                {{user.address.provincename}} {{user.address.cityname}} {{user.address.areaname}} {{user.address.address}}
                 <image class="_right" src="/static/icons/right.png" />
             </navigator>
         </view>

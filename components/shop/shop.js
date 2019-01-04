@@ -24,9 +24,9 @@ Component({
       });
     }
     
-    const dist = (this.properties.item.distance * 1000);
+    const dist = this.properties.item.distance;
     this.setData({
-      distance: (dist > 1000 ? dist / 1000 : dist).toFixed(2) + (dist > 1000 ? '公里' : '米'),
+      distance: dist > 1000 ? (dist / 1000).toFixed(2) + '公里' : dist + '米',
       goods: this.properties.item.goods,
     })
   },

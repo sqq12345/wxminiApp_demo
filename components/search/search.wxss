@@ -30,7 +30,7 @@
     background: #F4F4F4;
     border-radius: 20px;
     height: 64rpx;
-    padding-left: 2.25em;
+    padding-left: 86rpx;
     flex: 1;
 }
 
@@ -38,5 +38,5 @@
     position: absolute;
     width: 32rpx;
     height: 30rpx;
-    left: .75em;
+    left: 42rpx;
 }

@@ -7,9 +7,9 @@
         </view>
         <view class="grid">
             <view wx:for="{{list}}" wx:key="{{item}}">
-                <navigator url="/pages/group/result/result">
-                    <text>{{item.text}}</text>
-                    <image src="{{item.thumb}}" mode="aspectFit"/>
+                <navigator url="/pages/group/result/result?id={{item.id}}">
+                    <text>{{item.name}}</text>
+                    <image src="{{item.icon}}" mode="aspectFit"/>
                 </navigator>
             </view>
         </view>

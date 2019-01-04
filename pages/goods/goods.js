@@ -31,10 +31,14 @@ Page({
    */
   onLoad: async function (options) {
     await city.fetchData();
+    const result = await login();
     http.request({
       showLoading: true,
       url: '/api/shop/goods?cityid=' + city.selected.id + '&gid=' + options.id,
       method: 'GET',
+      header: {
+        token: result.user_token
+      },
       success: (response) => {
         const price = Number.parseFloat(response.data.data.price).toFixed(2);
         this.setData({
@@ -96,7 +100,7 @@ Page({
           duration: 1500,
           mask: false,
         });
-        this.setData({collected:true});
+        this.setData({ collected: true });
       }
     });
   }

@@ -22,6 +22,10 @@
     border: 0;
 }
 
+.item input{
+    text-align: right;
+}
+
 .avatar {
     border-radius: 50%;
     border: 1px solid #eeeeee;

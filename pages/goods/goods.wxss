@@ -149,9 +149,8 @@ swiper {
     border: 1px solid #eeeeee;
     position: relative;
     width: 31%;
-    height: 0;
+    height: 25vw;
     overflow: hidden;
-    padding-bottom: 30%;
     margin-right: 3.5%;
     box-sizing: border-box;
 }

@@ -163,6 +163,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 8rpx;
+    align-items: center;
 }
 
 .user .username {

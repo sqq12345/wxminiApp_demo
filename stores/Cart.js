@@ -50,7 +50,7 @@ Cart.prototype.fetchData = async function () {
             for (const key in data) {
                 const item = data[key];
                 const json = { shop: {}, goods: [] };
-                json.shop.id = item.mid.id;
+                json.shop.id = key;
                 json.shop.name = item.mid.name;
                 json.shop.logo = item.mid.logo;
                 item.gid.forEach(g => {

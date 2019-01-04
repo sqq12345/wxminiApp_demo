@@ -11,23 +11,23 @@
                     <image class="select-icon" src="{{item.shop.logo}}" />
                     {{item.shop.name}}
                 </view>
-                <image class="_right" src="/static/icons/right.png" />
+                <navigator hover-class="none" url="/pages/detail/detail?id={{item.shop.id}}&type={{}}">
+                    <image class="_right" src="/static/icons/right.png" />
+                </navigator>
             </view>
             <view>
                 <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
                     <image class="select-icon" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
-                    <image class="thumb" src="{{goods.image}}"/>
+                    <image class="thumb" src="{{goods.image}}" />
                     <view class="info">
                         <view class="title">{{goods.name}}</view>
                         <view class="unit">{{goods.unit}}</view>
                         <view class="price">
                             ￥{{goods.total}}
                             <view class="calc">
-                                <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" 
-                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}"/>
+                                <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
                                 <text class="num">{{goods.count}}</text>
-                                <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" 
-                                    data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}"/>
+                                <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
                             </view>
                         </view>
                     </view>
@@ -53,11 +53,10 @@
             去结算
         </navigator>
         <view wx:if="{{props.cart.total==0&&!editing}}" class="buy disable">去结算</view>
-
         <view wx:if="{{editing}}" class="buy delete" bind:tap="delete">删除</view>
     </view>
     <view class="empty" wx:if="{{props.cart.list.length == 0}}">
-        <image src="/static/images/dingdan.png"/>
+        <image src="/static/images/dingdan.png" />
         购物车为空
     </view>
 </view>
