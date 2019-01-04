@@ -71,12 +71,11 @@ Page(observer({
       },
       success: (response) => {
         wx.requestPayment({
-          timeStamp: response.data.data.timestamp.toString(),
-          nonceStr: response.data.data.noncestr,
-          //package: response.data.data.package,
-          package: "prepay_id=" + response.data.data.prepayid,
-          signType: 'MD5',
-          paySign: response.data.data.sign,
+          timeStamp: response.data.data.timeStamp,
+          nonceStr: response.data.data.nonceStr,
+          package: response.data.data.package,
+          signType: response.data.data.signType,
+          paySign: response.data.data.paySign,
           success(res) {
 
           },
