@@ -14,28 +14,6 @@ let City = function () {
   });
 }
 City.prototype.getMarkers = async function (type, latitude, longitude) {
-  // this.markers = [{
-  //   id: 111111,
-  //   latitude: 23.099994,
-  //   longitude: 113.324520,
-  //   iconPath: '/static/icons/map/1-1.png',
-  //   width: '80rpx',
-  //   height: '80rpx',
-  // }, {
-  //   id: 2334232,
-  //   latitude: 23.099994,
-  //   longitude: 113.344520,
-  //   iconPath: '/static/icons/map/1-1.png',
-  //   width: '80rpx',
-  //   height: '80rpx',
-  // }, {
-  //   id: '奥术大师多撒阿萨德',
-  //   latitude: 23.099994,
-  //   longitude: 113.304520,
-  //   iconPath: '/static/icons/map/1-1.png',
-  //   width: '80rpx',
-  //   height: '80rpx',
-  // }];
   if (type == undefined) {
     await this.fetchData();
   }

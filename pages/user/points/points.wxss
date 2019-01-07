@@ -24,3 +24,13 @@
 .list .item>view:last-child{
     color: #555555;
 }
+
+.list .item .point{
+    color:#32DD60;
+    font-weight: bolder;
+}
+
+.list .item .bottom text{
+  font-size: 24rpx;
+  color: #999999
+}

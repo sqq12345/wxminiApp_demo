@@ -44,3 +44,12 @@
     color: #FF8A00;
     font-weight: normal;
 }
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300rpx;
+    color: #999999
+}

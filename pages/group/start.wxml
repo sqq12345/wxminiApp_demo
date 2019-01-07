@@ -33,14 +33,14 @@
             </view>
             <view class="header">团购设置</view>
             <view class="part three">
-                <view class="form-group">
+                <!-- <view class="form-group">
                     <text class="label">物流方式</text>
                     <picker range="{{picker}}" range-key="text">
                         <view class="picker">
                             {{picker[0].text}}<image class="icon" src="/static/icons/group/down.png"/>
                         </view>
                     </picker>
-                </view>
+                </view> -->
                 <view class="form-group">
                     <text class="label">截止时间</text>
                 </view>

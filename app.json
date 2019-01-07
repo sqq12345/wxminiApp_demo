@@ -36,7 +36,8 @@
         "address/add/add",
         "collection/collection",
         "coupon/coupon",
-        "setting/setting"
+        "setting/setting",
+        "fans/earnings/earnings"
       ]
     },
     {

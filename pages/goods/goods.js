@@ -1,10 +1,14 @@
 // pages/goods/goods.js
 import http from '../../utils/http';
 import login from '../../stores/Login';
+import { observer } from '../../utils/mobx/observer';
 const { regeneratorRuntime } = global;
 const city = require('../../stores/City');
-Page({
 
+Page(observer({
+  props: {
+    cart: require('../../stores/Cart'),
+  },
   /**
    * 页面的初始数据
    */
@@ -14,11 +18,6 @@ Page({
       showCapsule: true, //是否显示左上角图标
       transparent: true //透明导航栏
     },
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-    ],
     goods: {},
     //整数部分和小数部分
     price: [],
@@ -45,6 +44,8 @@ Page({
           goods: response.data.data,
           price: price.split('.'),
           score: Number.parseFloat(response.data.data.score).toFixed(1),
+          //是否收藏
+          collected: response.data.data.collection == 1,
         }, () => {
 
         });
@@ -71,6 +72,9 @@ Page({
       },
       method: 'POST',
       success: (response) => {
+        this.props.cart.totalNumber++;
+        //刷新购物车
+        this.props.cart.fetchData()
         wx.showToast({
           title: '添加成功',
           icon: 'success',
@@ -80,6 +84,33 @@ Page({
       }
     });
   },
+  //立即购买
+  async buyNow() {
+    const result = await login();
+    http.request({
+      url: '/api/order/cart',
+      showLoading: true,
+      header: {
+        token: result.user_token,
+      },
+      data: {
+        //商品id
+        gid: this.data.goods.id,
+        num: 1,
+        //农场id
+        mid: this.data.goods.mid,
+      },
+      method: 'POST',
+      success: (response) => {
+        //刷新购物车
+        this.props.cart.fetchData()
+        wx.navigateTo({
+          url: '/pages/tabbar/cart/settle/settle',
+        });
+      }
+    });
+  },
+  //收藏
   collect: async function () {
     const result = await login();
     http.request({
@@ -95,7 +126,7 @@ Page({
       method: 'POST',
       success: (response) => {
         wx.showToast({
-          title: '收藏成功',
+          title: this.data.collected ? '取消成功' : '收藏成功',
           icon: 'success',
           duration: 1500,
           mask: false,
@@ -104,4 +135,4 @@ Page({
       }
     });
   }
-})
+}))

@@ -1,6 +1,9 @@
 // pages/tabbar/user/orders/order/order.js
 const app = getApp();
 
+import http from '../../../../utils/http';
+import login from '../../../../stores/Login';
+const { regeneratorRuntime } = global;
 Page({
 
   /**

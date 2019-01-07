@@ -48,19 +48,19 @@
             </view>
             <view class="block">
                 <view class="icons">
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=0">
                         <image src="/static/icons/user/1.png" style="height:38rpx"/>
                         待付款
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
                         <image src="/static/icons/user/2.png" style="height:36rpx;width:44rpx;"/>
                         待发货
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
                         <image src="/static/icons/user/3.png" style="height:36rpx"/>
                         待收货
                     </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=4">
+                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
                         <image src="/static/icons/user/4.png" style="height:36rpx"/>
                         待评价
                     </navigator>

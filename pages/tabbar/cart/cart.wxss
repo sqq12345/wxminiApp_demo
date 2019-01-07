@@ -96,7 +96,7 @@
 
 .goods .title {
     line-height: 1;
-    font-weight: 500;
+    font-weight: bolder;
 }
 
 .bottom-btn {

@@ -7,6 +7,7 @@ const { regeneratorRuntime } = global;
 const extendObservable = require('../utils/mobx/mobx').extendObservable;
 let Cart = function () {
     extendObservable(this, {
+        totalNumber: 0, //商品总个数
         list: [],
         allSelected: false,
         //计算总金额
@@ -38,6 +39,7 @@ function select(token, selected, ids) {
 Cart.prototype.fetchData = async function () {
     const result = await login();
     const list = [];
+    this.totalNumber = 0;
     await http.request({
         url: '/api/order/cartlist',
         header: {
@@ -66,18 +68,26 @@ Cart.prototype.fetchData = async function () {
                         allSelected = false;
                     }
                     json.goods.push(goods);
+                    //总个数
+                    this.totalNumber += goods.count;
                 });
                 Store.allSelected = allSelected
                 list.push(json);
             }
+            const _this = this;
             list.map(item => {
                 let item_selected = true;
                 item.select = function () {
                     this.selected = !this.selected;
-                    this.goods.map(item => { item.selected = this.selected });
+                    let ids = '';
+                    this.goods.map(item => {
+                        ids += item.cartid + ',';
+                        item.selected = this.selected;
+                    });
                     Store.allSelected = !Store.list.some((item) => {
                         return !item.selected;
                     });
+                    select(result.user_token, this.selected, ids);
                 }
                 item.goods.map(goods => {
                     if (!goods.selected) {
@@ -85,6 +95,9 @@ Cart.prototype.fetchData = async function () {
                     }
                     //购物车加一
                     goods.increase = async function () {
+                        _this.totalNumber++;
+                        //显示角标
+                        _this.setTabbar();
                         this.count = this.count + 1;
                         const result = await login();
                         http.request({
@@ -103,7 +116,11 @@ Cart.prototype.fetchData = async function () {
                     };
                     //购物车减一
                     goods.reduce = async function () {
+                        //为零
                         if (this.count == 1) return;
+                        _this.totalNumber--;
+                        //显示角标
+                        _this.setTabbar();
                         this.count = this.count - 1;
                         const result = await login();
                         http.request({
@@ -142,10 +159,35 @@ Cart.prototype.fetchData = async function () {
                     })
                 })
                 item.selected = item_selected;
+                //是否结算
+                item.settle = false;
+                Object.defineProperty(item, 'settle', {
+                    get() {
+                        //有一个商品选中
+                        return this.goods.some(g => {
+                            return g.selected
+                        })
+                    }
+                })
             });
         }
     });
+    //显示角标
+    this.setTabbar();
     Store.list = list;
+}
+//设置角标数量
+Cart.prototype.setTabbar = function () {
+    if (this.totalNumber == 0) {
+        wx.removeTabBarBadge(
+            { index: 2 },
+        )
+        return
+    }
+    wx.setTabBarBadge({
+        index: 2,
+        text: this.totalNumber + ''
+    })
 }
 //全选
 Cart.prototype.selectAll = async function () {
@@ -183,7 +225,14 @@ Cart.prototype.delete = async function () {
         }
     })
     this.list = list2;
-
+    let totalNumber = 0;
+    this.list.forEach(item => {
+        item.goods.forEach(goods => {
+            totalNumber += goods.count
+        })
+    });
+    this.totalNumber = totalNumber;
+    this.setTabbar();
     const result = await login();
     http.request({
         url: '/api/order/minus',

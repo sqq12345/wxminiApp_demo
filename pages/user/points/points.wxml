@@ -3,14 +3,14 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="container" style="padding-top:{{occupation}}px;">
         <view class="list">
-            <view class="item">
+            <view class="item" wx:key="{{index}}" wx:for="{{list}}">
                 <view>
                     <text>购买商品</text>
-                    <text>+10</text>
+                    <text class="point">+{{item.amount}}</text>
                 </view>
-                <view>
-                    <text>2018-08-12</text>
-                    <text>总积分:110</text>
+                <view class="bottom">
+                    <text>{{item.create_at}}</text>
+                    <text>总积分:{{item.totalamount}}</text>
                 </view>
             </view>
         </view>
