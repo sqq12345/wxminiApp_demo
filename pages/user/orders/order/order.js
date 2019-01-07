@@ -16,6 +16,7 @@ Page({
       transparent: false, //透明导航栏
     },
     occupation: app.globalData.height + 46,
+    detail: {},
   },
 
   /**

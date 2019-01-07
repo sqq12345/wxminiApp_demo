@@ -4,7 +4,7 @@
         <view class="form">
             <view class='form-group'>
                 <text>姓名</text>
-                <input placeholder="请输入姓名" type="number" data-field="name" bindinput="onInput" value="{{form.name}}"/>
+                <input placeholder="请输入姓名" data-field="name" bindinput="onInput" value="{{form.name}}"/>
             </view>
             <view class='form-group'>
                 <text>电话</text>
