@@ -6,7 +6,7 @@
             <image src="empty.png" />
             暂无可用优惠券
         </view>
-        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-index="{{index}}" wx:if="{{select&&item.isuser!=0}}">
+        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-index="{{index}}" wx:if="{{!select||(select&&item.isuser!=0)}}">
             <image class="_bg" src="coupon.png"/>
             <view class="left">
                 <view class="price">

@@ -21,8 +21,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    const result = await login();
+    http.request({
+      url: '/api/user/orderdetails?orderid=' + options.id,
+      method: 'GET',
+      header: {
+        token: result.user_token
+      },
+      success: (response) => {
 
+      }
+    })
   },
 
 })
