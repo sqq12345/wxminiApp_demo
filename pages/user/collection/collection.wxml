@@ -1,4 +1,5 @@
 <view>
+<<<<<<< HEAD
     <header navbar-data='{{nvabarData}}' />
     <view class="container" style="padding-top:{{occupation}}px;">
         <view class="empty" wx:if="{{list.length==0}}">暂无收藏</view>
@@ -12,5 +13,25 @@
                 </view>
             </view>
         </navigator>
+=======
+  <header navbar-data='{{nvabarData}}'/>
+  <view class="container" style="padding-top:{{occupation}}px;">
+    <view class="container">
+      <view class="empty" wx:if="{{list.length==0}}">暂无收藏</view>
+      <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}"
+                 wx:key="{{index}}">
+        <image src="{{item.goods.thumb_image}}"/>
+        <view class="content">
+          <view class="name">{{item.goods.title}}
+            <text class="price">￥{{item.goods.price}}</text>
+          </view>
+          <view>
+            <view class="unit">{{item.goods.specification}}</view>
+            <view class="unit">配送范围:{{item.goods.middata}}</view>
+          </view>
+        </view>
+      </navigator>
+>>>>>>> 59408d4bcd5977e651abcdf37be03ac77f44d71f
     </view>
+  </view>
 </view>
