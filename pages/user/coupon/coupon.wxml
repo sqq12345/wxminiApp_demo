@@ -6,11 +6,11 @@
             <image src="empty.png" />
             暂无可用优惠券
         </view>
-        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="bindTap" data-index="{{index}}">
+        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-index="{{index}}" wx:if="{{select&&item.isuser!=0}}">
             <image class="_bg" src="coupon.png"/>
             <view class="left">
                 <view class="price">
-                    <text class="_rmb">￥</text>30
+                    <text class="_rmb">￥</text>{{item.value}}
                 </view>
                 <view class="info">
                     <view class="title">{{item.title}}</view>
@@ -20,8 +20,8 @@
             </view>
             <view class="right">
                 <view class="label">立即使用</view>
-                <view class="start">2018-12-01到</view>
-                <view class="end">2018-12-30</view>
+                <view class="start">{{item.startTime}}到</view>
+                <view class="end">{{item.endTime}}</view>
             </view>
         </view>
     </view>

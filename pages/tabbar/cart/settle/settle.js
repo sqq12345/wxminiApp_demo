@@ -20,7 +20,10 @@ Page(observer({
     logisticsprc: 0, //运费
     totalPrice: "",
     remark: "", //买家备注
-    hasCoupon : false,   //是否有可用的优惠券
+    hasCoupon: 0,   //是否有可用的优惠券,
+    couponParam: '',    //优惠券过滤条件
+    //提交表单
+    form: {}
   },
   //商品数量增加
   increase(e) {
@@ -35,24 +38,12 @@ Page(observer({
   //买家备注
   onInput(e) {
     const value = e.detail.value;
-    this.setData({ remark: value })
+    const form = this.data.form;
+    form["remark_" + e.currentTarget.dataset.mid] = value;
+    this.setData({ form });
   },
   onLoad: async function () {
-    //检查有没有可用优惠券
-    const result = await login();
-    http.request({
-      url: '/api/order/coupon',
-      method: 'GET',
-      header: {
-        token: result.user_token
-      },
-      success: (response) => {
-        if(response.data.code != 999){
-          //有优惠券
-          this.setData({hasCoupon:true});
-        }
-      }
-    })
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -75,13 +66,46 @@ Page(observer({
       header: { token: result.user_token },
       data: data,
       success: (response) => {
-        if (response.data.address) {
+        if (response.data.code == 999) {
+          wx.showToast({
+            title: '请添加一个地址',
+            icon: 'none',
+            duration: 1500,
+          });
+          return
+        }
+        if (this.props.order.address == null && response.data.address) {
           this.props.order.address = response.data.address;
         }
         this.setData({
           logisticsprc: response.data.goods.logisticsprc,
           totalPrice: response.data.goods.totalprc.toFixed(2)
         });
+
+        //检查有没有可用优惠券
+        let goodsnum = '';
+        for (const key in response.data.goods.data) {
+          response.data.goods.data[key].goods.forEach(g => {
+            goodsnum += g.id + '_' + g.num + ','
+          })
+        }
+        goodsnum = goodsnum.substr(0, goodsnum.length - 1)
+        this.setData({ couponParam: goodsnum });
+        http.request({
+          url: '/api/order/coupon',
+          method: 'POST',
+          data: {
+            goodsnum
+          },
+          header: {
+            token: result.user_token
+          },
+          success: (response) => {
+            this.setData({
+              hasCoupon: response.data.data.isusecount
+            })
+          }
+        })
       }
     })
   },
@@ -89,14 +113,18 @@ Page(observer({
    * 预支付
    */
   async prePay() {
+    const form = this.data.form;
+    form.addressid = this.props.order.address.id;
+    if (this.props.order.coupon != null) {
+      form.couponid = this.props.order.coupon.id
+    }
+
     const result = await login();
     http.request({
       url: '/api/order/payment',
       method: 'POST',
       header: { token: result.user_token },
-      data: {
-
-      },
+      data: form,
       success: (response) => {
         wx.requestPayment({
           timeStamp: response.data.data.timeStamp,
@@ -120,7 +148,7 @@ Page(observer({
             //   confirmColor: '#3CC51F',
             // });
             //取消支付
-            if(res.errMsg == 'requestPayment:fail cancel'){
+            if (res.errMsg == 'requestPayment:fail cancel') {
               wx.showModal({
                 title: '提示',
                 content: '您取消了支付，请及时支付',
@@ -134,7 +162,7 @@ Page(observer({
                     url: '/pages/user/orders/orders',
                   });
                 },
-                fail: ()=>{},
+                fail: () => { },
               });
             }
           },

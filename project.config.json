@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/coupon/coupon",
-					"query": "id=1&type=1"
+					"pathName": "pages/user/orders/order/order",
+					"query": "id=93&type=1"
 				}
 			]
 		}

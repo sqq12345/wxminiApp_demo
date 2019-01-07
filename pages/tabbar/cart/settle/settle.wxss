@@ -50,6 +50,10 @@
     font-size: 32rpx;
 }
 
+.bottom-btn .buy.disable{
+    background: #cccccc;
+}
+
 .line {
     border-top: 1px solid rgba(244, 244, 244, 1);
     line-height: 90rpx;

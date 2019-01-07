@@ -1,4 +1,7 @@
 // pages/tabbar/user/orders/order/order.js
+import http from '../../../../utils/http';
+import login from '../../../../stores/Login';
+const { regeneratorRuntime } = global;
 Page({
 
   /**

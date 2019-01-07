@@ -1,6 +1,7 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
+        <view class="empty" wx:if="{{list.length==0}}">暂无收藏</view>
         <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}" wx:key="{{index}}">
             <image src="{{item.goods.thumb_image}}"/>
             <view class="content">
