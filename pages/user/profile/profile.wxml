@@ -18,13 +18,16 @@
             </view>
             <view class="item">
                 手机号
-                <input value="{{user.mobile}}" placeholder="填写您的手机号"/>
+                <input value="{{user.mobile}}" placeholder="填写您的手机号" bindinput="onInput" />
             </view>
-            <navigator class="item address" hover-class="none" url="/pages/user/address/address">
-                {{user.address.provincename}} {{user.address.cityname}} {{user.address.areaname}} {{user.address.address}}
-                <image class="_right" src="/static/icons/right.png" />
-            </navigator>
+            <view class="item">
+                <text class="address">地址管理</text>
+                <navigator hover-class="none" url="/pages/user/address/address">
+                    {{user.address.provincename}} {{user.address.cityname}} {{user.address.areaname}} {{user.address.address}}
+                    <image class="_right" src="/static/icons/right.png" />
+                </navigator>
+            </view>
         </view>
-        <view class="_button">保存</view>
+        <view class="_button" bind:tap="updateProfile">保存</view>
     </view>
 </view>

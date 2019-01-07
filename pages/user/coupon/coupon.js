@@ -1,9 +1,12 @@
 // pages/user/coupon/coupon.js
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
+import util from '../../../utils/util';
 const { regeneratorRuntime } = global;
 Page({
-
+  props: {
+    order: require('../../../stores/Order'),
+  },
   /**
    * 页面的初始数据
    */
@@ -15,7 +18,7 @@ Page({
     },
     select: false,
     list: [
-      {}, {}
+
     ],
   },
 
@@ -35,9 +38,24 @@ Page({
         token: result.user_token
       },
       success: (response) => {
+        const list = response.data.data.coupon;
+        list.forEach(item => {
 
+        })
+        this.setData({ list });
       }
     })
   },
 
+  bindTap() {
+    if (this.data.select) {
+      const index = e.currentTarget.dataset.index;
+      this.props.order.coupon = this.data.list[index];
+      wx.navigateBack({
+        delta: 1
+      });
+    } else {
+
+    }
+  }
 })

@@ -1,5 +1,29 @@
-.list{
-    margin-top: 10rpx;
+.fans {
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.fans image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    float: left;
+    margin-right: 30rpx;
+    vertical-align: text-top;
+}
+
+.fans .mobile{
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.fans>view:last-of-type {
+    font-size: 30rpx;
+    color: #555555;
+}
+
+.fans>view>text:last-of-type {
+    float: right;
 }
 
 .list .item {

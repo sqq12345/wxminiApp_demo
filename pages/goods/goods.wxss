@@ -5,7 +5,7 @@ swiper image {
     height: 100vw;
 }
 
-.swiper{
+.swiper {
     width: 100%;
     height: 100vw;
 }
@@ -69,12 +69,13 @@ swiper {
     justify-content: space-between;
 }
 
-.info .extr text{
+.info .extr text {
     font-size: 24rpx;
     color: #666;
 }
 
-.info .unit view,.info .unit text{
+.info .unit view,
+.info .unit text {
     color: #666666;
     font-size: 24rpx;
 }
@@ -196,9 +197,9 @@ swiper {
     align-items: center;
 }
 
-.shop>navigator image{
+.shop>navigator image {
     width: 28rpx;
-    height:28rpx;
+    height: 28rpx;
     margin-left: 6rpx;
 }
 
@@ -218,13 +219,27 @@ swiper {
     display: flex;
 }
 
-.bottom-btn .nav>view,.bottom-btn .nav>navigator {
+.bottom-btn .nav .num {
+    position: absolute;
+    border-radius: 50%;
+    background: red;
+    min-width: 30rpx;
+    height: 30rpx;
+    color: #fff;
+    font-size: 20rpx !important;
+    top: 10rpx;
+    right: 15rpx;
+}
+
+.bottom-btn .nav>view,
+.bottom-btn .nav>navigator {
     font-size: 24rpx !important;
     flex: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 
 .bottom-btn .nav image {
@@ -232,7 +247,8 @@ swiper {
     height: 40rpx;
 }
 
-.bottom-btn .add, .bottom-btn .buy {
+.bottom-btn .add,
+.bottom-btn .buy {
     display: flex;
     justify-content: center;
     align-items: center;

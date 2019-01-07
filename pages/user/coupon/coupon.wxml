@@ -6,16 +6,16 @@
             <image src="empty.png" />
             暂无可用优惠券
         </view>
-        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}">
+        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="bindTap" data-index="{{index}}">
             <image class="_bg" src="coupon.png"/>
             <view class="left">
                 <view class="price">
                     <text class="_rmb">￥</text>30
                 </view>
                 <view class="info">
-                    <view class="title">年终优惠券</view>
+                    <view class="title">{{item.title}}</view>
                     <view class="label">使用规则：</view>
-                    <view class="role">满100减20，仅限时令素材(白萝 卜、胡萝卜、大白菜、红菜苔) 拷贝</view>
+                    <view class="role">{{item.use_money}}</view>
                 </view>
             </view>
             <view class="right">

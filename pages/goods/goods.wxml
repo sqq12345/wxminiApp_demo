@@ -75,15 +75,16 @@
     <view class="bottom-btn">
         <view class="nav">
             <view bind:tap="collect">
-                <image src="{{collected||goods.collection==1?'/static/icons/goods/1-1.png':'/static/icons/goods/1.png'}}" />
+                <image src="{{collected?'/static/icons/goods/1-1.png':'/static/icons/goods/1.png'}}" />
                 收藏
             </view>
             <navigator hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
+                <text class="num" wx:if="{{props.cart.totalNumber>0}}">{{props.cart.totalNumber}}</text>
                 <image src="/static/icons/goods/2.png" />
                 购物车
             </navigator>
         </view>
         <view class="add" bind:tap="addCart">加入购物车</view>
-        <view class="buy">立即购买</view>
+        <view class="buy" bind:tap="buyNow">立即购买</view>
     </view>
 </view>

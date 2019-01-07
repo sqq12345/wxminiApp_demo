@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/address/address",
+					"pathName": "pages/user/coupon/coupon",
 					"query": "id=1&type=1"
 				}
 			]

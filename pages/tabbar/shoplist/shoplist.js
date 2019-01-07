@@ -82,6 +82,11 @@ Page(observer({
     });
     this.fetchList();
   },
+  //刷新购物车数量
+  onShow() {
+    const cart = require('../../../stores/Cart');
+    cart.setTabbar();
+  },
   //切换城市
   onCityChange(e) {
     this.props.city.selected = e.detail.detail.value;

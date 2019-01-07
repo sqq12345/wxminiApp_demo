@@ -2,6 +2,14 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
+        <view class="fans">
+            <image src="{{fan.avatar}}"/>
+            <view>{{fan.nickname}}</view>
+            <view>
+                <text class="mobile">{{fan.mobile}}</text>
+                <text class="mobile">{{fan.create_at}}</text>
+            </view>
+        </view>
         <view class="list">
             <view class="item" wx:for="{{list}}" wx:key="{{index}}">
                 <text>订单号:{{item.orderNo}}</text>

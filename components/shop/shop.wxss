@@ -46,8 +46,15 @@
     flex-grow: 1;
 }
 
-.shop .text .info text{
+.shop .text .info text,.shop .text .info view{
     font-size: 24rpx;
+}
+
+.shop .text .info .down{
+    width: 12rpx;
+    height: 6rpx;
+    margin-left: 8rpx;
+    vertical-align: middle;
 }
 
 .shop .text>view {

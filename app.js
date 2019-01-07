@@ -18,7 +18,10 @@ App({
         this.globalData.height = res.statusBarHeight
       }
     });
-    login.apply(this);
+    const result =await login.apply(this);
+    //加载购物车数量
+    const cart = require('./stores/Cart');
+    cart.fetchData();
   },
 
   globalData: {
@@ -31,7 +34,7 @@ App({
     _roles: [],
     roles: async function () {
       return new Promise((resolve, reject) => {
-        if(this._roles.length > 0){
+        if (this._roles.length > 0) {
           resolve(this._roles)
         }
         http.request({

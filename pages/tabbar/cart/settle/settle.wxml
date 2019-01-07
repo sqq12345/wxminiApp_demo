@@ -19,7 +19,7 @@
         </navigator>
         <view class="box">
             <view class="cart">
-                <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
+                <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex" wx:if="{{item.settle}}">
                     <view class="header">
                         <view>
                             <image class="select-icon" src="{{item.shop.logo}}" />
@@ -28,7 +28,7 @@
                         <image class="_right" src="/static/icons/right.png" />
                     </view>
                     <view>
-                        <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
+                        <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex" wx:if="{{goods.selected}}">
                             <image class="thumb" src="{{goods.image}}" />
                             <view class="info">
                                 <view class="title">{{goods.name}}</view>

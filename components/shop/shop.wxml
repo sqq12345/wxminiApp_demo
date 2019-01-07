@@ -10,11 +10,11 @@
             </view>
             <view class="info">
                 <view><image class="icon coupon" src="/static/icons/shops/2.png"/><text>优惠券</text></view>
-                <text>{{item.goods.length}}个活动</text>
+                <view bind:tap="openDetail" data-id="{{item.id}}">{{item.goods.length}}个活动<image class="down" src="/static/icons/down3.png"/></view>
             </view>
         </view>
     </view>
-    <view class="activity" wx:if="{{item.goods.length>0}}">
+    <view class="activity" wx:if="{{item.goods.length>0&&showDetail}}">
         <navigator url="/pages/goods/goods?id={{item.id}}" hover-class="none" wx:for="{{goods}}" wx:key="{{index}}">
             <image src="{{item.thumb_image}}"/>
             <view class="ellipsis">{{item.title}}</view>

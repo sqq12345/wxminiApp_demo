@@ -2,13 +2,14 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container">
-        <view class="list">
-            <navigator hover-class="none" class="item" url="/pages/tabbar/user/fans/orders/orders">
-                <image/>
-                <view>username</view>
+        <view class="empty" wx:if="{{list.length==0}}">没有粉丝</view>
+        <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+            <navigator hover-class="none" class="item" url="earnings/earnings?id={{item.uid}}">
+                <image src="{{item.avatar}}"/>
+                <view>{{item.nickname}}</view>
                 <view>
-                    <text>130****9999</text>
-                    <text>2012-12-21</text>
+                    <text>{{item.mobile}}</text>
+                    <text>{{item.create_at}}</text>
                 </view>
             </navigator>
         </view>
