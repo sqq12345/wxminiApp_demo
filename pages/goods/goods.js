@@ -1,8 +1,9 @@
 // pages/goods/goods.js
 import http from '../../utils/http';
 import login from '../../stores/Login';
-import { observer } from '../../utils/mobx/observer';
-const { regeneratorRuntime } = global;
+import {observer} from '../../utils/mobx/observer';
+
+const {regeneratorRuntime} = global;
 const city = require('../../stores/City');
 
 Page(observer({
@@ -42,6 +43,7 @@ Page(observer({
         const price = Number.parseFloat(response.data.data.price).toFixed(2);
         this.setData({
           goods: response.data.data,
+          goodsContent: response.data.data.content.replace(/\<img/gi, '<img class="rich-img"'),
           price: price.split('.'),
           score: Number.parseFloat(response.data.data.score).toFixed(1),
           //是否收藏
@@ -131,7 +133,7 @@ Page(observer({
           duration: 1500,
           mask: false,
         });
-        this.setData({ collected: true });
+        this.setData({collected: true});
       }
     });
   }

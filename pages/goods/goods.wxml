@@ -70,7 +70,7 @@
     <view class="detail">
         <view class="text">- 商品详情 -</view>
         <!-- 商品长图 -->
-        <rich-text type="text" nodes="{{goods.content}}"></rich-text>
+        <rich-text type="text" nodes="{{goodsContent}}"></rich-text>
     </view>
     <view class="bottom-btn">
         <view class="nav">

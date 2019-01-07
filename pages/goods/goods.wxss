@@ -282,3 +282,7 @@ swiper {
     margin: 0 30rpx;
     border-top: 1px solid #eeeeee;
 }
+
+rich-text .rich-img {
+  width: 100%;
+}
