@@ -1,4 +1,5 @@
 // pages/tabbar/user/orders/orders.js
+const app = getApp();
 Page({
 
   /**
@@ -17,6 +18,7 @@ Page({
       { text: '待收货', value: '3' },
       { text: '待评价', value: '4' },
     ],
+    occupation: app.globalData.height + 46,
     selected: '0'
   },
 

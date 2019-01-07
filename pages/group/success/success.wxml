@@ -1,6 +1,6 @@
 <view class="container">
     <header navbar-data='{{nvabarData}}' />
-    <view>
+    <view style="padding-top:{{occupation}}px;">
         <view class="box">
             <image class="icon" src="/static/icons/success.png" />
             <text class="title">接龙成功！</text>

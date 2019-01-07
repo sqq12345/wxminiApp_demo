@@ -1,6 +1,6 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <view class="form">
             <view class='form-group'>
                 <text>姓名</text>

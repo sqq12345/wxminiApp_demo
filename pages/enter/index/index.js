@@ -1,8 +1,10 @@
 // pages/enter/step1/step1.js
 import http from '../../../utils/http';
-import { observer } from '../../../utils/mobx/observer';
+import {observer} from '../../../utils/mobx/observer';
 import login from '../../../stores/Login';
-const { regeneratorRuntime } = global;
+
+const {regeneratorRuntime} = global;
+const app = getApp();
 //表单提交地址
 let submitUrl = '';
 Page(observer({
@@ -12,7 +14,7 @@ Page(observer({
   //input赋值
   onInput(e) {
     const value = e.detail.value;
-    const { field } = e.target.dataset;
+    const {field} = e.target.dataset;
     this.props.form[field] = value;
   },
   /**
@@ -154,11 +156,12 @@ Page(observer({
       transparent: false //透明导航栏
     },
     fields: [],
-    loading: true
+    loading: true,
+    occupation: app.globalData.height + 46,
   },
 
   select(e) {
-    const { value, field, multiple } = e.currentTarget.dataset;
+    const {value, field, multiple} = e.currentTarget.dataset;
     let selected = this.props.form[field] || [];
     //判断单选多选
     if (multiple === 1) {

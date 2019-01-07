@@ -1,6 +1,6 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <navigator hover-class="none" class="user" url="/pages/user/address/address?select=true">
             <block wx:if="{{props.order.address!=null}}">
                 <view>

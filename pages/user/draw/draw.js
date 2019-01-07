@@ -1,4 +1,5 @@
 // pages/user/draw/draw.js
+const app = getApp();
 Page({
 
   /**
@@ -11,6 +12,7 @@ Page({
       transparent: true, //透明导航栏
       color: '#fff'
     },
+    occupation: app.globalData.height + 46,
   },
 
   /**

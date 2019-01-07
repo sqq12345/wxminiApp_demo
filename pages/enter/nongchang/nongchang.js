@@ -2,9 +2,12 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 import regex from '../../../utils/regex';
-import { observer } from '../../../utils/mobx/observer';
-const { regeneratorRuntime } = global;
+import {observer} from '../../../utils/mobx/observer';
 import verify from '../../../utils/verify';
+
+const {regeneratorRuntime} = global;
+const app = getApp();
+
 Page(observer({
   props: {
     form: require('../../../stores/Form').values
@@ -18,11 +21,12 @@ Page(observer({
       title: '农场入驻', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    address: ''
+    address: '',
+    occupation: app.globalData.height + 46,
   },
   onInput(e) {
     const value = e.detail.value;
-    const { field } = e.target.dataset;
+    const {field} = e.target.dataset;
     this.props.form[field] = value;
   },
   chooseAddress() {
@@ -33,7 +37,7 @@ Page(observer({
         this.props.form['address'] = str;
         this.props.form['latitude'] = result.latitude;
         this.props.form['longitude'] = result.longitude;
-        this.setData({ address: str });
+        this.setData({address: str});
       },
     });
   },
@@ -49,16 +53,16 @@ Page(observer({
   onRemove(e) {
     const data = e.detail.file.res.data;
     if (data) {
-      const { field } = e.target.dataset;
+      const {field} = e.target.dataset;
       const json = JSON.parse(data);
       this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '');
       this.props.form[field] = this.props.form[field].replace(',' + json.data.img, '');
     }
   },
   onComplete(e) {
-    const { detail: { data } } = e;
+    const {detail: {data}} = e;
     if (data) {
-      const { field } = e.target.dataset;
+      const {field} = e.target.dataset;
       const json = JSON.parse(data);
       if (this.props.form[field] == undefined) {
         this.props.form[field] = json.data.img

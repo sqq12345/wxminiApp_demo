@@ -2,6 +2,7 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
+const app = getApp();
 Page({
 
   /**
@@ -19,6 +20,7 @@ Page({
       fans: 0,
       ismerchant: 0,
     },
+    occupation: app.globalData.height + 46,
   },
 
   /**

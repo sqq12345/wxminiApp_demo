@@ -1,6 +1,6 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container" wx:if="{{props.cart.list.length > 0}}">
+    <view class="container" wx:if="{{props.cart.list.length > 0}}" style="padding-top:{{occupation}}px;">
         <view class="edit">
             <text bind:tap="edit">{{editing?'取消':'编辑'}}</text>
         </view>

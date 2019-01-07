@@ -1,6 +1,6 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}" wx:key="{{index}}">
             <image src="{{item.goods.thumb_image}}"/>
             <view class="content">

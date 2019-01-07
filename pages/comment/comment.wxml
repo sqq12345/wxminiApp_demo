@@ -1,6 +1,6 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <view class="rater">
             <text>商品评价</text>
             <view>

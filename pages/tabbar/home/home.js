@@ -14,7 +14,7 @@ Page(observer({
       title: '附近商家', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    occupation: app.globalData.height + 40,
+    occupation: app.globalData.height + 46,
     //类型
     types: [],
     selectedTypeId: 1,

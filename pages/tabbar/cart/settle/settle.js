@@ -3,6 +3,7 @@ import { observer } from '../../../../utils/mobx/observer';
 import http from '../../../../utils/http';
 import login from '../../../../stores/Login';
 const { regeneratorRuntime } = global;
+const app = getApp();
 Page(observer({
   props: {
     cart: require('../../../../stores/Cart'),
@@ -21,6 +22,7 @@ Page(observer({
     totalPrice: "",
     remark: "", //买家备注
     hasCoupon : false,   //是否有可用的优惠券
+    occupation: app.globalData.height + 46,
   },
   //商品数量增加
   increase(e) {

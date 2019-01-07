@@ -1,7 +1,7 @@
 <!-- pages/tabbar/shoplist/shoplist.wxml -->
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <view class="fans">
             <image />
             <view>username</view>

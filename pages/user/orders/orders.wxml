@@ -1,7 +1,7 @@
 <!-- pages/tabbar/shoplist/shoplist.wxml -->
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <view class="tabbar">
             <view wx:for="{{status}}" wx:key="{{index}}" data-status="{{item.value}}" bind:tap="switchStatus">
                 <text class="{{selected==item.value?'active':''}}">{{item.text}}</text>

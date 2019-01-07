@@ -1,7 +1,7 @@
 <!-- pages/enter/step2/step2.wxml -->
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
         <form>
             <view class='form-group'>
                 <text>联系人</text>

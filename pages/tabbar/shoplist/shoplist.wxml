@@ -1,8 +1,8 @@
 <!-- pages/tabbar/shoplist/shoplist.wxml -->
 <view>
     <header navbar-data='{{nvabarData}}' />
-    <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" />
-    <view class="container">
+    <view class="container" style="padding-top:{{occupation}}px;">
+        <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" />
         <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
             <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:if="{{item.is_show==1}}">
                 <swiper-item>

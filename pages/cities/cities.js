@@ -1,5 +1,8 @@
 // pages/cities/cities.js
-import { observer } from '../../utils/mobx/observer';
+import {observer} from '../../utils/mobx/observer';
+
+const app = getApp();
+
 Page(observer({
   props: {
     city: require('../../stores/City'),
@@ -14,6 +17,7 @@ Page(observer({
       transparent: false //透明导航栏
     },
     toView: "",
+    occupation: app.globalData.height + 46,
   },
 
   /**
@@ -24,7 +28,7 @@ Page(observer({
   },
 
   select(e) {
-    const { value } = e.target.dataset;
+    const {value} = e.target.dataset;
     this.props.city.selected = value;
     this.props.city.user_latitude = value.location.lat;
     this.props.city.user_longitude = value.location.lng;
@@ -36,14 +40,14 @@ Page(observer({
     let prevpage = pages[pages.length - 2];
     //重置地图缩放等级
     if (prevpage.route == 'pages/tabbar/home/home') {
-      prevpage.setData({ scale: 12 });
+      prevpage.setData({scale: 12});
     }
 
     wx.navigateBack();
   },
 
   scroll(e) {
-    const { key } = e.target.dataset;
-    this.setData({ toView: key })
+    const {key} = e.target.dataset;
+    this.setData({toView: key})
   }
 }))

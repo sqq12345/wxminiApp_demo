@@ -5,6 +5,8 @@ import regex from '../../../utils/regex';
 import { observer } from '../../../utils/mobx/observer';
 const { regeneratorRuntime } = global;
 import verify from '../../../utils/verify';
+const app = getApp();
+
 Page(observer({
   props: {
     form: require('../../../stores/Form').values
@@ -18,7 +20,8 @@ Page(observer({
       title: '社群入驻', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    address: ''
+    address: '',
+    occupation: app.globalData.height + 46,
   },
   onInput(e) {
     const value = e.detail.value;

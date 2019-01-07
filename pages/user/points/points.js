@@ -1,4 +1,5 @@
 // pages/tabbar/user/points/points.js
+const app = getApp();
 Page({
 
   /**
@@ -10,6 +11,7 @@ Page({
       title: '安积分', //导航栏 中间的标题
       transparent: false, //透明导航栏
     },
+    occupation: app.globalData.height + 46,
   },
 
   /**

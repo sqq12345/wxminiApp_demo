@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 import http from '../../utils/http';
+const app = getApp();
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
     bg: '',
     type: '1',
     labels: [],
-
+    occupation: app.globalData.height + 46,
     page: 1,
     loading: false,
     //没有更多数据了

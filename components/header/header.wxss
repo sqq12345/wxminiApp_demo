@@ -8,45 +8,30 @@
   }
   /* 标题要居中 */
   .nav-title {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
     position: absolute;
     text-align: center;
-    max-width: 400rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
-    margin: auto;
     font-size: 36rpx;
     color: #2c2b2b;
     font-weight: bold;
   }
   
   .nav-capsule {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
-    margin-left: 30rpx;
-    width: 140rpx;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: center;
   }
-  
-  .navbar-v-line {
-    width: 1px;
-    height: 32rpx;
-    background-color: #e5e5e5;
-  }
-  
-  .back-pre, .back-home {
-    width: 32rpx;
-     height: 36rpx;
-    margin-top: 4rpx;
-    padding: 10rpx;
-  }
-  .nav-capsule .back-home {
+
+  .back-pre {
     width: 36rpx;
-    height: 40rpx;
-    margin-top: 3rpx;
+     height: 36rpx;
   }

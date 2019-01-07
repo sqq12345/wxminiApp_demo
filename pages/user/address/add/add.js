@@ -4,6 +4,7 @@ import login from '../../../../stores/Login';
 const { regeneratorRuntime } = global;
 import verify from '../../../../utils/verify';
 import regex from '../../../../utils/regex';
+const app = getApp();
 Page({
 
   /**
@@ -24,6 +25,7 @@ Page({
     showArray: [],
     multiIndex: [0, 0, 0],
     addressid: null,
+    occupation: app.globalData.height + 46,
   },
   onInput(e) {
     const value = e.detail.value;

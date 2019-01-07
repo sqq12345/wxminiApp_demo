@@ -1,4 +1,5 @@
 // pages/group/my/my.js
+const app = getApp();
 Page({
 
   /**
@@ -10,6 +11,7 @@ Page({
       title: '我的接龙', //导航栏 中间的标题
       transparent: false, //透明导航栏
     },
+    occupation: app.globalData.height + 46,
   },
 
   /**

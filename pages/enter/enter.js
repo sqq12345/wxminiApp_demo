@@ -13,7 +13,7 @@ Page({
       title: '商家入驻', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
-    occupation:app.globalData.height * 2 + 20,
+    occupation:app.globalData.height + 46,
   },
 
   onLoad(){

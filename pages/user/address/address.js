@@ -3,6 +3,7 @@ import { observer } from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
+const app = getApp();
 Page(observer({
   props: {
     order: require('../../../stores/Order'),
@@ -18,6 +19,7 @@ Page(observer({
     },
     select: false,
     list: [],
+    occupation: app.globalData.height + 46,
   },
 
   /**

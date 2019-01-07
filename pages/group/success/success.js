@@ -1,4 +1,6 @@
 // pages/group/success/success.js
+const app = getApp();
+
 Page({
 
   /**
@@ -10,6 +12,7 @@ Page({
       title: '群接龙', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+    occupation: app.globalData.height + 46,
   },
 
   /**

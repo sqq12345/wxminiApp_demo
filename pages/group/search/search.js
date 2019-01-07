@@ -1,5 +1,6 @@
 // pages/group/search/search.js
 import http from '../../../utils/http';
+const app = getApp();
 Page({
 
   /**
@@ -11,6 +12,7 @@ Page({
       title: '商品分类', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+    occupation: app.globalData.height + 46,
     list: [
       
     ]

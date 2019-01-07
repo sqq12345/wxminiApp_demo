@@ -1,5 +1,6 @@
 // pages/group/start.js
 import { observer } from '../../utils/mobx/observer';
+const app = getApp();
 Page(observer({
   props: {
     selectedList: require('../../stores/Group').selectedList,
@@ -13,6 +14,7 @@ Page(observer({
       title: '开团商品', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+    occupation: app.globalData.height + 46,
     picker: [
       { text: 'picker', value: '' },
       { text: 'picker', value: '' },

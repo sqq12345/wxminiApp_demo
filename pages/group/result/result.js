@@ -1,5 +1,6 @@
 // pages/group/result/result.js
 import { observer } from '../../../utils/mobx/observer';
+const app = getApp();
 Page(observer({
   props: {
     selectedList: require('../../../stores/Group').selectedList,
@@ -15,6 +16,7 @@ Page(observer({
     },
     query: '',
     results: [], //搜索结果
+    occupation: app.globalData.height + 46,
   },
   fetchResults() {
     const json = [

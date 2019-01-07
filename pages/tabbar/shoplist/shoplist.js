@@ -1,8 +1,9 @@
 // pages/tabbar/shoplist/shoplist.js
-import { observer } from '../../../utils/mobx/observer';
+import {observer} from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
-const { regeneratorRuntime } = global;
 
+const {regeneratorRuntime} = global;
+const app = getApp();
 Page(observer({
   props: {
     city: require('../../../stores/City'),
@@ -18,14 +19,14 @@ Page(observer({
     },
     //分类
     types: [
-      { text: '农场', value: '1' },
-      { text: '社群', value: '2' },
+      {text: '农场', value: '1'},
+      {text: '社群', value: '2'},
     ],
     selectedType: '1',
     //排序
     sorts: [
-      { text: '默认排序', value: '0' },
-      { text: '销量', value: '1' },
+      {text: '默认排序', value: '0'},
+      {text: '销量', value: '1'},
     ],
     selectedSort: '0',
     //当前页数
@@ -34,10 +35,8 @@ Page(observer({
     loading: false,
     //没有更多数据了
     end: false,
-
-    imgUrls: [
-
-    ],
+    occupation: app.globalData.height + 46,
+    imgUrls: [],
   },
   async fetchList() {
     await this.props.city.fetchData();
@@ -59,7 +58,7 @@ Page(observer({
         const list = this.data.list;
         //没有更多了
         const end = response.data.data.last_page == this.data.page;
-        this.setData({ list: list.concat(response.data.data.data), end, loading: false, page: this.data.page + 1 })
+        this.setData({list: list.concat(response.data.data.data), end, loading: false, page: this.data.page + 1})
       }
     })
   },
@@ -77,7 +76,7 @@ Page(observer({
         arr.sort((a, b) => {
           return b.sort - a.sort;
         });
-        this.setData({ imgUrls: response.data.data })
+        this.setData({imgUrls: response.data.data})
       }
     });
     this.fetchList();
@@ -89,24 +88,24 @@ Page(observer({
 
   //过滤条件
   onConditionChange(e) {
-    const { condition, value } = e.target.dataset;
+    const {condition, value} = e.target.dataset;
     switch (condition) {
       case 'type':
-        this.setData({ selectedType: value })
+        this.setData({selectedType: value})
         break;
       case 'sort':
-        this.setData({ selectedSort: value })
+        this.setData({selectedSort: value})
         break;
     }
     //重新加载数据
-    this.setData({ page: 1, loading: true, end: false, list: [] }, () => {
+    this.setData({page: 1, loading: true, end: false, list: []}, () => {
       this.fetchList();
     });
   },
 
   onReachBottom() {
     if (this.data.loading || this.data.end) return;
-    this.setData({ loading: true }, () => {
+    this.setData({loading: true}, () => {
       this.fetchList();
     });
   }
