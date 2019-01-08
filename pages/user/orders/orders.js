@@ -69,13 +69,26 @@ Page({
             case 2:
               item.status = '已发货';
               break;
-            case 3:
-              item.status = '交易成功';
+            case -1:
+              item.status = '已取消';
+              break;
+            case -11:
+              item.status = '申请退款';
+              break;
+            case -12:
+              item.status = '退款中';
+              break;
+            case -13:
+              item.status = '退款驳回';
+              break;
+            case -14:
+              item.status = '退款完成';
               break;
           }
           item.goods.forEach(g => {
             g.price = Number.parseFloat(g.price).toFixed(2)
-          })
+          });
+          item.price = Number.parseFloat(item.money).toFixed(2);
         });
         this.setData({ list: list.concat(data), end, loading: false, page: this.data.page + 1 })
       }
@@ -85,7 +98,7 @@ Page({
   onReachBottom() {
     if (this.data.loading || this.data.end) return;
     this.setData({ loading: true }, () => {
-      this.fetchList(this.data.selectedÍ);
+      this.fetchList(this.data.selected);
     });
   },
 
@@ -105,11 +118,69 @@ Page({
   //删除订单
   deleteOrder(e) {
     const { id } = e.currentTarget.dataset;
+    http.request({
+      url: '/api/user/deleteorder',
+      method: "POST",
+      data: {
+
+      },
+      success: (response) => {
+
+      }
+    });
   },
 
   //支付订单
-  payOrder(e) {
+  async payOrder(e) {
     const { id } = e.currentTarget.dataset;
+    const result = await login();
+    http.request({
+      url: '/api/order/topay',
+      method: 'POST',
+      data: {
+        orderid: id
+      },
+      header: {
+        token: result.user_token
+      },
+      success: (response) => {
+        wx.requestPayment({
+          timeStamp: response.data.data.timeStamp,
+          nonceStr: response.data.data.nonceStr,
+          package: response.data.data.package,
+          signType: response.data.data.signType,
+          paySign: response.data.data.paySign,
+          success(res) {
+            // wx.redirectTo({
+            //   url: '/pages/user/orders/orders',
+            // });
+          },
+          fail(res) {
+            //取消支付
+            if (res.errMsg == 'requestPayment:fail cancel') {
+              wx.showModal({
+                title: '提示',
+                content: '您取消了支付，请及时支付',
+                showCancel: true,
+                cancelText: '取消',
+                cancelColor: '#000000',
+                confirmText: '确定',
+                confirmColor: '#3CC51F',
+                success: (result) => {
+                  wx.redirectTo({
+                    url: '/pages/user/orders/orders',
+                  });
+                },
+                fail: () => { },
+              });
+            }
+          },
+          complete: function (res) {
+
+          }
+        })
+      }
+    })
   },
 
   //确认收货

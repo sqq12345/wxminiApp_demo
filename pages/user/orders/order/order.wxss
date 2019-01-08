@@ -62,7 +62,7 @@
 .order .bottom>view {
     display: flex;
     justify-content: space-between;
-    padding: 10rpx 0;
+    padding: 5rpx 0;
 }
 
 .order .bottom>view text {

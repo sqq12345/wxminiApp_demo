@@ -7,7 +7,8 @@
             </swiper-item>
         </block>
     </swiper> -->
-    <image src="{{goods.image}}" class="swiper1" mode="widthFix"/><view class="info">
+    <image src="{{goods.image}}" class="swiper1" mode="widthFix"/>
+    <view class="info">
         <view class="price">
             <text><text class="_rmb">￥</text>{{price[0]}}</text>
             <text>.{{price[1]}}</text>

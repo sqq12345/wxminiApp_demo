@@ -3,14 +3,22 @@
     border-radius: 15px;
     flex: 1;
     height: 64rpx;
-    padding-left: 1em;
+    padding-left: 86rpx;
 }
 
 .search {
     background: #ffffff;
-    padding: 20rpx;
+    padding: 20rpx 30rpx;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.search image{
+    width: 32rpx;
+    height: 30rpx;
+    position: absolute;
+    left: 74rpx;
 }
 
 .grid {

@@ -3,10 +3,10 @@
     <view class="container" style="padding-top:{{occupation}}px;">
         <form>
             <view class="part one">
-                <input placeholder="请输入团购主题" />
-                <textarea placeholder="请输入团购描述"></textarea>
-                <wux-upload listType="picture-card" max="4" url="https://www.skyvow.cn/api/common/file" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete">
-                    <text>+</text>
+                <input placeholder="请输入团购主题" bindinput="onInput" data-field="title"/>
+                <textarea placeholder="请输入团购描述" bindinput="onInput" data-field="content"></textarea>
+                <wux-upload listType="picture-card" max="4"  bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
+                    <image src="/static/icons/upload.png" />
                 </wux-upload>
             </view>
             <view class="header">
@@ -16,13 +16,16 @@
             <!-- 商品库选择 -->
             <view class="part two">
                 <view class="goods" wx:for="{{props.selectedList}}" wx:key="{{index}}">
-                    <image class="thumb"/>
+                    <image class="thumb" src="{{item.thumb_image}}"/>
                     <view class="info">
-                        <view class="shop">{{item.shop.name}}</view>
-                        <view class="title">{{item.name}}</view>
-                        <view class="unit">{{item.unit}}</view>
+                        <view class="shop">{{item.merchant}}</view>
+                        <view class="title">{{item.title}}</view>
+                        <view class="unit">
+                            <view>规格:{{item.specification}}</view>
+                            <view>配送范围:{{item.address}}</view>
+                        </view>
                         <view class="price">
-                            <text><text class="_rmb">￥</text>{{item.price}}</text>
+                            <text><text class="_rmb">￥</text>{{item.strPrice}}</text>
                             <image class="delete" src="/static/icons/group/delete.png" bind:tap="remove" data-id="{{item.id}}"/>
                         </view>
                     </view>
@@ -43,8 +46,9 @@
                 </view> -->
                 <view class="form-group">
                     <text class="label">截止时间</text>
+                    <image class="time" src="/static/icons/time.png"/>
                 </view>
-                <view class="form-group">
+                <!-- <view class="form-group">
                     <text class="text">传播隐私设置</text>
                 </view>
                 <view class="form-group">
@@ -52,12 +56,14 @@
                 </view>
                 <view class="form-group">
                     <text class="text">接龙起购价</text>
-                </view>
+                </view> -->
                 <view class="form-group">
-                    <text class="label no">提示</text>
+                    <text class="label no">提醒</text>
                     <input placeholder="请输入让参与人注意的重要提示" placeholder-class="placeholder" />
                 </view>
             </view>
         </form>
+        <view class="agreement"><image class="select-icon" bind:tap="agree" src="/static/icons/cart/{{agreed?'selected.png':'unselected.png'}}" />已阅读已同意<navigator>《群接龙服务协议》</navigator></view>
+        <view class="_button" bind:tap="submit">发起接龙</view>
     </view>
 </view>

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/orders/order/order",
-					"query": "id=93&type=1"
+					"pathName": "pages/group/buy/buy",
+					"query": "id=93&type=2"
 				}
 			]
 		}

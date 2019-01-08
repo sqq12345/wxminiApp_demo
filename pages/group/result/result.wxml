@@ -3,25 +3,26 @@
     <header navbar-data='{{nvabarData}}' />
     <view class="container" style="padding-top:{{occupation}}px;">
         <view class="search">
+            <image src="/static/icons/search.png"/>
             <input placeholder='请输入您要搜索的商品' bind:confirm="search" value="{{query}}" />
         </view>
         <view>
-            <view class="goods" wx:for="{{results}}" wx:key="{{index}}">
-                <image class="thumb" />
+            <view class="goods" wx:for="{{list}}" wx:key="{{index}}">
+                <image class="thumb" src="{{item.thumb_image}}"/>
                 <view class="info">
-                    <view class="shop">{{item.shop.name}}</view>
-                    <view class="title">{{item.name}}</view>
+                    <view class="shop">{{item.merchant}}</view>
+                    <view class="title">{{item.title}}</view>
                     <view class="unit">
-                        <view>{{item.unit}}</view>
-                        <view>配送范围</view>
+                        <view>规格:{{item.specification}}</view>
+                        <view>配送范围:{{item.address}}</view>
                     </view>
                     <view class="price">
-                        ￥{{item.price}}
+                        ￥{{item.strPrice}}
                         <image class="select-icon" bind:tap="select" data-id="{{item.id}}" src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
                     </view>
                 </view>
             </view>
         </view>
-        <navigator class="_button done" url="/pages/group/start">选好了</navigator>
+        <navigator class="_button done" url="/pages/group/start" delta="2" open-type="navigateBack">选好了</navigator>
     </view>
 </view>
