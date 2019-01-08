@@ -88,27 +88,31 @@ Page(observer({
   },
   //立即购买
   async buyNow() {
+    let that = this;
     const result = await login();
     http.request({
-      url: '/api/order/cart',
+      url: '/api/order/buynow',
       showLoading: true,
       header: {
         token: result.user_token,
+        accesstoken: http.accesstoken,
       },
       data: {
         //商品id
-        gid: this.data.goods.id,
-        num: 1,
+        gid: that.data.goods.id,
+        // num: 1,
         //农场id
-        mid: this.data.goods.mid,
+        mid: that.data.goods.mid,
       },
       method: 'POST',
       success: (response) => {
-        //刷新购物车
-        this.props.cart.fetchData()
-        wx.navigateTo({
-          url: '/pages/tabbar/cart/settle/settle',
-        });
+        console.log(response);
+        if (response.data.code === 1) {
+          this.props.cart.fetchData();
+          wx.navigateTo({
+            url: '/pages/tabbar/cart/settle/settle',
+          });
+        }
       }
     });
   },

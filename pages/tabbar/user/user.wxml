@@ -100,10 +100,10 @@
                     <image src="/static/icons/user/9.png" style="width:38rpx;height:36rpx;"/>
                     收藏
                 </navigator>
-                <view class="icon">
-                    <image src="/static/icons/user/10.png" style="width:36rpx;height:32rpx;"/>
-                    客服
-                </view>
+                <button open-type="contact" class="icon contactBtn">
+                    <image src="/static/icons/user/10.png" style="width:36rpx;height:32rpx;"
+                           class="contactImg"/>客服
+                </button>
             </view>
             <view class="bottom-line"/>
             <view class="icons">
