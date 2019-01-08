@@ -1,0 +1,134 @@
+/* pages/group/buy/buy.wxss */
+
+.container {
+    margin-top: 200px
+}
+
+.goods-list {
+    padding: 20rpx;
+}
+
+.goods {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    position: relative;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #eee;
+    margin: 0 -30rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    padding-top: 20rpx;
+}
+
+.goods:first-of-type {
+    padding-top: 0;
+}
+
+.goods .thumb {
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.goods .unit {
+    margin-top: 10rpx;
+    color: #999;
+    font-size: 24rpx;
+}
+
+.goods .unit view{
+    font-size: 24rpx;
+}
+
+.goods .info {
+    flex-grow: 1;
+    position: relative;
+    height: 156rpx;
+}
+
+.goods .info .price {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #ff8a00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goods .info .price .delete {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.goods .shop {
+    background: #dff7e3;
+    color: #32cc4a;
+    padding: 12rpx 26rpx;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    right: -30rpx;
+    font-size: 22rpx !important;
+}
+
+.goods .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 350rpx;
+}
+
+.item {
+    background: #fff;
+    margin-bottom: 20rpx;
+    padding: 30rpx;
+}
+
+.item>view {
+    margin-bottom: 20rpx;
+}
+
+.item .start {
+    color: #AAAAAA;
+    font-size: 24rpx;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.item .start image{
+    width: 48rpx;
+    height: 48rpx;
+    border: 1px solid #000000;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.item .title {
+    color: #333333;
+    font-weight: 500;
+}
+
+.item .desc {
+    color: #999999;
+    font-size: 26rpx;
+}
+
+.item .end {
+    color: #23C743;
+    font-size: 24rpx;
+}
+
+.item .more .btn {
+    border: 1px solid #BCBDBD;
+    color: #BCBDBD;
+    display: inline-block;
+    padding: 6rpx 30rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+}

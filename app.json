@@ -46,7 +46,8 @@
         "search/search",
         "start",
         "result/result",
-        "success/success"
+        "success/success",
+        "buy/buy"
       ]
     },
     {

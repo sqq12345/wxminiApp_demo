@@ -2,14 +2,15 @@
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container" style="padding-top:{{occupation}}px;">
-        <view class="search">
-            <input placeholder='请输入您要搜索的商品' bind:confirm="search"/>
-        </view>
+        <!-- <view class="search">
+            <image src="/static/icons/search.png"/>
+            <input placeholder='请输入您要搜索的商品' bind:confirm="search" />
+        </view> -->
         <view class="grid">
             <view wx:for="{{list}}" wx:key="{{item}}">
-                <navigator url="/pages/group/result/result?id={{item.id}}">
+                <navigator url="/pages/group/result/result?type={{item.id}}">
                     <text>{{item.name}}</text>
-                    <image src="{{item.icon}}" mode="aspectFit"/>
+                    <image src="{{item.icon}}" mode="aspectFit" />
                 </navigator>
             </view>
         </view>

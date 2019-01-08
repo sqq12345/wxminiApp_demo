@@ -30,11 +30,13 @@ Page({
         token: result.user_token
       },
       success: (response) => {
-        const list = response.data.data;
-        list.forEach(item => {
-          item.goods.price = Number.parseFloat(item.goods.price).toFixed(2)
-        });
-        this.setData({ list })
+        if(response.data.code!=999){
+          const list = response.data.data;
+          list.forEach(item => {
+            item.goods.price = Number.parseFloat(item.goods.price).toFixed(2)
+          });
+          this.setData({ list })
+        }
       }
     })
   },
