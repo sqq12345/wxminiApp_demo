@@ -5,7 +5,7 @@
             <image class="icon" src="/static/icons/success.png" />
             <text class="title">接龙成功！</text>
             <view class="user">
-                114<image  />王恺 <text class="time">刚刚</text><text class="point">+4</text>
+                114<open-data class="avatar" type="userAvatarUrl"/><open-data type="userNickName"/> <text class="time">刚刚</text><text class="point">+4</text>
             </view>
             <view class="info">您可以将此页面转发会群聊, 通知大家您已接龙成功，活跃群氛围~</view>
         </view>

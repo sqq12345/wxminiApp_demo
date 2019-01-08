@@ -62,7 +62,9 @@ Page({
         delta: 1
       });
     } else {
-
+      wx.switchTab({
+        url: '/pages/tabbar/shoplist/shoplist',
+      });
     }
   }
 })

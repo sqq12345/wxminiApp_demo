@@ -6,7 +6,7 @@
             <image src="/static/icons/search.png"/>
             <input placeholder='请输入您要搜索的商品' bind:confirm="search" value="{{query}}" />
         </view>
-        <view>
+        <view wx:if="{{list.length>0}}">
             <view class="goods" wx:for="{{list}}" wx:key="{{index}}">
                 <image class="thumb" src="{{item.thumb_image}}"/>
                 <view class="info">
@@ -22,7 +22,10 @@
                     </view>
                 </view>
             </view>
+             <navigator class="_button done" url="/pages/group/start" delta="2" open-type="navigateBack">选好了</navigator>
         </view>
-        <navigator class="_button done" url="/pages/group/start" delta="2" open-type="navigateBack">选好了</navigator>
+        <view wx:if="{{list.length==0}}" class="empty">
+            没有找到相关商品
+        </view>
     </view>
 </view>

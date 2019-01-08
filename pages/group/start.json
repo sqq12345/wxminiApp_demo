@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "header": "/components/header/header",
-        "wux-upload": "/components/upload/index"
+        "wux-upload": "/components/upload/index",
+        "datetime": "/components/datetime/datetime"
     }
 }

@@ -35,6 +35,12 @@ Page(observer({
       gids: '',
       endtime: '',
     },
+    time: ''
+  },
+  setTime(time) {
+    this.setData({
+      time, 'form.endtime': (new Date(time).getTime() / 1000) + ''
+    })
   },
   /* upload */
   onUploadFail(e) {
@@ -98,7 +104,7 @@ Page(observer({
 
 
   async submit() {
-    if(!this.data.agreed){
+    if (!this.data.agreed) {
       wx.showToast({
         title: '请同意《群接龙服务协议》',
         icon: 'none',
@@ -115,7 +121,6 @@ Page(observer({
       form.gids = form.gids.substr(0, form.gids.length - 1)
     }
     //test
-    form.endtime = '1546503051';
     console.log(form);
     const result = await login();
     if (verify(form, config)) {
@@ -127,7 +132,7 @@ Page(observer({
         },
         data: form,
         success: (response) => {
-          if(response.code == 1){
+          if (response.code == 1) {
             //提交成功
             wx.redirectTo({
               url: '/pages/user/group/group',

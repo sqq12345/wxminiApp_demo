@@ -1,7 +1,7 @@
 /* pages/group/buy/buy.wxss */
 
 .container {
-    margin-top: 200px
+    margin-top: 66px;
 }
 
 .goods-list {
@@ -65,6 +65,25 @@
     height: 30rpx;
 }
 
+.goods .info .num {
+    text-align: center;
+    width: 48rpx;
+    display: inline-block;
+    color: #333333;
+}
+
+.goods .info .calc {
+    float: right;
+    color: #25CE41;
+    display: inline-flex;
+}
+
+.goods .info .calc .op {
+    display: inline-block;
+    width: 38rpx;
+    height: 38rpx;
+}
+
 .goods .shop {
     background: #dff7e3;
     color: #32cc4a;
@@ -89,8 +108,12 @@
     padding: 30rpx;
 }
 
+.item .start .userinfo{
+    margin-bottom: 10rpx;
+}
+
 .item>view {
-    margin-bottom: 20rpx;
+    margin-bottom: 10rpx;
 }
 
 .item .start {
@@ -99,14 +122,29 @@
     display: flex;
     justify-content:space-between;
     align-items: center;
+    border-bottom: 1px dashed #DADADA;
+    padding-bottom: 20rpx;
 }
 
-.item .start image{
+.item .start view{
+    display: inline-flex;
+    align-items: center;
+}
+
+.item .start .share{
     width: 48rpx;
     height: 48rpx;
-    border: 1px solid #000000;
     align-items: center;
     border-radius: 50%;
+}
+
+.item .start .head{
+    width: 48rpx;
+    height: 48rpx;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 16rpx;
+    overflow: hidden;
 }
 
 .item .title {
@@ -131,4 +169,42 @@
     padding: 6rpx 30rpx;
     border-radius: 30rpx;
     font-size: 24rpx;
+}
+
+.bottom-btn {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    background: #fff;
+    border-top: 1px solid #eeeeee;
+}
+
+.bottom-btn .all {
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    padding-left: 30rpx;
+    justify-content: space-between;
+    padding-right: 20rpx;
+    font-size: 24rpx;
+}
+
+.bottom-btn .all .price {
+    color: #FF6600;
+}
+
+.bottom-btn .buy {
+    background: #25CE41;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.bottom-btn .buy.disable{
+    background: #cccccc;
 }

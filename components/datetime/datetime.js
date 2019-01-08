@@ -6,7 +6,7 @@ const days = [];
 const hours = [];
 const minutes = [];
 //获取年
-for (let i = 2018; i <= date.getFullYear() + 5; i++) {
+for (let i = 2019; i <= date.getFullYear() + 5; i++) {
   years.push("" + i);
 }
 //获取月份
@@ -56,9 +56,12 @@ Component({
   },
 
   ready: function () {
+    //默认今日
+    const multiIndex = [0, date.getMonth(), date.getDate() - 1, date.getHours(), date.getMinutes()];
     //设置默认的年份
     this.setData({
-      choose_year: this.data.multiArray[0][0]
+      choose_year: this.data.multiArray[0][0],
+      multiIndex
     })
   },
 
@@ -81,6 +84,11 @@ Component({
       // console.log(`${year}-${month}-${day}-${hour}-${minute}`);
       this.setData({
         time: year + '-' + month + '-' + day + ' ' + hour + ':' + minute
+      }, () => {
+        //父页面赋值
+        const pages = getCurrentPages();
+        const currentPage = pages[pages.length - 1];
+        currentPage.setTime(this.data.time);
       })
       // console.log(this.data.time);
     },
@@ -89,7 +97,7 @@ Component({
       //获取年份
       if (e.detail.column == 0) {
         let choose_year = this.data.multiArray[e.detail.column][e.detail.value];
-        console.log(choose_year);
+        //console.log(choose_year);
         this.setData({
           choose_year
         })
@@ -120,7 +128,7 @@ Component({
           });
         } else if (num == 2) { //判断2月份天数
           let year = parseInt(this.data.choose_year);
-          console.log(year);
+          //console.log(year);
           if (((year % 400 == 0) || (year % 100 != 0)) && (year % 4 == 0)) {
             for (let i = 1; i <= 29; i++) {
               if (i < 10) {
@@ -143,7 +151,7 @@ Component({
             });
           }
         }
-        console.log(this.data.multiArray[2]);
+        //console.log(this.data.multiArray[2]);
       }
       var data = {
         multiArray: this.data.multiArray,

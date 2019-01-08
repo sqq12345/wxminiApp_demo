@@ -1,28 +1,42 @@
 <view class="container">
     <view class="item">
         <view class="start">
-            创建时间 : {{item.create_at}}
-            <image />
+            <view class="userinfo">
+                <open-data class="head" type="userAvatarUrl"></open-data>
+                <open-data class="username" type="userNickName"></open-data>
+            </view>
+            <image class="share" src="/static/icons/wechat.png"/>
         </view>
-        <view class="title">title</view>
-        <view class="desc">content</view>
-        <view class="end">截止时间 : {{item.endtime}}</view>
+        <view class="title">{{detail.title}}</view>
+        <view class="desc">{{detail.content}}</view>
+        <view class="end">截止时间 : {{detail.endtime}}</view>
     </view>
     <view class="goods-list">
-        <view class="goods">
+        <view class="goods" wx:for="{{detail.goods}}" wx:key="{{index}}">
             <image class="thumb" src="{{item.thumb_image}}" />
             <view class="info">
-                <view class="shop">{item.merchant}</view>
-                <view class="title">{item.title}</view>
+                <view class="shop">{{item.merchant}}</view>
+                <view class="title">{{item.title}}</view>
                 <view class="unit">
                     <view>规格:{{item.specification}}</view>
                     <view>配送范围:{{item.address}}</view>
                 </view>
                 <view class="price">
-                    <text><text class="_rmb">￥</text>{{item.strPrice}}</text>
-                    <image class="delete" src="/static/icons/group/delete.png" bind:tap="remove" data-id="{{item.id}}" />
+                    <text><text class="_rmb">￥</text>{{item.total}}</text>
+                    <view class="calc">
+                        <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-index="{{index}}" />
+                        <text class="num">{{item.num}}</text>
+                        <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-index="{{index}}" />
+                    </view>
                 </view>
             </view>
         </view>
+    </view>
+    <view class="bottom-btn">
+        <view class="all">
+            <text>合计:<text class="price"><text class="_rmb">￥</text>{{detail.total}}</text></text>
+            已团114人
+        </view>
+        <view class="buy" bind:tap="buy">我要接龙</view>
     </view>
 </view>

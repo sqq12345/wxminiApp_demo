@@ -17,7 +17,7 @@
                     </navigator>
                     <view class="line"/>
                     <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
-                        <view>{{userinfo.fans}}</view>
+                        <view>{{userinfo.fansnum}}</view>
                         <view>粉丝</view>
                     </navigator>
                 </view>
@@ -83,6 +83,7 @@
                     </navigator>
                     <view class="icon" style="visibility:hidden"></view>
                     <view class="icon" style="visibility:hidden"></view>
+                    <!-- <view class="icon" style="visibility:hidden" wx:if="{{userinfo.ismerchant==0}}"></view> -->
                 </view>
             </view>
         </view>

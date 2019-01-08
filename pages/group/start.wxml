@@ -11,7 +11,7 @@
             </view>
             <view class="header">
                 团购商品
-                <view class="picker">去商品库选择<image class="icon" src="/static/icons/group/right.png"/></view>
+                <navigator hover-class="none" class="picker" url="/pages/group/search/search">去商品库选择<image class="icon" src="/static/icons/group/right.png"/></navigator>
             </view>
             <!-- 商品库选择 -->
             <view class="part two">
@@ -46,7 +46,7 @@
                 </view> -->
                 <view class="form-group">
                     <text class="label">截止时间</text>
-                    <image class="time" src="/static/icons/time.png"/>
+                    <view class="time">{{time}}<datetime/></view>
                 </view>
                 <!-- <view class="form-group">
                     <text class="text">传播隐私设置</text>
@@ -59,7 +59,7 @@
                 </view> -->
                 <view class="form-group">
                     <text class="label no">提醒</text>
-                    <input placeholder="请输入让参与人注意的重要提示" placeholder-class="placeholder" />
+                    <input placeholder="请输入让参与人注意的重要提示" placeholder-class="placeholder" bindinput="onInput" data-field="remark"/>
                 </view>
             </view>
         </form>

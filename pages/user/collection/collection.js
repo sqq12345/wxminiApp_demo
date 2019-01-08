@@ -21,7 +21,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  onShow: async function (options) {
     const result = await login();
     http.request({
       url: '/api/user/collection',
@@ -30,12 +30,15 @@ Page({
         token: result.user_token
       },
       success: (response) => {
-        if(response.data.code!=999){
+        if (response.data.code != 999) {
           const list = response.data.data;
           list.forEach(item => {
             item.goods.price = Number.parseFloat(item.goods.price).toFixed(2)
           });
           this.setData({ list })
+        } else {
+          //返回清空列表
+          this.setData({ list: [] });
         }
       }
     })

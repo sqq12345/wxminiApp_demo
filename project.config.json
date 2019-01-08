@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/group/buy/buy",
-					"query": "id=93&type=2"
+					"pathName": "pages/group/start",
+					"query": "id= 11&type=2"
 				}
 			]
 		}
