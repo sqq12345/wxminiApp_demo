@@ -4,15 +4,18 @@
         <view class="form">
             <view class='form-group'>
                 <text>姓名</text>
-                <input placeholder="请输入姓名" data-field="name" bindinput="onInput" value="{{form.name}}"/>
+                <input placeholder="请输入姓名" data-field="name" bindinput="onInput" value="{{form.name}}"
+                       class="w75"/>
             </view>
             <view class='form-group'>
                 <text>电话</text>
-                <input placeholder="请输入电话" type="number" data-field="mobile" bindinput="onInput" value="{{form.mobile}}"/>
+                <input placeholder="请输入电话" type="number" data-field="mobile" bindinput="onInput"
+                       value="{{form.mobile}}" class="w75" maxlength="11"/>
             </view>
             <view class='form-group'>
                 <text>省市区</text>
-                <picker placeholder="请选择省市区" mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}" range-key="name" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange">
+                <picker placeholder="请选择省市区" mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}" range-key="name" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange"
+                        class="w75">
                     <view class="picker">
                         {{showArray[0][multiIndex[0]].name}}，{{showArray[1][multiIndex[1]].name}}，{{showArray[2][multiIndex[2]].name}}
                     </view>
@@ -20,7 +23,8 @@
             </view>
             <view class='form-group'>
                 <text>地址</text>
-                <input placeholder="请输入地址" data-field="address" bindinput="onInput" value="{{form.address}}"/>
+                <input placeholder="请输入地址" data-field="address" bindinput="onInput" value="{{form.address}}"
+                       class="w75"/>
             </view>
         </view>
         <view class="options" wx:if="{{addressid!=null}}"><text class="default" bind:tap="setDefault">设为默认地址</text><text class="delete" bind:tap="delete">删除地址</text></view>

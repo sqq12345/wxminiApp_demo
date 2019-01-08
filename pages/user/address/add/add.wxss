@@ -53,3 +53,7 @@
 .options .delete{
     color: red;
 }
+
+.w75 {
+    width: 75%;
+}

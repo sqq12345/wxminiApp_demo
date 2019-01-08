@@ -45,7 +45,7 @@
         <view class="empty" wx:if="{{list.length==0}}">暂无评论</view>
         <view class="comments" wx:if="{{list.length>0}}">
             <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
-                <image class="userhead" src=""/>
+                <image class="userhead" src="{{item.avatar}}"/>
                 <view class="content">
                     <view class="username">{{item.nickname}}</view>
                     <view class="desc">{{item.content_text}}</view>

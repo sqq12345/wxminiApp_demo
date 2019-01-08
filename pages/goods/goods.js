@@ -114,6 +114,7 @@ Page(observer({
   },
   //收藏
   collect: async function () {
+    let that = this;
     const result = await login();
     http.request({
       url: '/api/order/collection',
@@ -128,12 +129,16 @@ Page(observer({
       method: 'POST',
       success: (response) => {
         wx.showToast({
-          title: this.data.collected ? '取消成功' : '收藏成功',
+          title: this.data.collected ? '已取消收藏' : '收藏成功',
           icon: 'success',
           duration: 1500,
           mask: false,
+          success: function () {
+            that.setData({
+              collected: !that.data.collected
+            });
+          }
         });
-        this.setData({collected: true});
       }
     });
   }
