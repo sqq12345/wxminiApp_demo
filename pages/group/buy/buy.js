@@ -3,10 +3,7 @@ import { observer } from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
-Page(observer({
-  props: {
-    address: require('../../../stores/Group').address
-  },
+Page({
   /**
    * 页面的初始数据
    */
@@ -36,28 +33,39 @@ Page(observer({
           g.value = Number.parseFloat(g.price);
           g.total = 0;
           //商品总价
-          Object.defineProperty(g, 'total', {
-            get() {
-              return Number.parseFloat(this.value * this.num).toFixed(2)
-            }
-          })
+          // Object.defineProperty(g, 'total', {
+          //   get() {
+          //     console.log('get');
+          //     return Number.parseFloat(this.value * this.num).toFixed(2)
+          //   }
+          // })
         });
         detail.total = 0;
         //总价
-        Object.defineProperty(detail, 'total', {
-          get() {
-            const arr = this.goods.map(item => {
-              return item.value * item.num
-            });
-            const sum = arr.reduce(function (pre, cur) {
-              return pre + cur
-            })
-            return sum
-          }
-        })
+        // Object.defineProperty(detail, 'total', {
+        //   get() {
+        //     const arr = this.goods.map(item => {
+        //       return item.value * item.num
+        //     });
+        //     const sum = arr.reduce(function (pre, cur) {
+        //       return pre + cur
+        //     })
+        //     return sum
+        //   }
+        // })
         this.setData({ detail });
       }
     });
+  },
+
+  calc(goods){
+    const arr = goods.map(item => {
+      return item.value * item.num
+    });
+    const sum = arr.reduce(function (pre, cur) {
+      return pre + cur
+    })
+    return sum
   },
 
   reduce(e) {
@@ -67,15 +75,18 @@ Page(observer({
       return false;
     }
     detail.goods[index].num--;
-    this.setData({ 'detail': detail });
+    detail.goods[index].total = Number.parseFloat(detail.goods[index].value * detail.goods[index].num).toFixed(2);
+    detail.total = this.calc(detail.goods);
+    this.setData({ detail });
   },
 
   increase(e) {
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
     detail.goods[index].num++;
-    console.log(detail.goods[index].total);
-    this.setData({ 'detail': detail });
+    detail.goods[index].total = Number.parseFloat(detail.goods[index].value * detail.goods[index].num).toFixed(2);
+    detail.total = this.calc(detail.goods);
+    this.setData({ detail });
   },
 
   /**
@@ -131,7 +142,7 @@ Page(observer({
       title: title, // 转发后 所显示的title
       path: '/pages/group/buy/buy?id=' + id, // 相对的路径
       //拼团图片
-      //imageUrl:'', 
+      //imageUrl:'',
       success: (res) => {    // 成功后要做的事情
 
       },
@@ -141,4 +152,4 @@ Page(observer({
       }
     }
   }
-}))
+})
