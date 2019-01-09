@@ -3,10 +3,7 @@ import { observer } from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
-Page(observer({
-  props: {
-    address: require('../../../stores/Group').address
-  },
+Page({
   /**
    * 页面的初始数据
    */
@@ -31,50 +28,68 @@ Page(observer({
       data: { sid: id },
       success: (response) => {
         const detail = response.data.data;
+        console.log(detail);
         detail.goods.forEach(g => {
           g.num = 0;
           g.value = Number.parseFloat(g.price);
           g.total = 0;
           //商品总价
-          Object.defineProperty(g, 'total', {
-            get() {
-              return Number.parseFloat(g.value * g.num).toFixed(2)
-            }
-          })
+          // Object.defineProperty(g, 'total', {
+          //   get() {
+          //     console.log('get');
+          //     return Number.parseFloat(this.value * this.num).toFixed(2)
+          //   }
+          // })
         });
         detail.total = 0;
         //总价
-        Object.defineProperty(detail, 'total', {
-          get() {
-            const arr = this.goods.map(item => {
-              return item.value * item.num
-            });
-            const sum = arr.reduce(function (pre, cur) {
-              return pre + cur
-            })
-            return sum
-          }
-        })
+        // Object.defineProperty(detail, 'total', {
+        //   get() {
+        //     const arr = this.goods.map(item => {
+        //       return item.value * item.num
+        //     });
+        //     const sum = arr.reduce(function (pre, cur) {
+        //       return pre + cur
+        //     })
+        //     return sum
+        //   }
+        // })
         this.setData({ detail });
       }
     });
   },
 
+  //计算总价
+  calc(goods){
+    const arr = goods.map(item => {
+      return item.value * item.num
+    });
+    const sum = arr.reduce(function (pre, cur) {
+      return pre + cur
+    })
+    return sum
+  },
+
   reduce(e) {
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
-    if (detail.goods[index].num == 1) {
+    if (detail.goods[index].num == 0) {
       return false;
     }
     detail.goods[index].num--;
-    this.setData({ 'detail': detail });
+    detail.goods[index].total = Number.parseFloat(detail.goods[index].value * detail.goods[index].num).toFixed(2);
+    detail.total = this.calc(detail.goods);
+    this.setData({ detail });
   },
 
   increase(e) {
+    console.log(this.data.detail);
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
     detail.goods[index].num++;
-    this.setData({ 'detail': detail });
+    detail.goods[index].total = Number.parseFloat(detail.goods[index].value * detail.goods[index].num).toFixed(2);
+    detail.total = this.calc(detail.goods);
+    this.setData({ detail });
   },
 
   /**
@@ -111,7 +126,7 @@ Page(observer({
             gid: item.gid,
             num: item.num,
             //农场id
-            mid: this.data.detail.mid,
+            //mid: item.mid,
           },
           method: 'POST',
         });
@@ -130,7 +145,7 @@ Page(observer({
       title: title, // 转发后 所显示的title
       path: '/pages/group/buy/buy?id=' + id, // 相对的路径
       //拼团图片
-      //imageUrl:'', 
+      //imageUrl:'',
       success: (res) => {    // 成功后要做的事情
 
       },
@@ -140,4 +155,4 @@ Page(observer({
       }
     }
   }
-}))
+})

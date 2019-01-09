@@ -1,7 +1,7 @@
 /* pages/group/buy/buy.wxss */
 
 .container {
-    margin-top: 66px;
+    
 }
 
 .goods-list {
@@ -19,10 +19,6 @@
     padding-left: 30rpx;
     padding-right: 30rpx;
     padding-top: 20rpx;
-}
-
-.goods:first-of-type {
-    padding-top: 0;
 }
 
 .goods .thumb {
@@ -142,7 +138,8 @@
 
 .item .title {
     color: #333333;
-    font-weight: 500;
+    font-weight: bolder;
+    margin-top: 20rpx;
 }
 
 .item .desc {

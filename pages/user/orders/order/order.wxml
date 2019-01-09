@@ -1,50 +1,66 @@
-<view class="container">
-  <view class="block">
-    <view class="order">
-      <view class="top">
-        <text>{{detail.merchant.name}}</text>
-        <text class="status">{{detail.status}}</text>
-      </view>
-      <view class="middle" wx:for="{{detail.goods}}" wx:key="{{index}}">
-        <image src="{{item.goods_info.thumb_image}}"/>
-        <view>
-          <view class="name">{{item.goods_info.title}}</view>
-          <view class="unit">
-            {{item.goods_info.specification}}
-            <text class="num">x{{item.num}}</text>
-          </view>
-          <view class="price">￥{{item.price}}</view>
+<!-- pages/tabbar/shoplist/shoplist.wxml -->
+<view>
+    <header navbar-data='{{nvabarData}}' />
+    <view class="container" style="padding-top:{{occupation}}px;">
+        <view class="block">
+            <view class="order">
+                <view class="top">
+                    <text class="title">{{detail.merchant.name}}</text>
+                    <text class="status">{{detail.status}}</text>
+                </view>
+                <view class="middle" wx:for="{{detail.goods}}" wx:key="{{index}}">
+                    <image src="{{item.goods_info.thumb_image}}" />
+                    <view>
+                        <view class="name">{{item.goods_info.title}}</view>
+                        <view class="unit">
+                            {{item.goods_info.specification}}
+                            <text class="num">x{{item.num}}</text>
+                        </view>
+                        <view class="price">￥{{item.price}}</view>
+                    </view>
+                </view>
+                <view class="bottom">
+                    <view>
+                        <text>运费</text>
+                        <text>{{detail.cost_freight}}</text>
+                    </view>
+                    <view>
+                        <text>优惠</text>
+                        <text>{{detail.pmt}}</text>
+                    </view>
+                    <view>
+                        <text>实际支付</text>
+                        <text>￥{{detail.money}}</text>
+                    </view>
+                </view>
+            </view>
         </view>
-      </view>
-      <view class="bottom">
-        <view>
-          <text>运费</text>
-          <text>{{detail.cost_freight}}</text>
+        <view class="block info">
+            <view>
+                订单号：{{detail.item_num}}
+                <text class=" button copy" bind:tap="copyText">复制</text>
+            </view>
+            <view>支付流水账号：{{detail.pay.pay_id}}</view>
+            <view wx:if="{{detail.order_status!=0}}">支付方式：微信支付</view>
+            <view wx:if="{{detail.order_status!=0}}">付款时间：{{detail.pay.createAt}}</view>
+            <view wx:if="{{detail.order_status==2}}">发货时间：{{detail.deliveryTime}}</view>
         </view>
-        <view>
-          <text>优惠</text>
-          <text>{{detail.pmt}}</text>
+        <view wx:if="{{detail.order_status!=0}}" class="call">拨打电话</view>
+        <view class="ops" wx:if="{{detail.order_status!=0}}">
+            <text class="button" wx:if="{{detail.order_status==2||detail.order_status==3}}">
+                物流
+            </text>
+            <text class="button" wx:if="{{detail.order_status==-1}}">删除订单</text>
+            <navigator wx:if="{{detail.order_status==2}}" class="button" url="/pages/user/orders/receive/receive">
+                确认收货
+            </navigator>
         </view>
-        <view>
-          <text>实际支付</text>
-          <text>￥{{detail.money}}</text>
+        <view class="bottom-btn" wx:if="{{detail.order_status==0}}">
+            <view class="price">
+                合计：<text class="p"><text class="_rmb">￥</text>{{detail.money}}</text>
+            </view>
+            <view class="cancel">取消订单</view>
+            <view class="pay">付款</view>
         </view>
-      </view>
     </view>
-  </view>
-  <view class="block info">
-    <view>订单号：{{detail.item_num}}<text class=" button copy" bind:tap="copyText">复制</text></view>
-    <view>支付流水账号：{{detail.pay.pay_id}}</view>
-    <view wx:if="{{detail.order_status!=0}}">支付方式：微信支付</view>
-    <view wx:if="{{detail.order_status!=0}}">付款时间：{{detail.pay.createAt}}</view>
-    <view>发货时间：{{detail.deliveryTime}}</view>
-  </view>
-  <view class="call">拨打电话</view>
-  <view class="ops">
-    <text class="button" wx:if="{{detail.order_status==0}}">去支付</text>
-    <text class="button" wx:if="{{detail.order_status==2||detail.order_status==3}}">物流</text>
-    <text class="button" wx:if="{{detail.order_status==0}}">取消订单</text>
-    <text class="button" wx:if="{{detail.order_status==-1}}">删除订单</text>
-    <navigator wx:if="{{detail.order_status==2}}" class="button" url="/pages/user/orders/receive/receive">确认收货</navigator>
-  </view>
 </view>

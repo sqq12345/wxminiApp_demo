@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.3",
+	"libVersion": "2.4.4",
 	"appid": "wxe03bb6c88e343ca6",
 	"projectname": "anfou",
 	"debugOptions": {
@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/orders/orders",
+					"pathName": "pages/group/buy/buy",
 					"query": "id=13&type=2"
 				}
 			]
