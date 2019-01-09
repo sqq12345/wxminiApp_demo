@@ -11,7 +11,8 @@ Page(observer({
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    detail: {},
+    sid: '',  //接龙id
   },
 
   /**
@@ -19,6 +20,7 @@ Page(observer({
    */
   onLoad: async function (options) {
     const id = options.id;
+    this.setData({ sid: id });
     const result = await login();
     http.request({
       url: '/api/solitaire/solitairedetail',
@@ -30,7 +32,7 @@ Page(observer({
       success: (response) => {
         const detail = response.data.data;
         detail.goods.forEach(g => {
-          g.num = 1;
+          g.num = 0;
           g.value = Number.parseFloat(g.price);
           g.total = 0;
           //商品总价
@@ -82,23 +84,60 @@ Page(observer({
 
   },
 
-  //我要接龙
+  //我要接龙 先加入购物车
   async buy() {
     const result = await login();
-    http.request({
-      url: '',
-      method: 'POST',
-      header: {
-        token: result.user_token
-      },
-      data: {
-
-      },
-      success: (response) => {
-        wx.redirectTo({
-          url: '/pages/group/success/success',
+    const flag = this.data.detail.goods.some(item => {
+      return item.num > 0
+    });
+    if (!flag) {
+      wx.showToast({
+        title: '至少添加一个商品',
+        icon: 'none',
+        duration: 1500,
+      });
+      return false;
+    }
+    this.data.detail.goods.forEach(async item => {
+      if (item.num > 0) {
+        await http.request({
+          url: '/api/order/cart',
+          showLoading: true,
+          header: {
+            token: result.user_token,
+          },
+          data: {
+            //商品id
+            gid: item.gid,
+            num: item.num,
+            //农场id
+            mid: this.data.detail.mid,
+          },
+          method: 'POST',
         });
       }
     });
+    wx.redirectTo({
+      url: '/pages/tabbar/cart/settle/settle?sid=' + this.data.sid,
+    });
+  },
+
+  //分享
+  onShareAppMessage: function (e) {
+    const title = this.data.detail.title;
+    const id = this.data.detail.sid;
+    return {
+      title: title, // 转发后 所显示的title
+      path: '/pages/group/buy/buy?id=' + id, // 相对的路径
+      //拼团图片
+      //imageUrl:'', 
+      success: (res) => {    // 成功后要做的事情
+
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
   }
 }))

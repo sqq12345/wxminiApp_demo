@@ -37,7 +37,8 @@ Page(observer({
     },
     time: ''
   },
-  setTime(time) {
+  setTime(e) {
+    const time = e.detail;
     this.setData({
       time, 'form.endtime': (new Date(time).getTime() / 1000) + ''
     })
@@ -132,7 +133,7 @@ Page(observer({
         },
         data: form,
         success: (response) => {
-          if (response.code == 1) {
+          if (response.data.code == 1) {
             //提交成功
             wx.redirectTo({
               url: '/pages/user/group/group',

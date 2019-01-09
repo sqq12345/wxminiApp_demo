@@ -85,10 +85,8 @@ Component({
       this.setData({
         time: year + '-' + month + '-' + day + ' ' + hour + ':' + minute
       }, () => {
-        //父页面赋值
-        const pages = getCurrentPages();
-        const currentPage = pages[pages.length - 1];
-        currentPage.setTime(this.data.time);
+        //触发页面方法
+        this.triggerEvent('setTime', this.data.time)
       })
       // console.log(this.data.time);
     },

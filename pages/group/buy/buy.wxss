@@ -131,13 +131,6 @@
     align-items: center;
 }
 
-.item .start .share{
-    width: 48rpx;
-    height: 48rpx;
-    align-items: center;
-    border-radius: 50%;
-}
-
 .item .start .head{
     width: 48rpx;
     height: 48rpx;
@@ -189,7 +182,7 @@
     padding-left: 30rpx;
     justify-content: space-between;
     padding-right: 20rpx;
-    font-size: 24rpx;
+    font-size: 22rpx;
 }
 
 .bottom-btn .all .price {

@@ -46,7 +46,7 @@
                 </view> -->
                 <view class="form-group">
                     <text class="label">截止时间</text>
-                    <view class="time">{{time}}<datetime/></view>
+                    <view class="time">{{time}}<datetime bind:setTime="setTime"/></view>
                 </view>
                 <!-- <view class="form-group">
                     <text class="text">传播隐私设置</text>
