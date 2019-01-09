@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: column;
     color: #ffffff;
-    padding-top: 150rpx;
+    padding-top: 20rpx;
     padding-bottom: 30rpx;
     position: relative;
 }

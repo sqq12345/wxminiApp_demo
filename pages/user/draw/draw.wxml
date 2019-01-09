@@ -1,7 +1,7 @@
-<view class="container">
+<view class="container" style="top:{{-occupation}}px;">
     <view class="head">
         <image src="/static/bg/money.png" class="_bg"/>
-        <view>
+        <view class="tMoney">
             <text class="_rmb">￥</text>8848.00
         </view>
     </view>

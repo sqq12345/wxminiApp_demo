@@ -1,4 +1,6 @@
-/* pages/user/draw/draw.wxss */
+.container {
+    position: relative;
+}
 
 .block {
     background: #fff;
@@ -14,6 +16,11 @@
     height: 30vh;
     font-weight: bold;
     position: relative;
+}
+
+.tMoney {
+    position: absolute;
+    bottom: 64rpx;
 }
 
 .head view {

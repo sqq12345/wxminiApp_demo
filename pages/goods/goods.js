@@ -110,7 +110,7 @@ Page(observer({
       success: (response) => {
         console.log(response);
         if (response.data.code === 1) {
-          this.props.cart.fetchData();
+          // this.props.cart.fetchData();
           wx.navigateTo({
             url: '/pages/tabbar/cart/settle/settle',
           });

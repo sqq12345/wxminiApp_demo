@@ -21,7 +21,7 @@
                     <view class="title">{{goods.name}}</view>
                     <view class="unit">{{goods.unit}}</view>
                     <view class="price">
-                        ￥{{goods.total}}
+                        ￥{{goods.price}}
                         <view class="calc">
                             <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
                             <text class="num">{{goods.count}}</text>
