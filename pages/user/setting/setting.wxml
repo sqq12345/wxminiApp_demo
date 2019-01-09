@@ -1,6 +1,3 @@
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        
-    </view>
+<view class="container">
+
 </view>

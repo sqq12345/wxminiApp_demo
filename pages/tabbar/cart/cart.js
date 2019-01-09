@@ -1,7 +1,7 @@
 // pages/cart/cart.js
 import {observer} from '../../../utils/mobx/observer';
 
-const app = getApp();
+// const app = getApp();
 
 Page(observer({
 
@@ -12,13 +12,15 @@ Page(observer({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: false, //是否显示左上角图标
       title: '购物车', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+*/
     editing: false,
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
   },
   //商品数量增加
   increase(e) {

@@ -1,69 +1,66 @@
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <form>
-            <view class="part one">
-                <input placeholder="请输入团购主题" bindinput="onInput" data-field="title"/>
-                <textarea placeholder="请输入团购描述" bindinput="onInput" data-field="content"></textarea>
-                <wux-upload listType="picture-card" max="4"  bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
-                    <image src="/static/icons/upload.png" />
-                </wux-upload>
-            </view>
-            <view class="header">
-                团购商品
-                <navigator hover-class="none" class="picker" url="/pages/group/search/search">去商品库选择<image class="icon" src="/static/icons/group/right.png"/></navigator>
-            </view>
-            <!-- 商品库选择 -->
-            <view class="part two">
-                <view class="goods" wx:for="{{props.selectedList}}" wx:key="{{index}}">
-                    <image class="thumb" src="{{item.thumb_image}}"/>
-                    <view class="info">
-                        <view class="shop">{{item.merchant}}</view>
-                        <view class="title">{{item.title}}</view>
-                        <view class="unit">
-                            <view>规格:{{item.specification}}</view>
-                            <view>配送范围:{{item.address}}</view>
-                        </view>
-                        <view class="price">
-                            <text><text class="_rmb">￥</text>{{item.strPrice}}</text>
-                            <image class="delete" src="/static/icons/group/delete.png" bind:tap="remove" data-id="{{item.id}}"/>
-                        </view>
-                    </view>
-                </view>
-                <navigator hover-class="none" class="add" url="/pages/group/search/search">
-                    <image src="/static/icons/group/add.png" />新增
-                </navigator>
-            </view>
-            <view class="header">团购设置</view>
-            <view class="part three">
-                <!-- <view class="form-group">
-                    <text class="label">物流方式</text>
-                    <picker range="{{picker}}" range-key="text">
-                        <view class="picker">
-                            {{picker[0].text}}<image class="icon" src="/static/icons/group/down.png"/>
-                        </view>
-                    </picker>
-                </view> -->
-                <view class="form-group">
-                    <text class="label">截止时间</text>
-                    <view class="time">{{time}}<datetime bind:setTime="setTime"/></view>
-                </view>
-                <!-- <view class="form-group">
-                    <text class="text">传播隐私设置</text>
-                </view>
-                <view class="form-group">
-                    <text class="text">接龙次数</text>
-                </view>
-                <view class="form-group">
-                    <text class="text">接龙起购价</text>
-                </view> -->
-                <view class="form-group">
-                    <text class="label no">提醒</text>
-                    <input placeholder="请输入让参与人注意的重要提示" placeholder-class="placeholder" bindinput="onInput" data-field="remark"/>
-                </view>
-            </view>
-        </form>
-        <view class="agreement"><image class="select-icon" bind:tap="agree" src="/static/icons/cart/{{agreed?'selected.png':'unselected.png'}}" />已阅读已同意<navigator>《群接龙服务协议》</navigator></view>
-        <view class="_button" bind:tap="submit">发起接龙</view>
+<view class="container">
+  <form>
+    <view class="part one">
+      <input placeholder="请输入团购主题" bindinput="onInput" data-field="title"/>
+      <textarea placeholder="请输入团购描述" bindinput="onInput" data-field="content"></textarea>
+      <wux-upload listType="picture-card" max="4"  bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
+        <image src="/static/icons/upload.png" />
+      </wux-upload>
     </view>
+    <view class="header">
+      团购商品
+      <navigator hover-class="none" class="picker" url="/pages/group/search/search">去商品库选择<image class="icon" src="/static/icons/group/right.png"/></navigator>
+    </view>
+    <!-- 商品库选择 -->
+    <view class="part two">
+      <view class="goods" wx:for="{{props.selectedList}}" wx:key="{{index}}">
+        <image class="thumb" src="{{item.thumb_image}}"/>
+        <view class="info">
+          <view class="shop">{{item.merchant}}</view>
+          <view class="title">{{item.title}}</view>
+          <view class="unit">
+            <view>规格:{{item.specification}}</view>
+            <view>配送范围:{{item.address}}</view>
+          </view>
+          <view class="price">
+            <text><text class="_rmb">￥</text>{{item.strPrice}}</text>
+            <image class="delete" src="/static/icons/group/delete.png" bind:tap="remove" data-id="{{item.id}}"/>
+          </view>
+        </view>
+      </view>
+      <navigator hover-class="none" class="add" url="/pages/group/search/search">
+        <image src="/static/icons/group/add.png" />新增
+      </navigator>
+    </view>
+    <view class="header">团购设置</view>
+    <view class="part three">
+      <!-- <view class="form-group">
+          <text class="label">物流方式</text>
+          <picker range="{{picker}}" range-key="text">
+              <view class="picker">
+                  {{picker[0].text}}<image class="icon" src="/static/icons/group/down.png"/>
+              </view>
+          </picker>
+      </view> -->
+      <view class="form-group">
+        <text class="label">截止时间</text>
+        <view class="time">{{time}}<datetime bind:setTime="setTime"/></view>
+      </view>
+      <!-- <view class="form-group">
+          <text class="text">传播隐私设置</text>
+      </view>
+      <view class="form-group">
+          <text class="text">接龙次数</text>
+      </view>
+      <view class="form-group">
+          <text class="text">接龙起购价</text>
+      </view> -->
+      <view class="form-group">
+        <text class="label no">提醒</text>
+        <input placeholder="请输入让参与人注意的重要提示" placeholder-class="placeholder" bindinput="onInput" data-field="remark"/>
+      </view>
+    </view>
+  </form>
+  <view class="agreement"><image class="select-icon" bind:tap="agree" src="/static/icons/cart/{{agreed?'selected.png':'unselected.png'}}" />已阅读已同意<navigator>《群接龙服务协议》</navigator></view>
+  <view class="_button" bind:tap="submit">发起接龙</view>
 </view>

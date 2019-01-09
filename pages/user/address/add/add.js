@@ -11,11 +11,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
       title: '添加地址', //导航栏 中间的标题
       transparent: false, //透明导航栏
     },
+*/
     form: {
       province_id: 0,
       city_id: 0,
@@ -25,7 +27,7 @@ Page({
     showArray: [],
     multiIndex: [0, 0, 0],
     addressid: null,
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
   },
   onInput(e) {
     const value = e.detail.value;

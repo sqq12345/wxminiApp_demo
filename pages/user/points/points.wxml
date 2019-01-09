@@ -1,17 +1,13 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <view class="list">
-            <view class="item" wx:key="{{index}}" wx:for="{{list}}">
-                <view>
-                    <text>购买商品</text>
-                    <text class="point">+{{item.amount}}</text>
-                </view>
-                <view class="bottom">
-                    <text>{{item.create_at}}</text>
-                    <text>总积分:{{item.totalamount}}</text>
-                </view>
+<view class="container">
+    <view class="list">
+        <view class="item" wx:key="{{index}}" wx:for="{{list}}">
+            <view>
+                <text>购买商品</text>
+                <text class="point">+{{item.amount}}</text>
+            </view>
+            <view class="bottom">
+                <text>{{item.create_at}}</text>
+                <text>总积分:{{item.totalamount}}</text>
             </view>
         </view>
     </view>

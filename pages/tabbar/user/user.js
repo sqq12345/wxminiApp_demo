@@ -2,25 +2,27 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
-const app = getApp();
+// const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: false, //是否显示左上角图标
       title: '个人中心', //导航栏 中间的标题
       transparent: true, //透明导航栏
-      color: '#fff'
+      color: '#000'
     },
+*/
     userinfo: {
       points: 0,
       fans: 0,
       ismerchant: 0,
     },
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
   },
 
   /**

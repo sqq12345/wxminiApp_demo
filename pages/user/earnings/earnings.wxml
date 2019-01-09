@@ -1,12 +1,8 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <view class="list">
-            <view class="item" wx:for="{{list}}" wx:key="{{index}}">
-                <text>订单号:{{item.orderNo}}</text>
-                <text>分成金额:￥<text class="price">{{item.ratio_money}}</text></text>
-            </view>
+<view class="container">
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+            <text>订单号:{{item.orderNo}}</text>
+            <text>分成金额:￥<text class="price">{{item.ratio_money}}</text></text>
         </view>
     </view>
 </view>

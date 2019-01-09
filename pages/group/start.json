@@ -1,7 +1,7 @@
 {
     "usingComponents": {
-        "header": "/components/header/header",
         "wux-upload": "/components/upload/index",
         "datetime": "/components/datetime/datetime"
-    }
+    },
+  "navigationBarTitleText": "开团商品"
 }

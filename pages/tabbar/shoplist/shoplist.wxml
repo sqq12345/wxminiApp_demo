@@ -1,35 +1,34 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" />
-        <swiper indicator-dots autoplay interval="{{5000}}" duration="{{1000}}">
-            <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:if="{{item.is_show==1}}">
-                <swiper-item>
-                    <image src="{{item.avatar}}" class="slide-image" mode="aspectFill"/>
-                </swiper-item>
-            </block>
-        </swiper>
-        <view class="sort">
-            <view class="btns">
-                <text data-condition="type" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedType==item.value?'selected':''}}" wx:for="{{types}}" wx:key="{{index}}">{{item.text}}</text>
-            </view>
-            <view class="sorts">
-                <text data-condition="sort" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
-            </view>
+<view class="container">
+    <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" />
+    <swiper indicator-dots="{{true}}" indicator-color="{{iColor}}" indicator-active-color="{{iaColor}}"
+            autoplay="{{true}}" class="silderBox">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:if="{{item.is_show==1}}">
+            <swiper-item class="silder-item">
+                <view class="sView">
+                    <image src="{{item.avatar}}" class="silder-images"/>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="sort">
+        <view class="btns">
+            <text data-condition="type" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedType==item.value?'selected':''}}" wx:for="{{types}}" wx:key="{{index}}">{{item.text}}</text>
         </view>
-        <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"/>
-        <view class='loading' wx:if="{{!end}}">
-            <view class='loading-gif'>
-                <view class='a' />
-                <view class='b' />
-                <view class='c' />
-                <view class='d' />
-                <view class='e' />
-            </view>
+        <view class="sorts">
+            <text data-condition="sort" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
         </view>
-        <view class='nomore' wx:if="{{end}}">
-            没有更多
+    </view>
+    <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"/>
+    <view class='loading' wx:if="{{!end}}">
+        <view class='loading-gif'>
+            <view class='a' />
+            <view class='b' />
+            <view class='c' />
+            <view class='d' />
+            <view class='e' />
         </view>
+    </view>
+    <view class='nomore' wx:if="{{end}}">
+        没有更多
     </view>
 </view>

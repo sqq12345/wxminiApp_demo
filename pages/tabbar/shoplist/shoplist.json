@@ -1,7 +1,7 @@
 {
     "usingComponents": {
-        "header": "/components/header/header",
         "shop":"/components/shop/shop",
         "search": "/components/search/search"
-    }
+    },
+    "navigationBarTitleText": "商家列表"
 }

@@ -1,99 +1,95 @@
-<!-- pages/enter/step2/step2.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <form>
-            <view class='form-group'>
-                <text>联系人</text>
-                <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput"/>
-            </view>
-            <view class='form-group info'>
-                <text class="info">联系方式(<text style="color:#FF6600">至少填一项</text>)</text>
-            </view>
-            <view class='form-group'>
-                <text>手机号码</text>
-                <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"
-                       maxlength="11"/>
-            </view>
-            <view class='form-group'>
-                <text>固定电话</text>
-                <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"
-                       maxlength="11"/>
-            </view>
-            <view class='form-group'>
-                <text>其他</text>
-                <input placeholder="请输入其他联系方式" data-field="other" bindinput="onInput"/>
-            </view>
-            <view class='form-group'>
-                <text>农场规模</text>
-                <input placeholder="只可填写数字" type="number" data-field="farmsize" bindinput="onInput"/>
-                <text style="text-align:right">（亩）</text>
-            </view>
-            <view class='form-group'>
-                <text>地址</text>
-                <input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>
-                <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
-            </view>
-            <view class='form-group'>
-                <text>封面</text>
-                <wux-upload data-field="cover" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text>简介</text>
-                <textarea bindinput="onInput" data-field="memo"  placeholder='可介绍下农场成立的初衷，农场特色，农场产品等。' maxlength="300"></textarea>
-            </view>
-            <view class='form-group'>
-                <text>农场图片</text>
-                <wux-upload data-field="Idaho" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text>农夫故事</text>
-                <textarea bindinput="onInput" data-field="story" placeholder='可以说说自己的故事，让更多的人了解你' maxlength="300"></textarea>
-            </view>
-            <view class='form-group'>
-                <text>营业执照</text>
-                <wux-upload data-field="licence" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text>个人身份证</text>
-                <wux-upload data-field="idcard" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
-                    <text>正面</text>
-                </wux-upload>
-                <wux-upload data-field="idcardback" style="margin-left:20rpx" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text>反面</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text>品牌授权</text>
-                <wux-upload data-field="brand" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text style="display:block;width:100%;margin-bottom:20rpx">企业生产许可证/食品经营许可证/食品流通许可证(3选1)</text>
-                <wux-upload data-field="enterprise" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text style="display:block;width:100%;margin-bottom:20rpx">质检报告(质监局/SGS等专业检测机构)</text>
-                <wux-upload data-field="report" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text style="display:block;width:100%;margin-bottom:20rpx">有机认证/绿色认证</text>
-                <wux-upload data-field="organic" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <button bind:tap="submit">提交</button>
-        </form>
-    </view>
+<view class="container">
+    <form>
+        <view class='form-group'>
+            <text>联系人</text>
+            <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput"/>
+        </view>
+        <view class='form-group info'>
+            <text class="info">联系方式(<text style="color:#FF6600">至少填一项</text>)</text>
+        </view>
+        <view class='form-group'>
+            <text>手机号码</text>
+            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"
+                   maxlength="11"/>
+        </view>
+        <view class='form-group'>
+            <text>固定电话</text>
+            <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"
+                   maxlength="11"/>
+        </view>
+        <view class='form-group'>
+            <text>其他</text>
+            <input placeholder="请输入其他联系方式" data-field="other" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>农场规模</text>
+            <input placeholder="只可填写数字" type="number" data-field="farmsize" bindinput="onInput"/>
+            <text style="text-align:right">（亩）</text>
+        </view>
+        <view class='form-group'>
+            <text>地址</text>
+            <input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>
+            <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
+        </view>
+        <view class='form-group'>
+            <text>封面</text>
+            <wux-upload data-field="cover" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text>简介</text>
+            <textarea bindinput="onInput" data-field="memo"  placeholder='可介绍下农场成立的初衷，农场特色，农场产品等。' maxlength="300"></textarea>
+        </view>
+        <view class='form-group'>
+            <text>农场图片</text>
+            <wux-upload data-field="Idaho" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text>农夫故事</text>
+            <textarea bindinput="onInput" data-field="story" placeholder='可以说说自己的故事，让更多的人了解你' maxlength="300"></textarea>
+        </view>
+        <view class='form-group'>
+            <text>营业执照</text>
+            <wux-upload data-field="licence" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text>个人身份证</text>
+            <wux-upload data-field="idcard" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
+                <text>正面</text>
+            </wux-upload>
+            <wux-upload data-field="idcardback" style="margin-left:20rpx" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text>反面</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text>品牌授权</text>
+            <wux-upload data-field="brand" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text style="display:block;width:100%;margin-bottom:20rpx">企业生产许可证/食品经营许可证/食品流通许可证(3选1)</text>
+            <wux-upload data-field="enterprise" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text style="display:block;width:100%;margin-bottom:20rpx">质检报告(质监局/SGS等专业检测机构)</text>
+            <wux-upload data-field="report" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text style="display:block;width:100%;margin-bottom:20rpx">有机认证/绿色认证</text>
+            <wux-upload data-field="organic" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <button bind:tap="submit">提交</button>
+    </form>
 </view>

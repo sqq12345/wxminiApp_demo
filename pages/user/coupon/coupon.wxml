@@ -1,28 +1,24 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <view class="empty" wx:if="{{list.length == 0}}">
-            <image src="empty.png" />
-            暂无可用优惠券
+<view class="container">
+    <view class="empty" wx:if="{{list.length == 0}}">
+        <image src="empty.png" />
+        暂无可用优惠券
+    </view>
+    <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-index="{{index}}" wx:if="{{!select||(select&&item.isuser!=0)}}">
+        <image class="_bg" src="coupon.png"/>
+        <view class="left">
+            <view class="price">
+                <text class="_rmb">￥</text>{{item.value}}
+            </view>
+            <view class="info">
+                <view class="title">{{item.title}}</view>
+                <view class="label">使用规则：</view>
+                <view class="role">{{item.use_money}}</view>
+            </view>
         </view>
-        <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-index="{{index}}" wx:if="{{!select||(select&&item.isuser!=0)}}">
-            <image class="_bg" src="coupon.png"/>
-            <view class="left">
-                <view class="price">
-                    <text class="_rmb">￥</text>{{item.value}}
-                </view>
-                <view class="info">
-                    <view class="title">{{item.title}}</view>
-                    <view class="label">使用规则：</view>
-                    <view class="role">{{item.use_money}}</view>
-                </view>
-            </view>
-            <view class="right">
-                <view class="label">立即使用</view>
-                <view class="start">{{item.startTime}}到</view>
-                <view class="end">{{item.endTime}}</view>
-            </view>
+        <view class="right">
+            <view class="label">立即使用</view>
+            <view class="start">{{item.startTime}}到</view>
+            <view class="end">{{item.endTime}}</view>
         </view>
     </view>
 </view>
