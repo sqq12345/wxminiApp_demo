@@ -17,7 +17,7 @@ Page({
       url: '/api/user/logistics',
       method: 'POST',
       data:{
-        logi_no:''
+        logi_no:'818510709234'
       },
       success: (response) => {
 

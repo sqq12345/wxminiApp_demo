@@ -126,7 +126,7 @@ Page({
             gid: item.gid,
             num: item.num,
             //农场id
-            //mid: item.mid,
+            mid: item.mid,
           },
           method: 'POST',
         });
