@@ -28,8 +28,9 @@ Page({
       data: { sid: id },
       success: (response) => {
         const detail = response.data.data;
+        console.log(detail);
         detail.goods.forEach(g => {
-          g.num = 1;
+          g.num = 0;
           g.value = Number.parseFloat(g.price);
           g.total = 0;
           //商品总价
@@ -58,6 +59,7 @@ Page({
     });
   },
 
+  //计算总价
   calc(goods){
     const arr = goods.map(item => {
       return item.value * item.num
@@ -71,7 +73,7 @@ Page({
   reduce(e) {
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
-    if (detail.goods[index].num == 1) {
+    if (detail.goods[index].num == 0) {
       return false;
     }
     detail.goods[index].num--;
@@ -81,6 +83,7 @@ Page({
   },
 
   increase(e) {
+    console.log(this.data.detail);
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
     detail.goods[index].num++;
@@ -123,7 +126,7 @@ Page({
             gid: item.gid,
             num: item.num,
             //农场id
-            mid: this.data.detail.mid,
+            //mid: item.mid,
           },
           method: 'POST',
         });

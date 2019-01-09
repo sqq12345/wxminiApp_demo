@@ -21,10 +21,6 @@
     padding-top: 20rpx;
 }
 
-.goods:first-of-type {
-    padding-top: 0;
-}
-
 .goods .thumb {
     width: 160rpx;
     height: 160rpx;
@@ -142,7 +138,8 @@
 
 .item .title {
     color: #333333;
-    font-weight: 500;
+    font-weight: bolder;
+    margin-top: 20rpx;
 }
 
 .item .desc {
