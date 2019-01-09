@@ -1,6 +1,5 @@
 <view class="container">
-    <header navbar-data='{{nvabarData}}' />
-    <view class="head" style="padding-top:{{occupation}}px;">
+    <view class="head">
         <image src="{{bg}}" class="_bg" />
         <image class="logo" src="{{detail.logo}}" />
         <view class="title">{{detail.name}}</view>

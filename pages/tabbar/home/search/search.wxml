@@ -1,9 +1,5 @@
-<!-- pages/tabbar/search/search.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <search query='{{query}}' cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange"/>
-        <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"></shop>
-    </view>
-    <view wx:if="{{list.length==0}}" class="empty">没有搜索到相关商家</view>
+<view class="container">
+    <search query='{{query}}' cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange"/>
+    <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"></shop>
 </view>
+<view wx:if="{{list.length==0}}" class="empty">没有搜索到相关商家</view>

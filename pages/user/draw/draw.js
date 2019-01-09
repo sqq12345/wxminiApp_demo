@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
       title: '提现', //导航栏 中间的标题
@@ -13,6 +14,7 @@ Page({
       color: '#fff'
     },
     occupation: app.globalData.height + 46,
+*/
   },
 
   /**

@@ -2,22 +2,24 @@
 import http from '../../utils/http';
 import login from '../../stores/Login';
 const { regeneratorRuntime } = global;
-const app = getApp();
+// const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
       title: '留言评论', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+*/
     form: {},
     //提交地址
     commitUrl: '',
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
   },
 
   /**

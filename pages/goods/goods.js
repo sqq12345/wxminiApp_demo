@@ -14,11 +14,13 @@ Page(observer({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       position: 'absolute',
       showCapsule: true, //是否显示左上角图标
       transparent: true //透明导航栏
     },
+*/
     goods: {},
     //整数部分和小数部分
     price: [],

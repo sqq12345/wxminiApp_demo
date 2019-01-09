@@ -7,16 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       position: 'absolute',
       showCapsule: true, //是否显示左上角图标
       transparent: true //透明导航栏
     },
+*/
     detail: {},
     bg: '',
     type: '1',
     labels: [],
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
     page: 1,
     loading: false,
     //没有更多数据了

@@ -3,7 +3,7 @@ import { observer } from '../../../../utils/mobx/observer';
 import http from '../../../../utils/http';
 import login from '../../../../stores/Login';
 const { regeneratorRuntime } = global;
-const app = getApp();
+// const app = getApp();
 Page(observer({
   props: {
     cart: require('../../../../stores/Cart'),
@@ -13,11 +13,13 @@ Page(observer({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
       title: '确认订单', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+*/
     logisticsprc: 0, //运费
     totalPrice: "",
     remark: "", //买家备注
@@ -25,7 +27,7 @@ Page(observer({
     couponParam: '',    //优惠券过滤条件
     //提交表单
     form: {},
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
   },
   //商品数量增加
   increase(e) {

@@ -1,28 +1,25 @@
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <view class="comments">
-            <view class="header">
-                {{score}}
-                <view>
-                    <wux-rater allow-half value="{{score}}" controlled disabled fontSize="14" starSize="14" />
-                </view>
+<view class="container">
+    <view class="comments">
+        <view class="header">
+            {{score}}
+            <view>
+                <wux-rater allow-half value="{{score}}" controlled disabled fontSize="14" starSize="14" />
             </view>
-            <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
-                <image class="head" />
-                <view class="content">
-                    <view class="username">
-                        {{item.nickname}}
-                        <wux-rater allow-half defaultValue="{{item.ranks}}" disabled fontSize="12" starSize="12" />
-                    </view>
-                    <view class="desc">{{item.content_text}}</view>
-                    <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
-                        <image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>
-                    </view>
-                    <view class="bottom">
-                        <text>{{item.create_at}}</text>
-                        <text>  {{item.specification}}</text>
-                    </view>
+        </view>
+        <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
+            <image class="head" />
+            <view class="content">
+                <view class="username">
+                    {{item.nickname}}
+                    <wux-rater allow-half defaultValue="{{item.ranks}}" disabled fontSize="12" starSize="12" />
+                </view>
+                <view class="desc">{{item.content_text}}</view>
+                <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
+                    <image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>
+                </view>
+                <view class="bottom">
+                    <text>{{item.create_at}}</text>
+                    <text>  {{item.specification}}</text>
                 </view>
             </view>
         </view>

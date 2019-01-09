@@ -1,26 +1,22 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <view class="list">
-            <navigator wx:if="{{!select}}" class="item" wx:for="{{list}}" wx:key="{{index}}" url="add/add?id={{item.id}}">
-                <view>
-                    <text class="username">{{item.name}}</text>
-                    <text class="phone">{{item.mobile}}</text>
-                </view>
-                <view class="address">{{item.provincename}} {{item.cityname}} {{item.areaname}} {{item.address}}</view>
-            </navigator>
-            <view wx:if="{{select}}" class="item" wx:for="{{list}}" wx:key="{{index}}" bind:tap="select" data-index="{{index}}">
-                <view>
-                    <text class="username">{{item.name}}</text>
-                    <text class="phone">{{item.mobile}}</text>
-                </view>
-                <view class="address">{{item.provincename}} {{item.cityname}} {{item.areaname}} {{item.address}}</view>
+<view class="container">
+    <view class="list">
+        <navigator wx:if="{{!select}}" class="item" wx:for="{{list}}" wx:key="{{index}}" url="add/add?id={{item.id}}">
+            <view>
+                <text class="username">{{item.name}}</text>
+                <text class="phone">{{item.mobile}}</text>
             </view>
-        </view>
-        <navigator url="add/add" hover-class="none" class="button">
-            <image src="/static/icons/group/add.png" />
-            添加收货地址
+            <view class="address">{{item.provincename}} {{item.cityname}} {{item.areaname}} {{item.address}}</view>
         </navigator>
+        <view wx:if="{{select}}" class="item" wx:for="{{list}}" wx:key="{{index}}" bind:tap="select" data-index="{{index}}">
+            <view>
+                <text class="username">{{item.name}}</text>
+                <text class="phone">{{item.mobile}}</text>
+            </view>
+            <view class="address">{{item.provincename}} {{item.cityname}} {{item.areaname}} {{item.address}}</view>
+        </view>
     </view>
+    <navigator url="add/add" hover-class="none" class="button">
+        <image src="/static/icons/group/add.png" />
+        添加收货地址
+    </navigator>
 </view>

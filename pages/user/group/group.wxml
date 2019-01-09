@@ -1,18 +1,14 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <navigator url="/pages/group/start" hover-class="none" class="_button"><image src="/static/icons/user/plane.png"/>发起接龙</navigator>
-        <view class="item" wx:for="{{list}}" wx:key="{{index}}">
-            <view class="start">创建时间 : {{item.create_at}}<image/></view>
-            <view class="title">{{item.title}}</view>
-            <view class="desc">
-                {{item.content}}
-            </view>
-            <view class="end">截止时间 : {{item.endtime}}</view>
-            <view class="more">
-                <navigator class="btn">更多</navigator>
-            </view>
+<view class="container">
+    <navigator url="/pages/group/start" hover-class="none" class="_button"><image src="/static/icons/user/plane.png"/>发起接龙</navigator>
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="start">创建时间 : {{item.create_at}}<image/></view>
+        <view class="title">{{item.title}}</view>
+        <view class="desc">
+            {{item.content}}
+        </view>
+        <view class="end">截止时间 : {{item.endtime}}</view>
+        <view class="more">
+            <navigator class="btn">更多</navigator>
         </view>
     </view>
 </view>

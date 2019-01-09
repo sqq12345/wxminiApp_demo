@@ -9,11 +9,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+/*
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
       title: '全部评论', //导航栏 中间的标题
       transparent: false //透明导航栏
     },
+*/
     gid: 0,
     page: 1,
     loading: false,
@@ -21,7 +23,7 @@ Page({
     end: false,
     score: 0,
     list: [],
-    occupation: app.globalData.height + 46,
+    // occupation: app.globalData.height + 46,
   },
 
   /**

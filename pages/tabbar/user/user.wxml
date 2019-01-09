@@ -1,120 +1,116 @@
-<!-- pages/tabbar/shoplist/shoplist.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container">
-        <view class="head" style="{{userinfo.ismerchant!=0?'margin-bottom:80rpx':''}}">
-            <image class="_bg" src="/static/bg/user.png" />
-            <view class="info"  style="{{userinfo.ismerchant==0?'margin-top:80rpx':''}}">
-                <navigator hover-class="none" url="/pages/user/profile/profile">
-                    <open-data class="avatar" type="userAvatarUrl"></open-data>
-                    <open-data class="username" type="userNickName"></open-data>
-                    <image src="/static/icons/user/edit.png" class="edit" />
+<view class="container">
+    <view class="head" style="{{userinfo.ismerchant!=0?'margin-bottom:80rpx':''}}">
+        <image class="_bg" src="/static/bg/user.png" />
+        <view class="info"  style="{{userinfo.ismerchant==0?'margin-top:80rpx':''}}">
+            <navigator hover-class="none" url="/pages/user/profile/profile">
+                <open-data class="avatar" type="userAvatarUrl"></open-data>
+                <open-data class="username" type="userNickName"></open-data>
+                <image src="/static/icons/user/edit.png" class="edit" />
+            </navigator>
+            <view>
+                <navigator hover-class="none" class="num" url="/pages/user/points/points">
+                    <view>{{userinfo.points}}</view>
+                    <view>安积分</view>
                 </navigator>
-                <view>
-                    <navigator hover-class="none" class="num" url="/pages/user/points/points">
-                        <view>{{userinfo.points}}</view>
-                        <view>安积分</view>
-                    </navigator>
-                    <view class="line"/>
-                    <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
-                        <view>{{userinfo.fans}}</view>
-                        <view>粉丝</view>
-                    </navigator>
-                </view>
+                <view class="line"/>
+                <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
+                    <view>{{userinfo.fans}}</view>
+                    <view>粉丝</view>
+                </navigator>
             </view>
-            <view class="bottom" wx:if="{{userinfo.ismerchant!=0}}">
+        </view>
+        <view class="bottom" wx:if="{{userinfo.ismerchant!=0}}">
+            <view>
                 <view>
-                    <view>
-                        可提现金额:
-                        <text class="price">
-                            <text class="_rmb">￥</text>8888
-                        </text>
-                    </view>
-                    <view class="buttons">
-                        <navigator hover-class="none" url="/pages/user/earnings/earnings">
-                            收益明细
-                        </navigator>
-                        <navigator hover-class="none" url="/pages/user/draw/draw">提现</navigator>
-                    </view>
+                    可提现金额:
+                    <text class="price">
+                        <text class="_rmb">￥</text>8888
+                    </text>
+                </view>
+                <view class="buttons">
+                    <navigator hover-class="none" url="/pages/user/earnings/earnings">
+                        收益明细
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/user/draw/draw">提现</navigator>
                 </view>
             </view>
         </view>
-        <view class="block">
-            <view class="title">
-                <text>我的订单</text>
-                <navigator hover-class="none" class="more" url="/pages/user/orders/orders">
-                    查看更多>
-                </navigator>
-            </view>
-            <view class="block">
-                <view class="icons">
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=0">
-                        <image src="/static/icons/user/1.png" style="height:38rpx"/>
-                        待付款
-                    </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
-                        <image src="/static/icons/user/2.png" style="height:36rpx;width:44rpx;"/>
-                        待发货
-                    </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
-                        <image src="/static/icons/user/3.png" style="height:36rpx"/>
-                        待收货
-                    </navigator>
-                    <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
-                        <image src="/static/icons/user/4.png" style="height:36rpx"/>
-                        待评价
-                    </navigator>
-                </view>
-            </view>
-        </view>
-        <view class="block">
-            <view class="title">
-                <text>正在参与</text>
-            </view>
-            <view class="block">
-                <view class="icons">
-                    <navigator hover-class="none" class="icon" url="/pages/user/group/group">
-                        <image src="/static/icons/user/5.png" style="width:44rpx;height:42rpx"/>
-                        发起接龙
-                    </navigator>
-                    <navigator hover-class="none" class="icon" url="/">
-                        <image src="/static/icons/user/6.png" style="width:38rpx;height:34rpx;margin-bottom:20rpx;"/>
-                        我的拼团
-                    </navigator>
-                    <view class="icon" style="visibility:hidden"></view>
-                    <view class="icon" style="visibility:hidden"></view>
-                </view>
-            </view>
+    </view>
+    <view class="block">
+        <view class="title">
+            <text>我的订单</text>
+            <navigator hover-class="none" class="more" url="/pages/user/orders/orders">
+                查看更多>
+            </navigator>
         </view>
         <view class="block">
             <view class="icons">
-                <navigator class="icon" hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
-                    <image src="/static/icons/user/7.png" style="width:44rpx;"/>
-                    购物车
+                <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=0">
+                    <image src="/static/icons/user/1.png" style="height:38rpx"/>
+                    待付款
                 </navigator>
-                <navigator class="icon" hover-class="none" url="/pages/user/coupon/coupon">
-                    <image src="/static/icons/user/8.png" style="height:32rpx"/>
-                    优惠券
+                <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
+                    <image src="/static/icons/user/2.png" style="height:36rpx;width:44rpx;"/>
+                    待发货
                 </navigator>
-                <navigator class="icon" hover-class="none" url="/pages/user/collection/collection">
-                    <image src="/static/icons/user/9.png" style="width:38rpx;height:36rpx;"/>
-                    收藏
+                <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
+                    <image src="/static/icons/user/3.png" style="height:36rpx"/>
+                    待收货
                 </navigator>
-                <button open-type="contact" class="icon contactBtn">
-                    <image src="/static/icons/user/10.png" style="width:36rpx;height:32rpx;"
-                           class="contactImg"/>客服
-                </button>
+                <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
+                    <image src="/static/icons/user/4.png" style="height:36rpx"/>
+                    待评价
+                </navigator>
             </view>
-            <view class="bottom-line"/>
+        </view>
+    </view>
+    <view class="block">
+        <view class="title">
+            <text>正在参与</text>
+        </view>
+        <view class="block">
             <view class="icons">
-                <navigator class="icon" hover-class="none" url="/pages/user/setting/setting">
-                    <image src="/static/icons/user/11.png" style="width:34rpx;height:34rpx;"/>
-                    设置
+                <navigator hover-class="none" class="icon" url="/pages/user/group/group">
+                    <image src="/static/icons/user/5.png" style="width:44rpx;height:42rpx"/>
+                    发起接龙
+                </navigator>
+                <navigator hover-class="none" class="icon" url="/">
+                    <image src="/static/icons/user/6.png" style="width:38rpx;height:34rpx;margin-bottom:20rpx;"/>
+                    我的拼团
                 </navigator>
                 <view class="icon" style="visibility:hidden"></view>
                 <view class="icon" style="visibility:hidden"></view>
-                <view class="icon" style="visibility:hidden"></view>
             </view>
+        </view>
+    </view>
+    <view class="block">
+        <view class="icons">
+            <navigator class="icon" hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
+                <image src="/static/icons/user/7.png" style="width:44rpx;"/>
+                购物车
+            </navigator>
+            <navigator class="icon" hover-class="none" url="/pages/user/coupon/coupon">
+                <image src="/static/icons/user/8.png" style="height:32rpx"/>
+                优惠券
+            </navigator>
+            <navigator class="icon" hover-class="none" url="/pages/user/collection/collection">
+                <image src="/static/icons/user/9.png" style="width:38rpx;height:36rpx;"/>
+                收藏
+            </navigator>
+            <button open-type="contact" class="icon contactBtn">
+                <image src="/static/icons/user/10.png" style="width:36rpx;height:32rpx;"
+                       class="contactImg"/>客服
+            </button>
+        </view>
+        <view class="bottom-line"/>
+        <view class="icons">
+            <navigator class="icon" hover-class="none" url="/pages/user/setting/setting">
+                <image src="/static/icons/user/11.png" style="width:34rpx;height:34rpx;"/>
+                设置
+            </navigator>
+            <view class="icon" style="visibility:hidden"></view>
+            <view class="icon" style="visibility:hidden"></view>
+            <view class="icon" style="visibility:hidden"></view>
         </view>
     </view>
 </view>

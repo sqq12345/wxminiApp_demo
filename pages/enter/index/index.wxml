@@ -1,23 +1,19 @@
-<!-- pages/enter/step1/step1.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class='container' wx:if="{{!loading}}" style="padding-top:{{occupation}}px;">
-        <view class='code'>
-            <input placeholder="点击输入邀请码" placeholder-class='placeholder' bindinput="onInput" data-field="icode"/>
-        </view>
-        <form class='form'>
-            <view class='form-group'>
-                <label>{{type}}名称</label>
-                <input placeholder="输入名称" bindinput="onInput" data-field="name"/>
-            </view>
-            <view class='form-group' wx:for="{{fields}}" wx:key="{{index}}" wx:for-item="field">
-                <label>{{field.title}}</label>
-                <view class='select'>
-                    <text wx:for="{{field.son}}"  data-field="{{field.alias}}" class="{{item.selected?'selected':''}}"
-                    wx:key="{{index}}" bind:tap="select" data-value="{{item}}" data-multiple="{{field.multiple}}">{{item.title}}</text>
-                </view>
-            </view>
-            <button hover-class="none" bind:tap="navigation">下一步</button>
-        </form>
+<view class='container' wx:if="{{!loading}}">
+    <view class='code'>
+        <input placeholder="点击输入邀请码" placeholder-class='placeholder' bindinput="onInput" data-field="icode"/>
     </view>
+    <form class='form'>
+        <view class='form-group'>
+            <label>{{type}}名称</label>
+            <input placeholder="输入名称" bindinput="onInput" data-field="name"/>
+        </view>
+        <view class='form-group' wx:for="{{fields}}" wx:key="{{index}}" wx:for-item="field">
+            <label>{{field.title}}</label>
+            <view class='select'>
+                <text wx:for="{{field.son}}"  data-field="{{field.alias}}" class="{{item.selected?'selected':''}}"
+                      wx:key="{{index}}" bind:tap="select" data-value="{{item}}" data-multiple="{{field.multiple}}">{{item.title}}</text>
+            </view>
+        </view>
+        <button hover-class="none" bind:tap="navigation">下一步</button>
+    </form>
 </view>

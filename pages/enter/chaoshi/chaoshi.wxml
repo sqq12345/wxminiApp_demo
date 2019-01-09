@@ -1,62 +1,58 @@
-<!-- pages/enter/step2/step2.wxml -->
-<view>
-    <header navbar-data='{{nvabarData}}' />
-    <view class="container" style="padding-top:{{occupation}}px;">
-        <form>
-            <view class='form-group'>
-                <text>联系人</text>
-                <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput"/>
-            </view>
-            <view class='form-group info'>
-                <text class="info">联系方式(<text style="color:#FF6600">至少填一项</text>)</text>
-            </view>
-            <view class='form-group'>
-                <text>手机号码</text>
-                <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"/>
-            </view>
-            <view class='form-group'>
-                <text>固定电话</text>
-                <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"/>
-            </view>
-            <view class='form-group'>
-                <text>其他</text>
-                <input placeholder="请输入其他联系方式" data-field="other" bindinput="onInput"/>
-            </view>
-            <view class='form-group'>
-                <text>身份证号</text>
-                <input placeholder="请输入其他联系方式" data-field="idcard" bindinput="onInput"/>
-            </view>
-            <view class='form-group'>
-                <text>产品种类</text>
-                <input placeholder="只可填写数字" type="number" data-field="nums" bindinput="onInput"/>
-                <text style="text-align:right">（种）</text>
-            </view>
-            <view class='form-group'>
-                <text>地址</text>
-                <input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>
-                <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
-            </view>
-            <view class='form-group'>
-                <text>封面</text>
-                <wux-upload data-field="cover" listType="picture-card" max="4" bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text>简介</text>
-                <textarea bindinput="onInput" data-field="memo"  placeholder='可以简单介绍一下你的有机超市。' maxlength="300"></textarea>
-            </view>
-            <view class='form-group'>
-                <text>产品图片</text>
-                <wux-upload data-field="pics" listType="picture-card" max="4" bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
-                    <text class="plus">+</text>
-                </wux-upload>
-            </view>
-            <view class='form-group'>
-                <text>超市故事</text>
-                <textarea bindinput="onInput" data-field="story" placeholder='可以说说有机超市的品牌故事，成立的时间，内外部环境，让更多人了解。' maxlength="300"></textarea>
-            </view>
-            <button bind:tap="submit">提交</button>
-        </form>
-    </view>
+<view class="container">
+    <form>
+        <view class='form-group'>
+            <text>联系人</text>
+            <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput"/>
+        </view>
+        <view class='form-group info'>
+            <text class="info">联系方式(<text style="color:#FF6600">至少填一项</text>)</text>
+        </view>
+        <view class='form-group'>
+            <text>手机号码</text>
+            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>固定电话</text>
+            <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>其他</text>
+            <input placeholder="请输入其他联系方式" data-field="other" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>身份证号</text>
+            <input placeholder="请输入其他联系方式" data-field="idcard" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>产品种类</text>
+            <input placeholder="只可填写数字" type="number" data-field="nums" bindinput="onInput"/>
+            <text style="text-align:right">（种）</text>
+        </view>
+        <view class='form-group'>
+            <text>地址</text>
+            <input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>
+            <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
+        </view>
+        <view class='form-group'>
+            <text>封面</text>
+            <wux-upload data-field="cover" listType="picture-card" max="4" bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text>简介</text>
+            <textarea bindinput="onInput" data-field="memo"  placeholder='可以简单介绍一下你的有机超市。' maxlength="300"></textarea>
+        </view>
+        <view class='form-group'>
+            <text>产品图片</text>
+            <wux-upload data-field="pics" listType="picture-card" max="4" bind:fail="onUploadFail" bind:complete="onComplete" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text>超市故事</text>
+            <textarea bindinput="onInput" data-field="story" placeholder='可以说说有机超市的品牌故事，成立的时间，内外部环境，让更多人了解。' maxlength="300"></textarea>
+        </view>
+        <button bind:tap="submit">提交</button>
+    </form>
 </view>
