@@ -14,16 +14,8 @@
     color: #AAAAAA;
     font-size: 24rpx;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-}
-
-.item .start image{
-    width: 48rpx;
-    height: 48rpx;
-    border: 1px solid #000000;
-    align-items: center;
-    border-radius: 50%;
 }
 
 .item .title {

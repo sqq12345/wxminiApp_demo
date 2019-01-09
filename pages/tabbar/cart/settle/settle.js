@@ -46,8 +46,10 @@ Page(observer({
     form["remark_" + e.currentTarget.dataset.mid] = value;
     this.setData({ form });
   },
-  onLoad: async function () {
-
+  onLoad: function (options) {
+    if (options.sid) {
+      this.setData({ 'form.ordertype': 1, 'form.sid': options.sid });
+    }
   },
   /**
    * 生命周期函数--监听页面加载

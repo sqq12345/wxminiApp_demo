@@ -45,9 +45,9 @@ Page({
       },
       success: (response) => {
         const list = response.data.data.data;
-        
+
         const end = response.data.data.last_page == this.data.page;
-        this.setData({list: this.data.list.concat(list), end, loading: false, page: this.data.page + 1})
+        this.setData({ list: this.data.list.concat(list), end, loading: false, page: this.data.page + 1 })
       }
     })
   },
@@ -57,5 +57,25 @@ Page({
     this.setData({ loading: true }, () => {
       this.fetchList();
     });
+  },
+
+  //分享
+  onShareAppMessage: function (e) {
+    if (e.from === 'button') {
+      const { title, id } = e.target.dataset;
+      return {
+        title: title, // 转发后 所显示的title
+        path: '/pages/group/buy/buy?id=' + id, // 相对的路径
+        //拼团图片
+        //imageUrl:'', 
+        success: (res) => {    // 成功后要做的事情
+
+        },
+        fail: function (res) {
+          // 分享失败
+          console.log(res)
+        }
+      }
+    }
   }
 })

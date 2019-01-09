@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "wux-upload": "/components/upload/index"
+        "wux-upload": "/components/upload/index",
+        "datetime": "/components/datetime/datetime"
     },
-    "navigationBarTitleText": "开团商品"
+  "navigationBarTitleText": "开团商品"
 }

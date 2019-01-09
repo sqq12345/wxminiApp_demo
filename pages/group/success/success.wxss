@@ -45,12 +45,13 @@
     right: 30rpx;
 }
 
-.box .user image {
+.box .user .avatar {
     width: 40rpx;
     height: 40rpx;
     border-radius: 50%;
     border: 1px solid #ccc;
     margin: 0 15rpx;
+    overflow: hidden;
 }
 
 .box .info {

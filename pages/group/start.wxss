@@ -79,8 +79,7 @@
 }
 
 .form-group .time {
-  width: 40rpx;
-  height: 40rpx;
+  display: inline-flex;
 }
 
 .agreement {

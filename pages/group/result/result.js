@@ -1,7 +1,8 @@
 // pages/group/result/result.js
 import { observer } from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
-// const app = getApp();
+import login from '../../../stores/Login';
+const app = getApp();
 const city = require('../../../stores/City');
 const { regeneratorRuntime } = global;
 Page(observer({
@@ -47,9 +48,13 @@ Page(observer({
   },
   async fetchResults(query) {
     await city.fetchData();
+    const result = await login();
     http.request({
       url: '/api/solitaire/goodsList',
       method: 'POST',
+      header: {
+        token: result.user_token
+      },
       data: {
         page: this.data.page,
         city_id: city.selected.id,
