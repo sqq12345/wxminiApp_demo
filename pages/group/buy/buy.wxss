@@ -1,7 +1,7 @@
 /* pages/group/buy/buy.wxss */
 
 .container {
-    margin-top: 66px;
+    
 }
 
 .goods-list {

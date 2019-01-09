@@ -8,7 +8,7 @@
     </view>
     <view class="end">截止时间 : {{item.endtime}}</view>
     <view class="more">
-      <navigator class="btn">更多</navigator>
+      <navigator class="btn" hover-class="none" url="/pages/group/buy/buy?id={{item.id}}">更多</navigator>
     </view>
   </view>
 </view>

@@ -32,13 +32,13 @@ Page(observer({
       success: (response) => {
         const detail = response.data.data;
         detail.goods.forEach(g => {
-          g.num = 0;
+          g.num = 1;
           g.value = Number.parseFloat(g.price);
           g.total = 0;
           //商品总价
           Object.defineProperty(g, 'total', {
             get() {
-              return Number.parseFloat(g.value * g.num).toFixed(2)
+              return Number.parseFloat(this.value * this.num).toFixed(2)
             }
           })
         });
@@ -74,6 +74,7 @@ Page(observer({
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
     detail.goods[index].num++;
+    console.log(detail.goods[index].total);
     this.setData({ 'detail': detail });
   },
 

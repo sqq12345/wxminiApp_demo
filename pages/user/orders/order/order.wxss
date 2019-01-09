@@ -16,7 +16,7 @@
     color: #555555;
 }
 
-.order .top .title{
+.order .top .title {
     font-size: 24rpx;
 }
 
@@ -120,4 +120,46 @@
     color: #32CC4A;
     font-size: 22rpx;
     padding: 4rpx 20rpx;
+}
+
+.bottom-btn {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    background: #fff;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+}
+
+.bottom-btn>view {
+    display: inline-flex;
+    align-items: center;
+}
+
+.bottom-btn .pay {
+    flex: 1;
+    background: linear-gradient(to right, #38E56A, #1FC13B);
+    color: #fff;
+    height: 100%;
+    justify-content: center;
+}
+
+.bottom-btn .cancel {
+    flex: 1;
+    background: #f0f0f0;
+    color: #AAAAAA;
+    justify-content: center;
+}
+
+.bottom-btn .price {
+    flex: 2;
+    padding-left: 30rpx;
+}
+
+.bottom-btn .price .p{
+    color: #FF8A00;
+    font-size: 30rpx;
 }

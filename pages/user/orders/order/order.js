@@ -10,14 +10,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '订单详情', //导航栏 中间的标题
-      transparent: false, //透明导航栏
-    },
-    occupation: app.globalData.height + 46,
-*/
+    /*
+        nvabarData: {
+          showCapsule: true, //是否显示左上角图标
+          title: '订单详情', //导航栏 中间的标题
+          transparent: false, //透明导航栏
+        },
+        occupation: app.globalData.height + 46,
+    */
     detail: {},
     orderId: 0,
   },
@@ -45,6 +45,9 @@ Page({
             break;
           case 2:
             detail.status = '已发货';
+            break;
+          case 3:
+            detail.status = '已完成';
             break;
           case -1:
             detail.status = '已取消';

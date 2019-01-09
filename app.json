@@ -37,7 +37,8 @@
         "collection/collection",
         "coupon/coupon",
         "setting/setting",
-        "fans/earnings/earnings"
+        "fans/earnings/earnings",
+        "logistics/logistics"
       ]
     },
     {
