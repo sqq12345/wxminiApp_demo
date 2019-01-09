@@ -5,7 +5,7 @@
         <view class="block">
             <view class="order">
                 <view class="top">
-                    <text>{{detail.merchant.name}}</text>
+                    <text class="title">{{detail.merchant.name}}</text>
                     <text class="status">{{detail.status}}</text>
                 </view>
                 <view class="middle" wx:for="{{detail.goods}}" wx:key="{{index}}">
@@ -40,7 +40,7 @@
             <view>支付流水账号：{{detail.pay.pay_id}}</view>
             <view wx:if="{{detail.order_status!=0}}">支付方式：微信支付</view>
             <view wx:if="{{detail.order_status!=0}}">付款时间：{{detail.pay.createAt}}</view>
-            <view>发货时间：{{detail.deliveryTime}}</view>
+            <view wx:if="{{detail.order_status>=2}}">发货时间：{{detail.deliveryTime}}</view>
         </view>
         <view class="call">拨打电话</view>
         <view class="ops">
@@ -48,7 +48,7 @@
             <text class="button" wx:if="{{detail.order_status==2||detail.order_status==3}}">物流</text>
             <text class="button" wx:if="{{detail.order_status==0}}">取消订单</text>
             <text class="button" wx:if="{{detail.order_status==-1}}">删除订单</text>
-            <navigator wx:if="{{detail.order_status==2}}" class="button" url="/pages/user/orders/receive/receive">确认收货</navigator>
+            <navigator wx:if="{{detail.order_status>=2}}" class="button" url="/pages/user/orders/receive/receive">确认收货</navigator>
         </view>
     </view>
 </view>
