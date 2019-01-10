@@ -19,7 +19,7 @@
             <view class="info">
                 <text class="name">{{item.title}}</text>
                 <text class="price">￥{{item.price}}</text>
-                <text class="extr">已售{{}} 评分{{item.score}}</text>
+                <text class="extr">已售{{item.sales}} 评分{{item.score}}</text>
             </view>
         </navigator>
     </view>
