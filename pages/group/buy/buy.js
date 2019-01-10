@@ -60,7 +60,7 @@ Page({
   },
 
   //计算总价
-  calc(goods){
+  calc(goods) {
     const arr = goods.map(item => {
       return item.value * item.num
     });
@@ -113,24 +113,22 @@ Page({
       });
       return false;
     }
+    let form = '';
     this.data.detail.goods.forEach(async item => {
       if (item.num > 0) {
-        http.request({
-          url: '/api/order/cart',
-          showLoading: true,
-          header: {
-            token: result.user_token,
-          },
-          data: {
-            //商品id
-            gid: item.gid,
-            num: item.num,
-            //农场id
-            mid: item.mid,
-          },
-          method: 'POST',
-        });
+        form += item.mid + '_' + item.gid + '_' + item.num + ','
       }
+    });
+    await http.request({
+      url: '/api/order/cartmore',
+      showLoading: true,
+      header: {
+        token: result.user_token,
+      },
+      data: {
+        mid_gid_num : form.substr(0,form.length - 1)
+      },
+      method: 'POST',
     });
     wx.redirectTo({
       url: '/pages/tabbar/cart/settle/settle?sid=' + this.data.sid,
