@@ -12,7 +12,8 @@
     "pages/comments/comments",
     "pages/cities/cities",
     "pages/test/test",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/tabbar/cart/success/success"
   ],
   "permission": {
     "scope.userLocation": {

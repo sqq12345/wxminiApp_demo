@@ -50,7 +50,7 @@ Page(observer({
     //prevPage.setData({ mid: options.id })
   },
   onUploadFail(e) {
-
+    
   },
   onRemove(e) {
     const data = e.detail.file.res.data;

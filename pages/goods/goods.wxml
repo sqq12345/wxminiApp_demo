@@ -77,7 +77,11 @@
                 购物车
             </navigator>
         </view>
-        <view class="add" bind:tap="addCart">加入购物车</view>
-        <view class="buy" bind:tap="buyNow">立即购买</view>
+        <block wx:if="{{goods.stock>0}}">
+            <view class="add" bind:tap="addCart">加入购物车</view>
+            <view class="buy" bind:tap="buyNow">立即购买</view>
+        </block>
+
+        <view class="disable" wx:if="{{goods.stock==0}}">库存不足</view>
     </view>
 </view>

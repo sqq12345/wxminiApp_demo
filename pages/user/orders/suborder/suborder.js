@@ -67,7 +67,7 @@ Page({
         }
         detail.cost_freight = Number.parseFloat(detail.cost_freight) == 0 ? '免运费' : Number.parseFloat(detail.cost_freight).toFixed(2);
         detail.pmt = Number.parseFloat(detail.pmt) == 0 ? '无' : Number.parseFloat(detail.pmt).toFixed(2);
-        detail.createAt = utils.formatTime(new Date(detail.create_at * 1000), true);
+        detail.pay.createAt = utils.formatTime(new Date(detail.pay.create_at * 1000), true);
         detail.money = Number.parseFloat(detail.money).toFixed(2);
         detail.deliveryTime = detail.delivery == null ? '未发货' : '已发货';
         detail.goods.forEach(g => {

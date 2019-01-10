@@ -275,11 +275,19 @@ Component({
             const { uid, url: filePath } = file
 
             name = 'images'
-            if(!url) url = 'https://anfou.cc/api/basics/upload'
+            if(!url) url = 'https://anfou.cc//api/basics/upload'
 
             if (!url || !filePath || disabled) return
 
             this.onStart(file)
+
+            //debug
+            // wx.showToast({
+            //     title: url,
+            //     icon: 'none',
+            //     duration: 5000,
+            //     mask: false,
+            // });
 
             this.uploadTask[uid] = wx.uploadFile({
                 url,

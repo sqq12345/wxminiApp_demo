@@ -139,9 +139,10 @@ Page(observer({
           signType: response.data.data.signType,
           paySign: response.data.data.paySign,
           success(res) {
-            // wx.redirectTo({
-            //   url: '/pages/user/orders/orders',
-            // });
+            //支付成功
+            wx.redirectTo({
+              url: '/pages/tabbar/cart/success/success',
+            });
           },
           fail(res) {
             // wx.showModal({

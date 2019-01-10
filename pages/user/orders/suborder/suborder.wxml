@@ -1,4 +1,4 @@
-<!-- 总订单详情 -->
+<!-- 除了待支付订单都查看这个页面 -->
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container" style="padding-top:{{occupation}}px;">
@@ -41,8 +41,8 @@
                 <text class="button copy" bind:tap="copyText">复制</text>
             </view>
             <view>支付流水账号：{{detail.pay.pay_id}}</view>
-            <view wx:if="{{detail.item_status!=0&&detail.item_status!=-1}}">支付方式：微信支付</view>
-            <view wx:if="{{detail.item_status!=0&&detail.item_status!=-1}}">付款时间：{{detail.pay.createAt}}</view>
+            <view>支付方式：微信支付</view>
+            <view>付款时间：{{detail.pay.createAt}}</view>
             <view wx:if="{{detail.item_status==2}}">发货时间：{{detail.deliveryTime}}</view>
         </view>
         <view wx:if="{{detail.item_status!=0}}" class="call">拨打电话</view>
@@ -50,6 +50,8 @@
             <text class="button" wx:if="{{detail.item_status==2||detail.item_status==3}}">
                 物流
             </text>
+            <view wx:if="{{detail.item_status==1}}" class="button">退款</view>
+            <view wx:if="{{detail.item_status==2}}" class="button">查看物流</view>
             <view wx:if="{{detail.item_status==2}}" class="button">确认收货</view>
         </view>
     </view>

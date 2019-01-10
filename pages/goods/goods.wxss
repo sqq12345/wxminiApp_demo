@@ -252,22 +252,27 @@ swiper {
 }
 
 .bottom-btn .add,
-.bottom-btn .buy {
+.bottom-btn .buy,
+.bottom-btn .disable {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
 }
 
 .bottom-btn .add {
-    color: #ffffff;
     background: #48D960;
     flex-grow: 1;
 }
 
 .bottom-btn .buy {
-    color: #ffffff;
     background: #25CE41;
     flex-grow: 1;
+}
+
+.bottom-btn .disable{
+    background: #cccccc;
+    flex-grow:1;
 }
 
 .detail {
