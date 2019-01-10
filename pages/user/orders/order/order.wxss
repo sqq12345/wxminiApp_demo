@@ -7,7 +7,6 @@
 .block {
     background: #fff;
     padding: 30rpx;
-    margin-top: 20rpx;
 }
 
 .order{

@@ -41,9 +41,9 @@
                 <text class="button copy" bind:tap="copyText">复制</text>
             </view>
             <view>创建时间：{{detail.createAt}}</view>
-            <view>支付流水账号：{{detail.pay.pay_id}}</view>
-            <view wx:if="{{detail.order_status!=0}}">支付方式：微信支付</view>
-            <view wx:if="{{detail.order_status!=0}}">付款时间：{{detail.pay.createAt}}</view>
+            <view wx:if="{{detail.order_status!=0&&detail.order_status!=-1}}">支付流水账号：{{detail.pay.pay_id}}</view>
+            <view wx:if="{{detail.order_status!=0&&detail.order_status!=-1}}">支付方式：微信支付</view>
+            <view wx:if="{{detail.order_status!=0&&detail.order_status!=-1}}">付款时间：{{detail.pay.createAt}}</view>
             <view wx:if="{{detail.order_status==2}}">发货时间：{{detail.deliveryTime}}</view>
         </view>
         <view class="ops" wx:if="{{detail.order_status!=0}}">
@@ -54,7 +54,7 @@
             <view class="price">
                 合计：<text class="p"><text class="_rmb">￥</text>{{detail.money}}</text>
             </view>
-            <view class="cancel">取消订单</view>
+            <view class="cancel" bind:tap="cancelOrder">取消订单</view>
             <view class="pay">付款</view>
         </view>
     </view>
