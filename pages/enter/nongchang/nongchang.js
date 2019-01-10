@@ -154,7 +154,7 @@ const config = {
     require: true,
     max: 300
   },
-  Idaho: {
+  pics: {
     name: '农场图片',
     require: true,
   },
