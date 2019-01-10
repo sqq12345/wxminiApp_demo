@@ -77,7 +77,7 @@ Page(observer({
   async submit() {
     const result = await login();
     const form = this.props.form;
-    console.log(form);
+    //console.log(form);
     if (verify(form, config)) {
       http.request({
         url: '/api/shop/setmerchanttwo',

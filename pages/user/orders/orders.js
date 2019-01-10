@@ -37,17 +37,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let status = '';
     if (options.status) {
-      this.setData({ selected: options.status });
+      status = options.status;
     }
-    this.fetchList(options.status || '')
+    this.setData({ selected: status }, () => {
+      this.fetchList()
+    });
   },
-  async fetchList(status) {
+
+  async fetchList() {
     const result = await login();
-    const data = { page: this.data.page };
-    if (status != '') {
-      data.otype = status;
-    }
+
     http.request({
       url: '/api/user/allorder',
       method: 'POST',
@@ -55,7 +56,10 @@ Page({
         token: result.user_token
       },
       showLoading: true,
-      data: data,
+      data: {
+        page: this.data.page,
+        otype: this.data.selected
+      },
       success: (response) => {
         const list = this.data.list;
         //没有更多了
@@ -125,8 +129,8 @@ Page({
     http.request({
       url: '/api/user/cancelorder',
       method: 'POST',
-      header:{
-        token:result.user_token
+      header: {
+        token: result.user_token
       },
       data: {},
       success: (response) => {
@@ -142,14 +146,17 @@ Page({
     http.request({
       url: '/api/user/deleteorder',
       method: "POST",
-      header:{
-        token:result.user_token
+      header: {
+        token: result.user_token
       },
       data: {
-
+        orderid: id
       },
       success: (response) => {
+        if (response.data.code == 1) {
+          //删除成功
 
+        }
       }
     });
   },
@@ -191,7 +198,7 @@ Page({
                 confirmText: '确定',
                 confirmColor: '#3CC51F',
                 success: (result) => {
-                  
+
                 },
                 fail: () => { },
               });
@@ -210,13 +217,13 @@ Page({
     const { id } = e.currentTarget.dataset;
     const result = await login();
     http.request({
-      url:'/api/user/confirmgoods',
-      method:'POST',
-      header:{
-        token:result.user_token
+      url: '/api/user/confirmgoods',
+      method: 'POST',
+      header: {
+        token: result.user_token
       },
-      data:{},
-      success:(response)=>{
+      data: {},
+      success: (response) => {
 
       }
     })
