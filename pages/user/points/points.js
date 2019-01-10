@@ -32,35 +32,38 @@ Page({
         token: result.user_token
       },
       success: (response) => {
-        const data = {
-          "code": 1,
-          "msg": "查询成功",
-          "time": "1546656099",
-          "data": {
-            "points": [
-              {
-                "id": 3,
-                "uid": "30",
-                "type": "购买商品",
-                "amount": "10",
-                "totalamount": "10",
-                "create_at": "1970-01-07 14:59:03",
-                "status": 0
-              },
-              {
-                "id": 4,
-                "uid": "30",
-                "type": "购买商品",
-                "amount": "10",
-                "totalamount": "10",
-                "create_at": "1970-01-07 14:59:03",
-                "status": 0
-              }
-            ],
-            "totalPage": 1
-          }
-        };
-        this.setData({ list: data.data.points })
+        // const data = {
+        //   "code": 1,
+        //   "msg": "查询成功",
+        //   "time": "1546656099",
+        //   "data": {
+        //     "points": [
+        //       {
+        //         "id": 3,
+        //         "uid": "30",
+        //         "type": "购买商品",
+        //         "amount": "10",
+        //         "totalamount": "10",
+        //         "create_at": "1970-01-07 14:59:03",
+        //         "status": 0
+        //       },
+        //       {
+        //         "id": 4,
+        //         "uid": "30",
+        //         "type": "购买商品",
+        //         "amount": "10",
+        //         "totalamount": "10",
+        //         "create_at": "1970-01-07 14:59:03",
+        //         "status": 0
+        //       }
+        //     ],
+        //     "totalPage": 1
+        //   }
+        // };
+        const data = response.data;
+        if(data.code != 0){
+          this.setData({ list: data.data.points })
+        }
       }
     })
   },
