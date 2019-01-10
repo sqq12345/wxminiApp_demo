@@ -45,7 +45,7 @@ Page({
   async fetchList(status) {
     const result = await login();
     const data = { page: this.data.page };
-    if(status != ''){
+    if (status != '') {
       data.otype = status;
     }
     http.request({
@@ -72,6 +72,9 @@ Page({
             case 2:
               item.status = '已发货';
               break;
+            case 3:
+              item.status = '交易完成';
+              break;
             case -1:
               item.status = '已取消';
               break;
@@ -88,10 +91,10 @@ Page({
               item.status = '退款完成';
               break;
           }
-          item.items_info.forEach(i=>{
+          item.items_info.forEach(i => {
             i.goods.forEach(g => {
               g.price = Number.parseFloat(g.price).toFixed(2)
-            }); 
+            });
           })
           item.price = Number.parseFloat(item.money).toFixed(2);
         });
@@ -116,16 +119,32 @@ Page({
   },
 
   //取消订单
-  cancelOrder(e) {
+  async cancelOrder(e) {
     const { id } = e.currentTarget.dataset;
+    const result = await login();
+    http.request({
+      url: '/api/user/cancelorder',
+      method: 'POST',
+      header:{
+        token:result.user_token
+      },
+      data: {},
+      success: (response) => {
+
+      }
+    })
   },
 
   //删除订单
-  deleteOrder(e) {
+  async deleteOrder(e) {
     const { id } = e.currentTarget.dataset;
+    const result = await login();
     http.request({
       url: '/api/user/deleteorder',
       method: "POST",
+      header:{
+        token:result.user_token
+      },
       data: {
 
       },
@@ -172,9 +191,7 @@ Page({
                 confirmText: '确定',
                 confirmColor: '#3CC51F',
                 success: (result) => {
-                  wx.redirectTo({
-                    url: '/pages/user/orders/orders',
-                  });
+                  
                 },
                 fail: () => { },
               });
@@ -189,7 +206,19 @@ Page({
   },
 
   //确认收货
-  confirmOrder(e) {
+  async confirmOrder(e) {
     const { id } = e.currentTarget.dataset;
+    const result = await login();
+    http.request({
+      url:'/api/user/confirmgoods',
+      method:'POST',
+      header:{
+        token:result.user_token
+      },
+      data:{},
+      success:(response)=>{
+
+      }
+    })
   }
 })

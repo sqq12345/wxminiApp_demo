@@ -1,9 +1,17 @@
 /* pages/tabbar/user/orders/order/order.wxss */
 
+.container{
+    padding-bottom: 130rpx;
+}
+
 .block {
     background: #fff;
     padding: 30rpx;
     margin-top: 20rpx;
+}
+
+.order{
+    margin-bottom: 50rpx;
 }
 
 .order .top {
@@ -21,8 +29,8 @@
 }
 
 .order .top .status {
-    color: #FF8A00;
-    font-size: 26rpx;
+    color: #AAA;
+    font-size: 22rpx;
 }
 
 .order image {
@@ -36,7 +44,6 @@
 .order .middle {
     display: flex;
     padding: 30rpx 0;
-    border-bottom: 1px solid #eee;
 }
 
 .order .middle .name {
@@ -75,7 +82,7 @@
 }
 
 .order .bottom>view:first-of-type {
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 
 .info {

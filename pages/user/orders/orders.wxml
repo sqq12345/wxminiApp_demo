@@ -9,18 +9,20 @@
         暂无相关订单
     </view>
     <view class="order" wx:for="{{list}}" wx:key="{{index}}">
-        <view class="top">
+        <!-- 查看总订单 -->
+        <navigator class="top" url="/pages/user/orders/order/order?id={{item.id}}" hover-class="none">
             <text class="orderNo">订单号：{{item.order_num}}</text>
             <text class="status">{{item.status}}</text>
-        </view>
+        </navigator>
         <view class="sub-order" wx:for="{{item.items_info}}" wx:key="{{index}}" wx:for-item="sub">
-            <view class="shop">
+            <!-- 查看分订单 -->
+            <navigator class="shop" url="/pages/user/orders/suborder/suborder?id={{sub.item_id}}" hover-class="none">
                 <view class="left">
                     <image />
                     {{sub.name}}
                 </view>
                 <text>订单编号 :{{sub.item_num}}</text>
-            </view>
+            </navigator>
             <view class="goods">
                 <view class="middle" wx:for="{{sub.goods}}" wx:key="{{index}}" wx:for-item="goods">
                     <image src="{{goods.goods_info.thumb_image}}" />
@@ -40,34 +42,26 @@
         </view>
         <!-- 待付款 -->
         <view class="bottom status0" wx:if="{{item.order_status==0}}">
-            <text class="button solid" data-id="{{item.order_id}}" bind:tap="payOrder">去支付</text>
-            <text class="button" data-id="{{item.item_id}}" bind:tap="cancelOrder">取消订单</text>
-            <text class="total">
-                实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text>
-            </text>
+            <text class="button solid" data-id="{{item.id}}" bind:tap="payOrder">去支付</text>
+            <text class="button" data-id="{{item.id}}" bind:tap="cancelOrder">取消订单</text>
+            <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
         </view>
         <!-- 已付款 -->
         <view class="bottom status1" wx:if="{{item.order_status==1}}">
-            <text class="total">
-                实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text>
-            </text>
+            <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
         </view>
         <!-- 已发货 -->
         <view class="bottom status2" wx:if="{{item.order_status==2}}">
             <text class="button solid" data-id="{{item.item_id}}">确认收货</text>
             <text class="button" data-id="{{item.item_id}}">查看物流</text>
-            <text class="total">
-                实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text>
-            </text>
+            <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
         </view>
         <!-- 完成 -->
         <view class="bottom status3" wx:if="{{item.order_status==3}}">
             <text class="button solid" data-id="{{item.item_id}}">评价</text>
             <text class="button" data-id="{{item.item_id}}">查看物流</text>
-            <text class="button" data-id="{{item.item_id}}" bind:tap="deleteOrder">删除订单</text>
-            <text class="total">
-                实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text>
-            </text>
+            <text class="button" data-id="{{item.id}}" bind:tap="deleteOrder">删除订单</text>
+            <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
         </view>
     </view>
 </view>
