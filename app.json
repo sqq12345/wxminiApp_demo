@@ -84,7 +84,7 @@
         "pagePath": "pages/tabbar/home/home",
         "iconPath": "/static/icons/tabbar/1.png",
         "selectedIconPath": "/static/icons/tabbar/1-selected.png",
-        "text": "附件商家"
+        "text": "附近商家"
       },
       {
         "pagePath": "pages/tabbar/shoplist/shoplist",

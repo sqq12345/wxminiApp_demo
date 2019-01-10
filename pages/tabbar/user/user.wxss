@@ -61,6 +61,7 @@
     height: 396rpx;
     color: #ffffff;
     margin-bottom: 20rpx;
+    background: #32cc4a;
 }
 
 .head .info {
@@ -168,4 +169,8 @@
 .icons .icon image.contactImg {
     margin-bottom: 0;
     margin-top: 20rpx;
+}
+
+._bg {
+    z-index: 0;
 }
