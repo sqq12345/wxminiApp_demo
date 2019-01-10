@@ -11,4 +11,7 @@
             </view>
         </view>
     </view>
+    <view class="empty">
+        没有积分
+    </view>
 </view>

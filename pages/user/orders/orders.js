@@ -9,13 +9,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '我的订单', //导航栏 中间的标题
-      transparent: false, //透明导航栏
-    },
-*/
+    /*
+        nvabarData: {
+          showCapsule: true, //是否显示左上角图标
+          title: '我的订单', //导航栏 中间的标题
+          transparent: false, //透明导航栏
+        },
+    */
     status: [
       { text: '全部', value: '' },
       { text: '待付款', value: '0' },
@@ -44,6 +44,10 @@ Page({
   },
   async fetchList(status) {
     const result = await login();
+    const data = { page: this.data.page };
+    if(status != ''){
+      data.otype = status;
+    }
     http.request({
       url: '/api/user/allorder',
       method: 'POST',
@@ -51,10 +55,7 @@ Page({
         token: result.user_token
       },
       showLoading: true,
-      data: {
-        page: this.data.page,
-        otype: status
-      },
+      data: data,
       success: (response) => {
         const list = this.data.list;
         //没有更多了
@@ -87,9 +88,11 @@ Page({
               item.status = '退款完成';
               break;
           }
-          item.goods.forEach(g => {
-            g.price = Number.parseFloat(g.price).toFixed(2)
-          });
+          item.items_info.forEach(i=>{
+            i.goods.forEach(g => {
+              g.price = Number.parseFloat(g.price).toFixed(2)
+            }); 
+          })
           item.price = Number.parseFloat(item.money).toFixed(2);
         });
         this.setData({ list: list.concat(data), end, loading: false, page: this.data.page + 1 })

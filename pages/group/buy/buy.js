@@ -67,7 +67,7 @@ Page({
     const sum = arr.reduce(function (pre, cur) {
       return pre + cur
     })
-    return sum
+    return sum.toFixed(2)
   },
 
   reduce(e) {
@@ -83,7 +83,7 @@ Page({
   },
 
   increase(e) {
-    console.log(this.data.detail);
+    //console.log(this.data.detail);
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
     detail.goods[index].num++;
@@ -115,7 +115,7 @@ Page({
     }
     this.data.detail.goods.forEach(async item => {
       if (item.num > 0) {
-        await http.request({
+        http.request({
           url: '/api/order/cart',
           showLoading: true,
           header: {
@@ -126,7 +126,7 @@ Page({
             gid: item.gid,
             num: item.num,
             //农场id
-            //mid: item.mid,
+            mid: item.mid,
           },
           method: 'POST',
         });

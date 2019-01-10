@@ -33,29 +33,29 @@ Page({
       data: { uid: options.id },
       method: 'POST',
       success: (response) => {
-        const data = {
-          "code": 1,
-          "msg": "查询成功",
-          "time": "1546746119",
-          "data": {
-            "data": [
-              {
-                "id": 96,
-                "order_num": "201901058C252B2D20FF",
-                "money": "0.01000000",
-                "ratio_money": 0.001
-              }
-            ],
-            "last_page": 1,
-            "uid": {
-              "nickname": "哈哈哈哈",
-              "mobile": "15999999999",
-              "create_at": "2018-12-27 11:23:38",
-              "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIt185QOxHb4Jdlj4hCuxf06GEiaysYTrExvfYfhIX3pKHMnH6g9wYZcabicbs28IuCxtQQOiaBRHUcg/132"
-            }
-          }
-        }
-        //const data = response.data;
+        // const data = {
+        //   "code": 1,
+        //   "msg": "查询成功",
+        //   "time": "1546746119",
+        //   "data": {
+        //     "data": [
+        //       {
+        //         "id": 96,
+        //         "order_num": "201901058C252B2D20FF",
+        //         "money": "0.01000000",
+        //         "ratio_money": 0.001
+        //       }
+        //     ],
+        //     "last_page": 1,
+        //     "uid": {
+        //       "nickname": "哈哈哈哈",
+        //       "mobile": "15999999999",
+        //       "create_at": "2018-12-27 11:23:38",
+        //       "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIt185QOxHb4Jdlj4hCuxf06GEiaysYTrExvfYfhIX3pKHMnH6g9wYZcabicbs28IuCxtQQOiaBRHUcg/132"
+        //     }
+        //   }
+        // }
+        const data = response.data;
         const fan = data.data.uid;
         fan.mobile = fan.mobile.substr(0, 3) + '****' + fan.mobile.substr(7);
         const list = data.data.data;

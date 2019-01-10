@@ -34,3 +34,12 @@
   font-size: 24rpx;
   color: #999999
 }
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300rpx;
+    color: #999999
+}
