@@ -46,6 +46,10 @@ Page({
     });
   },
 
+  onShow(){
+    //todo
+  },
+
   async fetchList() {
     const result = await login();
 
@@ -264,7 +268,7 @@ Page({
                 confirmText: '确定',
                 confirmColor: '#3CC51F',
                 success: (result) => {
-
+                  this.refresh()
                 },
                 fail: () => { },
               });

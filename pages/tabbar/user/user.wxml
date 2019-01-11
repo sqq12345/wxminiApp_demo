@@ -70,7 +70,7 @@
     </view>
     <view class="block">
       <view class="icons">
-        <navigator hover-class="none" class="icon" url="/pages/user/group/group">
+        <navigator hover-class="none" class="icon" url="/pages/user/group/group" wx:if="{{userinfo.ismerchant==2}}">
           <image src="/static/icons/user/5.png" style="width:44rpx;height:42rpx"/>
           发起接龙
         </navigator>
@@ -80,7 +80,8 @@
         </navigator>
         <view class="icon" style="visibility:hidden"></view>
         <view class="icon" style="visibility:hidden"></view>
-        <!-- <view class="icon" style="visibility:hidden" wx:if="{{userinfo.ismerchant==0}}"></view> -->
+        <!-- 占位用的 -->
+        <view class="icon" style="visibility:hidden" wx:if="{{userinfo.ismerchant!=2}}"></view>
       </view>
     </view>
   </view>

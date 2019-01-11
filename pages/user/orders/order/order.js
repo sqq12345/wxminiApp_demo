@@ -89,6 +89,7 @@ Page({
           second--;
           if(second <= 0){
             clearInterval(interval);
+            //todo 归零了做下处理
           }
           this.setData({ second, timetext: formatSeconds(second) });
         }, 1000)
