@@ -5,4 +5,7 @@
             <text>分成金额:￥<text class="price">{{item.ratio_money}}</text></text>
         </view>
     </view>
+    <view class="empty">
+        暂无收益
+    </view>
 </view>

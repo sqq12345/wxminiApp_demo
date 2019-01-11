@@ -1,4 +1,7 @@
 /* pages/tabbar/user/orders/orders.wxss */
+.container{
+    padding-bottom: 30rpx;
+}
 
 .tabbar {
     display: flex;
@@ -107,17 +110,25 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    margin-top: 20rpx;
 }
 
 .order .bottom .button {
     color: #999999;
     padding: 0 20rpx;
-    line-height: 50rpx;
+    height: 50rpx;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 26px;
     margin-left: 20rpx;
     border: 1px solid #DADADA;
     font-size: 24rpx;
+    min-width: 2.5em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .order .bottom .button.solid {
@@ -134,26 +145,16 @@
     font-size: 28rpx;
 }
 
-.bottom.status0 {}
-
-.bottom.status1 {
-    flex-direction: row;
-}
-
-.bottom.status2 {}
-
-.bottom.status3 {}
-
 .order .goods .middle {
     margin: 0 -15rpx;
     padding: 26rpx 15rpx;
     margin-bottom: 22rpx;
     border-radius: 8rpx;
-    box-shadow: 0px 0px 10px 1px #eee;
 }
 
 .order .goods:last-of-type {
     margin-bottom: 0;
+    border-bottom: 1px solid #E1E1E1
 }
 
 .sub-order .shop {
@@ -170,8 +171,8 @@
 }
 
 .sub-order .shop image {
-    width: 30rpx;
-    height: 30rpx;
+    width: 34rpx;
+    height: 34rpx;
     margin-right: 14rpx;
     border-radius: 50%;
 }
@@ -179,4 +180,24 @@
 .sub-order .shop text {
     font-size: 22rpx;
     color: #AAAAAA;
+}
+
+.sub-order.non .shop {
+    padding: 0;
+}
+
+.sub-order.non .shop .status {
+    font-size: 24rpx;
+    color: #FF8A00;
+}
+
+.sub-order.non .goods .middle {
+    margin-bottom: 0;
+}
+
+.sub-order.non .shop {
+    margin: 0 -30rpx;
+    padding: 0 30rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #E8E8E8;
 }

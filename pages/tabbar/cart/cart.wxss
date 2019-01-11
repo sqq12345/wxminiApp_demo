@@ -16,7 +16,7 @@
 .item .header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1rpx solid #F4F4F4;
     padding: 20rpx;
     justify-content: space-between;
 }
@@ -173,4 +173,33 @@
     width: 410rpx;
     height: 172rpx;
     margin-bottom: 30rpx
+}
+
+.item .goods .image {
+    position: relative;
+}
+
+.item .goods .image .disable {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 160rpx;
+    height: 160rpx;
+    background: #000;
+    color: #fff;
+    border-radius:5px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .5;
+    font-size: 32rpx;
+}
+
+.item .goods.disable {
+    background: #FBFBFB;
+}
+
+.item .goods.disable view{
+    color: #999999;
 }

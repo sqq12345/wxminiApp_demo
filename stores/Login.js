@@ -66,6 +66,8 @@ const login = function () {
                                             wx.navigateTo({
                                                 url: '/pages/login/login',
                                             })
+                                        }else{
+                                            //不同意授权直接关闭应用
                                         }
                                     }
                                 })

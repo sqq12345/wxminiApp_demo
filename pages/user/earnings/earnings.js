@@ -61,13 +61,15 @@ Page({
         //   }
         // }
         const data = response.data;
-        const list = data.data.income;
-        list.forEach(item => {
-          item.orderNo = item.item_num.substr(0, 3) + '****' + item.item_num.substr(item.item_num.length - 1)
-        });
-        this.setData({
-          list: list
-        });
+        if(data.code != 0){
+          const list = data.data.income;
+          list.forEach(item => {
+            item.orderNo = item.item_num.substr(0, 3) + '****' + item.item_num.substr(item.item_num.length - 1)
+          });
+          this.setData({
+            list: list
+          });
+        }
       }
     })
   },

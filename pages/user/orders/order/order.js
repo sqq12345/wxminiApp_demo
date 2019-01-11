@@ -73,12 +73,12 @@ Page({
         // detail.goods.forEach(g => {
         //   g.price = Number.parseFloat(g.price).toFixed(2)
         // });
-        detail.items.forEach(item=>{
-          item.cost_freight = Number.parseFloat(detail.cost_freight) == 0 ? '免运费' : Number.parseFloat(detail.cost_freight).toFixed(2);
-          item.money = Number.parseFloat(detail.money).toFixed(2);
+        detail.items.forEach(item => {
+          item.cost_freight = Number.parseFloat(item.cost_freight) == 0 ? '免运费' : Number.parseFloat(item.cost_freight).toFixed(2);
+          item.money = Number.parseFloat(item.money).toFixed(2);
           item.pmt = Number.parseFloat(item.pmt) == 0 ? '无' : Number.parseFloat(item.pmt).toFixed(2);
 
-          item.goods.forEach(g=>{
+          item.goods.forEach(g => {
             g.price = Number.parseFloat(g.price).toFixed(2)
           })
         });
@@ -105,7 +105,23 @@ Page({
   },
 
   //取消订单
-  cancelOrder(){
-    
+  async cancelOrder() {
+    const result = await login();
+    http.request({
+      url: '/api/user/cancelorder',
+      method: 'POST',
+      header: {
+        token: result.user_token
+      },
+      data: {
+        orderid: this.data.detail.id
+      },
+      success: (response) => {
+        if(response.data.code == 1){
+          //取消成功
+          wx.navigateBack({delta: 1});
+        }
+      }
+    })
   }
 })

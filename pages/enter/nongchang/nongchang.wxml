@@ -43,7 +43,7 @@
         </view>
         <view class='form-group'>
             <text>农场图片</text>
-            <wux-upload data-field="Idaho" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+            <wux-upload data-field="pics" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                 <text class="plus">+</text>
             </wux-upload>
         </view>

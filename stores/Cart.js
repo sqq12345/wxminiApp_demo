@@ -64,6 +64,12 @@ Cart.prototype.fetchData = async function () {
                     goods.unit = g.specification;
                     goods.count = g.num;
                     goods.selected = g.status == 1;
+                    //库存为零不选中
+                    if(goods.stock != 0){
+                        goods.selected=false;
+                        //禁用
+                        goods.disabled = true;
+                    }
                     if (!goods.selected) {
                         allSelected = false;
                     }
@@ -77,10 +83,14 @@ Cart.prototype.fetchData = async function () {
             const _this = this;
             list.map(item => {
                 let item_selected = true;
+                //选中商家
                 item.select = function () {
                     this.selected = !this.selected;
                     let ids = '';
                     this.goods.map(item => {
+                        if(item.disabled){
+                            return false;
+                        }
                         ids += item.cartid + ',';
                         item.selected = this.selected;
                     });
@@ -95,6 +105,9 @@ Cart.prototype.fetchData = async function () {
                     }
                     //购物车加一
                     goods.increase = async function () {
+                        if(this.disabled){
+                            return false;
+                        }
                         _this.totalNumber++;
                         //显示角标
                         _this.setTabbar();
@@ -116,6 +129,9 @@ Cart.prototype.fetchData = async function () {
                     };
                     //购物车减一
                     goods.reduce = async function () {
+                        if(this.disabled){
+                            return false;
+                        }
                         //为零
                         if (this.count == 1) return;
                         _this.totalNumber--;
@@ -139,6 +155,7 @@ Cart.prototype.fetchData = async function () {
                     };
                     //选中商品
                     goods.select = async function () {
+                        if(this.disabled) return false;
                         this.selected = !this.selected;
                         Store.allSelected = !Store.list.some((item) => {
                             const b = item.goods.some((goods) => {
@@ -196,8 +213,10 @@ Cart.prototype.selectAll = async function () {
     this.list.map(item => {
         item.selected = this.allSelected;
         item.goods.map(goods => {
-            ids += goods.cartid + ',';
-            goods.selected = this.allSelected;
+            if(!goods.disabled){
+                ids += goods.cartid + ',';
+                goods.selected = this.allSelected;
+            }
         })
     })
     const result = await login();

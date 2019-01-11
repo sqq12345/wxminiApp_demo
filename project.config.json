@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -37,12 +37,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/orders/order/order",
+					"pathName": "pages/tabbar/cart/cart",
 					"query": "id=98&type=2"
 				},
 				{

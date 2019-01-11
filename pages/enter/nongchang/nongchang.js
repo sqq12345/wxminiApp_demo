@@ -50,7 +50,7 @@ Page(observer({
     //prevPage.setData({ mid: options.id })
   },
   onUploadFail(e) {
-
+    
   },
   onRemove(e) {
     const data = e.detail.file.res.data;
@@ -77,7 +77,7 @@ Page(observer({
   async submit() {
     const result = await login();
     const form = this.props.form;
-    console.log(form);
+    //console.log(form);
     if (verify(form, config)) {
       http.request({
         url: '/api/shop/setmerchanttwo',
@@ -154,7 +154,7 @@ const config = {
     require: true,
     max: 300
   },
-  Idaho: {
+  pics: {
     name: '农场图片',
     require: true,
   },

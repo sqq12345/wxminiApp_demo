@@ -1,4 +1,16 @@
 <!--pages/user/logistics/logistics.wxml-->
 <view class="container">
-
+    <view class="list">
+        <view class="line"/>
+        <view class="step" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="times">
+                <view class="date">{{item.time}}</view>
+                <view class="time">{{item.ftime}}</view>
+            </view>
+            <view>
+                <image/>
+            </view>
+            <view class="context">{{item.context}}</view>
+        </view>
+    </view>
 </view>

@@ -37,17 +37,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let status = '';
     if (options.status) {
-      this.setData({ selected: options.status });
+      status = options.status;
     }
-    this.fetchList(options.status || '')
+    this.setData({ selected: status }, () => {
+      this.fetchList()
+    });
   },
-  async fetchList(status) {
+
+  async fetchList() {
     const result = await login();
-    const data = { page: this.data.page };
-    if (status != '') {
-      data.otype = status;
-    }
+
     http.request({
       url: '/api/user/allorder',
       method: 'POST',
@@ -55,52 +56,51 @@ Page({
         token: result.user_token
       },
       showLoading: true,
-      data: data,
+      data: {
+        page: this.data.page,
+        otype: this.data.selected
+      },
       success: (response) => {
         const list = this.data.list;
         //没有更多了
         const end = response.data.data.totalpage == this.data.page;
         const data = response.data.data.list;
         data.forEach(item => {
-          switch (item.order_status) {
-            case 0:
-              item.status = '待付款';
-              break;
-            case 1:
-              item.status = '已付款';
-              break;
-            case 2:
-              item.status = '已发货';
-              break;
-            case 3:
-              item.status = '交易完成';
-              break;
-            case -1:
-              item.status = '已取消';
-              break;
-            case -11:
-              item.status = '申请退款';
-              break;
-            case -12:
-              item.status = '退款中';
-              break;
-            case -13:
-              item.status = '退款驳回';
-              break;
-            case -14:
-              item.status = '退款完成';
-              break;
-          }
+          item.status = this.getStatusText(item.order_status);
           item.items_info.forEach(i => {
             i.goods.forEach(g => {
               g.price = Number.parseFloat(g.price).toFixed(2)
             });
+            i.status = this.getStatusText(i.item_status);
           })
           item.price = Number.parseFloat(item.money).toFixed(2);
         });
         this.setData({ list: list.concat(data), end, loading: false, page: this.data.page + 1 })
       }
     });
+  },
+
+  getStatusText(num) {
+    switch (num) {
+      case 0:
+        return '待付款';
+      case 1:
+        return '已付款';
+      case 2:
+        return '已发货';
+      case 3:
+        return '交易完成';
+      case -1:
+        return '已取消';
+      case -11:
+        return '申请退款';
+      case -12:
+        return '退款中';
+      case -13:
+        return '退款驳回';
+      case -14:
+        return '退款完成';
+    }
   },
 
   onReachBottom() {
@@ -118,6 +118,11 @@ Page({
     });
   },
 
+  //刷新数据
+  refresh() {
+    
+  },
+
   //取消订单
   async cancelOrder(e) {
     const { id } = e.currentTarget.dataset;
@@ -125,8 +130,8 @@ Page({
     http.request({
       url: '/api/user/cancelorder',
       method: 'POST',
-      header:{
-        token:result.user_token
+      header: {
+        token: result.user_token
       },
       data: {},
       success: (response) => {
@@ -142,16 +147,24 @@ Page({
     http.request({
       url: '/api/user/deleteorder',
       method: "POST",
-      header:{
-        token:result.user_token
+      header: {
+        token: result.user_token
       },
       data: {
-
+        orderid: id
       },
       success: (response) => {
+        if (response.data.code == 1) {
+          //删除成功
 
+        }
       }
     });
+  },
+
+  //退款订单
+  refundOrder(e){
+
   },
 
   //支付订单
@@ -191,7 +204,7 @@ Page({
                 confirmText: '确定',
                 confirmColor: '#3CC51F',
                 success: (result) => {
-                  
+
                 },
                 fail: () => { },
               });
@@ -210,13 +223,13 @@ Page({
     const { id } = e.currentTarget.dataset;
     const result = await login();
     http.request({
-      url:'/api/user/confirmgoods',
-      method:'POST',
-      header:{
-        token:result.user_token
+      url: '/api/user/confirmgoods',
+      method: 'POST',
+      header: {
+        token: result.user_token
       },
-      data:{},
-      success:(response)=>{
+      data: {},
+      success: (response) => {
 
       }
     })

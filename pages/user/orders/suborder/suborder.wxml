@@ -1,14 +1,14 @@
-<!-- 总订单详情 -->
+<!-- 除了待支付订单都查看这个页面 -->
 <view>
     <header navbar-data='{{nvabarData}}' />
     <view class="container" style="padding-top:{{occupation}}px;">
         <view class="block">
-            <view class="order" wx:for="{{detail.items}}" wx:key="{{index}}">
+            <view class="order">
                 <view class="top">
-                    <text class="title">{{item.name}}</text>
+                    <text class="title">{{detail.name}}</text>
                     <text class="status">{{detail.status}}</text>
                 </view>
-                <view class="middle" wx:for="{{item.goods}}" wx:key="{{index}}" wx:for-item="g">
+                <view class="middle" wx:for="{{detail.goods}}" wx:key="{{index}}" wx:for-item="g">
                     <image src="{{g.goods_info.thumb_image}}" />
                     <view>
                         <view class="name">{{g.goods_info.title}}</view>
@@ -41,27 +41,18 @@
                 <text class="button copy" bind:tap="copyText">复制</text>
             </view>
             <view>支付流水账号：{{detail.pay.pay_id}}</view>
-            <view wx:if="{{detail.order_status!=0}}">支付方式：微信支付</view>
-            <view wx:if="{{detail.order_status!=0}}">付款时间：{{detail.pay.createAt}}</view>
-            <view wx:if="{{detail.order_status==2}}">发货时间：{{detail.deliveryTime}}</view>
+            <view>支付方式：微信支付</view>
+            <view>付款时间：{{detail.pay.createAt}}</view>
+            <view wx:if="{{detail.item_status==2}}">发货时间：{{detail.deliveryTime}}</view>
         </view>
-        <view wx:if="{{detail.order_status!=0}}" class="call">拨打电话</view>
-        <view class="ops" wx:if="{{detail.order_status!=0}}">
-            <text class="button" wx:if="{{detail.order_status==2||detail.order_status==3}}">
+        <view wx:if="{{detail.item_status!=0}}" class="call">拨打电话</view>
+        <view class="ops" wx:if="{{detail.item_status!=0}}">
+            <text class="button" wx:if="{{detail.item_status==2||detail.item_status==3}}">
                 物流
             </text>
-            <text class="button" wx:if="{{detail.order_status==-1}}">删除订单</text>
-            <navigator wx:if="{{detail.order_status==2}}" class="button" url="/pages/user/orders/receive/receive">
-                确认收货
-            </navigator>
-        </view>
-        <!-- 待支付状态 -->
-        <view class="bottom-btn" wx:if="{{detail.order_status==0}}">
-            <view class="price">
-                合计：<text class="p"><text class="_rmb">￥</text>{{detail.money}}</text>
-            </view>
-            <view class="cancel">取消订单</view>
-            <view class="pay">付款</view>
+            <view wx:if="{{detail.item_status==1}}" class="button">退款</view>
+            <view wx:if="{{detail.item_status==2}}" class="button">查看物流</view>
+            <view wx:if="{{detail.item_status==2}}" class="button">确认收货</view>
         </view>
     </view>
 </view>

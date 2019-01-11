@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: {},
+    list: [],
   },
 
   /**
@@ -20,7 +20,9 @@ Page({
         logi_no:'818510709234'
       },
       success: (response) => {
-
+        this.setData({
+          list:response.data.data.data
+        });
       }
     });
   },
