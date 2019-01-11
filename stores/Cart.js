@@ -65,7 +65,7 @@ Cart.prototype.fetchData = async function () {
                     goods.count = g.num;
                     goods.selected = g.status == 1;
                     //库存为零不选中
-                    if(goods.stock != 0){
+                    if(goods.stock == 0){
                         goods.selected=false;
                         //禁用
                         goods.disabled = true;

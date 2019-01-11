@@ -19,7 +19,7 @@
             <view class="sub-order" wx:for="{{item.items_info}}" wx:key="{{index}}" wx:for-item="sub">
                 <view class="shop">
                     <view class="left">
-                        <image />
+                        <image src="{{sub.logo}}"/>
                         {{sub.name}}
                     </view>
                     <text>订单编号 :{{sub.item_num}}</text>
@@ -48,7 +48,7 @@
                 <!-- 查看分订单 -->
                 <navigator class="shop" url="/pages/user/orders/suborder/suborder?id={{sub.item_id}}" hover-class="none">
                     <view class="left">
-                        <image />
+                        <image src="{{sub.logo}}"/>
                         {{sub.name}}
                     </view>
                     <text class="status">{{sub.status}}</text>

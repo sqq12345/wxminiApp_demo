@@ -1,6 +1,6 @@
 /* pages/user/logistics/logistics.wxss */
 
-page{
+page {
     background: #fff;
 }
 
@@ -16,7 +16,7 @@ page{
     margin-bottom: 50rpx;
 }
 
-.list .step:last-child{
+.list .step:last-child {
     margin-bottom: 0;
 }
 
@@ -26,6 +26,7 @@ page{
     border: 1px solid #ccc;
     border-radius: 50%;
     margin: 0 10rpx;
+    background: #fff;
 }
 
 .list .step>view {
@@ -33,7 +34,7 @@ page{
     flex-grow: 0;
 }
 
-.list .step .times{
+.list .step .times {
     text-align: center;
     width: 35px;
 }
@@ -46,17 +47,17 @@ page{
     font-size: 9px !important;
 }
 
-.list .step .context{
+.list .step .context {
     font-size: 24rpx;
     flex-shrink: 1;
 }
 
-.list .line{
+.list .line {
     position: absolute;
-    height: calc(100% - 50rpx);
+    height: calc(100% - 130rpx);
     width: 1px;
-    /* background: #F4F4F4; */
     background: red;
     left: 64px;
-    top: 0;
+    top: 30px;
+    z-index: -1;
 }

@@ -119,25 +119,41 @@ Page({
   },
 
   //刷新数据
-  refresh() {
-    
+  /**
+   * 
+   * @param {是否子订单} isSub 
+   * @param {订单id} id 
+   * @param {更改状态} status 
+   */
+  refresh(id, status, isSub) {
+    const list = this.data.list;
+    if (isSub) {
+
+    } else {
+      const index = list.findIndex(item=>item.id == id);
+      list[index].order_status = status;
+      list[index].status = this.getStatusText(status);
+      console.log(list);
+      this.setData({list})
+    }
   },
 
   //取消订单
   async cancelOrder(e) {
     const { id } = e.currentTarget.dataset;
     const result = await login();
-    http.request({
-      url: '/api/user/cancelorder',
-      method: 'POST',
-      header: {
-        token: result.user_token
-      },
-      data: {},
-      success: (response) => {
-
-      }
-    })
+    // http.request({
+    //   url: '/api/user/cancelorder',
+    //   method: 'POST',
+    //   header: {
+    //     token: result.user_token
+    //   },
+    //   data: {},
+    //   success: (response) => {
+    //     this.refresh()
+    //   }
+    // })
+    this.refresh(id, -1);
   },
 
   //删除订单
@@ -156,14 +172,14 @@ Page({
       success: (response) => {
         if (response.data.code == 1) {
           //删除成功
-
+          this.refresh()
         }
       }
     });
   },
 
   //退款订单
-  refundOrder(e){
+  refundOrder(e) {
 
   },
 
@@ -174,6 +190,7 @@ Page({
     http.request({
       url: '/api/order/topay',
       method: 'POST',
+      showLoading: true,
       data: {
         orderid: id
       },
@@ -230,7 +247,7 @@ Page({
       },
       data: {},
       success: (response) => {
-
+        this.refresh()
       }
     })
   }
