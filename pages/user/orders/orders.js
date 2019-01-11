@@ -130,11 +130,14 @@ Page({
     if (isSub) {
 
     } else {
-      const index = list.findIndex(item=>item.id == id);
+      const index = list.findIndex(item => item.id == id);
       list[index].order_status = status;
       list[index].status = this.getStatusText(status);
-      console.log(list);
-      this.setData({list})
+      list[index].items_info.forEach(item => {
+        item.item_status = status;
+        item.status = this.getStatusText(status);
+      })
+      this.setData({ list })
     }
   },
 

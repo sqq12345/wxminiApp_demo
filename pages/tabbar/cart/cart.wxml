@@ -18,7 +18,7 @@
                 <image class="select-icon" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
                 <view class="image">
                     <image class="thumb" src="{{goods.image}}" />
-                    <view class="disable">缺货</view>
+                    <view class="disable" wx:if="{{goods.disabled}}">缺货</view>
                 </view>
                 <view class="info">
                     <view class="title">{{goods.name}}</view>
