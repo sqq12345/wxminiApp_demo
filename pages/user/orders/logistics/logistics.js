@@ -1,5 +1,5 @@
 // pages/user/logistics/logistics.js
-import http from '../../../utils/http';
+import http from '../../../../utils/http';
 Page({
 
   /**

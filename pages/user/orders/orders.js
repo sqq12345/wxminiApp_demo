@@ -90,6 +90,8 @@ Page({
         return '已发货';
       case 3:
         return '交易完成';
+      case 4:
+        return '已评价';
       case -1:
         return '已取消';
       case -11:
@@ -119,71 +121,109 @@ Page({
   },
 
   //刷新数据
-  /**
-   * 
-   * @param {是否子订单} isSub 
-   * @param {订单id} id 
-   * @param {更改状态} status 
-   */
-  refresh(id, status, isSub) {
-    const list = this.data.list;
-    if (isSub) {
-
-    } else {
-      const index = list.findIndex(item => item.id == id);
-      list[index].order_status = status;
-      list[index].status = this.getStatusText(status);
-      list[index].items_info.forEach(item => {
-        item.item_status = status;
-        item.status = this.getStatusText(status);
-      })
-      this.setData({ list })
-    }
+  refresh() {
+    this.setData({ list: [], page: 1 }, () => {
+      this.fetchList()
+    })
   },
 
   //取消订单
   async cancelOrder(e) {
     const { id } = e.currentTarget.dataset;
     const result = await login();
-    // http.request({
-    //   url: '/api/user/cancelorder',
-    //   method: 'POST',
-    //   header: {
-    //     token: result.user_token
-    //   },
-    //   data: {},
-    //   success: (response) => {
-    //     this.refresh()
-    //   }
-    // })
-    this.refresh(id, -1);
+    http.request({
+      url: '/api/user/cancelorder',
+      method: 'POST',
+      header: {
+        token: result.user_token
+      },
+      data: { orderid: id },
+      success: (response) => {
+        wx.showToast({
+          title: '订单已取消',
+          icon: 'success',
+          duration: 1500,
+          mask: false,
+        });
+        this.refresh()
+      }
+    })
   },
 
   //删除订单
   async deleteOrder(e) {
     const { id } = e.currentTarget.dataset;
     const result = await login();
-    http.request({
-      url: '/api/user/deleteorder',
-      method: "POST",
-      header: {
-        token: result.user_token
-      },
-      data: {
-        orderid: id
-      },
-      success: (response) => {
-        if (response.data.code == 1) {
-          //删除成功
-          this.refresh()
+    wx.showModal({
+      title: '提示',
+      content: '确认删除该订单吗？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: (result) => {
+        if (result.confirm) {
+          http.request({
+            url: '/api/user/deleteorder',
+            method: "POST",
+            header: {
+              token: result.user_token
+            },
+            data: {
+              item_id: id
+            },
+            success: (response) => {
+              if (response.data.code == 1) {
+                //删除成功
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  duration: 1500,
+                  mask: false,
+                });
+                this.refresh()
+              }
+            }
+          });
         }
-      }
+      },
+      fail: () => { },
+      complete: () => { }
     });
   },
 
   //退款订单
-  refundOrder(e) {
+  async refundOrder(e) {
+    const result = await login();
+    wx.showModal({
+      title: '提示',
+      content: '确认要申请退款吗？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: (r) => {
+        if (r.confirm) {
+          const { id } = e.currentTarget.dataset;
+          http.request({
+            url: '/api/user/refund',
+            method: 'POST',
+            showLoading: true,
+            data: {
 
+            },
+            header: {
+              token: result.user_token
+            },
+            success: (response) => {
+              //退款成功
+            }
+          });
+        }
+      },
+    });
   },
 
   //支付订单
@@ -208,9 +248,9 @@ Page({
           signType: response.data.data.signType,
           paySign: response.data.data.paySign,
           success(res) {
-            // wx.redirectTo({
-            //   url: '/pages/user/orders/orders',
-            // });
+            wx.redirectTo({
+              url: '/pages/tabbar/cart/success/success',
+            });
           },
           fail(res) {
             //取消支付
@@ -248,8 +288,16 @@ Page({
       header: {
         token: result.user_token
       },
-      data: {},
+      data: {
+        orderid: id
+      },
       success: (response) => {
+        wx.showToast({
+          title: '已收货',
+          icon: 'success',
+          duration: 1500,
+          mask: false,
+        });
         this.refresh()
       }
     })

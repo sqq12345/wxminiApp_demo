@@ -47,7 +47,10 @@ Page({
             detail.status = '已发货';
             break;
           case 3:
-            detail.status = '已完成';
+            detail.status = '交易完成';
+            break;
+          case 4:
+            detail.status = '已评价';
             break;
           case -1:
             detail.status = '已取消';
@@ -67,7 +70,9 @@ Page({
         }
         detail.cost_freight = Number.parseFloat(detail.cost_freight) == 0 ? '免运费' : Number.parseFloat(detail.cost_freight).toFixed(2);
         detail.pmt = Number.parseFloat(detail.pmt) == 0 ? '无' : Number.parseFloat(detail.pmt).toFixed(2);
-        detail.pay.createAt = utils.formatTime(new Date(detail.pay.create_at * 1000), true);
+        if (detail.pay != null) {
+          detail.pay.createAt = utils.formatTime(new Date(detail.pay.create_at * 1000), true);
+        }
         detail.money = Number.parseFloat(detail.money).toFixed(2);
         detail.deliveryTime = detail.delivery == null ? '未发货' : '已发货';
         detail.goods.forEach(g => {
@@ -91,4 +96,37 @@ Page({
       }
     })
   },
+  //打电话
+  call(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.mobile
+    })
+  },
+
+  //确认收货
+  confirmOrder() {
+    const pages = getCurrentPages();
+    const prePage = pages[pages.length - 2];
+    prePage.confirmOrder({ currentTarget: { dataset: { id: this.data.orderId } } })
+    wx.showToast({
+      title: '已收货',
+      icon: 'success',
+      duration: 1500,
+      mask: true,
+      success: (result) => {
+        setTimeout(() => {
+          wx.redirectTo({
+            url: '/pages/user/orders/orders'
+          });
+        }, 1500)
+      },
+    });
+  },
+
+  //退款
+  refundOrder() {
+    const pages = getCurrentPages();
+    const prePage = pages[pages.length - 2];
+    prePage.refundOrder({ currentTarget: { dataset: { id: this.data.orderId } } })
+  }
 })

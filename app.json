@@ -39,7 +39,7 @@
         "coupon/coupon",
         "setting/setting",
         "fans/earnings/earnings",
-        "logistics/logistics",
+        "orders/logistics/logistics",
         "orders/suborder/suborder"
       ]
     },

@@ -9,17 +9,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '留言评论', //导航栏 中间的标题
-      transparent: false //透明导航栏
-    },
-*/
+    /*
+        nvabarData: {
+          showCapsule: true, //是否显示左上角图标
+          title: '留言评论', //导航栏 中间的标题
+          transparent: false //透明导航栏
+        },
+    */
     form: {},
     //提交地址
     commitUrl: '',
     // occupation: app.globalData.height + 46,
+    type: '',    //order shop
   },
 
   /**
@@ -37,11 +38,12 @@ Page({
         url = '/api/shop/message';
         form.mid = options.mid;
         break;
-      case 'goods':
-        url = '';
+      case 'order':
+        url = '/api/user/orderitemsmessage';
+        form.item_id = options.id;
         break;
     }
-    this.setData({ commitUrl: url, form })
+    this.setData({ commitUrl: url, form, type: options.type })
   },
 
   raterChange(e) {
@@ -112,9 +114,11 @@ Page({
             duration: 1000,
             mask: false,
             success: (result) => {
-              const pages = getCurrentPages();
-              const lastPage = pages[pages.length - 2];
-              lastPage.resetComments();
+              if (this.data.type == 'shop') {
+                const pages = getCurrentPages();
+                const lastPage = pages[pages.length - 2];
+                lastPage.resetComments();
+              }
               setTimeout(() => {
                 wx.navigateBack({
                   delta: 1

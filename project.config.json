@@ -37,13 +37,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/tabbar/cart/cart",
-					"query": "id=98&type=2"
+					"pathName": "pages/user/orders/order/order",
+					"query": "id=183"
 				},
 				{
 					"id": -1,
