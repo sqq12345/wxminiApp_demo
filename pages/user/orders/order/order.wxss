@@ -1,6 +1,6 @@
 /* pages/tabbar/user/orders/order/order.wxss */
 
-.container{
+.container {
     padding-bottom: 130rpx;
 }
 
@@ -9,7 +9,7 @@
     padding: 30rpx;
 }
 
-.order{
+.order {
     margin-bottom: 50rpx;
 }
 
@@ -25,6 +25,15 @@
 
 .order .top .title {
     font-size: 24rpx;
+    display: inline-flex;
+    align-items: center;
+}
+
+.order .top .title image{
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 14rpx;
+    border-radius: 50%;
 }
 
 .order .top .status {
@@ -166,12 +175,13 @@
     padding-left: 30rpx;
 }
 
-.bottom-btn .price .p{
+.bottom-btn .price .p {
     color: #FF8A00;
     font-size: 30rpx;
 }
 
-.timer{
+.timer,
+.address {
     height: 140rpx;
     display: flex;
     align-items: center;
@@ -180,7 +190,15 @@
     color: #fff;
 }
 
-.timer image{
+.address {
+    background: #fff;
+    margin-bottom: 22rpx;
+    justify-content: left;
+    padding: 0 32rpx;
+    color: #333333;
+}
+
+.timer image {
     width: 52rpx;
     height: 52rpx;
     border: 1px solid #fff;
@@ -188,11 +206,34 @@
     margin-right: 12rpx;
 }
 
-.timer .box{
+.timer .box,
+.address .box {
     display: inline-flex;
     align-items: center;
 }
 
-.timer .countdown{
+.timer .countdown {
     font-size: 22rpx;
+}
+
+.address .name {
+    font-weight: bolder;
+    color: #333333;
+    margin-right: 16rpx;
+}
+
+.address .phone {
+    font-size: 26rpx;
+    color: #AAAAAA;
+}
+
+.address .addr {
+    font-size: 26rpx;
+}
+
+.address image {
+    width: 28rpx;
+    height: 44rpx;
+    border: 1px solid #ccc;
+    margin-right: 16rpx;
 }
