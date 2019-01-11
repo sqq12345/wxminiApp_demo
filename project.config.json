@@ -42,8 +42,8 @@
 				{
 					"id": 0,
 					"name": "debug style",
-					"pathName": "pages/user/orders/order/order",
-					"query": "id=183"
+					"pathName": "pages/user/draw/draw",
+					"query": "max=666"
 				},
 				{
 					"id": -1,

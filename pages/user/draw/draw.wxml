@@ -2,13 +2,21 @@
     <view class="head">
         <image src="/static/bg/money.png" class="_bg"/>
         <view class="tMoney">
-            <text class="_rmb">￥</text>8848.00
+            <text class="_rmb">￥</text>{{max}}
         </view>
     </view>
     <view class="block">
         <view class='form-group'>
-            <text>银行卡号</text>
-            <input placeholder="请输入银行卡号" type="number"/>
+            <text>收款户名</text>
+            <input placeholder="请输入收款户名" data-field="card_name" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>收款账号</text>
+            <input placeholder="请输入收款账号" type="number" data-field="card" bindinput="onInput"/>
+        </view>
+        <view class='form-group'>
+            <text>收款银行</text>
+            <input placeholder="请输入收款银行" data-field="card_bank" bindinput="onInput"/>
         </view>
     </view>
     <view class="block">
@@ -17,12 +25,13 @@
         </view>
         <view class="money">
             <text class="_rmb">￥</text>
-            <input type="digit" value="{{8848.00}}"/>
+            <input type="digit" value="{{form.amount}}" data-field="amount" bindinput="onInput"/>
         </view>
         <view class="item">
-            <text>可提现金额金额 ￥8848.00</text>
-            <text class="all">全部提现</text>
+            <text>可提现金额金额 ￥{{max}}</text>
+            <text class="all" bind:tap="takeAll">全部提现</text>
         </view>
     </view>
-    <view class="_button">确认提现</view>
+    <view class="_button" bind:tap="submit" wx:if="{{max>0}}">确认提现</view>
+    <view class="_button disable" wx:if="{{max==0}}">无可提现金额</view>
 </view>

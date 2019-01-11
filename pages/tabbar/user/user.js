@@ -37,8 +37,10 @@ Page({
       },
       method: 'POST',
       success: (response) => {
+        const user = response.data.data;
+        user.earnings = Number.parseFloat(user.earnings).toFixed(2)
         this.setData({
-          userinfo: response.data.data
+          userinfo: user
         });
       }
     });

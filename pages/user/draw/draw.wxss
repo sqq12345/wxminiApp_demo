@@ -28,7 +28,7 @@
 }
 
 .form-group {
-    padding: 10rpx 0;
+    padding: 20rpx 0;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -68,4 +68,9 @@
 
 .block .item:last-of-type .all{
     color: #00A3EF;
+}
+
+.disable{
+    background: #ccc;
+    color: #fff;
 }
