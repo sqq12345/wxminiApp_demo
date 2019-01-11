@@ -26,8 +26,13 @@
                     <image class="_right" src="/static/icons/right.png" />
                 </view>
                 <view>
-                    <view class="goods" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex" wx:if="{{goods.selected}}">
-                        <image class="thumb" src="{{goods.image}}" />
+                    <view class="goods {{state===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"
+                          wx:key="{{goodsIndex}}" wx:for-item="goods"
+                          wx:for-index="goodsIndex" wx:if="{{goods.selected}}">
+                        <view class="thumbView">
+                            <view class="shortage" wx:if="{{state===0}}">缺货</view>
+                            <image class="thumb" src="{{goods.image}}" />
+                        </view>
                         <view class="info">
                             <view class="title">{{goods.name}}</view>
                             <view class="unit">{{goods.unit}}</view>

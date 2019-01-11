@@ -55,6 +55,7 @@ Page(observer({
    * 生命周期函数--监听页面加载
    */
   onShow: async function (options) {
+    var that = this;
     this.props.cart.fetchData();
     const result = await login();
     const data = {};
@@ -72,6 +73,14 @@ Page(observer({
       header: { token: result.user_token },
       data: data,
       success: (response) => {
+
+        for (const key in response.data.goods.data) {
+          that.setData({
+            state: data[key].state
+          })
+        }
+
+        console.log('confirmorder',response.data.goods.data);
         if (response.data.code == 999) {
           wx.showToast({
             title: '请添加一个地址',
