@@ -99,7 +99,33 @@
     display: flex;
     align-items: center;
     padding: 20rpx;
+}
+
+.bf9fefa {
     background: #F9FEFA;
+}
+
+.bfbfbfb {
+    background: #fbfbfb;
+}
+
+.thumbView {
+    position: relative;
+}
+
+.shortage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 160rpx;
+    height: 160rpx;
+    line-height: 160rpx;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 36rpx;
 }
 
 .item .goods .thumb {
