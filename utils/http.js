@@ -1,5 +1,5 @@
 import common from './common';
-const domain = 'https://anfou.cc/';
+const domain = 'https://anfou.cc';
 
 const date = new Date();
 const datestr = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;

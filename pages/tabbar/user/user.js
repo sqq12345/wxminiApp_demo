@@ -19,7 +19,7 @@ Page({
 */
     userinfo: {
       points: 0,
-      fans: 0,
+      fansnum: 0,
       ismerchant: 0,
     },
     occupation: app.globalData.height + 46,

@@ -25,7 +25,9 @@
     color: #C08700;
     margin-bottom: 30rpx;
 }
-
+.coupon-gray{
+    color: #999999;
+}
 .coupon .left {
     flex: 6;
     display: flex;

@@ -12,8 +12,8 @@
           <view>{{userinfo.points}}</view>
           <view>安积分</view>
         </navigator>
-        <view class="line"/>
-        <navigator hover-class="none" class="num" url="/pages/user/fans/fans">
+        <view class="line" wx:if="{{userinfo.fansnum!=null}}"/>
+        <navigator hover-class="none" class="num" url="/pages/user/fans/fans" wx:if="{{userinfo.fansnum!=null}}">
           <view>{{userinfo.fansnum}}</view>
           <view>粉丝</view>
         </navigator>

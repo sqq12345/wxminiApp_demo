@@ -56,6 +56,10 @@ Page({
   },
 
   selectCoupon(e) {
+      const status = e.currentTarget.dataset.status;
+      if(status!=0){
+          return;
+      }
     if (this.data.select) {
       //选择优惠券
       const index = e.currentTarget.dataset.index;

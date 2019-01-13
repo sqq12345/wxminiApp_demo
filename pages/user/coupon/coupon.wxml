@@ -3,8 +3,9 @@
         <image src="empty.png" />
         暂无可用优惠券
     </view>
-    <view class="coupon" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-index="{{index}}" wx:if="{{!select||(select&&item.isuser!=0)}}">
-        <image class="_bg" src="coupon.png"/>
+    <view class="coupon {{item.status!=0?'coupon-gray':''}}" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-status="{{item.status}}" data-index="{{index}}" wx:if="{{!select||(select&&item.isuser!=0)}}">
+        <image wx:if="{{item.status!=0}}" class="_bg" src="coupon-gray.png"/>
+        <image wx:else class="_bg" src="coupon.png"/>
         <view class="left">
             <view class="price">
                 <text class="_rmb">￥</text>{{item.value}}
@@ -16,7 +17,7 @@
             </view>
         </view>
         <view class="right">
-            <view class="label">立即使用</view>
+            <view class="label">{{item.status!=0 ? "已使用":"立即使用"}}</view>
             <view class="start">{{item.startTime}}到</view>
             <view class="end">{{item.endTime}}</view>
         </view>
