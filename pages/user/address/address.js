@@ -50,6 +50,7 @@ Page(observer({
   select(e) {
     const index = e.currentTarget.dataset.index;
     this.props.order.address = this.data.list[index];
+    console.log(this.props.order.address)
     wx.navigateBack({
       delta: 1
     });

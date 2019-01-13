@@ -4,34 +4,36 @@
     </view>
     <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
         <view class="header">
-            <view>
-                <image class="select-icon" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
-                <image class="select-icon" src="{{item.shop.logo}}" />
-                {{item.shop.name}}
-            </view>
-            <navigator hover-class="none" url="/pages/detail/detail?id={{item.shop.id}}&type={{}}">
+            <image class="select-icon" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
+            <navigator hover-class="none" url="/pages/goodslist/goodslist?id={{item.shop.id}}">
+                <view>
+                    <image class="select-icon" src="{{item.shop.logo}}" />
+                    {{item.shop.name}}
+                </view>
                 <image class="_right" src="/static/icons/right.png" />
             </navigator>
         </view>
         <view>
             <view class="goods{{goods.disabled?' disable':''}}" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
                 <image class="select-icon" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
-                <view class="image">
-                    <image class="thumb" src="{{goods.image}}" />
-                    <view class="disable" wx:if="{{goods.disabled}}">缺货</view>
-                </view>
-                <view class="info">
-                    <view class="title">{{goods.name}}</view>
-                    <view class="unit">{{goods.unit}}</view>
-                    <view class="price">
-                        ￥{{goods.price}}
-                        <view class="calc">
-                            <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
-                            <text class="num">{{goods.count}}</text>
-                            <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                <navigator hover-class="none" url="/pages/goods/goods?id={{goods.id}}" style="display: flex; flex: 1;">
+                    <view class="image">
+                        <image class="thumb" src="{{goods.image}}" />
+                        <view class="disable" wx:if="{{goods.disabled}}">缺货</view>
+                    </view>
+                    <view class="info" >
+                        <view class="title">{{goods.name}}</view>
+                        <view class="unit">{{goods.unit}}</view>
+                        <view class="price">
+                            ￥{{goods.price}}
+                            <view class="calc">
+                                <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                <text class="num">{{goods.count}}</text>
+                                <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                            </view>
                         </view>
                     </view>
-                </view>
+                </navigator>
             </view>
         </view>
     </view>

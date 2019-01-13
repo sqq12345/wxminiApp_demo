@@ -12,5 +12,5 @@
             <image src="/static/icons/upload.png" />
         </wux-upload>
     </view>
-    <view class="_button" bindtap="submit">提交评论</view>
+    <view class="_button" bindtap="{{!btnDisabled?'submit':''}}">提交评论</view>
 </view>

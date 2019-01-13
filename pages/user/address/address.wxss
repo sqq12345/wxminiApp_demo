@@ -9,9 +9,22 @@
 }
 
 .list .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 30rpx;
     border-bottom: 1px solid #eeeeee;
-    display: block;
+}
+.list .item .left{
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+}
+.list .item .right{
+
+}
+.list .item .sub-right{
+    padding-left: 10rpx;
 }
 
 .list .item .username {
@@ -24,7 +37,14 @@
 .list .item .phone {
     color: #555555;
 }
-
+.list .item .moren{
+    font-size: 24rpx;
+    color: #fff;
+    background: #2DD955;
+    margin: 0 10rpx;
+    padding: 0 10rpx;
+    border-radius: 6rpx;
+}
 .list .item .address {
     margin-top: 10rpx;
 }

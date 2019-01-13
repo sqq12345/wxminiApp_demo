@@ -29,20 +29,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    const result = await login();
-    http.request({
-      url: '/api/user/center',
-      header: {
-        token: result.user_token
-      },
-      method: 'POST',
-      success: (response) => {
-        const user = response.data.data;
-        user.earnings = Number.parseFloat(user.earnings).toFixed(2)
-        this.setData({
-          userinfo: user
-        });
-      }
-    });
+
   },
+    onShow:async function(){
+      this.getMycenter()
+    },
+    getMycenter:async function () {
+        const result = await login();
+        http.request({
+            url: '/api/user/center',
+            header: {
+                token: result.user_token
+            },
+            method: 'POST',
+            success: (response) => {
+                const user = response.data.data;
+                user.earnings = Number.parseFloat(user.earnings).toFixed(2)
+                this.setData({
+                    userinfo: user
+                });
+            }
+        });
+    },
 })

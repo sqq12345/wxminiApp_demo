@@ -21,12 +21,18 @@
     justify-content: space-between;
 }
 
-.item .header>view {
+.item .header >navigator {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24rpx;
+}
+.item .header >navigator >view{
     display: flex;
     align-items: center;
     font-size: 24rpx;
 }
-
 .select {
     display: flex;
     align-items: center;

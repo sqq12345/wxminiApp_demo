@@ -64,6 +64,7 @@ Cart.prototype.fetchData = async function () {
                     goods.unit = g.specification;
                     goods.count = g.num;
                     goods.selected = g.status == 1;
+                    goods.id = g.id;
                     //库存为零不选中
                     if(goods.stock == 0){
                         goods.selected=false;

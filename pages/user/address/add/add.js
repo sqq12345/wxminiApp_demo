@@ -4,9 +4,12 @@ import login from '../../../../stores/Login';
 const { regeneratorRuntime } = global;
 import verify from '../../../../utils/verify';
 import regex from '../../../../utils/regex';
+import clickDisable from '../../../../utils/clickDisable';
 const app = getApp();
 Page({
-
+    props: {
+        order: require('../../../../stores/Order'),
+    },
   /**
    * 页面的初始数据
    */
@@ -18,6 +21,7 @@ Page({
       transparent: false, //透明导航栏
     },
 */
+    btnDisabled:false,
     form: {
       province_id: 0,
       city_id: 0,
@@ -179,6 +183,7 @@ Page({
       form.addressid = this.data.addressid
     }
     if (verify(form, config)) {
+      clickDisable.btnDisabled(this)
       const result = await login();
       http.request({
         url: this.data.addressid == null ? '/api/user/addaddress' : '/api/user/modifyaddress',
@@ -243,6 +248,11 @@ Page({
       },
       data: { addressid: this.data.addressid },
       success: (response) => {
+        let orderAddressId = this.props.order.address!=null? Number(this.props.order.address.id):0
+        console.log(orderAddressId,this.data.addressid)
+        if(orderAddressId === Number(this.data.addressid)){
+            this.props.order.address = null;
+        }
         wx.navigateBack({
           delta: 1
         });

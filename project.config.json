@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -56,6 +56,12 @@
 					"name": "物流",
 					"pathName": "pages/user/logistics/logistics",
 					"query": "no=818510709234"
+				},
+				{
+					"id": -1,
+					"name": "结果页",
+					"pathName": "pages/tabbar/cart/success/success",
+					"query": "id=66"
 				}
 			]
 		}

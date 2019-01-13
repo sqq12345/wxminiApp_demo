@@ -2,6 +2,7 @@
 import http from '../../utils/http';
 import login from '../../stores/Login';
 const { regeneratorRuntime } = global;
+import clickDisable from '../../utils/clickDisable';
 // const app = getApp();
 Page({
 
@@ -16,6 +17,7 @@ Page({
           transparent: false //透明导航栏
         },
     */
+    btnDisabled:false,
     form: {},
     //提交地址
     commitUrl: '',
@@ -98,6 +100,9 @@ Page({
       });
       return false;
     }
+      this.setData({
+          btnDisabled:true,
+      })
     const result = await login();
     http.request({
       url: this.data.commitUrl,
@@ -129,5 +134,8 @@ Page({
         }
       }
     })
-  }
+  },
+    submit1:function () {
+        console.log("禁止提交")
+    }
 })
