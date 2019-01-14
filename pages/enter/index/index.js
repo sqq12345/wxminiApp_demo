@@ -130,7 +130,7 @@ Page(observer({
 
     //读取数据
     const response = await http.request({
-      url: 'api/shop/merchant',
+      url: '/api/shop/merchant',
       data: {
         shoptype: '' + options.index
       },

@@ -5,7 +5,7 @@
         <!-- 倒计时 -->
         <view class="timer">
             <view class="box">
-                <image/>
+                <image src="../../../../static/icons/icon-time.png" mode="aspectFit" />
                 <view>
                     <view>等待买家付款</view>
                     <view class="countdown">剩余{{timetext}}自动关闭</view>
@@ -14,7 +14,7 @@
         </view>
         <view class="address">
             <view class="box">
-                <image/>
+                <image src="../../../../static/icons/icon-address.png" mode="aspectFit"/>
                 <view>
                     <view><text class="name">{{detail.address.name}}</text><text class="phone">{{detail.address.mobile}}</text></view>
                     <view class="addr">{{detail.address.address}}</view>

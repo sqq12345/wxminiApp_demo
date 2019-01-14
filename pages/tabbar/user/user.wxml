@@ -74,7 +74,7 @@
           <image src="/static/icons/user/5.png" style="width:44rpx;height:42rpx"/>
           发起接龙
         </navigator>
-        <navigator hover-class="none" class="icon" url="/">
+        <navigator hover-class="none" class="icon" url="/pages/user/assemble/assemble">
           <image src="/static/icons/user/6.png" style="width:38rpx;height:34rpx;margin-bottom:20rpx;"/>
           我的拼团
         </navigator>

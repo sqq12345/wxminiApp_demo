@@ -40,7 +40,9 @@
         "setting/setting",
         "fans/earnings/earnings",
         "orders/logistics/logistics",
-        "orders/suborder/suborder"
+        "orders/suborder/suborder",
+        "assemble/assemble",
+        "orders/refund/refund"
       ]
     },
     {

@@ -203,8 +203,6 @@
 .timer image {
     width: 52rpx;
     height: 52rpx;
-    border: 1px solid #fff;
-    border-radius: 50%;
     margin-right: 12rpx;
 }
 
@@ -236,6 +234,5 @@
 .address image {
     width: 28rpx;
     height: 44rpx;
-    border: 1px solid #ccc;
     margin-right: 16rpx;
 }

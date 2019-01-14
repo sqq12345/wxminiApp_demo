@@ -33,10 +33,11 @@ Page({
       method: 'GET',
       success: (response) => {
         if (response.data.code != 0) {
+          console.log(response.data)
           const list = response.data.data.users;
           //隐藏手机号码
           list.forEach(item => {
-              item.mobile = item.mobile.substr(0, 3) + '****' + item.mobile.substr(7)
+              item.mobile = item.mobile?item.mobile.substr(0, 3) + '****' + item.mobile.substr(7):"暂无联系电话"
           });
           this.setData({ list })
         }

@@ -1,32 +1,53 @@
 /* pages/tabbar/user/address/address.wxss */
+.container{
+    padding-top: 16rpx;
+}
+
 .list{
     background: #fff;
+    display: flex;
+    padding: 0 30rpx;
 }
 
 .list .item{
-    padding: 30rpx;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30rpx 0;
     border-top: 1px solid #eeeeee;
-    display: block;
+}
+.list:first-child .item{
+    border-top: none;
 }
 
 .list .item image{
-    width: 110rpx;
-    height: 110rpx;
+    width: 80rpx;
+    height: 80rpx;
     border-radius: 50%;
     border: 1px solid #eeeeee;
-    float: left;
-    margin-right: 30rpx;
+    margin-right: 20rpx;
     vertical-align: text-top;
 }
 
-.list .item>view:last-of-type{
-    font-size: 30rpx;
-    color: #555555;
+.list .item .right{
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+}
+.list .item .right >view{
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #333333;
+
+}
+.list .item .right >view:last-of-type{
     margin-top: 8px;
 }
-
-.list .item>view>text:last-of-type{
-    float: right;
+.list .item .right >view text{
+    font-size: 24rpx;
+    color: #999999;
 }
 
 .empty{

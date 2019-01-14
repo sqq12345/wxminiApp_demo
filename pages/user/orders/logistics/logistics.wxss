@@ -27,6 +27,18 @@ page {
     border-radius: 50%;
     margin: 0 10rpx;
     background: #fff;
+    display: none;
+}
+.list .step .circle{
+    width: 17px;
+    height: 17px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 50%;
+    margin: 0 10rpx;
+    background: #DADADA;
+}
+.list .step .circle.orange{
+    background:linear-gradient(-46deg,rgba(251,98,31,1),rgba(239,183,48,1));
 }
 
 .list .step>view {
@@ -56,7 +68,7 @@ page {
     position: absolute;
     height: calc(100% - 130rpx);
     width: 1px;
-    background: red;
+    background: #F4F4F4;
     left: 64px;
     top: 30px;
     z-index: -1;

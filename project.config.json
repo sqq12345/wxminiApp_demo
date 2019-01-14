@@ -59,9 +59,9 @@
 				},
 				{
 					"id": -1,
-					"name": "结果页",
-					"pathName": "pages/tabbar/cart/success/success",
-					"query": "id=66"
+					"name": "退款",
+					"pathName": "pages/user/orders/refund/refund",
+					"query": ""
 				}
 			]
 		}

@@ -3,10 +3,12 @@
     <view class="list" wx:for="{{list}}" wx:key="{{index}}">
         <navigator hover-class="none" class="item" url="earnings/earnings?id={{item.uid}}">
             <image src="{{item.avatar}}"/>
-            <view>{{item.nickname}}</view>
-            <view>
-                <text>{{item.mobile}}</text>
-                <text>{{item.create_at}}</text>
+            <view class="right">
+                <view>{{item.nickname}}</view>
+                <view>
+                    <text>{{item.mobile}}</text>
+                    <text>{{item.create_at}}</text>
+                </view>
             </view>
         </navigator>
     </view>

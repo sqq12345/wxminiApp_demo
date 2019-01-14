@@ -9,6 +9,8 @@ let Order = function () {
         address: null,
         //优惠券
         coupon: null,
+        //退款信息
+        refundOrder: null,
     })
 }
 

@@ -1,0 +1,48 @@
+/* pages/group/my/my.wxss */
+
+.item {
+    background: #fff;
+    margin-bottom: 20rpx;
+    padding: 30rpx;
+}
+
+.item>view {
+    margin-bottom: 20rpx;
+}
+
+.item .start {
+    color: #AAAAAA;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item .title {
+    color: #333333;
+    font-weight: 500;
+}
+
+.item .desc {
+    color: #999999;
+    font-size: 26rpx;
+}
+
+.item .end {
+    color: #23C743;
+    font-size: 24rpx;
+}
+
+.item .more {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.item .more .btn {
+    border: 1px solid #BCBDBD;
+    color: #BCBDBD;
+    display: inline-block;
+    padding: 6rpx 30rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+}

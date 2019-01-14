@@ -10,6 +10,7 @@
             </view>
             <view>
                 <image/>
+                <view class="circle {{index===0?'orange':''}}"></view>
             </view>
             <view class="context">{{item.context}}</view>
         </view>

@@ -77,14 +77,14 @@
                 </navigator>
                 <!-- 已付款 -->
                 <view class="bottom" wx:if="{{sub.item_status==1}}">
-                    <text class="button" data-id="{{sub.item_id}}" bind:tap="refundOrder">退款</text>
+                    <text class="button" data-item="{{sub}}" bind:tap="refundOrder">退款</text>
                     <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
                 </view>
                 <!-- 已发货 -->
                 <view class="bottom" wx:if="{{sub.item_status==2}}">
                     <text class="button solid" data-id="{{sub.item_id}}" bind:tap="confirmOrder">确认收货</text>
                     <navigator hover-class="none" class="button" url="logistics/logistics?no={{sub.logic_no}}">查看物流</navigator>
-                    <text class="button" data-id="{{sub.item_id}}" bind:tap="refundOrder">退款</text>
+                    <text class="button" data-item="{{sub}}" bind:tap="refundOrder">退款</text>
                     <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
                 </view>
                 <!-- 完成 -->

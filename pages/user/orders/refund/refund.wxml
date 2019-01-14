@@ -1,0 +1,71 @@
+<view class="refund">
+    <view class="heard sub-content" wx:for="{{list}}" wx:key="{{index}}">
+        <image src="{{item.goods_info.thumb_image}}"></image>
+        <view class="right">
+            <view class="name">{{item.goods_info.title}}</view>
+            <view><text>商品规格：{{item.goods_info.specification}}</text><text>x{{item.num}}</text></view>
+            <view class="price">￥{{item.price}}</view>
+        </view>
+    </view>
+    <view class="sub-content">
+        <view class="input-item">
+            <text class="label">货物状态</text>
+            <view class="inputBox" bindtap="bindChoice" data-type="goods">
+                <text class="{{goods==0?'':'onShow'}}">{{goodsValue}}</text>
+                <image src="/static/icons/right.png"/>
+            </view>
+        </view>
+        <view class="input-item">
+            <text class="label">退款原因</text>
+            <view class="inputBox" bindtap="bindChoice" data-type="reason">
+                <text class="{{reason==''?'':'onShow'}}">{{reason==''?'请选择':reason}}</text>
+                <image src="/static/icons/right.png"/>
+            </view>
+        </view>
+    </view>
+    <view class="sub-content">
+        <view class="input-item">
+            <text class="label">退款金额：</text>
+            <text class="money">￥{{money}}</text>
+        </view>
+    </view>
+    <view class="tips">
+        最多￥{{money}}，含发货邮费￥{{freight}}
+    </view>
+    <view class="sub-content">
+        <view class="input-item">
+            <text class="label">退款说明：</text>
+            <view class="inputBox">
+                <input bindinput="bindKeyInput" placeholder="退款说明" value="{{content}}" />
+            </view>
+        </view>
+        <view class="">
+            <view class="label">上传凭证</view>
+        </view>
+    </view>
+    <view class="_button" bindtap="refundOrder">提交</view>
+
+    <!--弹出框S-->
+    <view class="fixedBox" wx:if="{{onShow}}">
+        <view class="fixedBg" bindtap="bindClose"></view>
+        <view class="fixedContent">
+            <view class="title">{{fixedTitle}}</view>
+            <block wx:if="{{isGoods}}">
+                <view class="list" wx:for="{{goodsList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="subChoice">
+                    <view>{{item.value}}</view>
+                    <image wx:if="{{goodsIndex === index}}" src="/static/icons/cart/selected.png" />
+                    <image wx:else src="/static/icons/cart/unselected.png" />
+                </view>
+            </block>
+            <block wx:else>
+                <view class="list" wx:for="{{reasonList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="subChoice">
+                    <view>{{item.value}}</view>
+                    <image wx:if="{{reasonIndex === index}}" src="/static/icons/cart/selected.png" />
+                    <image wx:else src="/static/icons/cart/unselected.png" />
+                </view>
+            </block>
+            <view class="_button" bindtap="bindClose">关闭</view>
+        </view>
+    </view>
+    <!--弹出框E-->
+</view>
