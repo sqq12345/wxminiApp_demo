@@ -1,3 +1,12 @@
-<!--pages/tabbar/cart/success/success.wxml-->
-<!-- todo美化页面 -->
-<text>支付成功</text>
+<view class="result">
+    <view class="icon">
+        <icon type="{{iconType}}" size="{{iconSize}}" color="{{iconColor}}"></icon>
+    </view>
+    <view>
+        <text class="title">{{resultTitle}}</text>
+    </view>
+    <view class="button">
+        <navigator class="sub-btn" hover-class="none" open-type="switchTab" url="/pages/tabbar/home/home">首页</navigator>
+        <navigator class="sub-btn" open-type="redirect" url="/pages/user/orders/orders">查看订单</navigator>
+    </view>
+</view>

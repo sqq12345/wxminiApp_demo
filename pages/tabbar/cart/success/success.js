@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      iconType:"success", //warn
+      iconSize: 93,
+      iconColor: "#33cd5f", //red
+      resultTitle: "支付成功",
   },
 
   /**
@@ -42,20 +45,17 @@ Page({
   onUnload: function () {
 
   },
+    onClick(e) {
+        console.log(e)
+        const { index } = e.detail
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+        index === 0 && wx.showModal({
+            title: 'Thank you for your support!',
+            showCancel: !1,
+        })
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
+        index === 1 && wx.navigateBack()
+    },
 
   /**
    * 用户点击右上角分享
