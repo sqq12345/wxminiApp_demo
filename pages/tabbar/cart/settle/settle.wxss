@@ -146,7 +146,8 @@
 .goods .info {
     flex-grow: 1;
     position: relative;
-    height: 156rpx;
+    min-height: 120rpx;
+    padding-bottom: 40rpx;
 }
 
 .goods .info .price {

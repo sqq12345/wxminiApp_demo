@@ -40,26 +40,41 @@ Page({
         labels.push({ name: '农场类型' }, { name: '农场产品' }, { name: '农场服务' });
         bg = '1.png';
         descLabel = '农场简介';
+          wx.setNavigationBarTitle({
+              title: '农场详情'
+          })
         break;
       case '2': //社群
         labels.push({ name: '社群类型' }, { name: '需求产品' });
         bg = '2.png';
         descLabel = '社群简介';
+          wx.setNavigationBarTitle({
+              title: '社群详情'
+          })
         break;
       case '3': //餐厅
         labels.push({ name: '餐厅类型' }, { name: '餐厅风格' }, { name: '菜系类型' });
         bg = '3.png';
         descLabel = '餐厅简介';
+          wx.setNavigationBarTitle({
+              title: '餐厅详情'
+          })
         break;
       case '4': //超市
         labels.push({ name: '超市类型' }, { name: '产品类型' }, { name: '超市规模' });
         bg = '4.png';
         descLabel = '超市简介';
+          wx.setNavigationBarTitle({
+              title: '超市详情'
+          })
         break;
       case '5': //集市
         labels.push({ name: '市集类型' }, { name: '产品类型' }, { name: '市集活动' });
         bg = '5.png';
         descLabel = '集市简介';
+          wx.setNavigationBarTitle({
+              title: '集市详情'
+          })
         break;
     }
     this.setData({ bg, descLabel, type: options.type });

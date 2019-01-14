@@ -4,26 +4,26 @@
         <image class="logo" src="{{detail.logo}}" />
         <view class="title">{{detail.name}}</view>
         <block wx:if="{{type=='1'}}">
-            <view>农场规模:{{detail.farmsize}}亩</view>
-            <view>农场主:{{detail.linkman}}</view>
+            <view><text>农场规模：</text><text>{{detail.farmsize!=null? detail.farmsize+"亩":"暂无"}}</text></view>
+            <view><text>农场主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
         </block>
         <block wx:if="{{type=='2'}}">
-            <view>社群人数:{{detail.nums}}</view>
-            <view>社群主:{{detail.linkman}}</view>
+            <view><text>社群人数：</text><text>{{detail.farmsize!=null?detail.farmsize+"人":"暂无"}}</text></view>
+            <view><text>社群主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
         </block>
         <block wx:if="{{type=='3'}}">
-            <view>餐桌:{{detail.nums}} 可接待:{{detail.person_nums}}</view>
-            <view>店主:{{detail.linkman}}</view>
+            <view><text>餐桌：</text><text>{{detail.farmsize!=null?detail.farmsize+"桌":"暂无"}}</text>  <text>可接待：</text><text>{{detail.farmsize2!=null?detail.farmsize2+"人":"暂无"}}</text></view>
+            <view><text>店主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
         </block>
         <block wx:if="{{type=='4'}}">
-            <view>产品种类:{{detail.nums}}</view>
-            <view>超市:{{detail.linkman}}</view>
+            <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
+            <view><text>超市：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
         </block>
         <block wx:if="{{type=='5'}}">
-            <view>产品种类:{{detail.nums}}</view>
-            <view>市集主板方:{{detail.linkman}}</view>
+            <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
+            <view><text>市集主板方：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
         </block>
-        <view>地址:{{detail.address}}</view>
+        <view><text>地址：</text><text>{{detail.address!=null?detail.address:"暂无"}}</text></view>
     </view>
     <!-- tags -->
     <view class="block one">
@@ -34,10 +34,11 @@
             </view>
         </view>
     </view>
-    
+
     <view class="block desc">
         <view class="title">{{descLabel}}</view>
-        <view class="content">{{detail.memo}}</view>
+        <view class="content" wx:if="{{detail.memo!=null}}">{{detail.memo}}</view>
+        <view class="empty" wx:else>暂无简介</view>
     </view>
     <view class="block two">
         <view class="title">留言评论</view>

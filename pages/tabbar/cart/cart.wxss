@@ -101,8 +101,8 @@
 }
 
 .goods .title {
-    line-height: 1;
-    font-weight: bolder;
+    /*line-height: 1;*/
+    font-weight: bold;
 }
 
 .bottom-btn {

@@ -17,8 +17,18 @@
 }
 
 .item .name {
+    display: flex;
+    justify-content: center;
     font-weight: bold;
     font-size: 28rpx;
+}
+.item .name >text:first-child{
+    flex: 1;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
 }
 
 .item .unit {

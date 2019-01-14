@@ -22,7 +22,7 @@
                         <view class="disable" wx:if="{{goods.disabled}}">缺货</view>
                     </view>
                     <view class="info" >
-                        <view class="title">{{goods.name}}</view>
+                        <view class="title text-overflow">{{goods.name}}</view>
                         <view class="unit">{{goods.unit}}</view>
                         <view class="price">
                             ￥{{goods.price}}

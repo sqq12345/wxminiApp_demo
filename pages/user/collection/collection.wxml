@@ -3,7 +3,7 @@
     <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}" wx:key="{{index}}">
         <image src="{{item.goods.thumb_image}}"/>
         <view class="content">
-            <view class="name">{{item.goods.title}}<text class="price">￥{{item.goods.price}}</text></view>
+            <view class="name"><text>{{item.goods.title}}</text><text class="price">￥{{item.goods.price}}</text></view>
             <view>
                 <view class="unit">{{item.goods.specification}}</view>
                 <view class="unit">配送范围:{{item.goods.middata}}</view>

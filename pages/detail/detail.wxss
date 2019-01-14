@@ -12,6 +12,8 @@
     flex-direction: column;
     position: relative;
     font-size: 0;
+    padding: 0 120rpx;
+    box-sizing: border-box;
 }
 
 .head .logo {
@@ -35,8 +37,18 @@
 
 .head view {
     margin-bottom: 6rpx;
-    color: #999999;
+}
+
+.head view text{
     font-size: 24rpx;
+    color: #999999;
+    line-height: 38rpx;
+}
+.head view text:nth-child(2n){
+    color: #666666;
+}
+.head view text:nth-child(3n){
+    padding-left: 30rpx;
 }
 
 .block {
