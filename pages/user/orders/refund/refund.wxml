@@ -36,11 +36,14 @@
         <view class="input-item">
             <text class="label">退款说明：</text>
             <view class="inputBox">
-                <input bindinput="bindKeyInput" placeholder="退款说明" value="{{content}}" />
+                <input bindinput="bindKeyInput" placeholder="退款说明" />
             </view>
         </view>
-        <view class="">
+        <view class="upload-item">
             <view class="label">上传凭证</view>
+            <wux-upload data-field="cover" listType="picture-card" max="4" bind:change="onChange" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
         </view>
     </view>
     <view class="_button" bindtap="refundOrder">提交</view>

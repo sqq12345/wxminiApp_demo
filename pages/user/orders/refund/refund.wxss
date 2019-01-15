@@ -90,6 +90,9 @@
     width: 14rpx;
     height: 24rpx;
 }
+.upload-item{
+    padding-bottom: 40rpx;
+}
 
 /*弹出层*/
 .fixedBox{

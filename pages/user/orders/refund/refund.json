@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "申请退款"
+  "navigationBarTitleText": "申请退款",
+  "usingComponents": {
+    "wux-upload": "/components/upload/index"
+  }
 }
