@@ -2,18 +2,19 @@
     <form>
         <view class='form-group'>
             <text>联系人</text>
-            <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput"/>
+            <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput" maxlength="4"/>
         </view>
         <view class='form-group info'>
             <text class="info">联系方式(<text style="color:#FF6600">至少填一项</text>)</text>
         </view>
         <view class='form-group'>
             <text>手机号码</text>
-            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"/>
+            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput" maxlength="11"/>
         </view>
         <view class='form-group'>
             <text>固定电话</text>
-            <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"/>
+            <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"
+                   maxlength="11"/>
         </view>
         <view class='form-group'>
             <text>其他</text>
