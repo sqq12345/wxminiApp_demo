@@ -1,9 +1,9 @@
 <!-- components/shop/shpo.wxml -->
 <view>
     <view class='shop'>
-        <navigator url="/pages/goodslist/goodslist?id={{item.id}}" hover-class="none"><image class="logo" src="{{item.logo}}"/></navigator>
+        <navigator  url="{{jumpUrl}}" hover-class="none"><image class="logo" src="{{item.logo}}"/></navigator>
         <view class="text">
-            <navigator url="/pages/goodslist/goodslist?id={{item.id}}" hover-class="none" class="title">{{item.name}}</navigator>
+            <navigator url="{{jumpUrl}}" hover-class="none" class="title">{{item.name}}</navigator>
             <view class="info">
                 <view><image class="icon location" src="/static/icons/shops/1.png"/><text>{{item.district}}</text></view>
                 <text>距离{{distance}}</text>
