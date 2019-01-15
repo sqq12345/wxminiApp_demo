@@ -1,9 +1,8 @@
-// pages/tabbar/shoplist/shoplist.js
 import {observer} from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
 
 const {regeneratorRuntime} = global;
-// const app = getApp();
+
 Page(observer({
   props: {
     city: require('../../../stores/City'),
@@ -14,13 +13,6 @@ Page(observer({
   data: {
     iColor: '#d2d2d2',
     iaColor: '#ff6600',
-    /*
-        nvabarData: {
-          showCapsule: false, //是否显示左上角图标
-          title: '全部商家', //导航栏 中间的标题
-          transparent: false //透明导航栏
-        },
-    */
     //分类
     types: [
       {text: '农场', value: '1'},
@@ -39,7 +31,6 @@ Page(observer({
     loading: false,
     //没有更多数据了
     end: false,
-    // occupation: app.globalData.height + 46,
     imgUrls: [],
   },
   async fetchList() {

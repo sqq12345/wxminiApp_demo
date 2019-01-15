@@ -2,7 +2,7 @@
     <form>
         <view class='form-group'>
             <text>联系人</text>
-            <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput"/>
+            <input placeholder="请输入姓名（必填）" data-field="linkman" bindinput="onInput" maxlength="4"/>
         </view>
         <view class='form-group info'>
             <text class="info">联系方式(<text style="color:#FF6600">至少填一项</text>)</text>

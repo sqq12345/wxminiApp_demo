@@ -1,11 +1,11 @@
-// pages/enter/step2/step2.js
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 import regex from '../../../utils/regex';
-import { observer } from '../../../utils/mobx/observer';
-const { regeneratorRuntime } = global;
+import {observer} from '../../../utils/mobx/observer';
 import verify from '../../../utils/verify';
-// const app = getApp();
+
+const {regeneratorRuntime} = global;
+
 Page(observer({
   props: {
     form: require('../../../stores/Form').values
@@ -14,19 +14,11 @@ Page(observer({
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '餐厅入驻', //导航栏 中间的标题
-      transparent: false //透明导航栏
-    },
-*/
     address: '',
-    // occupation: app.globalData.height + 46,
   },
   onInput(e) {
     const value = e.detail.value;
-    const { field } = e.target.dataset;
+    const {field} = e.target.dataset;
     this.props.form[field] = value;
   },
   chooseAddress() {
@@ -37,7 +29,7 @@ Page(observer({
         this.props.form['address'] = str;
         this.props.form['latitude'] = result.latitude;
         this.props.form['longitude'] = result.longitude;
-        this.setData({ address: str });
+        this.setData({address: str});
         //赋值经纬度
       },
     });
@@ -46,22 +38,20 @@ Page(observer({
     this.props.form['mid'] = options.id;
   },
   /* upload */
-  onUploadFail(e) {
-
-  },
+  onUploadFail(e) {},
   onRemove(e) {
     const data = e.detail.file.res.data;
     if (data) {
-      const { field } = e.target.dataset;
+      const {field} = e.target.dataset;
       const json = JSON.parse(data);
       this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '');
       this.props.form[field] = this.props.form[field].replace(',' + json.data.img, '');
     }
   },
   onComplete(e) {
-    const { detail: { data } } = e;
+    const {detail: {data}} = e;
     if (data) {
-      const { field } = e.target.dataset;
+      const {field} = e.target.dataset;
       const json = JSON.parse(data);
       if (this.props.form[field] == undefined) {
         this.props.form[field] = json.data.img
@@ -95,12 +85,9 @@ Page(observer({
             wx.showModal({
               title: '提示',
               content: '申请成功，请等待耐心等待',
+              showCancel: false,
               success(res) {
                 if (res.confirm) {
-                  wx.switchTab({
-                    url: '/pages/tabbar/home/home'
-                  });
-                } else if (res.cancel) {
                   wx.switchTab({
                     url: '/pages/tabbar/home/home'
                   });
@@ -112,7 +99,7 @@ Page(observer({
       })
     }
   }
-}))
+}));
 
 const config = {
   linkman: {
@@ -139,11 +126,11 @@ const config = {
     require: true,
     regex: regex.idcard
   },
-  nums:{
+  nums: {
     name: '餐桌数',
     require: true,
   },
-  person_nums:{
+  person_nums: {
     name: '可接待',
     require: true,
   },

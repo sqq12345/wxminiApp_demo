@@ -15,7 +15,7 @@ Component({
   data: {
     distance: '',
     goods: [],
-    showDetail: false
+    showDetail: true
   },
 
   ready() {

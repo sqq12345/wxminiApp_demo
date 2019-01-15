@@ -1,15 +1,19 @@
-// pages/enter/step1/step1.js
 import http from '../../../utils/http';
 import {observer} from '../../../utils/mobx/observer';
 import login from '../../../stores/Login';
 
 const {regeneratorRuntime} = global;
-// const app = getApp();
 //表单提交地址
 let submitUrl = '';
 Page(observer({
   props: {
     form: require('../../../stores/Form').values,
+  },
+  data: {
+    type: '',
+    nextUrl: '',  //下一步地址
+    fields: [],
+    loading: true,
   },
   //input赋值
   onInput(e) {
@@ -93,18 +97,15 @@ Page(observer({
       wx.showModal({
         title: '提示',
         content: '您已提交了相关申请，请耐心等待',
+        showCancel: false,
         success(res) {
           if (res.confirm) {
             wx.switchTab({
               url: '/pages/tabbar/home/home'
             });
-          } else if (res.cancel) {
-            wx.switchTab({
-              url: '/pages/tabbar/home/home'
-            });
           }
         }
-      })
+      });
       return false;
     }
     //已经通过
@@ -113,18 +114,15 @@ Page(observer({
       wx.showModal({
         title: '提示',
         content: '您提交的申请已通过，无须再次申请',
+        showCancel: false,
         success(res) {
           if (res.confirm) {
             wx.switchTab({
               url: '/pages/tabbar/home/home'
             });
-          } else if (res.cancel) {
-            wx.switchTab({
-              url: '/pages/tabbar/home/home'
-            });
           }
         }
-      })
+      });
       return false;
     }
 
@@ -146,20 +144,6 @@ Page(observer({
     this.setData({
       'nvabarData.title': title, type, nextUrl: url, fields, loading: false
     })
-  },
-  data: {
-    type: '',
-    nextUrl: '',  //下一步地址
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '', //导航栏 中间的标题
-      transparent: false //透明导航栏
-    },
-*/
-    fields: [],
-    loading: true,
-    // occupation: app.globalData.height + 46,
   },
 
   select(e) {
@@ -250,4 +234,4 @@ Page(observer({
   onUnload() {
     this.props.form = {};
   }
-}))
+}));
