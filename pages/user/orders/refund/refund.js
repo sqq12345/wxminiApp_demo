@@ -18,7 +18,8 @@ Page(observer({
         list:[],
         goods:0,
         goodsValue: "请选择",
-        reason:"",
+        reason:0,
+        reasonValue: "请选择",
         content:"",
         fixedTitle: "物流状态",
         goodsList:[
@@ -113,7 +114,8 @@ Page(observer({
         }
         else {
             this.setData({
-                reason:this.data.reasonList[index].value,
+                reason:this.data.reasonList[index].id,
+                reasonValue:this.data.reasonList[index].value,
                 reasonIndex:index,
             })
         }
@@ -191,7 +193,7 @@ Page(observer({
                 gids: this.data.gids,
                 image: this.data.images,
                 content:this.data.content,
-                reason:this.data.reason,
+                reason:this.data.reason, //1多拍/拍错/不想要 2快递一直未送到 3未按约定时间发货 4快递无跟踪记录 5空包裹、少货 6其他
                 goods:this.data.goods, //0代表未定义 1代表未收到货 2代表已收到货
             },
             header: {
@@ -200,14 +202,15 @@ Page(observer({
             success: (response) => {
                 if(response.data.code == 1){
                     wx.showToast({
-                        title: '申请成功',
+                        title: response.data.msg,
                         icon: 'success',
                         duration: 2000
-                    },function () {
-                        wx.navigateTo({
-                          url: 'pages/user/orders/orders'
-                        })
                     })
+                    setTimeout(function () {
+                        wx.navigateTo({
+                            url: '/pages/user/orders/orders'
+                        })
+                    }, 2000)
                 }else {
                     wx.showToast({
                         title: response.data.msg,

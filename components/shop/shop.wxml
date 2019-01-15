@@ -1,19 +1,19 @@
 <!-- components/shop/shpo.wxml -->
 <view>
-    <view class='shop'>
-        <navigator  url="{{jumpUrl}}" hover-class="none"><image class="logo" src="{{item.logo}}"/></navigator>
+    <navigator class='shop' url="{{jumpUrl}}" hover-class="none">
+        <view><image class="logo" src="{{item.logo}}"/></view>
         <view class="text">
-            <navigator url="{{jumpUrl}}" hover-class="none" class="title">{{item.name}}</navigator>
+            <view class="title">{{item.name}}</view>
             <view class="info">
                 <view><image class="icon location" src="/static/icons/shops/1.png"/><text>{{item.district}}</text></view>
                 <text>距离{{distance}}</text>
             </view>
             <view class="info">
                 <view><image class="icon coupon" src="/static/icons/shops/2.png"/><text>优惠券</text></view>
-                <view bind:tap="openDetail" data-id="{{item.id}}">{{item.goods.length}}个活动<image class="down" src="/static/icons/down3.png"/></view>
+                <view catch:tap="openDetail" data-id="{{item.id}}">{{item.goods.length}}个活动<image class="down" src="/static/icons/down3.png"/></view>
             </view>
         </view>
-    </view>
+    </navigator>
     <view class="activity" wx:if="{{item.goods.length>0&&showDetail}}">
         <navigator url="/pages/goods/goods?id={{item.id}}" hover-class="none" wx:for="{{goods}}" wx:key="{{index}}">
             <image src="{{item.thumb_image}}"/>

@@ -52,6 +52,14 @@
                     <view class="pics">
                         <image src="{{img}}" wx:for-item="img" wx:for="{{item.content_img}}" wx:key="{{index}}"/>
                     </view>
+                    <!--子评论S-->
+                    <view class="sub-comment" wx:if="{{item.son.length>0}}" wx:for="{{item.son}}" wx:for-item="subItem" wx:key="{{index}}">
+                        <text class="subName">{{subItem.nickname}}：</text><text>{{subItem.content_text}}</text>
+                        <view class="pics">
+                            <image src="{{subImg}}" wx:for-item="subImg" wx:for="{{subItem.content_img}}" wx:key="{{index}}"/>
+                        </view>
+                    </view>
+                    <!--子评论E-->
                     <view class="bottom">
                         <text class="time">{{item.create_at}}</text>
                     </view>

@@ -48,18 +48,22 @@
         <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=0">
           <image src="/static/icons/user/1.png" style="height:38rpx"/>
           待付款
+          <view class="tipsNum" wx:if="{{userinfo.order_num[0].num>0}}">{{userinfo.order_num[0].num}}</view>
         </navigator>
         <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=1">
           <image src="/static/icons/user/2.png" style="height:36rpx;width:44rpx;"/>
           待发货
+          <view class="tipsNum" wx:if="{{userinfo.order_num[1].num>0}}">{{userinfo.order_num[1].num}}</view>
         </navigator>
         <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=2">
           <image src="/static/icons/user/3.png" style="height:36rpx"/>
           待收货
+          <view class="tipsNum" wx:if="{{userinfo.order_num[2].num>0}}">{{userinfo.order_num[2].num}}</view>
         </navigator>
         <navigator hover-class="none" class="icon" url="/pages/user/orders/orders?status=3">
           <image src="/static/icons/user/4.png" style="height:36rpx"/>
           待评价
+          <view class="tipsNum" wx:if="{{userinfo.order_num[3].num>0}}">{{userinfo.order_num[3].num}}</view>
         </navigator>
       </view>
     </view>
