@@ -47,12 +47,27 @@
     align-items: center;
     justify-content: center;
     font-size: 24rpx;
+    position: relative;
 }
 
 .icons .icon image {
     width: 40rpx;
     height: 40rpx;
     margin-bottom: 12rpx;
+}
+.tipsNum{
+    position: absolute;
+    top: -16rpx;
+    /*right: 24%;*/
+    left: 54%;
+    width: 36rpx;
+    height: 36rpx;
+    background: red;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 36rpx;
+    font-size: 20rpx;
 }
 
 .head {
@@ -129,7 +144,7 @@
 }
 
 .head .bottom .buttons {
-    
+
 }
 
 .head .bottom .buttons navigator {

@@ -1,29 +1,27 @@
 .list{
-    margin-top: 10rpx;
+    padding: 10rpx 15rpx;
 }
 
 .list .item {
-    background: #fff;
-    margin-left: 20rpx;
-    margin-right: 20rpx;
-    margin-bottom: 20rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25rpx;
-    padding-right: 0;
-    border-radius: 10rpx;
+    height: 100rpx;
+    background: #fff;
+    margin-bottom: 10rpx;
+    border-radius: 8rpx;
 }
-
+.list .item>text{
+    padding: 6rpx 25rpx;
+}
 .list .item>text:last-of-type {
+    display: flex;
+    align-items: center;
     color: #FF8A00;
     background: #FFEED3;
-    padding: 6rpx 25rpx;
     font-size: 22rpx;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    display: flex;
-    align-items: center;
 }
 
 .list .item .price {

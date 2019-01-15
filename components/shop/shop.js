@@ -15,7 +15,8 @@ Component({
   data: {
     distance: '',
     goods: [],
-    showDetail: true
+    showDetail: true,
+    jumpUrl:'',
   },
 
   ready() {
@@ -25,10 +26,17 @@ Component({
       });
     }
 
+    var jumpUrl = '/pages/goodslist/goodslist?id=' + this.properties.item.id;
+    if (this.properties.item.btype != 1){
+      jumpUrl = '/pages/detail/detail?type=2&id='+this.properties.item.id;
+    }
+   
+
     const dist = this.properties.item.distance;
     this.setData({
       distance: dist > 1000 ? (dist / 1000).toFixed(2) + '公里' : dist + '米',
       goods: this.properties.item.goods,
+      jumpUrl: jumpUrl,
     })
   },
 

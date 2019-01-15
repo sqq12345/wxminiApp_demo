@@ -18,7 +18,7 @@
         <view class="input-item">
             <text class="label">退款原因</text>
             <view class="inputBox" bindtap="bindChoice" data-type="reason">
-                <text class="{{reason==''?'':'onShow'}}">{{reason==''?'请选择':reason}}</text>
+                <text class="{{reason==0?'':'onShow'}}">{{reasonValue}}</text>
                 <image src="/static/icons/right.png"/>
             </view>
         </view>
