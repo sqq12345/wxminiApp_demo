@@ -1,7 +1,7 @@
 /* pages/group/buy/buy.wxss */
 
 .container {
-    
+    padding-bottom: 100rpx;
 }
 
 .goods-list {

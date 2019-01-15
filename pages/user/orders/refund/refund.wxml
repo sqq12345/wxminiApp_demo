@@ -36,7 +36,8 @@
         <view class="input-item">
             <text class="label">退款说明：</text>
             <view class="inputBox">
-                <input bindinput="bindKeyInput" placeholder="退款说明" />
+                <text wx:if="{{!showInput}}" bindtap="bindClickInput" class="textLeft {{content==''?'':'onShow'}}">{{content==''?'退款说明':content}}</text>
+                <input wx:else bindinput="bindKeyInput" placeholder="退款说明" focus="true" value="{{content}}"/>
             </view>
         </view>
         <view class="upload-item">

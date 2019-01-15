@@ -9,6 +9,7 @@ Page(observer({
         order: require('../../../../stores/Order'),
     },
     data: {
+        showInput:true,
         goodsIndex: -1,
         reasonIndex:-1,
         onShow:false,
@@ -80,6 +81,7 @@ Page(observer({
                 onShow:true,
                 isGoods:true,
                 isReason:false,
+                showInput: false,
             })
         }
         //选择退款原因
@@ -88,6 +90,7 @@ Page(observer({
                 onShow:true,
                 isGoods:false,
                 isReason:true,
+                showInput: false,
             })
         }
     },
@@ -122,6 +125,12 @@ Page(observer({
         console.log(e.detail.value)
         this.setData({
             content: e.detail.value
+        })
+    },
+
+    bindClickInput(){
+        this.setData({
+            showInput: true,
         })
     },
 
@@ -189,6 +198,23 @@ Page(observer({
                 token: result.user_token
             },
             success: (response) => {
+                if(response.data.code == 1){
+                    wx.showToast({
+                        title: '申请成功',
+                        icon: 'success',
+                        duration: 2000
+                    },function () {
+                        wx.navigateTo({
+                          url: 'pages/user/orders/orders'
+                        })
+                    })
+                }else {
+                    wx.showToast({
+                        title: response.data.msg,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
                 //退款成功
             }
         });

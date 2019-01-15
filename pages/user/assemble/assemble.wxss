@@ -1,5 +1,7 @@
 /* pages/group/my/my.wxss */
-
+.container{
+    padding-top: 20rpx;
+}
 .item {
     background: #fff;
     margin-bottom: 20rpx;

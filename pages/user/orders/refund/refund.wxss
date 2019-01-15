@@ -83,6 +83,9 @@
     font-size: 28rpx;
     color: #BBBBBB;
 }
+.input-item .inputBox .textLeft{
+    text-align: left;
+}
 .input-item .inputBox text.onShow{
     color: #000000;
 }
