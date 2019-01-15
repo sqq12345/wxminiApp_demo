@@ -48,7 +48,8 @@
         <view wx:if="{{detail.item_status!=0}}" class="call" bind:tap="call" data-mobile="{{detail.mobile}}">拨打电话</view>
         <view class="ops" wx:if="{{detail.item_status!=0}}">
             <view wx:if="{{detail.item_status==1}}" class="button" bind:tap="refundOrder">退款</view>
-            <view wx:if="{{detail.item_status==2}}" class="button">查看物流</view>
+     
+                  <navigator wx:if="{{detail.item_status==2}}" hover-class="none" class="button"          url="../logistics/logistics?no={{detail.address.logi_no}}">查看物流</navigator>
             <view wx:if="{{detail.item_status==2}}" class="button" bind:tap="confirmOrder">确认收货</view>
         </view>
     </view>
