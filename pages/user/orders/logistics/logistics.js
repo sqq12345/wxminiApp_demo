@@ -1,5 +1,5 @@
-// pages/user/logistics/logistics.js
 import http from '../../../../utils/http';
+
 Page({
 
   /**
@@ -7,6 +7,7 @@ Page({
    */
   data: {
     list: [],
+    msg: '',
   },
 
   /**
@@ -16,19 +17,17 @@ Page({
     http.request({
       url: '/api/user/logistics',
       method: 'POST',
-      data:{
-        //logi_no:'818510709234',
+      data: {
         logi_no: options.no,
       },
       success: (response) => {
+        var res = response.data;
+        console.log(res);
         this.setData({
-          list:response.data.data.data
+          list: res.data.data,
+          msg: res.msg,
         });
       }
     });
   },
-
-  onShow: function () {
-
-  },
-})
+});

@@ -7,7 +7,7 @@
             </view>
         </view>
         <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
-            <image class="head" />
+            <image class="head" src="{{item.avatar}}"/>
             <view class="content">
                 <view class="username">
                     {{item.nickname}}

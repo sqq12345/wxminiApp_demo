@@ -6,18 +6,18 @@
 
 .head {
     width: 100%;
-    height: 120vw;
+    height: 100vw;
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
     font-size: 0;
-    padding: 0 120rpx;
+    /*padding: 0 120rpx;*/
     box-sizing: border-box;
 }
 
 .head .logo {
-    margin-top: 12vh;
+    margin-top: 29rpx;
     width: 160rpx;
     height: 160rpx;
     border-radius: 50%;
