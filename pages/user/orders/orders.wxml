@@ -12,17 +12,21 @@
         <!-- 如果是待付款状态  做合并展示  不是待付款状态 单独显示 -->
         <!-- 查看总订单 -->
         <view wx:if="{{item.order_status==0}}" class="wait-pay">
-            <view class="top" >
-                <text class="orderNo">订单号：{{item.order_num}}</text>
+            <view class="shop" wx:if="{{item.items_info.length>1}}" >
+                <view class="left">
+                    <image src="../../../static/icons/logo.jpg"/>
+                    安否
+                </view>
                 <text class="status">{{item.status}}</text>
             </view>
-            <view class="sub-order" wx:for="{{item.items_info}}" wx:key="{{index}}" wx:for-item="sub">
-                <view class="shop">
+            <view class="sub-order {{item.items_info.length>1&&index!=0?'hasBorder':''}}" wx:for="{{item.items_info}}" wx:key="{{index}}" wx:for-item="sub">
+                <view class="shop" wx:if="{{item.items_info.length <= 1}}">
                     <view class="left">
                         <image src="{{sub.logo}}"/>
                         {{sub.name}}
                     </view>
-                    <text>订单编号 :{{sub.item_num}}</text>
+                    <text class="status">{{item.status}}</text>
+                    <!--<text>订单编号 :{{sub.item_num}}</text>-->
                 </view>
                 <navigator class="goods" url="/pages/user/orders/order/order?id={{item.id}}" hover-class="none">
                     <view class="middle" wx:for="{{sub.goods}}" wx:key="{{index}}" wx:for-item="goods">
@@ -42,6 +46,7 @@
                 </navigator>
             </view>
         </view>
+
         <!-- 待付款 -->
         <view class="bottom status0" wx:if="{{item.order_status==0}}">
             <text class="button solid" data-id="{{item.id}}" bind:tap="payOrder">去支付</text>

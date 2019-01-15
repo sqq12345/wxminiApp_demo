@@ -1,6 +1,6 @@
 <view class="container">
   <view class="item" wx:for="{{list}}" wx:key="{{index}}">
-    <view class="start">创建时间 : {{item.create_at}}<button class="share-btn" open-type='share' data-title="{{item.title}}" data-id="{{item.id}}"><image src="/static/icons/wechat.png"/></button></view>
+    <view class="start">加入时间 : {{item.create_at}}<button class="share-btn" open-type='share' data-title="{{item.title}}" data-id="{{item.id}}"><image src="/static/icons/wechat.png"/></button></view>
     <view class="title">{{item.title}}</view>
     <view class="desc">
       {{item.content}}

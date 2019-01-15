@@ -27,9 +27,9 @@
                         <view class="price">
                             ￥{{goods.price}}
                             <view class="calc">
-                                <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                <image src="/static/icons/cart/jian.png" class="op" catch:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
                                 <text class="num">{{goods.count}}</text>
-                                <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
+                                <image src="/static/icons/cart/jia.png" class="op" catch:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" />
                             </view>
                         </view>
                     </view>
