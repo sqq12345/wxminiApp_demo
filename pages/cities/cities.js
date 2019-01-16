@@ -32,8 +32,8 @@ Page(observer({
   select(e) {
     const {value} = e.target.dataset;
     this.props.city.selected = value;
-    this.props.city.user_latitude = value.location.lat;
-    this.props.city.user_longitude = value.location.lng;
+    // this.props.city.user_latitude = value.location.lat;
+    // this.props.city.user_longitude = value.location.lng;
 
     this.props.city.latitude = value.location.lat;
     this.props.city.longitude = value.location.lng;

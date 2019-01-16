@@ -21,25 +21,19 @@ City.prototype.getMarkers = async function (type, latitude, longitude) {
     this.latitude = latitude;
     this.longitude = longitude;
   }
-  //打印数据
-  // console.log('latitude', this.latitude);
-  // console.log('longitude', this.longitude);
-  // wx.showToast({
-  //   title: `${type},${this.latitude},${this.longitude}`,
-  //   icon: 'none',
-  //   image: '',
-  //   duration: 5000,
-  // });
+
   http.request({
     url: '/api/shop/near',
-    data: { btype: type || '1' },
+    data: { 
+      btype: type || '1',
+      latitude: this.latitude,
+      longitude: this.longitude,
+    },
     showLoading: latitude == undefined,
     loadingTitle: '获取周边商家',
     header: {
-      latitude: this.latitude,
-      longitude: this.longitude,
-      // latitude: this.latitude,
-      // longitude: this.longitude,
+      user_latitude: this.user_latitude,
+      user_longitude: this.user_longitude,
     },
     method: 'POST',
     success: (response) => {
@@ -101,15 +95,14 @@ City.prototype.fetchData = function () {
         wx.getLocation({
           type: 'wgs84',
           success: (res) => {
+            console.log(res);
             // success  
             this.longitude = res.longitude;
             this.latitude = res.latitude;
             //用户所处位置
             this.user_latitude = res.latitude;
             this.user_longitude = res.longitude;
-            // console.log('latitude', res.latitude);
-            // console.log('longitude', res.longitude);
-            // this.getMarkers();
+
             http.request({
               url: '/api/basics/position',
               header: {
