@@ -1,5 +1,11 @@
 // components/search/search.js
 const app = getApp();
+
+// 去左右空格
+function trim(s) {
+  return s.replace(/(^\s*)|(\s*$)/g, "");
+}
+
 Component({
   /**
    * 组件的属性列表
@@ -13,9 +19,7 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 组件的方法列表
@@ -25,13 +29,14 @@ Component({
       const pages = getCurrentPages();
       const currentPage = pages[pages.length - 1];
       const url = currentPage.route;
-      if (url != 'pages/tabbar/home/search/search') {
+      var value = trim(e.detail.value);
+      if (url !== 'pages/tabbar/home/search/search' && value !== '') {
         wx.navigateTo({
-          url: "/pages/tabbar/home/search/search?query=" + e.detail.value,
+          url: "/pages/tabbar/home/search/search?query=" + value,
         })
       } else {
-        currentPage.search(e.detail.value);
+        currentPage.search(value);
       }
     }
   }
-})
+});

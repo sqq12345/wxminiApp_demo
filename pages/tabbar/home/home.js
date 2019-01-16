@@ -1,22 +1,13 @@
-// pages/tabbar/home/home.js
-import { observer } from '../../../utils/mobx/observer';
-import login from '../../../stores/Login';
-const { regeneratorRuntime } = global;
+import {observer} from '../../../utils/mobx/observer';
+
+const {regeneratorRuntime} = global;
 const app = getApp();
+
 Page(observer({
   props: {
     city: require('../../../stores/City'),
   },
   data: {
-    // 组件所需的参数
-/*
-    nvabarData: {
-      showCapsule: false, //是否显示左上角图标
-      title: '附近商家', //导航栏 中间的标题
-      transparent: false //透明导航栏
-    },
-    occupation: app.globalData.height + 46,
-*/
     //类型
     types: [],
     selectedTypeId: 1,
@@ -26,7 +17,7 @@ Page(observer({
   },
   //切换分类
   changeType(e) {
-    const { id } = e.currentTarget.dataset;
+    const {id} = e.currentTarget.dataset;
     //清除markers和detail,并重新请求markers
     this.setData({
       selectedTypeId: id,
@@ -42,11 +33,11 @@ Page(observer({
   },
   async onLoad() {
     const arr = await app.globalData.roles();
-    this.setData({ types: arr });
+    this.setData({types: arr});
   },
   //显示页面时隐藏marker
   onShow() {
-    this.setData({ detailShow: false});
+    this.setData({detailShow: false});
   },
   //点击marker
   tapMarker(e) {
