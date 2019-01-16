@@ -3,8 +3,8 @@
 <view class="container">
     <view class="list">
         <view class="line"/>
-        <view wx:if="{{msg==='暂无相关物流信息'&&list===[]}}" class="msg">暂无相关物流信息</view>
-        <view class="step" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{msg!=='暂无相关物流信息'&&list!==[]}}">
+        <view wx:if="{{msg==='暂无相关物流信息'}}" class="msg">暂无相关物流信息</view>
+        <view class="step" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{msg!=='暂无相关物流信息'}}">
             <view class="times">
                 <view class="date">{{item.time}}</view>
                 <view class="time">{{item.ftime}}</view>

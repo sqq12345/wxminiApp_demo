@@ -1,28 +1,19 @@
-// pages/group/my/my.js
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
-const { regeneratorRuntime } = global;
-// const app = getApp();
+
+const {regeneratorRuntime} = global;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '我的接龙', //导航栏 中间的标题
-      transparent: false, //透明导航栏
-    },
-    occupation: app.globalData.height + 46,
-*/
-    //当前页数
     page: 1,
     list: [],
     loading: false,
-    //没有更多数据了
     end: false,
+    msg: '',
+    totalPage: '',
   },
 
   /**
@@ -44,17 +35,25 @@ Page({
         token: result.user_token
       },
       success: (response) => {
-        const list = response.data.data.list;
-
-        const end = response.data.data.last_page == this.data.page;
-        this.setData({ list: this.data.list.concat(list), end, loading: false, page: this.data.page + 1 })
+        var res = response.data;
+        console.log(res);
+        const list = res.data.list;
+        const end = res.data.last_page === this.data.page;
+        this.setData({
+          list: this.data.list.concat(list),
+          end: end,
+          loading: false,
+          page: this.data.page + 1,
+          msg: res.msg,
+          totalPage: res.data.totalPage
+        })
       }
     })
   },
 
   onReachBottom() {
     if (this.data.loading || this.data.end) return;
-    this.setData({ loading: true }, () => {
+    this.setData({loading: true}, () => {
       this.assemble();
     });
   },
@@ -62,14 +61,13 @@ Page({
   //分享
   onShareAppMessage: function (e) {
     if (e.from === 'button') {
-      const { title, id } = e.target.dataset;
+      const {title, id} = e.target.dataset;
       return {
         title: title, // 转发后 所显示的title
         path: '/pages/group/buy/buy?id=' + id, // 相对的路径
         //拼团图片
         //imageUrl:'',
-        success: (res) => {    // 成功后要做的事情
-
+        success: (res) => {
         },
         fail: function (res) {
           // 分享失败
@@ -78,4 +76,4 @@ Page({
       }
     }
   }
-})
+});
