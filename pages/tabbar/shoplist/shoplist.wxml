@@ -4,9 +4,9 @@
             autoplay="{{true}}" class="silderBox">
         <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:if="{{item.is_show==1}}">
             <swiper-item class="silder-item">
-                <view class="sView">
+                <navigator class="sView" url="{{item.category===0?'':item.category===1?'/pages/goodslist/goodslist?id='+item.select_id:'/pages/goods/goods?id='+item.select_id}}" hover-class="none">
                     <image src="{{item.avatar}}" class="silder-images"/>
-                </view>
+                </navigator>
             </swiper-item>
         </block>
     </swiper>

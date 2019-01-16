@@ -19,6 +19,7 @@
     flex: 1;
     display: flex;
     flex-flow: column;
+    padding-right: 20rpx;
 }
 .list .item .right{
 

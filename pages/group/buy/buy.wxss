@@ -43,7 +43,9 @@
 .goods .info {
     flex-grow: 1;
     position: relative;
-    height: 156rpx;
+    /*height: 156rpx;*/
+    min-height: 110rpx;
+    padding-bottom: 46rpx;
 }
 
 .goods .info .price {
@@ -81,13 +83,13 @@
 }
 
 .goods .shop {
-    background: #dff7e3;
+    /*background: #dff7e3;*/
     color: #32cc4a;
-    padding: 12rpx 26rpx;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    position: absolute;
-    right: -30rpx;
+    /*padding: 12rpx 26rpx;*/
+    /*border-top-left-radius: 20px;*/
+    /*border-bottom-left-radius: 20px;*/
+    /*position: absolute;*/
+    /*right: -30rpx;*/
     font-size: 22rpx !important;
 }
 
@@ -99,8 +101,8 @@
 }
 
 .item {
-    background: #fff;
-    margin-bottom: 20rpx;
+    /*background: #fff;*/
+    /*margin-bottom: 20rpx;*/
     padding: 30rpx;
 }
 
@@ -128,8 +130,8 @@
 }
 
 .item .start .head{
-    width: 48rpx;
-    height: 48rpx;
+    width: 50rpx;
+    height: 50rpx;
     align-items: center;
     border-radius: 50%;
     margin-right: 16rpx;

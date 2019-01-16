@@ -138,7 +138,7 @@ Page({
   //分享
   onShareAppMessage: function (e) {
     const title = this.data.detail.title;
-    const id = this.data.detail.sid;
+    const id = this.data.sid;
     return {
       title: title, // 转发后 所显示的title
       path: '/pages/group/buy/buy?id=' + id, // 相对的路径
