@@ -110,7 +110,7 @@
     </view>
     <view class="bottom-line"/>
     <view class="icons">
-      <navigator class="icon" hover-class="none" url="/pages/user/setting/setting">
+      <navigator class="icon" hover-class="none" url="/pages/user/profile/profile">
         <image src="/static/icons/user/11.png" style="width:34rpx;height:34rpx;"/>
         设置
       </navigator>
