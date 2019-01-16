@@ -19,7 +19,7 @@
                 <view class="title">{{item.title}}</view>
                 <view class="unit">
                     <view>规格:{{item.specification}}</view>
-                    <view>配送范围:{{item.address}}</view>
+                    <view>配送范围:{{item.area}}</view>
                 </view>
                 <view class="price">
                     <text><text class="_rmb">￥</text>{{item.price}}</text>
