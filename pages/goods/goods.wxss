@@ -291,3 +291,15 @@ swiper {
 rich-text .rich-img {
   width: 100%;
 }
+
+.sub-comment{
+    background: #F7F7F7;
+    padding: 20rpx 30rpx;
+    margin: 10rpx 0 20rpx;
+    border-radius: 8rpx;
+}
+.sub-comment text{
+    font-size: 26rpx;
+    color: #444444;
+}
+.sub-comment .subName{ color: #FF6600;}

@@ -35,7 +35,7 @@ Page({
       },
       success: (response) => {
         this.setData({
-          score: response.data.data.score.toFixed(1),
+          score: response.data.data.score,
           list: this.data.list.concat(response.data.data.comments.list),
           page: this.data.page + 1,
           loading: false,
@@ -50,5 +50,15 @@ Page({
     this.setData({loading: true}, () => {
       this.fetchData();
     });
-  }
+  },
+    //查看大图
+    bindImg:function (e) {
+        var src = e.currentTarget.dataset.src;//获取data-src
+        var imgList = e.currentTarget.dataset.list;//获取data-list
+        //图片预览
+        wx.previewImage({
+            current: src, // 当前显示图片的http链接
+            urls: imgList, // 需要预览的图片http链接列表
+        })
+    },
 });

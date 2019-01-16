@@ -15,8 +15,17 @@
                 </view>
                 <view class="desc">{{item.content_text}}</view>
                 <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
-                    <image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>
+                    <!--<image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>-->
+                    <image wx:for="{{item.content_img}}" wx:for-item="dImg" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
                 </view>
+                <!--子评论S-->
+                <view class="sub-comment" wx:if="{{item.son.length>0}}" wx:for="{{item.son}}" wx:for-item="subItem" wx:key="{{index}}">
+                    <text class="subName">{{subItem.nickname}}：</text><text>{{subItem.content_text}}</text>
+                    <view class="pics">
+                        <image wx:for="{{subItem.content_img}}"wx:for-item="subImg"  wx:key="{{index}}" src="{{subImg}}" bindtap="bindImg" data-list="{{subItem.content_img}}" data-src="{{subImg}}"/>
+                    </view>
+                </view>
+                <!--子评论E-->
                 <view class="bottom">
                     <text>{{item.create_at}}</text>
                     <text>  {{item.specification}}</text>
