@@ -24,14 +24,14 @@
         <view>
           可提现金额:
           <text class="price">
-            <text class="_rmb">￥</text>{{userinfo.earnings}}
+            <text class="_rmb">￥</text>{{earnings}}
           </text>
         </view>
         <view class="buttons">
           <navigator hover-class="none" url="/pages/user/earnings/earnings">
             收益明细
           </navigator>
-          <navigator hover-class="none" url="/pages/user/draw/draw?max={{userinfo.earnings}}">提现</navigator>
+          <navigator hover-class="none" url="/pages/user/draw/draw?max={{earnings}}">提现</navigator>
         </view>
       </view>
     </view>

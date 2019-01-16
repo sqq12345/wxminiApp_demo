@@ -1,24 +1,17 @@
-// pages/user/draw/draw.js
-const app = getApp();
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 import regex from '../../../utils/regex';
 import verify from '../../../utils/verify';
-const { regeneratorRuntime } = global;
+
+const app = getApp();
+const {regeneratorRuntime} = global;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    /*
-        nvabarData: {
-          showCapsule: true, //是否显示左上角图标
-          title: '提现', //导航栏 中间的标题
-          transparent: true, //透明导航栏
-          color: '#fff'
-        },
-    */
     occupation: app.globalData.height + 46,
     form: {
       card: '',
@@ -31,7 +24,7 @@ Page({
 
   onInput(e) {
     const value = e.detail.value;
-    const { field } = e.target.dataset;
+    const {field} = e.target.dataset;
     this.setData({
       ['form.' + field]: value
     });
@@ -40,10 +33,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const max = Number.parseFloat(options.max).toFixed(2);
+  onLoad: function (o) {
+    console.log(o);
     this.setData({
-      max
+      max: o.max,
     });
   },
 
@@ -77,8 +70,6 @@ Page({
         }
       })
     }
-
-
   },
 
   /**
@@ -89,7 +80,7 @@ Page({
       'form.amount': this.data.max
     });
   }
-})
+});
 
 const config = {
   card: {
@@ -105,4 +96,4 @@ const config = {
     require: true,
     name: '收款银行',
   },
-}
+};
