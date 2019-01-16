@@ -28,6 +28,8 @@ City.prototype.getMarkers = async function (type, latitude, longitude) {
       btype: type || '1',
       latitude: this.latitude,
       longitude: this.longitude,
+      user_latitude: this.user_latitude,
+      user_longitude: this.user_longitude,
     },
     showLoading: latitude == undefined,
     loadingTitle: '获取周边商家',
