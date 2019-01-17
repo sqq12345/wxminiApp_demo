@@ -125,6 +125,9 @@ Page({
                 lastPage.resetComments();
               }
               setTimeout(() => {
+                  const pages = getCurrentPages();
+                  const prePage = pages[pages.length - 2];
+                  prePage.refresh()
                 wx.navigateBack({
                   delta: 1
                 });

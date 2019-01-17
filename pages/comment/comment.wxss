@@ -24,3 +24,6 @@
     background: #ffffff;
     padding: 10px;
 }
+.textarea textarea{
+    width: 100%;
+}
