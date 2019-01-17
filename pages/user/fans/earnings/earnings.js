@@ -38,7 +38,7 @@ Page({
         fan.mobile = fan.mobile?fan.mobile.substr(0, 3) + '****' + fan.mobile.substr(7):"暂无联系电话";
         const list = data.data.data;
         list.forEach(item => {
-          item.orderNo = item.order_num?item.order_num.substr(0, 3) + '****' + item.order_num.substr(item.order_num.length - 1):""
+          item.orderNo = item.item_num?item.item_num.substr(0, 3) + '****' + item.item_num.substr(item.item_num.length - 1):""
         });
         this.setData({
           fan: fan,

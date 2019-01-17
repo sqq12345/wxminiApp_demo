@@ -81,21 +81,26 @@ Page(observer({
           });
           return
         }
-       
+
         if (this.props.order.address == null && response.data.address) {
           this.props.order.address = response.data.address;
         }
         this.setData({
           logisticsprc: response.data.goods.logisticsprc,
-          totalPrice: response.data.goods.totalprc.toFixed(2)
+          totalPrice: response.data.goods.totalprc.toFixed(2),
+            address: response.data.address,
+            goods: response.data.goods.data,
         });
 
         //检查有没有可用优惠券
         let goodsnum = '';
         for (const key in response.data.goods.data) {
-          response.data.goods.data[key].goods.forEach(g => {
-            goodsnum += g.id + '_' + g.num + ','
-          })
+          if(response.data.goods.data[key].state != 0){
+              response.data.goods.data[key].goods.forEach(g => {
+                  goodsnum += g.id + '_' + g.num + ','
+              })
+          }
+
         }
         goodsnum = goodsnum.substr(0, goodsnum.length - 1)
         this.setData({ couponParam: goodsnum });
@@ -126,7 +131,6 @@ Page(observer({
     if (this.props.order.coupon != null) {
       form.couponid = this.props.order.coupon.id
     }
-
     const result = await login();
     http.request({
       url: '/api/order/payment',

@@ -16,32 +16,67 @@
         </view>
     </navigator>
     <view class="box">
+        <!--<view class="cart">-->
+            <!--<view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex" wx:if="{{item.settle}}">-->
+                <!--<view class="header">-->
+                    <!--<view>-->
+                        <!--<image class="select-icon" src="{{item.shop.logo}}" />-->
+                        <!--{{item.shop.name}}-->
+                    <!--</view>-->
+                    <!--<image class="_right" src="/static/icons/right.png" />-->
+                <!--</view>-->
+                <!--<view>-->
+                    <!--<view class="goods {{state===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"-->
+                          <!--wx:key="{{goodsIndex}}" wx:for-item="goods"-->
+                          <!--wx:for-index="goodsIndex" wx:if="{{goods.selected}}">-->
+                        <!--<view class="thumbView">-->
+                            <!--<view class="shortage" wx:if="{{state===0}}">缺货</view>-->
+                            <!--<image class="thumb" src="{{goods.image}}" />-->
+                        <!--</view>-->
+                        <!--<view class="info">-->
+                            <!--<view class="title">{{goods.name}}</view>-->
+                            <!--<view class="unit">{{goods.unit}}</view>-->
+                            <!--<view class="price">-->
+                                <!--￥{{goods.total}}-->
+                                <!--<view class="calc">-->
+                                    <!--&lt;!&ndash; <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> &ndash;&gt;-->
+                                    <!--<text class="num">{{goods.count}}</text>-->
+                                    <!--&lt;!&ndash; <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> &ndash;&gt;-->
+                                <!--</view>-->
+                            <!--</view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                <!--</view>-->
+                <!--<view class="line">-->
+                    <!--<text>买家留言</text>-->
+                    <!--<input placeholder="选填，可填写您与卖家达成一致的要求" bindinput="onInput" data-mid="{{item.shop.id}}"/>-->
+                <!--</view>-->
+            <!--</view>-->
+        <!--</view>-->
         <view class="cart">
-            <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex" wx:if="{{item.settle}}">
+            <view class="item" wx:for="{{goods}}" wx:key="{{index}}">
                 <view class="header">
                     <view>
-                        <image class="select-icon" src="{{item.shop.logo}}" />
-                        {{item.shop.name}}
+                        <image class="select-icon" src="{{item.middata.logo}}" />
+                        {{item.middata.name}}
                     </view>
                     <image class="_right" src="/static/icons/right.png" />
                 </view>
                 <view>
-                    <view class="goods {{state===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"
-                          wx:key="{{goodsIndex}}" wx:for-item="goods"
-                          wx:for-index="goodsIndex" wx:if="{{goods.selected}}">
+                    <view class="goods {{item.state===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"
+                          wx:key="{{goodsIndex}}" wx:for-item="goodsItem"
+                          wx:for-index="goodsIndex">
                         <view class="thumbView">
-                            <view class="shortage" wx:if="{{state===0}}">缺货</view>
-                            <image class="thumb" src="{{goods.image}}" />
+                            <view class="shortage" wx:if="{{item.state===0}}">缺货</view>
+                            <image class="thumb" src="{{goodsItem.thumb_image}}" />
                         </view>
                         <view class="info">
-                            <view class="title">{{goods.name}}</view>
-                            <view class="unit">{{goods.unit}}</view>
+                            <view class="title">{{goodsItem.title}}</view>
+                            <view class="unit">{{goodsItem.specification}}</view>
                             <view class="price">
-                                ￥{{goods.total}}
+                                ￥{{goodsItem.price}}
                                 <view class="calc">
-                                    <!-- <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> -->
-                                    <text class="num">{{goods.count}}</text>
-                                    <!-- <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> -->
+                                    <text class="num">{{goodsItem.num}}</text>
                                 </view>
                             </view>
                         </view>
@@ -53,6 +88,7 @@
                 </view>
             </view>
         </view>
+
         <view class="item">
             <view class="line">
                 <text>运费</text>
@@ -76,6 +112,6 @@
             </text>
         </block>
     </view>
-    <view class="buy disable"  wx:if="{{props.order.address==null}}">请添加地址</view>
-    <view class="buy" bind:tap="prePay" wx:if="{{props.order.address!=null}}">确认付款</view>
+    <view class="buy disable"  wx:if="{{props.order.address==null || totalPrice<=0}}">{{props.order.address==null?"请添加地址":"不在配送范围"}}</view>
+    <view class="buy" bind:tap="prePay" wx:else>确认付款</view>
 </view>
