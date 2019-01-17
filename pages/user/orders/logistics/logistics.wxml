@@ -1,8 +1,4 @@
 <view class="container">
-  <view wx:if="{{list.length<=0}}" class="msg">
-    <image src="/static/images/dingdan.png" class="ptImg"></image>
-    <view>暂无相关物流信息</view>
-  </view>
   <view class="list" wx:if="{{list.length>0}}">
     <view class="line"/>
     <view class="step" wx:for="{{list}}" wx:key="{{index}}">
@@ -16,5 +12,9 @@
       </view>
       <view class="context">{{item.context}}</view>
     </view>
+  </view>
+  <view wx:else class="msg">
+    <image src="/static/images/dingdan.png" class="ptImg"></image>
+    <view>暂无相关物流信息</view>
   </view>
 </view>

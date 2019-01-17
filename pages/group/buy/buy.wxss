@@ -97,7 +97,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 350rpx;
+    max-width: 100%;
 }
 
 .item {

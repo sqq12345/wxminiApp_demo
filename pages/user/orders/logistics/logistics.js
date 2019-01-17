@@ -21,7 +21,7 @@ Page({
       },
       success: (response) => {
         var res = response.data;
-        if (res.data.length > 0) {
+        if (res.code === 1) {
           this.setData({
             list: res.data.data,
           });
