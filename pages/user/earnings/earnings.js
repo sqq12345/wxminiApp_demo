@@ -24,16 +24,22 @@ Page({
       },
       method: 'GET',
       success: (response) => {
+        
         const data = response.data;
-        if (data.code !== 999) {
+        if (data.code != 0) {
           const list = data.data.income;
-          list.forEach(item => {
-            item.orderNo = item.item_num.substr(0, 3) + '****' + item.item_num.substr(item.item_num.length - 1)
-          });
+          var newList = Array();
+          for (var item in list) {
+            var nitem = list[item];
+            nitem.orderNo = nitem.item_num.substr(0, 3) + '****' + nitem.item_num.substr(nitem.item_num.length - 1)
+            newList.push(nitem);
+          } 
           this.setData({
-            list: list
+            list: newList
           });
         }
+
+        
       }
     })
   },
