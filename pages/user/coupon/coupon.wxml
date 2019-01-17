@@ -1,7 +1,7 @@
 <view class="container">
-    <view class="empty" wx:if="{{list.length == 0}}">
-        <image src="empty.png" />
-        暂无可用优惠券
+    <view class="empty" wx:if="{{list.length <= 0}}">
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无优惠券</view>
     </view>
     <view class="coupon {{item.status!=0?'coupon-gray':''}}" wx:key="{{index}}" wx:for="{{list}}" bind:tap="selectCoupon" data-status="{{item.status}}" data-index="{{index}}" wx:if="{{!select||(select&&item.isuser!=0)}}">
         <image wx:if="{{item.status!=0}}" class="_bg" src="coupon-gray.png"/>

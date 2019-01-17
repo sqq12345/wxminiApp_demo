@@ -6,6 +6,7 @@
         </view>
     </view>
     <view class="empty" wx:else>
-        暂无收益
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无收益明细</view>
     </view>
 </view>

@@ -7,7 +7,6 @@ Page({
    */
   data: {
     list: [],
-    msg: '',
   },
 
   /**
@@ -22,11 +21,11 @@ Page({
       },
       success: (response) => {
         var res = response.data;
-        console.log(res);
-        this.setData({
-          list: res.data.data,
-          msg: res.msg,
-        });
+        if (res.data.length > 0) {
+          this.setData({
+            list: res.data.data,
+          });
+        }
       }
     });
   },

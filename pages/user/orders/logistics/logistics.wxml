@@ -1,9 +1,9 @@
 <view class="container">
-  <view wx:if="{{msg==='暂无相关物流信息'}}" class="msg">
+  <view wx:if="{{list.length<=0}}" class="msg">
     <image src="/static/images/dingdan.png" class="ptImg"></image>
-    <view>暂无相关物流信息!</view>
+    <view>暂无相关物流信息</view>
   </view>
-  <view class="list" wx:if="{{msg!=='暂无相关物流信息'}}">
+  <view class="list" wx:if="{{list.length>0}}">
     <view class="line"/>
     <view class="step" wx:for="{{list}}" wx:key="{{index}}">
       <view class="times">

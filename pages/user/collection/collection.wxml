@@ -1,6 +1,9 @@
 <view class="container">
-    <view class="empty" wx:if="{{list.length==0}}">暂无收藏</view>
-    <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="empty" wx:if="{{list.length<=0}}">
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无收藏</view>
+    </view>
+    <navigator hover-class="none" class="item" url="/pages/goods/goods?id={{item.goods.id}}" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length>0}}">
         <image src="{{item.goods.thumb_image}}"/>
         <view class="content">
             <view class="name"><text>{{item.goods.title}}</text><text class="price">￥{{item.goods.price}}</text></view>

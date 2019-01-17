@@ -1,4 +1,13 @@
-/* pages/tabbar/user/address/address.wxss */
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
 .list{
     background: #fff;
 }
@@ -38,8 +47,18 @@
 .empty{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-top: 300rpx;
-    color: #999999
+    align-items: center;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    color: #999;
+    background: #f7f7f7;
+}
+
+.ptImg {
+    display: block;
+    width: 410rpx;
+    height: 172rpx;
+    margin-bottom: 20rpx;
 }

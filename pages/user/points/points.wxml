@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="list">
+    <view class="list" wx:if="{{list.length>0}}">
         <view class="item" wx:key="{{index}}" wx:for="{{list}}">
             <view>
                 <text>购买商品</text>
@@ -11,7 +11,8 @@
             </view>
         </view>
     </view>
-    <view class="empty">
-        没有积分
+    <view class="empty" wx:if="{{list.length<=0}}">
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无积分</view>
     </view>
 </view>

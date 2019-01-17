@@ -1,6 +1,9 @@
 <view class="container">
-    <view class="empty" wx:if="{{list.length==0}}">没有粉丝</view>
-    <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="empty" wx:if="{{list.length<=0}}">
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无粉丝</view>
+    </view>
+    <view class="list" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length>0}}">
         <navigator hover-class="none" class="item" url="earnings/earnings?id={{item.uid}}">
             <image src="{{item.avatar}}"/>
             <view class="right">

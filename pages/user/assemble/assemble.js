@@ -12,8 +12,6 @@ Page({
     list: [],
     loading: false,
     end: false,
-    msg: '',
-    totalPage: '',
   },
 
   /**
@@ -44,8 +42,6 @@ Page({
           end: end,
           loading: false,
           page: this.data.page + 1,
-          msg: res.msg,
-          totalPage: res.data.totalPage
         })
       }
     })

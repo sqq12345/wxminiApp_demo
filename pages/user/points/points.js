@@ -1,23 +1,15 @@
-// pages/tabbar/user/points/points.js
-// const app = getApp();
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
-const { regeneratorRuntime } = global;
+
+const {regeneratorRuntime} = global;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '安积分', //导航栏 中间的标题
-      transparent: false, //透明导航栏
-    },
-*/
     list: [],
-    // occupation: app.globalData.height + 46,
   },
 
   /**
@@ -32,40 +24,13 @@ Page({
         token: result.user_token
       },
       success: (response) => {
-        // const data = {
-        //   "code": 1,
-        //   "msg": "查询成功",
-        //   "time": "1546656099",
-        //   "data": {
-        //     "points": [
-        //       {
-        //         "id": 3,
-        //         "uid": "30",
-        //         "type": "购买商品",
-        //         "amount": "10",
-        //         "totalamount": "10",
-        //         "create_at": "1970-01-07 14:59:03",
-        //         "status": 0
-        //       },
-        //       {
-        //         "id": 4,
-        //         "uid": "30",
-        //         "type": "购买商品",
-        //         "amount": "10",
-        //         "totalamount": "10",
-        //         "create_at": "1970-01-07 14:59:03",
-        //         "status": 0
-        //       }
-        //     ],
-        //     "totalPage": 1
-        //   }
-        // };
         const data = response.data;
-        if(data.code != 0){
-          this.setData({ list: data.data.points })
+        if (data.code !== 0) {
+          this.setData({
+            list: data.data.points,
+          })
         }
       }
     })
   },
-
-})
+});
