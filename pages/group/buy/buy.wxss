@@ -5,20 +5,15 @@
 }
 
 .goods-list {
-    padding: 20rpx;
+    /*padding: 20rpx;*/
 }
 
 .goods {
     display: flex;
     align-items: center;
     background: #fff;
-    position: relative;
-    padding-bottom: 20rpx;
+    padding: 20rpx 30rpx;
     border-bottom: 1px solid #eee;
-    margin: 0 -30rpx;
-    padding-left: 30rpx;
-    padding-right: 30rpx;
-    padding-top: 20rpx;
 }
 
 .goods .thumb {
@@ -97,7 +92,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 100%;
+    max-width: 460rpx;
 }
 
 .item {
