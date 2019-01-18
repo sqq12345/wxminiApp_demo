@@ -18,7 +18,6 @@ Page({
   onLoad: async function (options) {
     const id = options.id;
     this.setData({ sid: id });
-    console.log(id)
     const result = await login();
     http.request({
       url: '/api/solitaire/assemble_detail',

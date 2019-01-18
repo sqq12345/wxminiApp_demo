@@ -29,7 +29,7 @@ const login = function () {
                         data: { code: res.code },
                         method: 'POST',
                     });
-                    const { session_key, openid, reg, user_token } = response.data.data;
+                    const { session_key, openid, reg, user_token,nickName,avatarUrl } = response.data.data;
                     if (reg == 0) {
                         wx.getUserInfo({
                             success(res) {
@@ -77,6 +77,8 @@ const login = function () {
                         result.openid = openid;
                         result.session_key = session_key;
                         result.user_token = user_token;
+                        result.nickName = nickName;
+                        result.avatarUrl = avatarUrl;
                         resolve(result);
                     }
                 } else {

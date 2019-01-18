@@ -32,11 +32,14 @@ Page(observer({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    let that = this;
+    const id = options.id;
+    this.setData({ sid: id });
     await city.fetchData();
     const result = await login();
     http.request({
       showLoading: true,
-      url: '/api/shop/goods?cityid=' + city.selected.id + '&gid=' + options.id,
+      url: '/api/shop/goods?cityid=' + city.selected.id + '&gid=' + id,
       method: 'GET',
       header: {
         token: result.user_token
@@ -55,6 +58,14 @@ Page(observer({
         });
       }
     })
+      wx.getSystemInfo({
+          success: function (t) {
+              that.setData({
+                  windowWidth: t.windowWidth,
+                  windowHeight:t.windowHeight,
+              });
+          }
+      })
   },
   /**
    * 加入购物车
@@ -158,4 +169,157 @@ Page(observer({
             urls: imgList, // 需要预览的图片http链接列表
         })
     },
+    //分享
+    onShareAppMessage: function () {
+        const title = this.data.goods.title;
+        const id = this.data.sid;
+        const img = this.data.goods.image;
+        return {
+            title: title, // 转发后 所显示的title
+            path: '/pages/goods/goods?id=' + id, // 相对的路径
+            //拼团图片
+            imageUrl:img,
+            success: (res) => {
+            },
+            fail: function (res) {
+                // 分享失败
+                console.log(res)
+            }
+        }
+    },
+
+    //分享朋友圈
+    async bindShare () {
+        wx.showLoading({
+            title: '正在生成海报...',
+            mask: true,
+        });
+        this.downloadImg()
+    },
+    async downloadImg(){
+        let that = this
+        wx.downloadFile({
+            url: that.data.goods.image,
+            success: (res) => {
+                that.setData({
+                    proImg: res.tempFilePath
+                });
+                wx.getImageInfo({
+                    src: res.tempFilePath,
+                    success(res) {
+                        let imgW= that.data.windowWidth - 60 ,imgH = imgW * (res.height/res.width)
+                        that.setData({
+                            oImgW: imgW,
+                            oImgH: imgH,
+                            oBgH: imgH + 200,
+                            oCanvasH: imgH + 200+130, //上padding40下padding90
+                        });
+                        that.canvasImg()
+                    }
+                })
+            }
+        });
+    },
+    async canvasImg(){
+        const result = await login();
+        let that = this, dataInfo = that.data
+        let canvasW = dataInfo.windowWidth, canvasH = dataInfo.oCanvasH, imgW = dataInfo.oImgW, imgH = dataInfo.oImgH, bgH = dataInfo.oBgH
+        let proImg = dataInfo.proImg,canvasImg="/static/images/shareBg.png",logo="/static/images/share_logo.png"
+        let userName=result.nickName, guige= "规格："+dataInfo.goods.specification, fanwei=dataInfo.goods.area, money="￥"+dataInfo.goods.price,
+            title = dataInfo.goods.title.length>28 ? dataInfo.goods.title.substring(0,28)+"...": dataInfo.goods.title
+        let ctx = wx.createCanvasContext('share');
+        // 绘制背景图
+        ctx.drawImage(canvasImg, 0, 0, canvasW, canvasH);
+        // 绘制背景块
+        ctx.setFillStyle('#fff');
+        ctx.fillRect(30, 40, imgW, bgH);
+        // 绘制产品图
+        ctx.drawImage(proImg, 30, 40, imgW, imgH);
+        // 绘制小程序码
+        // ctx.drawImage(proImg, (canvasW - 150), (imgH + 50), 110, 110);
+        // 绘制logo
+        ctx.drawImage(logo, (canvasW/2-45), (canvasH - 73), 90, 23);
+        //绘制产品标题
+        ctx.setFontSize(14);
+        ctx.fillStyle = "#333333"
+        let initHeight = (imgH + 65), titleHeight = 20,canvasWidth = (imgW - 155)
+        titleHeight = this.drawText(ctx, title, initHeight, titleHeight, canvasWidth);// 调用行文本换行函数
+        ctx.moveTo(15, titleHeight)
+        //绘制产品规格
+        ctx.setFontSize(12);
+        ctx.fillStyle = "#999999"
+        ctx.fillText(guige, 45, (imgH + 110));
+        //绘制配送范围
+        ctx.setFontSize(12);
+        ctx.fillStyle = "#999999"
+        ctx.fillText("配送范围：", 45, (imgH + 130));
+        ctx.setFontSize(12);
+        ctx.fillStyle = "#29D258"
+        ctx.fillText(fanwei, 45 + ctx.measureText("配送范围：").width, (imgH + 130));
+        //绘制产品价格
+        ctx.setFontSize(15);
+        ctx.fillStyle = "#FF8A00"
+        ctx.fillText(money, 45, (imgH + 160));
+        //绘制用户名
+        ctx.setFontSize(12);
+        ctx.fillStyle = "#DADADA"
+        ctx.fillText(userName, (canvasW - ctx.measureText(userName).width) / 2, bgH+10);
+
+
+        ctx.draw(false, that.saveCanvas);
+        // ctx.draw();
+        wx.hideLoading()
+        that.setData({
+            showContent:true
+        })
+        setTimeout(function(){
+            that.setData({
+                showFoot:true
+            })
+        }, 3000)
+    },
+    // 文字换行
+    drawText: function (ctx, str, initHeight, titleHeight, canvasWidth) {
+        var that = this, lineWidth = 0
+        var lastSubStrIndex = 0; //每次开始截取的字符串的索引
+        for (let i = 0; i < str.length; i++) {
+            lineWidth += ctx.measureText(str[i]).width;
+            if (lineWidth > canvasWidth) {
+                ctx.fillText(str.substring(lastSubStrIndex, i), 45, initHeight);//绘制截取部分
+                initHeight += 20;//20为字体的高度
+                lineWidth = 0;
+                lastSubStrIndex = i;
+                titleHeight += 30;
+            }
+            if (i == str.length - 1) {//绘制剩余部分
+                ctx.fillText(str.substring(lastSubStrIndex, i + 1), 45, initHeight);
+            }
+        }
+        // 标题border-bottom 线距顶部距离
+        titleHeight = titleHeight + 10;
+        return titleHeight
+    },
+    saveCanvas: function(){
+        let that = this
+        wx.canvasToTempFilePath({
+            canvasId: 'share',
+            success: (res) => {
+                wx.saveImageToPhotosAlbum({
+                    filePath: res.tempFilePath,
+                    success: (res) => {
+                        that.setData({
+                            nowDownload: false
+                        })
+                        console.log('成功保存到手机系统相册', res)
+                    },
+                    fail: (err) => {
+                        console.log('保存到手机系统相册失败', err)
+                    }
+                })
+            }, fail: (err) => {
+                console.log('保存到手机系统相册失败', err)
+            }
+        })
+    },
+
 }))

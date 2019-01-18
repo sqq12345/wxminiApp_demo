@@ -1,10 +1,17 @@
 <view class='container'>
     <image src="{{goods.image}}" class="swiper1" mode="widthFix"/>
     <view class="info">
-        <view class="price">
-            <text><text class="_rmb">￥</text>{{price[0]}}</text>
-            <text>.{{price[1]}}</text>
+        <view class="sub-info">
+            <view class="price">
+                <text><text class="_rmb">￥</text>{{price[0]}}</text>
+                <text>.{{price[1]}}</text>
+            </view>
+            <view class="share">
+                <button open-type='share' class="share-btn"><image src="/static/icons/wechat.png"/></button>
+                <button bindtap="bindShare" class="share-btn"><image src="/static/icons/wechat.png"/></button>
+            </view>
         </view>
+
         <view class="unit">
             <view>
                 规格:
@@ -43,7 +50,7 @@
                 <view class="desc">{{item.content_text}}</view>
                 <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
                     <!--<image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>-->
-                    <image wx:for="{{item.content_img}}" wx:for-item="dImg" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
+                    <image wx:for="{{item.content_img}}" wx:for-item="dImg" wx:key="{{index}}" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
                 </view>
                 <!--子评论S-->
                 <view class="sub-comment" wx:if="{{item.son.length>0}}" wx:for="{{item.son}}" wx:for-item="subItem" wx:key="{{index}}">
@@ -93,4 +100,5 @@
 
         <view class="disable" wx:if="{{goods.stock==0}}">库存不足</view>
     </view>
+    <canvas canvas-id='share' class="share" style='width:{{windowWidth}}px; height:{{oCanvasH}}px; left: {{windowWidth}}px;'></canvas>
 </view>

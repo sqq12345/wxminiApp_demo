@@ -38,6 +38,17 @@ swiper {
     background: #ffffff;
     margin-top: -10rpx;
 }
+.sub-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sub-info .share{
+    display: flex;
+}
+.sub-info .share button{
+    margin-left: 26rpx;
+}
 
 .info>view {
     margin-bottom: 10rpx;

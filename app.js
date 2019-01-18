@@ -31,6 +31,8 @@ App({
     user_token: null,
     share: false,  // 分享默认为false
     height: 0,
+      avatarUrl:"",
+      nickName: "",
     _roles: [],
     roles: async function () {
       return new Promise((resolve, reject) => {
