@@ -139,13 +139,13 @@ Page({
   onShareAppMessage: function (e) {
     const title = this.data.detail.title;
     const id = this.data.sid;
+    const img = this.data.detail.image;
     return {
       title: title, // 转发后 所显示的title
       path: '/pages/group/buy/buy?id=' + id, // 相对的路径
       //拼团图片
-      //imageUrl:'',
+      imageUrl:img,
       success: (res) => {    // 成功后要做的事情
-
       },
       fail: function (res) {
         // 分享失败

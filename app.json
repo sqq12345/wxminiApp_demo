@@ -41,6 +41,7 @@
         "orders/logistics/logistics",
         "orders/suborder/suborder",
         "assemble/assemble",
+        "assemble/buy/buy",
         "orders/refund/refund"
       ]
     },

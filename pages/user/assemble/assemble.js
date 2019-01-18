@@ -57,12 +57,12 @@ Page({
   //分享
   onShareAppMessage: function (e) {
     if (e.from === 'button') {
-      const {title, id} = e.target.dataset;
+      const {title, id, img} = e.target.dataset;
       return {
         title: title, // 转发后 所显示的title
         path: '/pages/group/buy/buy?id=' + id, // 相对的路径
         //拼团图片
-        //imageUrl:'',
+        imageUrl:img,
         success: (res) => {
         },
         fail: function (res) {

@@ -1,0 +1,152 @@
+.container {
+    padding-bottom: 100rpx;
+}
+
+.goods-list {
+    /*padding: 20rpx;*/
+}
+
+.goods {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20rpx 30rpx;
+    border-bottom: 1px solid #eee;
+}
+
+.goods .thumb {
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.goods .unit {
+    margin-top: 10rpx;
+    color: #999;
+    font-size: 24rpx;
+}
+
+.goods .unit view{
+    font-size: 24rpx;
+}
+
+.goods .info {
+    flex-grow: 1;
+    position: relative;
+    min-height: 110rpx;
+    padding-bottom: 46rpx;
+}
+
+.goods .info .price {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #ff8a00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goods .info .price .delete {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.goods .info .num {
+    text-align: center;
+    display: inline-block;
+    color: #999;
+}
+
+.goods .shop {
+    color: #32cc4a;
+    font-size: 22rpx !important;
+}
+
+.item {
+    padding: 30rpx;
+}
+
+.item .start .userinfo{
+    margin-bottom: 10rpx;
+}
+
+.item>view {
+    margin-bottom: 10rpx;
+}
+
+.item .start {
+    color: #AAAAAA;
+    font-size: 24rpx;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom: 1px dashed #DADADA;
+    padding-bottom: 20rpx;
+}
+
+.item .start view{
+    display: inline-flex;
+    align-items: center;
+}
+
+.item .start .head{
+    width: 50rpx;
+    height: 50rpx;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 16rpx;
+    overflow: hidden;
+}
+
+.item .title {
+    color: #333333;
+    font-weight: bolder;
+    margin-top: 20rpx;
+}
+
+.item .desc {
+    color: #999999;
+    font-size: 26rpx;
+}
+
+.item .end {
+    color: #23C743;
+    font-size: 24rpx;
+}
+
+.item .more .btn {
+    border: 1px solid #BCBDBD;
+    color: #BCBDBD;
+    display: inline-block;
+    padding: 6rpx 30rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+}
+
+.bottom-btn {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    border-top: 1px solid #eeeeee;
+}
+
+.bottom-btn .all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30rpx;
+    height: 100%;
+    font-size: 22rpx;
+}
+
+.bottom-btn .all .price {
+    color: #FF6600;
+}
+
