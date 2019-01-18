@@ -13,7 +13,7 @@
         <view><image class="icon" src="/static/icons/list.png"/><text class="all">全部宝贝</text></view>
         <text>默认排序</text>
     </view>
-    <view class="list">
+    <view class="list" wx:if="{{detail.goods.length > 0}}">
         <navigator hover-class="none" url="/pages/goods/goods?id={{item.id}}" class="item" wx:for="{{detail.goods}}" wx:key="{{index}}">
             <image src="{{item.thumb_image}}"/>
             <view class="info">
@@ -22,5 +22,9 @@
                 <text class="extr">已售{{item.sales}} 评分{{item.score}}</text>
             </view>
         </navigator>
+    </view>
+    <view class="empty" wx:else>
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无相关信息</view>
     </view>
 </view>

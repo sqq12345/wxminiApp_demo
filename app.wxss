@@ -144,3 +144,22 @@ button {
     -webkit-line-clamp:2;
     -webkit-box-orient:vertical;
 }
+
+/*暂无数据*/
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    width: 100%;
+    height: 500rpx;
+    color: #999;
+    background: #f7f7f7;
+}
+.empty image{
+    display: block;
+    width: 410rpx;
+    height: 172rpx;
+    margin-bottom: 20rpx;
+}

@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="comments">
+    <view class="comments" wx:if="{{list.length>0}}">
         <view class="header">
             {{score}}
             <view>
@@ -16,7 +16,7 @@
                 <view class="desc">{{item.content_text}}</view>
                 <view class="pics" wx:if="{{item.content_img&&item.content_img.length>0}}">
                     <!--<image wx:for="{{item.content_img}}" src="{{item}}" wx:key="{{index}}"/>-->
-                    <image wx:for="{{item.content_img}}" wx:for-item="dImg" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
+                    <image wx:for="{{item.content_img}}" wx:for-item="dImg" wx:key="{{index}}" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
                 </view>
                 <!--子评论S-->
                 <view class="sub-comment" wx:if="{{item.son.length>0}}" wx:for="{{item.son}}" wx:for-item="subItem" wx:key="{{index}}">
@@ -32,5 +32,9 @@
                 </view>
             </view>
         </view>
+    </view>
+    <view class="empty" wx:else>
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无相关信息</view>
     </view>
 </view>

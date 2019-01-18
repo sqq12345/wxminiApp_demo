@@ -44,6 +44,9 @@ Page(observer({
     if (prevpage.route == 'pages/tabbar/home/home') {
       prevpage.setData({scale: 12});
     }
+    if(prevpage.route == 'pages/tabbar/shoplist/shoplist'){
+        prevpage.onChangeList();
+    }
 
     wx.navigateBack();
   },

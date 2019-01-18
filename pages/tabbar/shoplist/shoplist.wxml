@@ -18,17 +18,23 @@
             <text data-condition="sort" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
         </view>
     </view>
-    <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"/>
-    <view class='loading' wx:if="{{!end}}">
-        <view class='loading-gif'>
-            <view class='a' />
-            <view class='b' />
-            <view class='c' />
-            <view class='d' />
-            <view class='e' />
+    <block wx:if="{{list.length>0}}">
+        <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"/>
+        <view class='loading' wx:if="{{!end}}">
+            <view class='loading-gif'>
+                <view class='a' />
+                <view class='b' />
+                <view class='c' />
+                <view class='d' />
+                <view class='e' />
+            </view>
         </view>
-    </view>
-    <view class='nomore' wx:if="{{end}}">
-        没有更多
+        <view class='nomore' wx:if="{{end}}">
+            没有更多
+        </view>
+    </block>
+    <view class="empty" wx:else>
+        <image src="/static/images/dingdan.png" class="ptImg"></image>
+        <view>暂无相关信息</view>
     </view>
 </view>

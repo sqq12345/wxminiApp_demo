@@ -1,29 +1,31 @@
 <view class="container">
     <view class="head">
         <image src="{{bg}}" class="_bg" />
-        <image class="logo" src="{{detail.logo}}" />
-        <view class="title">{{detail.name}}</view>
-        <block wx:if="{{type=='1'}}">
-            <view><text>农场规模：</text><text>{{detail.farmsize!=null? detail.farmsize+"亩":"暂无"}}</text></view>
-            <view><text>农场主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
-        </block>
-        <block wx:if="{{type=='2'}}">
-            <view><text>社群人数：</text><text>{{detail.farmsize!=null?detail.farmsize+"人":"暂无"}}</text></view>
-            <view><text>社群主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
-        </block>
-        <block wx:if="{{type=='3'}}">
-            <view><text>餐桌：</text><text>{{detail.farmsize!=null?detail.farmsize+"桌":"暂无"}}</text>  <text>可接待：</text><text>{{detail.farmsize2!=null?detail.farmsize2+"人":"暂无"}}</text></view>
-            <view><text>店主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
-        </block>
-        <block wx:if="{{type=='4'}}">
-            <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
-            <view><text>超市：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
-        </block>
-        <block wx:if="{{type=='5'}}">
-            <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
-            <view><text>市集主板方：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
-        </block>
-        <view><text>地址：</text><text>{{detail.address!=null?detail.address:"暂无"}}</text></view>
+        <view class="sub-head">
+            <image class="logo" src="{{detail.logo}}" />
+            <view class="title">{{detail.name}}</view>
+            <block wx:if="{{type=='1'}}">
+                <view><text>农场规模：</text><text>{{detail.farmsize!=null? detail.farmsize+"亩":"暂无"}}</text></view>
+                <view><text>农场主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
+            </block>
+            <block wx:if="{{type=='2'}}">
+                <view><text>社群人数：</text><text>{{detail.farmsize!=null?detail.farmsize+"人":"暂无"}}</text></view>
+                <view><text>社群主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
+            </block>
+            <block wx:if="{{type=='3'}}">
+                <view><text>餐桌：</text><text>{{detail.farmsize!=null?detail.farmsize+"桌":"暂无"}}</text>  <text>可接待：</text><text>{{detail.farmsize2!=null?detail.farmsize2+"人":"暂无"}}</text></view>
+                <view><text>店主：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
+            </block>
+            <block wx:if="{{type=='4'}}">
+                <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
+                <view><text>超市：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
+            </block>
+            <block wx:if="{{type=='5'}}">
+                <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
+                <view><text>市集主板方：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
+            </block>
+            <view><text>地址：</text><text>{{detail.address!=null?detail.address:"暂无"}}</text></view>
+        </view>
     </view>
     <!-- tags -->
     <view class="block one">
@@ -51,7 +53,7 @@
                     <view class="desc">{{item.content_text}}</view>
                     <view class="pics">
                         <!--<image src="{{img}}" wx:for-item="img" wx:for="{{item.content_img}}" wx:key="{{index}}"/>-->
-                        <image wx:for="{{item.content_img}}" wx:for-item="dImg" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
+                        <image wx:for="{{item.content_img}}" wx:for-item="dImg" wx:key="{{index}}" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
                     </view>
                     <!--子评论S-->
                     <view class="sub-comment" wx:if="{{item.son.length>0}}" wx:for="{{item.son}}" wx:for-item="subItem" wx:key="{{index}}">

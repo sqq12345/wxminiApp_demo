@@ -108,5 +108,11 @@ Page(observer({
     this.setData({loading: true}, () => {
       this.fetchList();
     });
-  }
+  },
+// 更新数据
+    onChangeList(){
+        this.setData({page: 1, loading: true, end: false, list: []}, () => {
+            this.fetchList();
+        });
+    }
 }))

@@ -21,6 +21,7 @@ Page({
     http.request({
       url: '/api/shop/details',
       method: 'POST',
+      showLoading: true,
       data: {
         mid: options.id
       },

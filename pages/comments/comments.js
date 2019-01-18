@@ -27,6 +27,7 @@ Page({
 
   fetchData() {
     http.request({
+      showLoading: true,
       url: '/api/shop/allcomments',
       method: 'POST',
       data: {

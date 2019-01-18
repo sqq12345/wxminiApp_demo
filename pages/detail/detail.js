@@ -79,6 +79,7 @@ Page({
     }
     this.setData({ bg, descLabel, type: options.type });
     http.request({
+      showLoading: true,
       url: '/api/shop/detailsfarm?mid=' + options.id,
       method: 'GET',
       success: (response) => {
@@ -109,7 +110,7 @@ Page({
             labels[2].arr = data['live_ids'].split(',');
             break;
         }
-        this.setData({ detail: data, labels }, () => {
+        this.setData({ detail: data, labels, loading: false, }, () => {
           this.fetchComments()
         })
       }
@@ -124,6 +125,7 @@ Page({
 
   fetchComments() {
     http.request({
+      showLoading: true,
       url: `/api/shop/comments?mid=${this.data.detail.id}&page=${this.data.page}`,
       method: 'GET',
       success: (response) => {
