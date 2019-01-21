@@ -35,6 +35,7 @@ Page({
   async fetchList() {
     const result = await login();
     http.request({
+      showLoading: true,
       url: '/api/solitaire/solitaire',
       method: 'POST',
       data: {

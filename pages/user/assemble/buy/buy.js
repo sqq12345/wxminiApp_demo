@@ -20,6 +20,7 @@ Page({
     this.setData({ sid: id });
     const result = await login();
     http.request({
+      showLoading: true,
       url: '/api/solitaire/assemble_detail',
       method: 'POST',
       header: {

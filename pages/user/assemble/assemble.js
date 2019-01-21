@@ -24,6 +24,7 @@ Page({
   async assemble() {
     const result = await login();
     http.request({
+      showLoading: true,
       url: '/api/solitaire/assemble',
       method: 'POST',
       data: {

@@ -18,13 +18,14 @@ Page({
   onLoad: async function (options) {
     const result = await login();
     http.request({
+      showLoading: true,
       url: '/api/user/earnings',
       header: {
         token: result.user_token
       },
       method: 'GET',
       success: (response) => {
-        
+
         const data = response.data;
         if (data.code == 1) {
           const list = data.data.income;
@@ -41,7 +42,7 @@ Page({
           }
         }
 
-        
+
       }
     })
   },

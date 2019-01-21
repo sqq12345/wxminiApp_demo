@@ -26,6 +26,7 @@ Page({
   onShow: async function (options) {
     const result = await login();
     http.request({
+        showLoading: true,
       url: '/api/user/collection',
       method: 'GET',
       header: {

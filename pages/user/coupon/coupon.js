@@ -27,6 +27,7 @@ Page({
     }
     const result = await login();
     http.request({
+        showLoading: true,
       url: '/api/order/coupon',
       method: 'POST',
       header: {

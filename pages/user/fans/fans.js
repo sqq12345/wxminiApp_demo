@@ -18,6 +18,7 @@ Page({
   onLoad: async function (options) {
     const result = await login();
     http.request({
+      showLoading: true,
       url: '/api/user/fans',
       header: {
         token: result.user_token
@@ -25,7 +26,6 @@ Page({
       method: 'GET',
       success: (response) => {
         if (response.data.code !== 999) {
-          console.log(response.data);
           const list = response.data.data.users;
           //隐藏手机号码
           list.forEach(item => {

@@ -33,7 +33,7 @@
             </view>
         </view>
     </view>
-    <view class="empty" wx:else>
+    <view class="empty" wx:if="{{list.length<=0}}">
         <image src="/static/images/dingdan.png" class="ptImg"></image>
         <view>暂无相关信息</view>
     </view>

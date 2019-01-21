@@ -18,6 +18,7 @@ Page({
   onLoad: async function (options) {
     const result = await login();
     http.request({
+      showLoading: true,
       url: '/api/user/pointslist',
       method: 'GET',
       header: {
