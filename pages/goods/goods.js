@@ -33,7 +33,7 @@ Page(observer({
    */
   onLoad: async function (options) {
     let that = this;
-    const id = options.id;
+    const id = options.id || decodeURIComponent(options.scene);
     this.setData({ sid: id });
     await city.fetchData();
     const result = await login();
@@ -66,6 +66,7 @@ Page(observer({
               });
           }
       })
+      this.getwxApp()
   },
   /**
    * 加入购物车
@@ -187,6 +188,28 @@ Page(observer({
             }
         }
     },
+    //获取小程序码
+    getwxApp: async function () {
+        let that = this;
+        const result = await login();
+        http.request({
+            url: '/api/basics/share',
+            header: {
+                token: result.user_token,
+            },
+            data: {
+                page: "/pages/goods/goods",
+                scene: that.data.sid,
+                width: 220,
+            },
+            method: 'POST',
+            success: (response) => {
+                that.setData({
+                    wxCodeImg: response.data.data,
+                });
+            }
+        });
+    },
 
     //分享朋友圈
     async bindShare () {
@@ -198,6 +221,14 @@ Page(observer({
     },
     async downloadImg(){
         let that = this
+        wx.downloadFile({
+            url: that.data.wxCodeImg,
+            success:(res) =>{
+                that.setData({
+                    wxCode: res.tempFilePath
+                })
+            }
+        })
         wx.downloadFile({
             url: that.data.goods.image,
             success: (res) => {
@@ -224,10 +255,11 @@ Page(observer({
         const result = await login();
         let that = this, dataInfo = that.data
         let canvasW = dataInfo.windowWidth, canvasH = dataInfo.oCanvasH, imgW = dataInfo.oImgW, imgH = dataInfo.oImgH, bgH = dataInfo.oBgH
-        let proImg = dataInfo.proImg,canvasImg="/static/images/shareBg.png",logo="/static/images/share_logo.png"
+        let proImg = dataInfo.proImg, wxCode=dataInfo.wxCode, canvasImg="/static/images/shareBg.png",logo="/static/images/share_logo.png"
         let userName=result.nickName, guige= "规格："+dataInfo.goods.specification, fanwei=dataInfo.goods.area, money="￥"+dataInfo.goods.price,
             title = dataInfo.goods.title.length>28 ? dataInfo.goods.title.substring(0,28)+"...": dataInfo.goods.title
         let ctx = wx.createCanvasContext('share');
+        console.log(proImg,wxCode)
         // 绘制背景图
         ctx.drawImage(canvasImg, 0, 0, canvasW, canvasH);
         // 绘制背景块
@@ -235,8 +267,8 @@ Page(observer({
         ctx.fillRect(30, 40, imgW, bgH);
         // 绘制产品图
         ctx.drawImage(proImg, 30, 40, imgW, imgH);
-        // 绘制小程序码
-        // ctx.drawImage(proImg, (canvasW - 150), (imgH + 50), 110, 110);
+        // 绘制小程序码wxCode
+        ctx.drawImage(wxCode, (canvasW - 150), (imgH + 50), 110, 110);
         // 绘制logo
         ctx.drawImage(logo, (canvasW/2-45), (canvasH - 73), 90, 23);
         //绘制产品标题

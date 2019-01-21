@@ -8,7 +8,7 @@
             </view>
             <view class="share">
                 <button open-type='share' class="share-btn"><image src="/static/icons/wechat.png"/></button>
-                <button bindtap="bindShare" class="share-btn"><image src="/static/icons/wechat.png"/></button>
+                <button bindtap="bindShare" class="share-btn"><image src="/static/icons/pengyouquan.png"/></button>
             </view>
         </view>
 
@@ -100,5 +100,5 @@
 
         <view class="disable" wx:if="{{goods.stock==0}}">库存不足</view>
     </view>
-    <canvas canvas-id='share' class="share" style='width:{{windowWidth}}px; height:{{oCanvasH}}px; left: {{windowWidth}}px;'></canvas>
+    <canvas canvas-id='share' class="shareCanvas" style='width:{{windowWidth}}px; height:{{oCanvasH}}px; left: {{windowWidth}}px;'></canvas>
 </view>
