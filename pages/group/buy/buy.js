@@ -28,7 +28,8 @@ Page({
       data: { sid: id },
       success: (response) => {
         const detail = response.data.data;
-        console.log(detail);
+        const timeNow = (new Date()).valueOf();
+        const endTime = new Date(detail.endtime).valueOf();
         detail.goods.forEach(g => {
           g.num = 0;
           g.value = Number.parseFloat(g.price);
@@ -42,6 +43,7 @@ Page({
           // })
         });
         detail.total = 0;
+        detail.status = endTime<=timeNow ? 1:0;//1为已结束 0未结束
         //总价
         // Object.defineProperty(detail, 'total', {
         //   get() {

@@ -5,7 +5,8 @@
                 <open-data class="head" type="userAvatarUrl"></open-data>
                 <open-data class="username" type="userNickName"></open-data>
             </view>
-            <button open-type='share' class="share-btn"><image src="/static/icons/wechat.png"/></button>
+            <button class="share-btn" wx:if="{{detail.status==1}}"><image src="/static/icons/wechat-gray.png"/></button>
+            <button open-type='share' class="share-btn" wx:else><image src="/static/icons/wechat.png"/></button>
         </view>
         <view class="title">{{detail.title}}</view>
         <view class="desc">{{detail.content}}</view>
@@ -37,6 +38,6 @@
             <text>合计:<text class="price"><text class="_rmb">￥</text>{{detail.total}}</text></text>
             已团{{detail.number}}人
         </view>
-        <view class="buy" bind:tap="buy">我要接龙</view>
+        <view class="buy {{detail.status==1?'disable':''}}" bind:tap="{{detail.status==1?'':buy}}">{{detail.status==1?"已结束":"我要接龙"}}</view>
     </view>
 </view>

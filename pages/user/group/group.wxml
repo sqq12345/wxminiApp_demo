@@ -1,7 +1,10 @@
 <view class="container">
   <navigator url="/pages/group/start" hover-class="none" class="_button"><image src="/static/icons/user/plane.png"/>发起接龙</navigator>
   <view class="item" wx:for="{{list}}" wx:key="{{index}}">
-    <view class="start">创建时间 : {{item.create_at}}<button class="share-btn" open-type='share' data-title="{{item.title}}" data-id="{{item.id}}" data-img="{{item.image}}"><image src="/static/icons/wechat.png"/></button></view>
+    <view class="start">创建时间 : {{item.create_at}}
+      <button class="share-btn" wx:if="{{item.status==1}}"><image src="/static/icons/wechat-gray.png"/></button>
+      <button class="share-btn" wx:else open-type='share' data-title="{{item.title}}" data-id="{{item.id}}" data-img="{{item.image}}"><image src="/static/icons/wechat.png"/></button>
+    </view>
     <view class="title">{{item.title}}</view>
     <view class="desc">
       {{item.content}}

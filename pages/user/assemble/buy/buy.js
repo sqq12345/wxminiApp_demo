@@ -28,6 +28,9 @@ Page({
       data: { sid: id },
       success: (response) => {
         const detail = response.data.data;
+        const timeNow = (new Date()).valueOf();
+        const endTime = (new Date(detail.solitaire.endtime)).valueOf();
+        detail.status = endTime<=timeNow ? 1:0;//1为已结束 0未结束
         // console.log(detail);
         this.setData({ detail });
       }

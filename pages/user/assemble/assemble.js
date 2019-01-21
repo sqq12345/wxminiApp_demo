@@ -32,18 +32,17 @@ Page({
       header: {
         token: result.user_token
       },
-      success: (response) => {
-        var res = response.data;
-        console.log(res);
-        const list = res.data.list;
-        const end = res.data.last_page === this.data.page;
-        this.setData({
-          list: this.data.list.concat(list),
-          end: end,
-          loading: false,
-          page: this.data.page + 1,
-        })
-      }
+        success: (response) => {
+            const list = response.data.data.list;
+            const timeNow = (new Date()).valueOf();
+            list.forEach(item => {
+                const itemTime = new Date(item.endtime).valueOf();
+                item.status = itemTime<=timeNow ? 1:0;//1为已结束 0未结束
+            });
+
+            const end = response.data.data.last_page == this.data.page;
+            this.setData({ list: this.data.list.concat(list), end, loading: false, page: this.data.page + 1 })
+        }
     })
   },
 
