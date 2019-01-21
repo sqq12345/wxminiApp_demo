@@ -269,34 +269,34 @@ Page(observer({
         // 绘制产品图
         ctx.drawImage(proImg, 30, 40, imgW, imgH);
         // 绘制小程序码wxCode
-        ctx.drawImage(wxCode, (canvasW - 150), (imgH + 50), 110, 110);
+        ctx.drawImage(wxCode, (canvasW - 110), (imgH + 130), 70, 70);
         // 绘制logo
         ctx.drawImage(logo, (canvasW/2-45), (canvasH - 73), 90, 23);
         //绘制产品标题
         ctx.setFontSize(14);
         ctx.fillStyle = "#333333"
-        let initHeight = (imgH + 65), titleHeight = 20,canvasWidth = (imgW - 155)
+        let initHeight = (imgH + 65), titleHeight = 20,canvasWidth = (imgW - 35)
         titleHeight = this.drawText(ctx, title, initHeight, titleHeight, canvasWidth);// 调用行文本换行函数
         ctx.moveTo(15, titleHeight)
         //绘制产品规格
         ctx.setFontSize(12);
         ctx.fillStyle = "#999999"
-        ctx.fillText(guige, 45, (imgH + 110));
+        ctx.fillText(guige, 45, (imgH + 145));
         //绘制配送范围
         ctx.setFontSize(12);
         ctx.fillStyle = "#999999"
-        ctx.fillText("配送范围：", 45, (imgH + 130));
+        ctx.fillText("配送范围：", 45, (imgH + 165));
         ctx.setFontSize(12);
         ctx.fillStyle = "#29D258"
-        ctx.fillText(fanwei, 45 + ctx.measureText("配送范围：").width, (imgH + 130));
+        ctx.fillText(fanwei, 45 + ctx.measureText("配送范围：").width, (imgH + 165));
         //绘制产品价格
         ctx.setFontSize(15);
         ctx.fillStyle = "#FF8A00"
-        ctx.fillText(money, 45, (imgH + 160));
+        ctx.fillText(money, 45, (imgH + 195));
         //绘制用户名
         ctx.setFontSize(12);
         ctx.fillStyle = "#DADADA"
-        ctx.fillText(userName, (canvasW - ctx.measureText(userName).width) / 2, bgH+10);
+        ctx.fillText(userName, (canvasW - ctx.measureText(userName).width) / 2, bgH+20);
 
 
         ctx.draw(false, that.saveCanvas);
