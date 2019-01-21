@@ -1,6 +1,6 @@
 <view class="container">
     <view class="rater">
-        <text>商品评价</text>
+        <text>{{type == 'shop'?"商家评价":"商品评价"}}</text>
         <view>
             <wux-rater allow-half allow-clear allow-touch-move value="{{form.ranks}}" controlled bind:change="raterChange" />
             <text class="score">{{form.ranks}}分</text>

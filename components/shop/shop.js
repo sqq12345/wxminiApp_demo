@@ -30,7 +30,7 @@ Component({
     if (this.properties.item.btype != 1){
       jumpUrl = '/pages/detail/detail?type=2&id='+this.properties.item.id;
     }
-   
+
 
     const dist = this.properties.item.distance;
     this.setData({
@@ -46,10 +46,13 @@ Component({
   methods: {
     //展开活动
     openDetail(e) {
-      const id = e.currentTarget.dataset.id;
-      this.setData({
-        showDetail: !this.data.showDetail
+      wx.navigateTo({
+        url: '/pages/user/coupon/coupon'
       })
+      // const id = e.currentTarget.dataset.id;
+      // this.setData({
+      //   showDetail: !this.data.showDetail
+      // })
     }
   }
 })

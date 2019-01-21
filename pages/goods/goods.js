@@ -257,7 +257,8 @@ Page(observer({
         let canvasW = dataInfo.windowWidth, canvasH = dataInfo.oCanvasH, imgW = dataInfo.oImgW, imgH = dataInfo.oImgH, bgH = dataInfo.oBgH
         let proImg = dataInfo.proImg, wxCode=dataInfo.wxCode, canvasImg="/static/images/shareBg.png",logo="/static/images/share_logo.png"
         let userName=result.nickName, guige= "规格："+dataInfo.goods.specification, fanwei=dataInfo.goods.area, money="￥"+dataInfo.goods.price,
-            title = dataInfo.goods.title.length>28 ? dataInfo.goods.title.substring(0,28)+"...": dataInfo.goods.title
+            title = dataInfo.goods.title
+            // title = dataInfo.goods.title.length>20 ? dataInfo.goods.title.substring(0,20)+"...": dataInfo.goods.title
         let ctx = wx.createCanvasContext('share');
         console.log(proImg,wxCode)
         // 绘制背景图
@@ -339,8 +340,10 @@ Page(observer({
                 wx.saveImageToPhotosAlbum({
                     filePath: res.tempFilePath,
                     success: (res) => {
-                        that.setData({
-                            nowDownload: false
+                        wx.showToast({
+                            title: '海报已保存至相册 请打开朋友圈分享',
+                            icon: 'none',
+                            duration: 2000
                         })
                         console.log('成功保存到手机系统相册', res)
                     },

@@ -123,11 +123,12 @@ Page({
                 const pages = getCurrentPages();
                 const lastPage = pages[pages.length - 2];
                 lastPage.resetComments();
-              }
-              setTimeout(() => {
+              } else {
                   const pages = getCurrentPages();
                   const prePage = pages[pages.length - 2];
                   prePage.refresh()
+              }
+              setTimeout(() => {
                 wx.navigateBack({
                   delta: 1
                 });
