@@ -7,7 +7,7 @@
         <view wx:if="{{selected==null}}" class="picker">定位中</view>
     </navigator>
     <view class="input">
-        <input placeholder='请输入您要搜索的农场或商品' confirm-type="search" bind:confirm="search" value="{{query}}" />
+        <input placeholder='{{placeholder}}' confirm-type="search" bind:confirm="search" value="{{query}}" />
         <image src="/static/icons/search.png" class="search_icon" />
     </view>
 </view>

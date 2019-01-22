@@ -14,6 +14,7 @@ Component({
     cities: Array,
     selected: Object,  //选中的城市的下标,
     query: String, //查询关键字
+    placeholder: String, //输入框提示语
   },
 
   /**
