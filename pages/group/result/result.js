@@ -50,6 +50,7 @@ Page(observer({
     await city.fetchData();
     const result = await login();
     http.request({
+        showLoading: true,
       url: '/api/solitaire/goodsList',
       method: 'POST',
       header: {
