@@ -76,7 +76,7 @@
                             <view class="price">
                                 ￥{{goodsItem.goodprice}}
                                 <view class="calc">
-                                    <text class="num">{{goodsItem.num}}</text>
+                                    <text class="num">x{{goodsItem.num}}</text>
                                 </view>
                             </view>
                         </view>

@@ -60,7 +60,8 @@ Cart.prototype.fetchData = async function () {
                     goods.cartid = g.cartid;
                     goods.image = g.image;
                     goods.name = g.title;
-                    goods.price = Number.parseFloat(g.price);
+                    goods.price = g.price;
+                    // goods.price = Number.parseFloat(g.price);
                     goods.unit = g.specification;
                     goods.count = g.num;
                     goods.selected = g.status == 1;
