@@ -64,6 +64,14 @@ Page(observer({
     const result = await login();
     const form = this.props.form;
     //console.log(form);
+      if(!form.mobile && !form.other && !form.telephone){
+          wx.showToast({
+              title: '联系方式至少填一项',
+              icon: 'none',
+              duration: 2000,
+          });
+          return;
+      }
     if (verify(form, config)) {
       http.request({
         url: '/api/shop/setmarkettwo',
@@ -107,18 +115,18 @@ const config = {
     max: 5,
   },
   mobile: {
-    require: true,
+    require: false,
     name: '手机号码',
     regex: regex.cellphone
   },
   telephone: {
-    require: true,
+    require: false,
     name: '固定电话',
     regex: regex.telphone
   },
   other: {
     name: '其他',
-    require: true,
+    require: false,
   },
   idcard: {
     name: '身份证号',

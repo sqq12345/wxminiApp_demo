@@ -40,7 +40,7 @@ Page(observer({
     //prevPage.setData({ mid: options.id })
   },
   onUploadFail(e) {
-    
+
   },
   onRemove(e) {
     const data = e.detail.file.res.data;
@@ -67,7 +67,15 @@ Page(observer({
   async submit() {
     const result = await login();
     const form = this.props.form;
-    //console.log(form);
+    // console.log(form,!form.mobile , !form.other , !form.telephone);
+    if(!form.mobile && !form.other && !form.telephone){
+        wx.showToast({
+            title: '联系方式至少填一项',
+            icon: 'none',
+            duration: 2000,
+        });
+        return;
+    }
     if (verify(form, config)) {
       http.request({
         url: '/api/shop/setmerchanttwo',
@@ -113,16 +121,16 @@ const config = {
   mobile: {
     name: '手机号码',
     regex: regex.cellphone,
-    require: true,
+    require: false,
   },
   telephone: {
     name: '固定电话',
     regex: regex.telphone,
-    require: true,
+    require: false,
   },
   other: {
     name: '其他',
-    require: true,
+    require: false,
   },
   farmsize: {
     name: '农场规模',

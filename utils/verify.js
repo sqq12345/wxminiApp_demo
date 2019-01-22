@@ -1,6 +1,6 @@
 /**
- * 
- * @param {表单值} form 
+ *
+ * @param {表单值} form
  * @param {验证配置} config
  */
 export default function (form, config) {
