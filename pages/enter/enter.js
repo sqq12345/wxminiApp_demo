@@ -1,24 +1,30 @@
-// pages/enter/enter.js
-// const app = getApp();
-// import login from '../../stores/Login';
+import login from '../../stores/Login';
+import http from '../../utils/http';
+import {observer} from '../../utils/mobx/observer';
+import util from "../../utils/util";
 const { regeneratorRuntime } = global;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      title: '商家入驻', //导航栏 中间的标题
-      transparent: false //透明导航栏
+    /**
+     * 页面的初始数据
+     */
+    data: {
     },
-    occupation:app.globalData.height + 46,
-*/
-  },
-
-  onLoad(){
-    
-  }
+    async onLoad(){
+        const result = await login();
+        http.request({
+            showLoading: true,
+            url: '/api/user/role',
+            method: 'POST',
+            header: {
+                token: result.user_token
+            },
+            success: (res) => {
+              if(res.data.code === 1){
+                  const detail = res.data.data
+                  const type = detail.role === "附近农场"?1:detail.role === "附近社群"?2:detail.role === "生态餐厅"?3: detail.role === "有机超市"?4:5
+                  this.setData({detail,type});
+              }
+            }
+        })
+    },
 })

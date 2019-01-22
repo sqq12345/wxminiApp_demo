@@ -77,6 +77,12 @@
                 <text class="plus">+</text>
             </wux-upload>
         </view>
+        <view class='form-group'>
+            <text>微信二维码</text>
+            <wux-upload data-field="wxaccount_image" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text class="plus">+</text>
+            </wux-upload>
+        </view>
         <button bind:tap="submit">提交</button>
     </form>
 </view>

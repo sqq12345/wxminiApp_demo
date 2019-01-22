@@ -1,39 +1,60 @@
 <view class='container'>
-    <view class="f1">请选择角色</view>
-    <navigator hover-class="none" class="item bg1" url="/pages/enter/index/index?index=1">
-        <image src="/static/bg/enter/1.png" class="_bg" />
-        <view class="icon i1">
-            <image src="/static/icons/enter/1.png" />
+    <block wx:if="{{detail.is_wait === 1}}">
+        <view class="hasRole">
+            <image src="/static/icons/icon-success.png" />
+            <text class="title">等待审核</text>
+            <text>您已提交{{detail.role}}入驻申请</text>
         </view>
-        农场
-    </navigator>
-    <navigator hover-class="none" class="item bg2" url="/pages/enter/index/index?index=2">
-        <image src="/static/bg/enter/2.png" class="_bg" />
-        <view class="icon i2">
-            <image src="/static/icons/enter/2.png" />
+    </block>
+    <block wx:if="{{detail.is_wait === 0 && detail.mid!=''}}">
+        <view class="hasRole">
+            <image src="/static/icons/icon-success.png" />
+            <text class="title">恭喜您!</text>
+            <text>您的{{detail.role}}入驻申请已经审核通过！</text>
+            <navigator class="btn" hover-class="none" url="/pages/detail/detail?id={{detail.mid}}&type={{type}}">
+                查看{{detail.role}}详情
+            </navigator>
         </view>
-        社群
-    </navigator>
-    <navigator hover-class="none" class="item bg3" url="/pages/enter/index/index?index=3">
-        <image src="/static/bg/enter/3.png" class="_bg" />
-        <view class="icon i3">
-            <image src="/static/icons/enter/3.png" />
-        </view>
-        生态餐厅
-    </navigator>
-    <navigator hover-class="none" class="item bg4" url="/pages/enter/index/index?index=4">
-        <image src="/static/bg/enter/4.png" class="_bg" />
-        <view class="icon i4">
-            <image src="/static/icons/enter/4.png" />
-        </view>
-        有机超市
-    </navigator>
-    <navigator hover-class="none" class="item bg5" url="/pages/enter/index/index?index=5">
-        <image src="/static/bg/enter/5.png" class="_bg" />
-        <view class="icon i5">
-            <image src="/static/icons/enter/5.png" />
-        </view>
-        农夫集市
-    </navigator>
-    <navigator hover-class="none" class="f1"></navigator>
+    </block>
+    <block wx:if="{{detail.is_wait === 0 && detail.mid===''}}">
+        <view class="f1">请选择角色</view>
+        <navigator hover-class="none" class="item bg1" url="/pages/enter/index/index?index=1">
+            <image src="/static/bg/enter/1.png" class="_bg" />
+            <view class="icon i1">
+                <image src="/static/icons/enter/1.png" />
+            </view>
+            农场
+        </navigator>
+        <navigator hover-class="none" class="item bg2" url="/pages/enter/index/index?index=2">
+            <image src="/static/bg/enter/2.png" class="_bg" />
+            <view class="icon i2">
+                <image src="/static/icons/enter/2.png" />
+            </view>
+            社群
+        </navigator>
+        <navigator hover-class="none" class="item bg3" url="/pages/enter/index/index?index=3">
+            <image src="/static/bg/enter/3.png" class="_bg" />
+            <view class="icon i3">
+                <image src="/static/icons/enter/3.png" />
+            </view>
+            生态餐厅
+        </navigator>
+        <navigator hover-class="none" class="item bg4" url="/pages/enter/index/index?index=4">
+            <image src="/static/bg/enter/4.png" class="_bg" />
+            <view class="icon i4">
+                <image src="/static/icons/enter/4.png" />
+            </view>
+            有机超市
+        </navigator>
+        <navigator hover-class="none" class="item bg5" url="/pages/enter/index/index?index=5">
+            <image src="/static/bg/enter/5.png" class="_bg" />
+            <view class="icon i5">
+                <image src="/static/icons/enter/5.png" />
+            </view>
+            农夫集市
+        </navigator>
+        <navigator hover-class="none" class="f1"></navigator>
+    </block>
+
+
 </view>

@@ -181,5 +181,9 @@ const config = {
   longitude: {
     require: true,
     msg: '请在地图上选择位置'
-  }
+  },
+    wxaccount_image: {
+        name: '微信二维码',
+        require: true,
+    },
 };
