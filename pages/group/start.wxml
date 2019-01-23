@@ -62,5 +62,5 @@
     </view>
   </form>
   <view class="agreement"><image class="select-icon" bind:tap="agree" src="/static/icons/cart/{{agreed?'selected.png':'unselected.png'}}" />已阅读已同意<navigator>《群接龙服务协议》</navigator></view>
-  <view class="_button" bind:tap="submit">发起接龙</view>
+  <view class="_button {{disable?'disable':''}}" bind:tap="{{disable?'':'submit'}}">发起接龙</view>
 </view>

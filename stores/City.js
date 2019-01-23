@@ -24,7 +24,7 @@ City.prototype.getMarkers = async function (type, latitude, longitude) {
 
   http.request({
     url: '/api/shop/near',
-    data: { 
+    data: {
       btype: type || '1',
       latitude: this.latitude,
       longitude: this.longitude,
@@ -93,12 +93,240 @@ City.prototype.fetchData = function () {
       url: '/api/basics/geographic',
       method: 'POST',
       success: (response) => {
-        this.list = response.data.data;
+        this.list = response.data.data
+
+          wx.getSetting({
+              success:(res)=>{
+                  console.log(res)
+                  if(res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+                      wx.showModal({
+                          title: '请求授权当前位置',
+                          content: '需要获取您的地理位置，请确认授权',
+                          success:(res)=>{
+                            if(res.cancel){
+                                wx.showToast({
+                                    title: '拒绝授权',
+                                    icon: 'none',
+                                    duration: 1000
+                                })
+                                http.request({
+                                    url:'/api/basics/config',
+                                    method:'POST',
+                                    success:(res)=>{
+                                        const position = res.data.data.position
+                                        console.log("拒绝授权",position)
+                                        this.longitude = position.location.lng;
+                                        this.latitude = position.location.lat;
+                                        //用户所处位置
+                                        this.user_latitude = position.location.lng;
+                                        this.user_longitude = position.location.lat;
+                                        //根据名字找到数组中的城市
+                                        for (const key in this.list) {
+                                            const find = this.list[key].find(item => {
+                                                return item.id == position.city_id;
+                                            });
+                                            if (find) {
+                                                this.selected = find;
+                                                break;
+                                            }
+                                        }
+                                        resolve();
+                                    }
+                                })
+                            }else if(res.confirm){
+                                wx.openSetting({
+                                    success:(res)=>{
+                                      if (res.authSetting["scope.userLocation"] == true){
+                                          wx.showToast({
+                                              title: '授权成功',
+                                              icon: 'success',
+                                              duration: 1000
+                                          })
+                                          wx.getLocation({
+                                              type: 'wgs84',
+                                              success: (res) => {
+                                                  console.log(res);
+                                                  // success
+                                                  this.longitude = res.longitude;
+                                                  this.latitude = res.latitude;
+                                                  //用户所处位置
+                                                  this.user_latitude = res.latitude;
+                                                  this.user_longitude = res.longitude;
+
+                                                  http.request({
+                                                      url: '/api/basics/position',
+                                                      header: {
+                                                          latitude: res.latitude,
+                                                          longitude: res.longitude
+                                                      },
+                                                      success: (res) => {
+                                                          // success
+                                                          //根据名字找到数组中的城市
+                                                          for (const key in this.list) {
+                                                              const find = this.list[key].find(item => {
+                                                                  return item.id == res.data.data.id;
+                                                              });
+                                                              if (find) {
+                                                                  this.selected = find;
+                                                                  break;
+                                                              }
+                                                          }
+                                                          resolve();
+                                                      }
+                                                  });
+                                              }
+                                          })
+                                      }else {
+                                          wx.showToast({
+                                              title: '授权失败',
+                                              icon: 'none',
+                                              duration: 1000
+                                          })
+                                          http.request({
+                                              url:'/api/basics/config',
+                                              method:'POST',
+                                              success:(res)=>{
+                                                  const position = res.data.data.position
+                                                  console.log("授权失败",res.data)
+                                                  this.longitude = position.location.lng;
+                                                  this.latitude = position.location.lat;
+                                                  //用户所处位置
+                                                  this.user_latitude = position.location.lng;
+                                                  this.user_longitude = position.location.lat;
+                                                  //根据名字找到数组中的城市
+                                                  for (const key in this.list) {
+                                                      const find = this.list[key].find(item => {
+                                                          return item.id == position.city_id;
+                                                      });
+                                                      if (find) {
+                                                          this.selected = find;
+                                                          break;
+                                                      }
+                                                  }
+                                                  resolve();
+                                              }
+                                          })
+                                      }
+                                    }
+                                })
+                            }
+                          }
+                      })
+                  }else if (res.authSetting['scope.userLocation'] == undefined) {
+                  //第一次授权
+                      wx.getLocation({
+                          type: 'wgs84',
+                          success: (res) => {
+                              console.log("success",res);
+                              // success
+                              this.longitude = res.longitude;
+                              this.latitude = res.latitude;
+                              //用户所处位置
+                              this.user_latitude = res.latitude;
+                              this.user_longitude = res.longitude;
+
+                              http.request({
+                                  url: '/api/basics/position',
+                                  header: {
+                                      latitude: res.latitude,
+                                      longitude: res.longitude
+                                  },
+                                  success: (res) => {
+                                      // success
+                                      //根据名字找到数组中的城市
+                                      for (const key in this.list) {
+                                          const find = this.list[key].find(item => {
+                                              return item.id == res.data.data.id;
+                                          });
+                                          if (find) {
+                                              this.selected = find;
+                                              break;
+                                          }
+                                      }
+                                      resolve();
+                                  }
+                              });
+                          },
+                          fail:(res)=>{
+                              if(res.errMsg=='getLocation:fail:auth denied'){
+                                  wx.showToast({
+                                      title: '取消授权',
+                                      icon: 'none',
+                                      duration: 1000
+                                  })
+                              }
+                              http.request({
+                                  url:'/api/basics/config',
+                                  method:'POST',
+                                  success:(res)=>{
+                                      const position = res.data.data.position
+                                      console.log("拒绝授权",position)
+                                      this.longitude = position.location.lng;
+                                      this.latitude = position.location.lat;
+                                      //用户所处位置
+                                      this.user_latitude = position.location.lng;
+                                      this.user_longitude = position.location.lat;
+                                      //根据名字找到数组中的城市
+                                      for (const key in this.list) {
+                                          const find = this.list[key].find(item => {
+                                              return item.id == position.city_id;
+                                          });
+                                          if (find) {
+                                              this.selected = find;
+                                              break;
+                                          }
+                                      }
+                                      resolve();
+                                  }
+                              })
+                          }
+                      })
+                  }else {
+                  //  授权成功
+                      wx.getLocation({
+                          type: 'wgs84',
+                          success: (res) => {
+                              console.log(res);
+                              // success
+                              this.longitude = res.longitude;
+                              this.latitude = res.latitude;
+                              //用户所处位置
+                              this.user_latitude = res.latitude;
+                              this.user_longitude = res.longitude;
+
+                              http.request({
+                                  url: '/api/basics/position',
+                                  header: {
+                                      latitude: res.latitude,
+                                      longitude: res.longitude
+                                  },
+                                  success: (res) => {
+                                      // success
+                                      //根据名字找到数组中的城市
+                                      for (const key in this.list) {
+                                          const find = this.list[key].find(item => {
+                                              return item.id == res.data.data.id;
+                                          });
+                                          if (find) {
+                                              this.selected = find;
+                                              break;
+                                          }
+                                      }
+                                      resolve();
+                                  }
+                              });
+                          }
+                      })
+                  }
+              }
+          })
+
+        /*
         wx.getLocation({
           type: 'wgs84',
           success: (res) => {
             console.log(res);
-            // success  
+            // success
             this.longitude = res.longitude;
             this.latitude = res.latitude;
             //用户所处位置
@@ -128,6 +356,7 @@ City.prototype.fetchData = function () {
             });
           }
         })
+        */
       },
       fail: function () {
         wx.showToast({

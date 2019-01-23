@@ -37,7 +37,8 @@ Page(observer({
       gids: '',
       endtime: '',
     },
-    time: ''
+    time: '',
+      disable:false,
   },
   setTime(e) {
     const time = e.detail;
@@ -127,6 +128,7 @@ Page(observer({
     console.log(form);
     const result = await login();
     if (verify(form, config)) {
+        this.setData({disable: true})
       http.request({
         url: '/api/solitaire/publish',
         method: 'POST',
@@ -137,6 +139,8 @@ Page(observer({
         success: (response) => {
           if (response.data.code == 1) {
             //提交成功
+              this.props.selectedList=[]
+              this.setData({disable: false})
             wx.redirectTo({
               url: '/pages/user/group/group',
             });
