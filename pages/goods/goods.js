@@ -337,6 +337,9 @@ Page(observer({
         wx.canvasToTempFilePath({
             canvasId: 'share',
             success: (res) => {
+              that.setData({
+                oCanvasH: 0, 
+              });
                 wx.saveImageToPhotosAlbum({
                     filePath: res.tempFilePath,
                     success: (res) => {
@@ -344,7 +347,7 @@ Page(observer({
                             title: '海报已保存至相册 请打开朋友圈分享',
                             icon: 'none',
                             duration: 2000
-                        })
+                        });
                         console.log('成功保存到手机系统相册', res)
                     },
                     fail: (err) => {
