@@ -45,6 +45,7 @@ Page({
         });
         detail.total = 0;
         detail.status = endTime<=timeNow ? 1:0;//1为已结束 0未结束
+          console.log(detail.status)
         //总价
         // Object.defineProperty(detail, 'total', {
         //   get() {

@@ -38,6 +38,11 @@
             <text>合计:<text class="price"><text class="_rmb">￥</text>{{detail.total}}</text></text>
             已团{{detail.number}}人
         </view>
-        <view class="buy {{detail.status==1?'disable':''}}" bind:tap="{{detail.status==1?'':buy}}">{{detail.status==1?"已结束":"我要接龙"}}</view>
+        <block wx:if="{{detail.status==1}}">
+            <view class="buy disable" bind:tap="">已结束</view>
+        </block>
+        <block wx:else>
+            <view class="buy" bind:tap="buy">我要接龙</view>
+        </block>
     </view>
 </view>

@@ -51,7 +51,8 @@
         <view class="hasRole">
             <icon type="warn" size="70" color="" />
             <text class="title">审核被拒</text>
-            <text>您提交的{{detail.role}}入驻申请因{{detail.refuse_reason}}审核被拒</text>
+            <text>您提交的{{detail.role}}入驻申请审核被拒</text>
+            <text>拒绝原因：{{detail.refuse_reason}}</text>
             <view class="btn" bind:tap="getApply">重新申请</view>
         </view>
     </block>
