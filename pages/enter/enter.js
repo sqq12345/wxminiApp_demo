@@ -28,8 +28,28 @@ Page({
             }
         })
     },
-    //重新申请
-    getApply:function () {
-      this.setData({onShowApply:true})
+    //确认驳回并去重新申请
+    async getApply () {
+        const result = await login();
+        http.request({
+            showLoading: true,
+            url: '/api/shop/confirm_refuse',
+            method: 'POST',
+            header: {
+                token: result.user_token
+            },
+            success: (res) => {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none',
+                    duration: 1000,
+                    complete:()=>{
+                        if(res.data.code === 1){
+                            this.setData({onShowApply:true})
+                        }
+                    }
+                });
+            }
+        })
     },
 })

@@ -90,11 +90,11 @@ Page(observer({
 
 
     //  第一页已经填写提交
-      if (progressResult.data.data.state == 1) {
+      if (progressResult.data.data.state == 0) {
           const resultVal = progressResult.data.data.data
-          this.props.form.name = resultVal.name;
+          this.props.form.name = resultVal.name?resultVal.name:"";
           this.setData({
-              name: resultVal.name,
+              name: resultVal.name?resultVal.name:"",
               goods_ids: resultVal.goods_ids ? resultVal.goods_ids.split(',') : null,
               server_ids: resultVal.server_ids ? resultVal.server_ids.split(',') : null,
               tech_ids: resultVal.tech_ids ? resultVal.tech_ids.split(',') : null,
