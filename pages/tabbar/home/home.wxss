@@ -175,7 +175,8 @@ page {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: calc(100% - 35rpx);
+  max-width: 100%;
+  flex: 1;
   color: #666666;
 }
 
