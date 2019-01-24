@@ -15,10 +15,12 @@
 
 .item .header {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     border-bottom: 1rpx solid #F4F4F4;
-    padding: 20rpx;
+    /*padding: 20rpx 20rpx 20rpx 0;*/
+    padding-right: 20rpx;
     justify-content: space-between;
+    min-height: 80rpx;
 }
 
 .item .header >navigator {
@@ -47,10 +49,25 @@
     overflow: hidden;
 }
 
-.item .goods {
+.select-shop,.select-goods {
     display: flex;
     align-items: center;
-    padding: 20rpx;
+    justify-content: center;
+}
+.select-shop image,.select-goods image{
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 15rpx;
+    margin-left: 20rpx;
+    border-radius: 50%;
+}
+
+
+
+.item .goods {
+    display: flex;
+    /*align-items: center;*/
+    padding: 20rpx 20rpx 20rpx 0;
 }
 
 .item .goods .thumb {
@@ -118,7 +135,8 @@
     flex-grow: 2;
     display: flex;
     align-items: center;
-    padding: 0 30rpx;
+    /*padding: 0 30rpx;*/
+    padding-right: 30rpx;
     justify-content: space-between;
 }
 
@@ -129,6 +147,7 @@
 .bottom-btn .all .select {
     vertical-align: text-top;
     font-size: 24rpx;
+    padding-left: 30rpx;
 }
 
 .bottom-btn .price {

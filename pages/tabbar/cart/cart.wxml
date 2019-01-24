@@ -4,7 +4,9 @@
     </view>
     <view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex">
         <view class="header">
-            <image class="select-icon" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
+            <view class="select-shop" data-cart-index="{{cartIndex}}" bind:tap="select">
+                <image  src="/static/icons/cart/{{item.selected?'selected.png':'unselected.png'}}" />
+            </view>
             <navigator hover-class="none" url="/pages/goodslist/goodslist?id={{item.shop.id}}">
                 <view>
                     <image class="select-icon" src="{{item.shop.logo}}" />
@@ -15,14 +17,16 @@
         </view>
         <view>
             <view class="goods{{goods.disabled?' disable':''}}" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
-                <image class="select-icon" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select" src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
-                <navigator hover-class="none" url="/pages/goods/goods?id={{goods.id}}" style="display: flex; flex: 1;">
-                    <view class="image">
+                <view class="select-goods" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select">
+                    <image   src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
+                </view>
+                <view  style="display: flex; flex: 1;">
+                    <navigator class="image" hover-class="none" url="/pages/goods/goods?id={{goods.id}}">
                         <image class="thumb" src="{{goods.image}}" />
                         <view class="disable" wx:if="{{goods.disabled}}">缺货</view>
-                    </view>
+                    </navigator>
                     <view class="info" >
-                        <view class="title text-overflow">{{goods.name}}</view>
+                        <navigator class="title text-overflow" hover-class="none" url="/pages/goods/goods?id={{goods.id}}">{{goods.name}}</navigator>
                         <view class="unit">{{goods.unit}}</view>
                         <view class="price">
                             ￥{{goods.price}}
@@ -33,7 +37,7 @@
                             </view>
                         </view>
                     </view>
-                </navigator>
+                </view>
             </view>
         </view>
     </view>
