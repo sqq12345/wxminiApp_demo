@@ -8,6 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        onShowApply:false,
     },
     async onLoad(){
         const result = await login();
@@ -26,5 +27,9 @@ Page({
               }
             }
         })
+    },
+    //重新申请
+    getApply:function () {
+      this.setData({onShowApply:true})
     },
 })

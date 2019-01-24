@@ -5,7 +5,7 @@
     <form class='form'>
         <view class='form-group'>
             <label>{{type}}名称</label>
-            <input placeholder="输入名称" bindinput="onInput" data-field="name"/>
+            <input placeholder="输入名称" bindinput="onInput" data-field="name" value="{{name}}"/>
         </view>
         <view class='form-group' wx:for="{{fields}}" wx:key="{{index}}" wx:for-item="field">
             <label>{{field.title}}</label>

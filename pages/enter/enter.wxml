@@ -1,22 +1,5 @@
 <view class='container'>
-    <block wx:if="{{detail.is_wait === 1}}">
-        <view class="hasRole">
-            <image src="/static/icons/icon-success.png" />
-            <text class="title">等待审核</text>
-            <text>您已提交{{detail.role}}入驻申请</text>
-        </view>
-    </block>
-    <block wx:if="{{detail.is_wait === 0 && detail.mid!=''}}">
-        <view class="hasRole">
-            <image src="/static/icons/icon-success.png" />
-            <text class="title">恭喜您!</text>
-            <text>您的{{detail.role}}入驻申请已经审核通过！</text>
-            <navigator class="btn" hover-class="none" url="/pages/detail/detail?id={{detail.mid}}&type={{type}}">
-                查看{{detail.role}}详情
-            </navigator>
-        </view>
-    </block>
-    <block wx:if="{{detail.is_wait === 0 && detail.mid===''}}">
+    <block wx:if="{{detail.status === 1 || onShowApply}}">
         <view class="f1">请选择角色</view>
         <navigator hover-class="none" class="item bg1" url="/pages/enter/index/index?index=1">
             <image src="/static/bg/enter/1.png" class="_bg" />
@@ -55,6 +38,34 @@
         </navigator>
         <navigator hover-class="none" class="f1"></navigator>
     </block>
+
+    <block wx:if="{{detail.status === 3}}">
+        <view class="hasRole">
+            <!--<image src="/static/icons/icon-success.png" />-->
+            <icon type="waiting" size="70" color="" />
+            <text class="title">等待审核</text>
+            <text>您已提交{{detail.role}}入驻申请</text>
+        </view>
+    </block>
+    <block wx:if="{{detail.status === 4 && !onShowApply}}">
+        <view class="hasRole">
+            <icon type="warn" size="70" color="" />
+            <text class="title">审核被拒</text>
+            <text>您提交的{{detail.role}}入驻申请因{{detail.refuse_reason}}审核被拒</text>
+            <view class="btn" bind:tap="getApply">重新申请</view>
+        </view>
+    </block>
+    <block wx:if="{{detail.status === 5}}">
+        <view class="hasRole">
+            <image src="/static/icons/icon-success.png" />
+            <text class="title">恭喜您!</text>
+            <text>您的{{detail.role}}入驻申请已经审核通过！</text>
+            <navigator class="btn" hover-class="none" url="/pages/detail/detail?id={{detail.mid}}&type={{type}}">
+                查看{{detail.role}}详情
+            </navigator>
+        </view>
+    </block>
+
 
 
 </view>

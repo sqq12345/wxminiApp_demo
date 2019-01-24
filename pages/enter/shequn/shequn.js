@@ -64,14 +64,14 @@ Page(observer({
     const result = await login();
     const form = this.props.form;
     //console.log(form);
-      if(!form.mobile && !form.other && !form.telephone){
-          wx.showToast({
-              title: '联系方式至少填一项',
-              icon: 'none',
-              duration: 2000,
-          });
-          return;
-      }
+    //   if(!form.mobile && !form.other && !form.telephone){
+    //       wx.showToast({
+    //           title: '联系方式至少填一项',
+    //           icon: 'none',
+    //           duration: 2000,
+    //       });
+    //       return;
+    //   }
     if (verify(form, config)) {
       http.request({
         url: '/api/shop/setgrouptwo',
@@ -117,7 +117,7 @@ const config = {
   mobile: {
     name: '手机号码',
     regex: regex.cellphone,
-    require: false,
+    require: true,
   },
   telephone: {
     name: '固定电话',

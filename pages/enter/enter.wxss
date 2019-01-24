@@ -60,7 +60,7 @@ page{
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding: 140rpx 30rpx;
+    padding: 140rpx 100rpx;
 }
 .hasRole image{
     width: 225rpx;

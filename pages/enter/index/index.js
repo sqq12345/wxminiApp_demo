@@ -15,12 +15,6 @@ Page(observer({
     fields: [],
     loading: true,
   },
-  //input赋值
-  onInput(e) {
-    const value = e.detail.value;
-    const {field} = e.target.dataset;
-    this.props.form[field] = value;
-  },
   /**
    * 页面的初始数据
    */
@@ -39,7 +33,7 @@ Page(observer({
         progressUrl = '/api/shop/merchantProgress';
         submitUrl = '/api/shop/setmerchantone';
         type = '农场';
-        title = '农场入户';
+        title = '农场入驻';
         break;
       case '2':
         url = '/pages/enter/shequn/shequn';
@@ -70,6 +64,9 @@ Page(observer({
         title = '集市入驻';
         break;
     }
+      wx.setNavigationBarTitle({
+          title: title
+      })
     const loginResult = await login();
     //查询进度
     const progressResult = await http.request({
@@ -81,15 +78,34 @@ Page(observer({
     });
 
     //第一页已经填写
-    if (progressResult.data.data.state == 1) {
-      setTimeout(() => {
-        //直接跳第二页  第一页只能填一次
-        wx.redirectTo({
-          url: url + '?id=' + progressResult.data.data.mid,
-        });
-      }, 1000)
-      return false;
-    }
+    // if (progressResult.data.data.state == 1) {
+    //   setTimeout(() => {
+    //     //直接跳第二页  第一页只能填一次
+    //     wx.redirectTo({
+    //       url: url + '?id=' + progressResult.data.data.mid,
+    //     });
+    //   }, 1000)
+    //   return false;
+    // }
+
+
+    //  第一页已经填写提交
+      if (progressResult.data.data.state == 1) {
+          const resultVal = progressResult.data.data.data
+          this.props.form.name = resultVal.name;
+          this.setData({
+              name: resultVal.name,
+              goods_ids: resultVal.goods_ids ? resultVal.goods_ids.split(',') : null,
+              server_ids: resultVal.server_ids ? resultVal.server_ids.split(',') : null,
+              tech_ids: resultVal.tech_ids ? resultVal.tech_ids.split(',') : null,
+              chr_ids: resultVal.chr_ids ? resultVal.chr_ids.split(',') : null,
+              type_ids: resultVal.type_ids ? resultVal.type_ids.split(',') : null,
+              style_ids: resultVal.style_ids ? resultVal.style_ids.split(',') : null,
+              cooking_ids: resultVal.cooking_ids ? resultVal.cooking_ids.split(',') : null,
+              scale_ids: resultVal.scale_ids ? resultVal.scale_ids.split(',') : null,
+              live_ids: resultVal.live_ids ? resultVal.live_ids.split(',') : null,
+          })
+      }
 
     //已经申请
     if (progressResult.data.data.state == 2) {
@@ -135,8 +151,117 @@ Page(observer({
       method: 'POST',
     });
     const fields = response.data.data;
-    //默认选中第一个
+    //已经提交过显示已填数据 否则 默认选中第一个
     fields.map(item => {
+      let goods = this.data.goods_ids,
+          servers = this.data.server_ids,
+          techs = this.data.tech_ids,
+          chrs = this.data.chr_ids,
+          types=this.data.type_ids,
+          styles = this.data.style_ids,
+          cookings = this.data.cooking_ids,
+          scales = this.data.scale_ids,
+          lives = this.data.live_ids
+      if(item.alias == "goods_ids" && goods!=null){
+          this.props.form[item.alias] = goods;
+          for(let i=0;i<item.son.length;++i){
+            for(let j=0;j<goods.length;++j){
+              if(item.son[i].id == goods[j]){
+                  item.son[i].selected = true;
+              }
+            }
+          }
+          return;
+      }
+      if(item.alias == "server_ids"&& servers!=null){
+          this.props.form[item.alias] = servers;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<servers.length;++j){
+                  if(item.son[i].id == servers[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "tech_ids"&& techs!=null){
+          this.props.form[item.alias] = techs;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<techs.length;++j){
+                  if(item.son[i].id == techs[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "chr_ids"&& chrs!=null){
+          this.props.form[item.alias] = chrs;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<chrs.length;++j){
+                  if(item.son[i].id == chrs[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "type_ids" && types!=null){
+          this.props.form[item.alias] = types;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<types.length;++j){
+                  if(item.son[i].id == types[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "style_ids"&& styles!=null){
+          this.props.form[item.alias] = styles;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<styles.length;++j){
+                  if(item.son[i].id == styles[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "cooking_ids"&& cookings!=null){
+          this.props.form[item.alias] = cookings;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<cookings.length;++j){
+                  if(item.son[i].id == cookings[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "scale_ids" && scales!=null){
+          this.props.form[item.alias] = scales;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<scales.length;++j){
+                  if(item.son[i].id == scales[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+      if(item.alias == "live_ids" && lives!=null){
+          this.props.form[item.alias] = lives;
+          for(let i=0;i<item.son.length;++i){
+              for(let j=0;j<lives.length;++j){
+                  if(item.son[i].id == lives[j]){
+                      item.son[i].selected = true;
+                  }
+              }
+          }
+          return;
+      }
+
       this.props.form[item.alias] = [item.son[0].id];
       item.son[0].selected = true;
     });
@@ -146,16 +271,26 @@ Page(observer({
     })
   },
 
+    //input赋值
+    onInput(e) {
+        const value = e.detail.value;
+        const {field} = e.target.dataset;
+        this.props.form[field] = value;
+    },
+
   select(e) {
     const {value, field, multiple} = e.currentTarget.dataset;
     let selected = this.props.form[field] || [];
     //判断单选多选
     if (multiple === 1) {
-      const index = selected.findIndex(id => id === value.id);
+      const index = selected.findIndex(id => id == value.id);
+      console.log(selected,index)
       if (index === -1) {   //未选中添加
         selected.push(value.id);
+          console.log("未选中添加",value.id)
       } else {  //已选中删除
         selected.splice(index, 1);
+          console.log("已选中删除",selected.splice(index, 1))
       }
     } else {
       selected = [];

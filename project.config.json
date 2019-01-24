@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -61,6 +61,12 @@
 					"id": -1,
 					"name": "退款",
 					"pathName": "pages/user/orders/refund/refund",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "入驻",
+					"pathName": "pages/enter/enter",
 					"query": ""
 				}
 			]
