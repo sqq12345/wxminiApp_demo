@@ -284,24 +284,39 @@ Page(observer({
     //判断单选多选
     if (multiple === 1) {
       const index = selected.findIndex(id => id == value.id);
-      console.log(selected,index)
+      // console.log(selected,index)
       if (index === -1) {   //未选中添加
-        selected.push(value.id);
-          console.log("未选中添加",value.id)
+        selected.push(String(value.id));
+          // console.log("未选中添加",value.id)
       } else {  //已选中删除
         selected.splice(index, 1);
-          console.log("已选中删除",selected.splice(index, 1))
+          // console.log("已选中删除",selected.splice(index, 1))
       }
     } else {
       selected = [];
       selected.push(value.id);
     }
     //标记
+    console.log(selected);
     const fields = this.data.fields;
     fields.map(f => {
       if (f.alias === field) {
+
         f.son.map(item => {
-          item.selected = selected.some(id => id === item.id)
+          console.log(item);
+          if (selected.indexOf(String(item.id)) > -1) {
+            console.log("true", item.id, selected);
+            item.selected = true;
+          }else{
+            console.log("false", item.id, selected);
+            item.selected = false;
+          }
+
+          // item.selected = selected.some((id)=>{
+          //   console.log(item);
+          //   console.log(id);
+          //     return id === item.id
+          // })
         })
       }
     });
