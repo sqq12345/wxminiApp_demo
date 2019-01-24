@@ -194,3 +194,49 @@
     color: #444444;
 }
 .sub-comment .subName{ color: #FF6600;}
+
+
+.contact{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 40rpx 0 20rpx;
+}
+.contact .title{
+    position: relative;
+    color: #333333;
+    font-size: 28rpx;
+    line-height: 48rpx;
+}
+.contact .title:after{
+    position: absolute;
+    top: -6rpx;
+    left: 50%;
+    margin-left: -14rpx;
+    content: '';
+    width:28rpx;
+    height:6rpx;
+    background: #33CA39;
+}
+.contact .sub-title{
+    color: #999999;
+    font-size: 20rpx;
+    line-height: 1;
+    padding-bottom: 15rpx;
+}
+.contact image{
+    width:284rpx;
+    height:284rpx;
+    margin: 12rpx;
+}
+.contact .mobile{
+    color: #FFFFFF;
+    font-size: 24rpx;
+    line-height: 48rpx;
+    padding: 0 30rpx;
+    background: #33CA39;
+    border-radius:25rpx;
+}
+.contact .mobile text{
+    font-size: 26rpx;
+}

@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -68,6 +68,12 @@
 					"name": "入驻",
 					"pathName": "pages/enter/enter",
 					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "商家详情",
+					"pathName": "pages/detail/detail",
+					"query": "type=2&id=95"
 				}
 			]
 		}
