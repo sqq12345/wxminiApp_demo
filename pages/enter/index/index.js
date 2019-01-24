@@ -90,7 +90,7 @@ Page(observer({
 
 
     //  第一页已经填写提交
-      if (progressResult.data.data.state == 0) {
+      if (progressResult.data.data.state == 1) {
           const resultVal = progressResult.data.data.data
           this.props.form.name = resultVal.name?resultVal.name:"";
           this.setData({
