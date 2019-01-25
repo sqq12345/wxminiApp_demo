@@ -35,7 +35,8 @@
 
         <view class='form-group'>
             <text>地址</text>
-            <input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>
+            <!--<input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>-->
+            <view bind:tap="chooseAddress" class="address {{address?'':'gray'}}">{{address?address:'详细地址'}}</view>
             <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
         </view>
         <view class='form-group'>

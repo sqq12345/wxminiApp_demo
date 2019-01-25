@@ -2,29 +2,30 @@
     <form>
         <view class='form-group'>
             <text>联系人</text>
-            <input placeholder="请输入姓名" data-field="linkman" bindinput="onInput" maxlength="4"/>
+            <input placeholder="请输入姓名" data-field="linkman" bindinput="onInput" maxlength="4" value="{{detail.linkman}}"/>
         </view>
         <view class='form-group'>
             <text>手机号码</text>
-            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput" maxlength="11"/>
+            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput" maxlength="11" value="{{detail.mobile}}"/>
         </view>
         <view class='form-group'>
             <text>固定电话</text>
-            <input placeholder="请输入固定电话（选填）" type="number" data-field="telephone" bindinput="onInput"
+            <input placeholder="请输入固定电话（选填）" type="number" data-field="telephone" bindinput="onInput" value="{{detail.telephone}}"
                    maxlength="11"/>
         </view>
         <view class='form-group'>
             <text>其他</text>
-            <input placeholder="请输入其他联系方式（选填）" data-field="other" bindinput="onInput"/>
+            <input placeholder="请输入其他联系方式（选填）" data-field="other" bindinput="onInput" value="{{detail.other}}"/>
         </view>
         <view class='form-group'>
             <text>社群人数</text>
-            <input placeholder="只可填写数字" type="number" data-field="nums" bindinput="onInput"/>
+            <input placeholder="只可填写数字" type="number" data-field="nums" bindinput="onInput" value="{{detail.nums}}"/>
             <text style="text-align:right">（人）</text>
         </view>
         <view class='form-group'>
             <text>地址</text>
-            <input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{address}}"/>
+            <!--<input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{detail.address || address}}"/>-->
+            <view bind:tap="chooseAddress" class="address {{address?'':'gray'}}">{{address?address:'详细地址'}}</view>
             <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
         </view>
         <view class='form-group'>
@@ -35,7 +36,7 @@
         </view>
         <view class='form-group'>
             <text>简介</text>
-            <textarea bindinput="onInput" data-field="memo"  placeholder='可以简单介绍一下你的社群，需要的产品。' maxlength="300"></textarea>
+            <textarea bindinput="onInput" data-field="memo"  placeholder='可以简单介绍一下你的社群，需要的产品。' maxlength="300" value="{{detail.memo}}"></textarea>
         </view>
         <view class='form-group'>
             <text>产品图片</text>
@@ -45,7 +46,7 @@
         </view>
         <view class='form-group'>
             <text>社群故事</text>
-            <textarea bindinput="onInput" data-field="story" placeholder='可以说说社群的故事，成立的时间，让更多的人了解。' maxlength="300"></textarea>
+            <textarea bindinput="onInput" data-field="story" placeholder='可以说说社群的故事，成立的时间，让更多的人了解。' maxlength="300" value="{{detail.story}}"></textarea>
         </view>
         <view class='form-group'>
             <text>营业执照</text>

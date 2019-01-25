@@ -16,6 +16,90 @@ Page(observer({
   data: {
     address: '',
   },
+    async onLoad(options) {
+        this.props.form['mid'] = options.id;
+        /*
+        const loginResult = await login();
+         //查询进度
+         const progressResult = await http.request({
+             url: "/api/shop/groupProgress",
+             method: 'POST',
+             header: {
+                 token: loginResult.user_token
+             },
+         });
+         if (progressResult.data.data.state == 1) {
+             const resultVal = progressResult.data.data.data
+             // this.props.form[resultVal] = resultVal;
+             this.props.form['linkman'] = resultVal.linkman?resultVal.linkman:"";
+             this.props.form['mobile'] = resultVal.mobile?resultVal.mobile:"";
+             this.props.form['telephone'] = resultVal.telephone?resultVal.telephone:"";
+             this.props.form['other'] = resultVal.other?resultVal.other:"";
+             this.props.form['nums'] = resultVal.nums?resultVal.nums:"";
+             this.props.form['address'] = resultVal.address?resultVal.address:"";
+             this.props.form['memo'] = resultVal.memo?resultVal.memo:"";
+             this.props.form['story'] = resultVal.story?resultVal.story:"";
+             this.props.form['longitude'] = resultVal.longitude?resultVal.longitude:"";
+             this.props.form['latitude'] = resultVal.latitude?resultVal.latitude:"";
+             this.props.form['cover'] = resultVal.cover?resultVal.cover:"";
+             this.props.form['pics'] = resultVal.pics?resultVal.pics:"";
+             this.props.form['idcard'] = resultVal.idcard?resultVal.idcard:"";
+             this.props.form['idcardback'] = resultVal.idcardback?resultVal.idcardback:"";
+             this.props.form['brand'] = resultVal.brand?resultVal.brand:"";
+             this.props.form['enterprise'] = resultVal.enterprise?resultVal.enterprise:"";
+             this.props.form['qs'] = resultVal.qs?resultVal.qs:"";
+             this.props.form['wxaccount_image'] = resultVal.wxaccount_image?resultVal.wxaccount_image:"";
+
+             console.log(this.props.form)
+
+             const cover = resultVal.cover.split(',')
+             const pics = resultVal.pics.split(',')
+             const idcard = resultVal.idcard.split(',')
+             const idcardback = resultVal.idcardback.split(',')
+             const brand = resultVal.brand.split(',')
+             const enterprise = resultVal.enterprise.split(',')
+             const qs = resultVal.qs.split(',')
+             const wxaccount_image = resultVal.wxaccount_image.split(',')
+             cover.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             pics.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             idcard.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             idcardback.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             brand.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             enterprise.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             qs.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             wxaccount_image.map(item=>{
+                 item = "https://anfou.cc/"+item
+             })
+             this.setData({
+                 detail: resultVal,
+                 cover,
+                 pics,
+                 idcard,
+                 idcardback,
+                 brand,
+                 enterprise,
+                 qs,
+                 wxaccount_image,
+             })
+
+         }
+         */
+    },
+
   onInput(e) {
     const value = e.detail.value;
     const {field} = e.target.dataset;
@@ -34,11 +118,9 @@ Page(observer({
       },
     });
   },
-  onLoad(options) {
-    this.props.form['mid'] = options.id;
-  },
   onUploadFail(e) {},
   onRemove(e) {
+    console.log(e.detail)
     const data = e.detail.file.res.data;
     if (data) {
       const {field} = e.target.dataset;
@@ -63,7 +145,7 @@ Page(observer({
   async submit() {
     const result = await login();
     const form = this.props.form;
-    //console.log(form);
+    console.log(form);
     //   if(!form.mobile && !form.other && !form.telephone){
     //       wx.showToast({
     //           title: '联系方式至少填一项',

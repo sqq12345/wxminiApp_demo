@@ -40,14 +40,16 @@ wux-upload text {
     width: 5.5em;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, .form-group textarea,.form-group .address {
     flex: 1;
 }
 
 .form-group textarea {
     padding-right: 1em;
 }
-
+.gray{
+    color: #888;
+}
 .getAddress {
     color: #25CE41;
 }
