@@ -65,7 +65,7 @@ Page(observer({
             // console.log(res.latitude)
             //this.props.city.latitude = res.longitude;
             //this.props.city.longitude = res.latitude;
-            this.props.city.getMarkers(this.data.selectedTypeId, res.latitude, res.longitude);
+            // this.props.city.getMarkers(this.data.selectedTypeId, res.latitude, res.longitude);
           }
         }
       );

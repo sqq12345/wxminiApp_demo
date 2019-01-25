@@ -114,5 +114,18 @@ Page(observer({
         this.setData({page: 1, loading: true, end: false, list: []}, () => {
             this.fetchList();
         });
-    }
+    },
+    //下拉
+    onPullDownRefresh: function () {
+        var that = this
+        wx.showToast({
+            title: '正在刷新',
+            icon: 'loading',
+            duration: 2000
+        })
+        that.onChangeList()
+        setTimeout(function(){
+            wx.stopPullDownRefresh()
+        }, 2000)
+    },
 }))

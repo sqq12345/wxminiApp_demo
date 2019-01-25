@@ -66,6 +66,7 @@ Cart.prototype.fetchData = async function () {
                     goods.count = g.num;
                     goods.selected = g.status == 1;
                     goods.id = g.id;
+                    goods.num = 1;
                     //库存为零不选中
                     if(goods.stock == 0){
                         goods.selected=false;
@@ -77,7 +78,7 @@ Cart.prototype.fetchData = async function () {
                     }
                     json.goods.push(goods);
                     //总个数
-                    this.totalNumber += goods.count;
+                    this.totalNumber += goods.num;
                 });
                 Store.allSelected = allSelected
                 list.push(json);
@@ -110,7 +111,7 @@ Cart.prototype.fetchData = async function () {
                         if(this.disabled){
                             return false;
                         }
-                        _this.totalNumber++;
+                        // _this.totalNumber++;
                         //显示角标
                         _this.setTabbar();
                         this.count = this.count + 1;
@@ -136,7 +137,7 @@ Cart.prototype.fetchData = async function () {
                         }
                         //为零
                         if (this.count == 1) return;
-                        _this.totalNumber--;
+                        // _this.totalNumber--;
                         //显示角标
                         _this.setTabbar();
                         this.count = this.count - 1;

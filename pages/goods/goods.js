@@ -88,7 +88,7 @@ Page(observer({
       },
       method: 'POST',
       success: (response) => {
-        this.props.cart.totalNumber++;
+        // this.props.cart.totalNumber++;
         //刷新购物车
         this.props.cart.fetchData()
         wx.showToast({
@@ -338,7 +338,7 @@ Page(observer({
             canvasId: 'share',
             success: (res) => {
               that.setData({
-                oCanvasH: 0, 
+                oCanvasH: 0,
               });
                 wx.saveImageToPhotosAlbum({
                     filePath: res.tempFilePath,
