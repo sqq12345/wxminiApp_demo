@@ -23,6 +23,15 @@
             <text style="text-align:right">（人）</text>
         </view>
         <view class='form-group'>
+            <text>省市区</text>
+            <picker placeholder="请选择省市区" mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}" range-key="name" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange"
+                    class="w75">
+                <view class="picker">
+                    {{showArray[0][multiIndex[0]].name}}-{{showArray[1][multiIndex[1]].name}}-{{showArray[2][multiIndex[2]].name}}
+                </view>
+            </picker>
+        </view>
+        <view class='form-group'>
             <text>地址</text>
             <!--<input placeholder="详细地址（必填）" data-field="address" bindinput="onInput" value="{{detail.address || address}}"/>-->
             <view bind:tap="chooseAddress" class="address {{address?'':'gray'}}">{{address?address:'详细地址'}}</view>
