@@ -87,6 +87,8 @@
     width: 48%;
     background: #ffffff;
     margin-bottom: 30rpx;
+    border-radius: 8rpx;
+    overflow: hidden;
 }
 
 .list .item:nth-of-type(odd) {
