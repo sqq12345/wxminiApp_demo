@@ -39,10 +39,12 @@ Page({
       case 'shop':
         url = '/api/shop/message';
         form.mid = options.mid;
-        break;
+          form.ranks = form.ranks.toFixed(1)
+          break;
       case 'order':
         url = '/api/user/orderitemsmessage';
         form.item_id = options.id;
+          form.ranks = form.ranks.toFixed(1)
         break;
     }
     this.setData({ commitUrl: url, form, type: options.type })
@@ -50,7 +52,7 @@ Page({
 
   raterChange(e) {
     this.setData({
-      'form.ranks': e.detail.value,
+      'form.ranks': e.detail.value.toFixed(1),
     })
   },
   onInput(e) {

@@ -2,7 +2,8 @@
     <view class="rater">
         <text>{{type == 'shop'?"商家评价":"商品评价"}}</text>
         <view>
-            <wux-rater allow-half allow-clear allow-touch-move value="{{form.ranks}}" controlled bind:change="raterChange" />
+            <!--<wux-rater allow-half allow-clear allow-touch-move value="{{form.ranks}}" controlled bind:change="raterChange" />-->
+            <wux-rater slot="footer" controlled value="{{ form.ranks }}" bind:change="raterChange" activeColor="#FFAA27" fontSize="30" allowHalf icon="ios-star" />
             <text class="score">{{form.ranks}}分</text>
         </view>
     </view>

@@ -8,15 +8,17 @@
 
 .score {
     color: #FFAA27;
+    font-size: 30rpx;
 }
 
 .rater>view {
     display: flex;
     align-items: center;
+    padding-top: 16rpx;
 }
 
 .rater>view>text {
-    width: 2.5em;
+    /*width: 2.5em;*/
     text-align: center;
 }
 
@@ -27,3 +29,4 @@
 .textarea textarea{
     width: 100%;
 }
+
