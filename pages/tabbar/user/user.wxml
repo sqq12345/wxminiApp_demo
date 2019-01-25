@@ -1,7 +1,7 @@
 <view class="container">
-  <view class="head" style="{{userinfo.ismerchant!=0?'margin-bottom:80rpx':''}};top:{{-occupation}}px;">
+  <view class="head" style="{{userinfo.ismerchant!=0?'margin-bottom:80rpx':''}}">
     <image class="_bg" src="/static/bg/user.png" />
-    <view class="info" style="{{userinfo.ismerchant==0?'margin-top:80rpx':''}};position:relative;top:50rpx;">
+    <view class="info" style="{{userinfo.ismerchant==0?'margin-top:80rpx':''}};position:relative;">
       <navigator hover-class="none" url="/pages/user/profile/profile">
         <open-data class="avatar" type="userAvatarUrl"></open-data>
         <open-data class="username" type="userNickName"></open-data>
@@ -36,7 +36,7 @@
       </view>
     </view>
   </view>
-  <view class="block" style="position:relative;top:{{-occupation}}px;">
+  <view class="block">
     <view class="title">
       <text>我的订单</text>
       <navigator hover-class="none" class="more" url="/pages/user/orders/orders">
@@ -68,7 +68,7 @@
       </view>
     </view>
   </view>
-  <view class="block" style="position:relative;top:{{-occupation}}px;">
+  <view class="block">
     <view class="title">
       <text>正在参与</text>
     </view>
@@ -89,7 +89,7 @@
       </view>
     </view>
   </view>
-  <view class="block" style="position:relative;top:{{-occupation}}px;">
+  <view class="block">
     <view class="icons">
       <navigator class="icon" hover-class="none" url="/pages/tabbar/cart/cart" open-type="switchTab">
         <image src="/static/icons/user/7.png" style="width:44rpx;"/>

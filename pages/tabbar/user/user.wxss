@@ -73,7 +73,7 @@
 .head {
     display: flex;
     position: relative;
-    height: 396rpx;
+    height: 320rpx;
     color: #ffffff;
     margin-bottom: 20rpx;
     background: #32cc4a;
@@ -82,7 +82,7 @@
 .head .info {
     display: flex;
     flex: 1;
-    padding: 30rpx;
+    padding: 0 30rpx;
     justify-content: space-between;
 }
 
