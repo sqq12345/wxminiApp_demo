@@ -27,9 +27,9 @@
             {{goods.summary}}
         </view>
         <view class="extr">
-            <text>快递 {{goods.fee==null?'免运费':goods.fee}}</text>
-            <text>已售{{goods.sales}}</text>
-            <text>库存{{goods.stock}}件</text>
+            <view>快递：<text class="gray">{{goods.fee==null?'免运费':goods.fee}}</text></view>
+            <view>已售<text class="gray">{{goods.sales}}</text></view>
+            <view>库存<text class="gray">{{goods.stock}}</text>件</view>
         </view>
     </view>
     <view class="comments" wx:if="{{goods.comments.list.length>0}}">

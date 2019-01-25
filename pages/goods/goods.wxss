@@ -11,6 +11,7 @@ swiper image {
 
 .swiper1 {
     width: 100%;
+    display: block;
 }
 
 .container {
@@ -36,7 +37,6 @@ swiper {
 .info {
     padding: 20rpx 30rpx;
     background: #ffffff;
-    margin-top: -10rpx;
 }
 .sub-info{
     display: flex;
@@ -51,7 +51,8 @@ swiper {
 }
 
 .info>view {
-    margin-bottom: 10rpx;
+    /*margin-bottom: 10rpx;*/
+    padding: 10rpx 0;
 }
 
 .info .price {}
@@ -84,9 +85,12 @@ swiper {
     justify-content: space-between;
 }
 
-.info .extr text {
+.info .extr view {
     font-size: 24rpx;
     color: #666;
+}
+.info .extr .gray{
+    color: #999;
 }
 
 .info .unit view,
@@ -94,9 +98,8 @@ swiper {
     color: #666666;
     font-size: 24rpx;
 }
-
 .info .unit>view {
-    margin-right: 2em;
+    margin-right: 48rpx;
     display: inline-block;
 }
 
@@ -180,7 +183,7 @@ swiper {
     background: #ffffff;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 30rpx;
 }
 
 .shop .logo {
