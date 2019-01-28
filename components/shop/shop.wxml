@@ -5,12 +5,12 @@
         <view class="text">
             <view class="title">{{item.name}}</view>
             <view class="info">
-                <view><image class="icon location" src="/static/icons/shops/1.png"/><text>{{item.district}}</text></view>
+                <view class="info-left"><image class="icon location" src="/static/icons/shops/1.png"/><text class="text-overflow">{{item.district}}</text></view>
                 <text>距离{{distance}}</text>
             </view>
-            <view class="info">
+            <view class="info" catch:tap="openDetail" data-id="{{item.id}}">
                 <view><image class="icon coupon" src="/static/icons/shops/2.png"/><text>优惠券</text></view>
-                <view catch:tap="openDetail" data-id="{{item.id}}">{{item.goods.length}}个活动<image class="down" src="/static/icons/down3.png"/></view>
+                <view>{{item.goods.length}}个活动<image class="down" src="/static/icons/down3.png"/></view>
             </view>
         </view>
     </navigator>

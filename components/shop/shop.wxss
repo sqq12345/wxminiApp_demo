@@ -98,3 +98,10 @@
     color: #FF6600;
     font-weight: bolder;
 }
+.info-left{
+    flex: 1;
+    padding-right: 10rpx;
+}
+.text-overflow{
+    -webkit-line-clamp:1;
+}
