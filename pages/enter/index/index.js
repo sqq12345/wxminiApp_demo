@@ -368,10 +368,13 @@ Page(observer({
         return
       }
       //用重定向 避免返回上一页  这个页面提交后不能修改
-      wx.redirectTo({
+      // wx.redirectTo({
+      //   url: this.data.nextUrl + '?id=' + result.data.data.mid
+      //   //url: this.data.nextUrl
+      // });
+      wx.navigateTo({
         url: this.data.nextUrl + '?id=' + result.data.data.mid
-        //url: this.data.nextUrl
-      });
+      })
     } else {
       wx.showToast({
         title: '请填写完整信息',

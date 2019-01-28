@@ -71,9 +71,9 @@
 				},
 				{
 					"id": 5,
-					"name": "商家详情",
-					"pathName": "pages/detail/detail",
-					"query": "type=2&id=95"
+					"name": "商品详情",
+					"pathName": "pages/goods/goods",
+					"query": "id=26"
 				}
 			]
 		}

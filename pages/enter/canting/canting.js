@@ -24,8 +24,10 @@ Page(observer({
   chooseAddress() {
     wx.chooseLocation({
       success: (result) => {
-        //选择地址赋值
-        const str = result.address + ' ' + result.name;
+          console.log(result)
+          //选择地址赋值 赋值经纬度
+          // const str = result.address + ' ' + result.name;
+          const str = result.name;
         this.props.form['address'] = str;
         this.props.form['latitude'] = result.latitude;
         this.props.form['longitude'] = result.longitude;
