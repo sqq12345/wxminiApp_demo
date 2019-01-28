@@ -3,13 +3,15 @@ import { observer } from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     detail: {},
-    sid: '',  //接龙id
+    sid: '',  //
+      isPhone:app.globalData.isIPhoneX,
   },
 
   /**

@@ -163,3 +163,7 @@ button {
     height: 172rpx;
     margin-bottom: 20rpx;
 }
+/*iphoneX加padding*/
+.iphoneX-height{
+    padding-bottom: 66rpx;
+}

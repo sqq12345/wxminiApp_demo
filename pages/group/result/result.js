@@ -30,6 +30,7 @@ Page(observer({
     loading: false,
     //没有更多数据了
     end: false,
+      isPhone:app.globalData.isIPhoneX,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -47,7 +48,7 @@ Page(observer({
     });
   },
   async fetchResults(query) {
-    await city.fetchData();
+    // await city.fetchData();
     const result = await login();
     http.request({
         showLoading: true,
@@ -58,7 +59,7 @@ Page(observer({
       },
       data: {
         page: this.data.page,
-        city_id: city.selected.id,
+        // city_id: city.selected.id,
         farm_name: query || '',
         type_id: this.data.type,
       },

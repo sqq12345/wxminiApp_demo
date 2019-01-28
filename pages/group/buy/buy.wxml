@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container {{isPhone?'iphoneX-height':''}}" >
     <view class="item">
         <view class="start">
             <view class="userinfo">
@@ -33,7 +33,7 @@
             </view>
         </view>
     </view>
-    <view class="bottom-btn">
+    <view class="bottom-btn {{isPhone?'iphoneX-height':''}}">
         <view class="all">
             <text>合计:<text class="price"><text class="_rmb">￥</text>{{detail.total}}</text></text>
             已团{{detail.number}}人

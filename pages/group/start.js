@@ -39,7 +39,7 @@ Page(observer({
     },
     time: '',
       disable:false,
-      isPhone:app.globalData.isIpx,
+      isPhone:app.globalData.isIPhoneX,
   },
     /**
      * 生命周期函数--监听页面加载

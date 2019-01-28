@@ -17,9 +17,9 @@ App({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
           if (res.model.search('iPhone X') != -1){
-              this.globalData.isIpx = true;
+              this.globalData.isIPhoneX = true;
           }else{
-              this.globalData.isIpx = false;
+              this.globalData.isIPhoneX = false;
           }
       }
     });

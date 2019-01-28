@@ -19,7 +19,9 @@
         </view>
       </view>
     </view>
-    <navigator class="_button done" url="/pages/group/start" delta="2" open-type="navigateBack">选好了</navigator>
+    <view class="done {{isPhone?'iphoneX-height':''}}">
+      <navigator class="_button" url="/pages/group/start" delta="2" open-type="navigateBack">选好了</navigator>
+    </view>
   </view>
   <view wx:if="{{list.length==0}}" class="empty">
     没有找到相关商品
