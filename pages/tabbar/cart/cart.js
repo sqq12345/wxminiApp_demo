@@ -22,6 +22,13 @@ Page(observer({
     editing: false,
     // occupation: app.globalData.height + 46,
   },
+    onLoad: function (options) {
+
+    },
+    onShow() {
+        this.props.cart.fetchData()
+        this.setData({editing: false});
+    },
   //商品数量增加
   increase(e) {
     const {cartIndex, goodsIndex} = e.currentTarget.dataset;
@@ -51,10 +58,4 @@ Page(observer({
   selectAll() {
     this.props.cart.selectAll();
   },
-  onLoad: function (options) {
-
-  },
-  onShow() {
-    this.props.cart.fetchData()
-  }
 }))
