@@ -201,35 +201,6 @@ Page(observer({
         wx.navigateTo({
             url: '/pages/user/orders/refund/refund'
         })
-        // const result = await login();
-        // wx.showModal({
-        //   title: '提示',
-        //   content: '确认要申请退款吗？',
-        //   showCancel: true,
-        //   cancelText: '取消',
-        //   cancelColor: '#000000',
-        //   confirmText: '确定',
-        //   confirmColor: '#3CC51F',
-        //   success: (r) => {
-        //     if (r.confirm) {
-        //       const { id } = e.currentTarget.dataset;
-        //       http.request({
-        //         url: '/api/user/refund',
-        //         method: 'POST',
-        //         showLoading: true,
-        //         data: {
-        //
-        //         },
-        //         header: {
-        //           token: result.user_token
-        //         },
-        //         success: (response) => {
-        //           //退款成功
-        //         }
-        //       });
-        //     }
-        //   },
-        // });
     },
 
     //支付订单

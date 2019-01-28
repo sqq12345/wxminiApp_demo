@@ -123,10 +123,13 @@ Page({
     });
   },
 
-  //退款
-  refundOrder() {
-    const pages = getCurrentPages();
-    const prePage = pages[pages.length - 2];
-    prePage.refundOrder({ currentTarget: { dataset: { id: this.data.orderId } } })
-  }
+    //退款订单
+    async refundOrder(e) {
+        const oVal=e.currentTarget.dataset.item;
+        // this.props.order.refundOrder = oVal;
+        wx.setStorageSync('refundOrder', oVal)
+        wx.navigateTo({
+            url: '/pages/user/orders/refund/refund'
+        })
+    },
 })

@@ -16,6 +16,11 @@ App({
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
+          if (res.model.search('iPhone X') != -1){
+              this.globalData.isIpx = true;
+          }else{
+              this.globalData.isIpx = false;
+          }
       }
     });
     const result =await login.apply(this);

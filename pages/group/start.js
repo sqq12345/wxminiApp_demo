@@ -4,7 +4,7 @@ import http from '../../utils/http';
 import login from '../../stores/Login';
 const { regeneratorRuntime } = global;
 import verify from '../../utils/verify';
-// const app = getApp();
+const app = getApp();
 Page(observer({
   props: {
     selectedList: require('../../stores/Group').selectedList,
@@ -39,7 +39,17 @@ Page(observer({
     },
     time: '',
       disable:false,
+      isPhone:app.globalData.isIpx,
   },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+
+    },
+    onShow: function () {
+        console.log("onShow商品：",this.props.selectedList)
+    },
   setTime(e) {
     const time = e.detail;
     this.setData({
@@ -84,15 +94,7 @@ Page(observer({
       [field]: value
     });
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
-  onShow: function () {
-
-  },
   //删除选中商品
   remove(e) {
     const { id } = e.target.dataset;
@@ -137,9 +139,9 @@ Page(observer({
         },
         data: form,
         success: (response) => {
-          if (response.data.code == 1) {
             //提交成功
-              this.props.selectedList=[]
+          if (response.data.code == 1) {
+              this.props.selectedList.splice(0, this.props.selectedList.length)
               this.setData({disable: false})
             wx.redirectTo({
               url: '/pages/user/group/group',

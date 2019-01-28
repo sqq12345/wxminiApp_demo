@@ -65,7 +65,7 @@ Page(observer({
             list:refundInfo.goods,
             item_id: refundInfo.item_id,
             money:refundInfo.money,
-            freight: refundInfo.cost_freight,
+            freight: refundInfo.cost_freight>0?refundInfo.cost_freight:"0.00",
             gids:gidsList.join(","),
         })
     },
