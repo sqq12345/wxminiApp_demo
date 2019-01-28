@@ -35,8 +35,11 @@ page {
 }
 
 .form-group label {
-    margin-bottom: 10px;
     display: block;
+    font-size: 32rpx;
+    color: #333;
+    font-weight:bold;
+    margin-bottom: 10px;
 }
 
 .form-group input {
@@ -45,14 +48,15 @@ page {
 }
 
 .select text {
+    display: inline-block;
+    font-size: 26rpx;
+    color: #555555;
+    border-radius: 5px;
     background: #F5F5F5;
+    border: 1px solid transparent;
     padding: 14rpx 24rpx;
     margin-right: 20rpx;
-    display: inline-block;
     margin-bottom: 20rpx;
-    font-size: 26rpx;
-    border-radius: 5px;
-    border: 1px solid transparent;
 }
 
 .select .selected {

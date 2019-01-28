@@ -38,6 +38,10 @@ wux-upload text {
     float: left;
     font-weight: 400;
     width: 5.5em;
+    color: #333333;
+}
+.form-group>text:first-child{
+    font-weight: bold;
 }
 
 .form-group input, .form-group textarea,.form-group .address {
@@ -51,8 +55,12 @@ wux-upload text {
     color: #888;
 }
 
-.getAddress {
+.form-group .getAddress {
     color: #25CE41;
+    font-weight: normal;
+}
+.form-group picker{
+    flex: 1;
 }
 
 button {
