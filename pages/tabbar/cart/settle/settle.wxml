@@ -84,7 +84,7 @@
                 </view>
                 <view class="line">
                     <text>买家留言</text>
-                    <input placeholder="选填，可填写您与卖家达成一致的要求" bindinput="onInput" data-mid="{{item.shop.id}}"/>
+                    <input placeholder="选填，可填写您与卖家达成一致的要求" bindinput="onInput" data-mid="{{item.mid}}"/>
                 </view>
             </view>
         </view>
