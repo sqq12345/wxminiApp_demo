@@ -1,5 +1,5 @@
 <view class="container">
-    <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" placeholder="请输入您要搜索的商家或商品" />
+    <search cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange" placeholder="请输入您要搜索的商家" />
     <swiper indicator-dots="{{true}}" indicator-color="{{iColor}}" indicator-active-color="{{iaColor}}"
             autoplay="{{true}}" class="silderBox">
         <block wx:for="{{imgUrls}}" wx:key="{{index}}" wx:if="{{item.is_show==1}}">
