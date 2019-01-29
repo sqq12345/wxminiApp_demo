@@ -6,8 +6,16 @@
         </view>
         <view wx:if="{{selected==null}}" class="picker">定位中</view>
     </navigator>
-    <view class="input">
-        <input placeholder='{{placeholder}}' confirm-type="search" bind:confirm="search" value="{{query}}" />
-        <image src="/static/icons/search.png" class="search_icon" />
-    </view>
+    <block wx:if="{{types}}">
+        <view class="input" bindtap="goSearch">
+            <input placeholder='请输入您要搜索的农场和商品' confirm-type="search" disabled />
+            <image src="/static/icons/search.png" class="search_icon" />
+        </view>
+    </block>
+    <block wx:else>
+        <view class="input">
+            <input placeholder='请输入您要搜索的农场和商品' confirm-type="search" bind:confirm="search" value="{{query}}" />
+            <image src="/static/icons/search.png" class="search_icon" />
+        </view>
+    </block>
 </view>

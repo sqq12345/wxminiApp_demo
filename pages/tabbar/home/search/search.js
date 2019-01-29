@@ -48,9 +48,9 @@ Page(observer({
   },
   //搜索
   async search(query) {
-    if (query == "") {
-      return false;
-    }
+    // if (query == "") {
+    //   return false;
+    // }
       //重新加载数据
       this.setData({query, loading: true, list: []}, () => {
           if(this.data.type == 1){

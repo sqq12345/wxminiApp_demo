@@ -32,13 +32,18 @@ Component({
       const currentPage = pages[pages.length - 1];
       const url = currentPage.route;
       var value = trim(e.detail.value);
-      if (url !== 'pages/tabbar/home/search/search' && value !== '') {
+      if (url !== 'pages/tabbar/home/search/search') {
         wx.navigateTo({
           url: "/pages/tabbar/home/search/search?query=" + value+"&type="+this.properties.types,
         })
       } else {
         currentPage.search(value);
       }
-    }
+    },
+      goSearch(){
+          wx.navigateTo({
+              url: "/pages/tabbar/home/search/search?query=" + ""+"&type="+this.properties.types,
+          })
+      }
   }
 });
