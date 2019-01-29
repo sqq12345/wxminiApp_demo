@@ -1,5 +1,26 @@
 <view class="container">
     <search query='{{query}}' cities="{{props.city.list}}" selected="{{props.city.selected}}" bind:onChange="onCityChange"/>
-    <shop wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"></shop>
+    <view class="tabBtn">
+        <view bindtap="select" data-type="1" class="{{type==1?'show':''}}">商家</view>
+        <view bindtap="select" data-type="2"  class="{{type==2?'show':''}}">商品</view>
+    </view>
+    <block wx:if="{{type==1}}">
+        <shop wx:if="{{list.length > 0}}" wx:for="{{list}}" wx:key="{{index}}" item="{{item}}"></shop>
+        <view wx:if="{{list.length==0}}" class="empty">没有搜索到相关商家</view>
+    </block>
+    <block wx:if="{{type ==2}}">
+        <view class="goodsList" wx:if="{{list.length > 0}}">
+            <navigator hover-class="none" url="/pages/goods/goods?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="{{index}}">
+                <image src="{{item.thumb_image}}"/>
+                <view class="info">
+                    <text class="name">{{item.title}}</text>
+                    <text class="price">￥{{item.price}}</text>
+                    <text class="extr">已售{{item.sales}} 评分{{item.score}}</text>
+                </view>
+            </navigator>
+        </view>
+        <view wx:if="{{list.length==0}}" class="empty">没有搜索到相关商品</view>
+    </block>
+
 </view>
-<view wx:if="{{list.length==0}}" class="empty">没有搜索到相关商家</view>
+

@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -74,6 +74,20 @@
 					"name": "商品详情",
 					"pathName": "pages/goods/goods",
 					"query": "id=26"
+				},
+				{
+					"id": -1,
+					"name": "选择开团商品",
+					"pathName": "pages/group/result/result",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "团购详情",
+					"pathName": "pages/group/buy/buy",
+					"query": "id=52",
+					"scene": null
 				}
 			]
 		}

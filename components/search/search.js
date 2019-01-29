@@ -15,6 +15,7 @@ Component({
     selected: Object,  //选中的城市的下标,
     query: String, //查询关键字
     placeholder: String, //输入框提示语
+      types:Number,// 搜索类型【1商家、2商品】
   },
 
   /**
@@ -33,7 +34,7 @@ Component({
       var value = trim(e.detail.value);
       if (url !== 'pages/tabbar/home/search/search' && value !== '') {
         wx.navigateTo({
-          url: "/pages/tabbar/home/search/search?query=" + value,
+          url: "/pages/tabbar/home/search/search?query=" + value+"&type="+this.properties.types,
         })
       } else {
         currentPage.search(value);

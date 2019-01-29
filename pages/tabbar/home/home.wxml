@@ -1,5 +1,5 @@
 <view class='container'>
-  <search cities="{{props.city.list}}" selected="{{props.city.selected}}" placeholder="请输入您要搜索的农场" bind:onChange="onCityChange" />
+  <search cities="{{props.city.list}}" selected="{{props.city.selected}}" types="1" placeholder="请输入您要搜索的农场" bind:onChange="onCityChange" />
   <view class="type">
     <scroll-view scroll-x>
       <text wx:for="{{types}}" wx:key='{{index}}' bind:tap="changeType" data-id="{{item.id}}" class="item {{selectedTypeId==item.id?'selected':''}}">{{item.name}}<text class="line" wx:if="{{selectedTypeId==item.id}}"/></text>
