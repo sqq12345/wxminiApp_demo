@@ -52,8 +52,11 @@ Page(observer({
     },
   setTime(e) {
     const time = e.detail;
+    console.log(time);
     this.setData({
-      time, 'form.endtime': (new Date(time).getTime() / 1000) + ''
+      time: time,
+      'form.endtime': time
+      // time, 'form.endtime': (new Date(time).getTime() / 1000) + ''
     })
   },
   /* upload */
