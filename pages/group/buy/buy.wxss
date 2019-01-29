@@ -195,3 +195,61 @@
 .bottom-btn .buy.disable{
     background: #cccccc;
 }
+
+.userList{
+    margin-top: 40rpx;
+    /*height: 248rpx;*/
+    max-height: 248rpx;
+}
+.userItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 16rpx 30rpx;
+    background: #EEEEEE;
+    border-radius: 36rpx;
+    margin-bottom: 16rpx;
+    width: 640rpx;
+    box-sizing: border-box;
+}
+.userItem .left{
+    display: flex;
+    align-items: center;
+
+}
+.userItem .left .num{
+    font-size: 24rpx;
+    color: #333;
+}
+.userItem .left image{
+    width:40rpx;
+    height:40rpx;
+    border-radius:50%;
+    margin: 0 10rpx;
+}
+.userItem .left .name{
+    font-size: 28rpx;
+    color: #333;
+    padding-right: 20rpx;
+}
+.userItem .left .time{
+    font-size: 24rpx;
+    color: #999;
+}
+.userItem .right{
+    font-size: 28rpx;
+    color: #32CC4A;
+}
+/*定义滚动条轨道 */
+::-webkit-scrollbar
+{
+    width: 18rpx;
+    height: 240rpx;
+    background-color: #C6F1CE;
+    border-radius: 9px;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 9px;
+    background-color: #32CC4A;
+}

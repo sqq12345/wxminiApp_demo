@@ -97,7 +97,8 @@ Page(observer({
     });
   },
   select(e) {
-    const { id } = e.target.dataset;
+    const { id } = e.currentTarget.dataset;
+    // console.log(e.currentTarget.dataset)
     const index = this.props.selectedList.findIndex(item => item.id === id);
     //没有-添加 有-删除
     if (index == -1) {

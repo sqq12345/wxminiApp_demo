@@ -37,7 +37,7 @@
         </view>
         <view class="block info">
             <view>
-                订单号：{{detail.item_num}}
+                <text>订单号：{{detail.item_num}}</text>
                 <text class="button copy" bind:tap="copyText">复制</text>
             </view>
             <view wx:if="{{detail.pay!=null}}">支付流水账号：{{detail.pay.pay_id}}</view>
@@ -48,8 +48,7 @@
         <view wx:if="{{detail.item_status!=0}}" class="call" bind:tap="call" data-mobile="{{detail.mobile}}">拨打电话</view>
         <view class="ops" wx:if="{{detail.item_status!=0}}">
             <view wx:if="{{detail.item_status== 1 || detail.item_status==2}}" class="button" bind:tap="refundOrder" data-item="{{detail}}">退款</view>
-
-                  <navigator wx:if="{{detail.item_status==2}}" hover-class="none" class="button"          url="../logistics/logistics?no={{detail.address.logi_no}}">查看物流</navigator>
+            <navigator wx:if="{{detail.item_status==2}}" hover-class="none" class="button" url="../logistics/logistics?no={{detail.address.logi_no}}">查看物流</navigator>
             <view wx:if="{{detail.item_status==2}}" class="button" bind:tap="confirmOrder">确认收货</view>
         </view>
     </view>

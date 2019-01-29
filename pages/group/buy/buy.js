@@ -45,21 +45,31 @@ Page({
           //   }
           // })
         });
+        detail.user_list.forEach(user => {
+            var currentTime = parseInt(new Date().getTime() / 1000),
+                dateTime = parseInt(new Date(user.time).getTime() / 1000),
+                d = currentTime - dateTime,
+                d_days = parseInt(d / 86400), d_hours = parseInt(d / 3600),
+                d_minutes = parseInt(d / 60), d_seconds = parseInt(d)
+            if (d_days > 0 && d_days < 10) {
+                return user.time = d_days + '天前';
+            } else if (d_days <= 0 && d_hours > 0) {
+                return user.time = d_hours + '小时前';
+            } else if (d_hours <= 0 && d_minutes > 0) {
+                return user.time = d_minutes + '分钟前';
+            } else if (d_seconds < 60) {
+                if (d_seconds <= 0) {
+                    return user.time = '刚刚';
+                } else {
+                    return user.time = d_seconds + '秒前';
+                }
+            } else if (d_days >= 10) {
+                return user.time = user.time
+            }
+          // user.time = new Date(dateTime).valueOf() == currentTime?"刚刚":user.time
+        });
         detail.total = 0;
         detail.status = endTime<=timeNow ? 1:0;//1为已结束 0未结束
-          console.log(detail.status)
-        //总价
-        // Object.defineProperty(detail, 'total', {
-        //   get() {
-        //     const arr = this.goods.map(item => {
-        //       return item.value * item.num
-        //     });
-        //     const sum = arr.reduce(function (pre, cur) {
-        //       return pre + cur
-        //     })
-        //     return sum
-        //   }
-        // })
         this.setData({ detail });
       }
     });
@@ -150,7 +160,7 @@ Page({
       title: title, // 转发后 所显示的title
       path: '/pages/group/buy/buy?id=' + id, // 相对的路径
       //拼团图片
-      imageUrl:img,
+      // imageUrl:img,
       success: (res) => {    // 成功后要做的事情
       },
       fail: function (res) {

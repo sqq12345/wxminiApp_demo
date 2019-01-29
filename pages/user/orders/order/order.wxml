@@ -56,7 +56,7 @@
         </view>
         <view class="block info">
             <view>
-                订单编号：{{detail.order_num}}
+                <text>订单编号：{{detail.order_num}}</text>
                 <text class="button copy" bind:tap="copyText">复制</text>
             </view>
             <view>创建时间：{{detail.createAt}}</view>

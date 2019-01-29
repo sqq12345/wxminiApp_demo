@@ -88,6 +88,10 @@
     margin-bottom: 20rpx;
     font-size: 24rpx;
 }
+.info view text{
+    font-size: 24rpx;
+    margin-right: 30rpx;
+}
 
 .info view:last-of-type {
     margin-bottom: 0;
@@ -123,6 +127,7 @@
     color: #32CC4A;
     font-size: 22rpx;
     padding: 4rpx 20rpx;
+    margin-left: 0;
 }
 
 .bottom-btn {
