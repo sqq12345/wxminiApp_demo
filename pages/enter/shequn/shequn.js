@@ -23,6 +23,8 @@ Page(observer({
             url: '/api/basics/provincelists',
             method: 'GET',
         });
+      const multiIndex = [0, 0, 0];
+      const multiArray = [];
         provinces.data.data.forEach(item => {
             item.name = item.province_name
         })

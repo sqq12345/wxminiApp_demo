@@ -38,6 +38,8 @@ Page(observer({
   },
   async onLoad(options) {
     this.props.form['mid'] = options.id;
+    const multiIndex = [0, 0, 0];
+    const multiArray = [];
       //省
       const provinces = await http.request({
           url: '/api/basics/provincelists',

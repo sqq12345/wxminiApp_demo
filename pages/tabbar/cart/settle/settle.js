@@ -67,6 +67,11 @@ Page(observer({
     if (this.props.order.coupon != null) {
       data.couponid = this.props.order.coupon.id
     }
+    // console.log(this.props.cart.list.goods);
+    // this.setData({
+    //     goods: this.props.cart.list,
+    // });
+
     http.request({
       url: '/api/order/confirmorder',
       method: 'POST',
@@ -78,6 +83,9 @@ Page(observer({
             title: '请添加一个地址',
             icon: 'none',
             duration: 1500,
+          });
+          this.setData({
+              goods: response.data.data.data,
           });
           return
         }
