@@ -22,6 +22,7 @@ let Cart = function () {
     })
 }
 function select(token, selected, ids) {
+    console.log(selected,ids)
     http.request({
         url: selected ? '/api/order/cartselect' : '/api/order/cartnoselect',
         method: 'POST',
@@ -68,8 +69,8 @@ Cart.prototype.fetchData = async function () {
                     goods.id = g.id;
                     goods.num = 1;
                     //库存为零不选中
-                    if(goods.stock == 0){
-                        goods.selected=false;
+                    if(g.stock == 0){
+                        // goods.selected=0;
                         //禁用
                         goods.disabled = true;
                     }

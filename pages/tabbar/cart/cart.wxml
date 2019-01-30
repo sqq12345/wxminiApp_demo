@@ -18,7 +18,7 @@
         <view>
             <view class="goods{{goods.disabled?' disable':''}}" wx:for="{{item.goods}}" wx:key="{{goodsIndex}}" wx:for-item="goods" wx:for-index="goodsIndex">
                 <view class="select-goods" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" bind:tap="select">
-                    <image   src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
+                    <image src="/static/icons/cart/{{goods.selected?'selected.png':'unselected.png'}}" />
                 </view>
                 <view  style="display: flex; flex: 1;">
                     <navigator class="image" hover-class="none" url="/pages/goods/goods?id={{goods.id}}">

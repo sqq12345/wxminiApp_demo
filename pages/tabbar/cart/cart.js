@@ -42,6 +42,7 @@ Page(observer({
   //选中、取消选中
   select(e) {
     const {cartIndex, goodsIndex} = e.currentTarget.dataset;
+    console.log(e.currentTarget.dataset)
     if (typeof goodsIndex === 'number') {
       this.props.cart.list[cartIndex].goods[goodsIndex].select()
     } else {

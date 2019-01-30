@@ -63,18 +63,19 @@
                     <image class="_right" src="/static/icons/right.png" />
                 </view>
                 <view>
-                    <view class="goods {{item.state===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"
+                    <view class="goods {{item.state===0 || goodsItem.stock===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"
                           wx:key="{{goodsIndex}}" wx:for-item="goodsItem"
                           wx:for-index="goodsIndex">
                         <view class="thumbView">
-                            <view class="shortage" wx:if="{{item.state===0}}">缺货</view>
+                            <view class="shortage" wx:if="{{goodsItem.stock===0}}">缺货</view>
                             <image class="thumb" src="{{goodsItem.thumb_image}}" />
                         </view>
                         <view class="info">
                             <view class="title">{{goodsItem.title}}</view>
                             <view class="unit">{{goodsItem.specification}}</view>
+                            <view  wx:if="{{item.state===0}}" style="color: #FF7011; font-size: 24rpx; padding-top: 20rpx;">不在配送范围内</view>
                             <view class="price">
-                                ￥{{goodsItem.goodprice}}
+                                <block wx:if="{{item.state!=0}}">￥{{goodsItem.goodprice}}</block>
                                 <view class="calc">
                                     <text class="num">x{{goodsItem.num}}</text>
                                 </view>

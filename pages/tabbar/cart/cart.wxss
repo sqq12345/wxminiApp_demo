@@ -210,14 +210,13 @@
     bottom: 0;
     width: 160rpx;
     height: 160rpx;
-    background: #000;
+    background: rgba(0,0,0,0.6);
     color: #fff;
     border-radius:5px;
     border: 1px solid #000;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: .5;
     font-size: 32rpx;
 }
 
