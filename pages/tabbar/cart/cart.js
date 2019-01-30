@@ -7,6 +7,7 @@ Page(observer({
 
   props: {
     cart: require('../../../stores/Cart'),
+    order: require('../../../stores/Order'),
   },
   /**
    * 页面的初始数据
@@ -28,6 +29,7 @@ Page(observer({
     onShow() {
         this.props.cart.fetchData()
         this.setData({editing: false});
+      this.props.order.coupon = null;
     },
   //商品数量增加
   increase(e) {
