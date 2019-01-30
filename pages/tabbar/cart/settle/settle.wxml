@@ -99,7 +99,7 @@
             <view class="line">
                 <text>优惠券</text>
                 <text wx:if="{{hasCoupon==0}}">暂无可用优惠券</text>
-                <navigator hover-class="none" url="/pages/user/coupon/coupon?select=true&param={{couponParam}}" wx:if="{{hasCoupon>0}}">{{props.order.coupon==null?hasCoupon+'张优惠券可用':'-'+props.order.coupon.value}}</navigator>
+                <navigator hover-class="none" url="/pages/user/coupon/coupon?select=true&param={{couponParam}}" wx:if="{{hasCoupon>0}}">{{coupon==null?hasCoupon+'张优惠券可用':'-'+coupon.value}}</navigator>
             </view>
         </view>
     </view>

@@ -13,6 +13,7 @@ Page(observer({
    * 页面的初始数据
    */
   data: {
+
 /*
     nvabarData: {
       showCapsule: true, //是否显示左上角图标
@@ -24,6 +25,7 @@ Page(observer({
     totalPrice: "",
     remark: "", //买家备注
     hasCoupon: 0,   //是否有可用的优惠券,
+    coupon: null,
     couponParam: '',    //优惠券过滤条件
     //提交表单
     form: {},
@@ -64,8 +66,8 @@ Page(observer({
       data.addressid = this.props.order.address.id
     }
     //优惠券算金额
-    if (this.props.order.coupon != null) {
-      data.couponid = this.props.order.coupon.id
+    if (this.data.coupon != null) {
+      data.couponid = this.data.coupon.id
     }
     // console.log(this.props.cart.list.goods);
     // this.setData({
@@ -124,6 +126,8 @@ Page(observer({
           success: (response) => {
             this.setData({
               hasCoupon: response.data.data.isusecount
+              //这里加
+
             })
           }
         })
@@ -136,9 +140,14 @@ Page(observer({
   async prePay() {
     const form = this.data.form;
     form.addressid = this.props.order.address.id;
-    if (this.props.order.coupon != null) {
-      form.couponid = this.props.order.coupon.id
+
+    if (this.data.coupon != null) {
+      form.couponid = this.data.coupon.id
     }
+    // if (this.props.order.coupon != null) {
+    //   //　这就是bug 的地方
+    //   form.couponid = this.props.order.coupon.id
+    // }
     const result = await login();
     http.request({
       url: '/api/order/payment',

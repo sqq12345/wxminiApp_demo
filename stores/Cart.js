@@ -241,7 +241,6 @@ Cart.prototype.changeEdit = async function () {
           if (this.edit){
             goods.disabled = false;
          }else{
-           //
             goods.disabled = !(goods.stock > 0);
             if (goods.stock < 1){
               goods.selected = false;
