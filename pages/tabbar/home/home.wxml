@@ -10,10 +10,10 @@
     </view>
   </view>
   <map id="map" class="map" scale="{{scale}}" show-location markers="{{props.city.markers}}" latitude="{{props.city.latitude}}" longitude="{{props.city.longitude}}" bindmarkertap="tapMarker" bindregionchange="regionChange" bindtap="tapMap">
-    <cover-view class="detail" wx:if="{{detailShow}}">
+    <cover-view class="detail" wx:if="{{detailShow}}" bind:tap="goDetail">
       <cover-view class="head">
         <cover-view class="name">{{selectedMarker.name}}</cover-view>
-        <cover-view class="url" bind:tap="goDetail">详情 ></cover-view>
+        <cover-view class="url">详情 ></cover-view>
       </cover-view>
       <cover-view class="bottom-line"></cover-view>
       <cover-view class="footer">

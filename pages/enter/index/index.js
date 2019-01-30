@@ -262,7 +262,7 @@ Page(observer({
           return;
       }
 
-      this.props.form[item.alias] = [item.son[0].id];
+      this.props.form[item.alias] = [String(item.son[0].id)];
       item.son[0].selected = true;
     });
     wx.hideLoading();
