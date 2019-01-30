@@ -23,7 +23,7 @@
                 <view  style="display: flex; flex: 1;">
                     <navigator class="image" hover-class="none" url="/pages/goods/goods?id={{goods.id}}">
                         <image class="thumb" src="{{goods.image}}" />
-                        <view class="disable" wx:if="{{goods.disabled}}">缺货</view>
+                        <view class="disable" wx:if="{{goods.stock<1}}">缺货</view>
                     </navigator>
                     <view class="info" >
                         <navigator class="title text-overflow" hover-class="none" url="/pages/goods/goods?id={{goods.id}}">{{goods.name}}</navigator>

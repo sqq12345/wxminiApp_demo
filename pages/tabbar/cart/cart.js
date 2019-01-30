@@ -51,6 +51,7 @@ Page(observer({
   },
   edit() {
     this.setData({editing: !this.data.editing});
+    this.props.cart.changeEdit();
   },
   delete() {
     this.props.cart.delete();

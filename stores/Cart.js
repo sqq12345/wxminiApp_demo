@@ -10,6 +10,7 @@ let Cart = function () {
         totalNumber: 0, //商品总个数
         list: [],
         allSelected: false,
+        edit:false,
         //计算总金额
         get total() {
             return this.list.reduce((total, item) => {
@@ -68,11 +69,15 @@ Cart.prototype.fetchData = async function () {
                     goods.selected = g.status == 1;
                     goods.id = g.id;
                     goods.num = 1;
+                    goods.stock = g.stock;
                     //库存为零不选中
                     if(g.stock == 0){
                         // goods.selected=0;
                         //禁用
+                        
                         goods.disabled = true;
+                        goods.selected =  0;
+
                     }
                     if (!goods.selected) {
                         allSelected = false;
@@ -226,6 +231,43 @@ Cart.prototype.selectAll = async function () {
     const result = await login();
     select(result.user_token, this.allSelected, ids);
 }
+//切换状态
+Cart.prototype.changeEdit = async function () {
+  this.edit = !this.edit; //
+  
+      this.list.map(item => {
+        item.selected = this.allSelected;
+        item.goods.map(goods => {
+          if (this.edit){
+            goods.disabled = false;
+         }else{
+           //
+            goods.disabled = !(goods.stock > 0);
+            if (goods.stock < 1){
+              goods.selected = false;
+            }
+            }
+        })
+    })
+
+
+    // this.allSelected = !this.allSelected;
+    // let ids = '';
+    // this.list.map(item => {
+    //     item.selected = this.allSelected;
+    //     item.goods.map(goods => {
+    //         if(!goods.disabled){
+    //             ids += goods.cartid + ',';
+    //             goods.selected = this.allSelected;
+    //         }
+    //     })
+    // })
+    // const result = await login();
+    // select(result.user_token, this.allSelected, ids);
+}
+
+
+
 //删除
 Cart.prototype.delete = async function () {
     const list = this.list;
