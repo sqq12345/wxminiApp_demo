@@ -25,14 +25,18 @@
     </view>
     <view class="goods-list">
         <view class="goods" wx:for="{{detail.goods}}" wx:key="{{index}}">
-            <image class="thumb" src="{{item.thumb_image}}" />
+            <navigator hover-class="none" url="/pages/goods/goods?id={{item.gid}}">
+                <image class="thumb" src="{{item.thumb_image}}" />
+            </navigator>
             <view class="info">
-                <view class="shop">{{item.merchant}}</view>
-                <view class="title">{{item.title}}</view>
-                <view class="unit">
-                    <view>规格:{{item.specification}}</view>
-                    <view>配送范围:{{item.area}}</view>
-                </view>
+                <navigator hover-class="none" url="/pages/goods/goods?id={{item.gid}}">
+                    <view class="shop">{{item.merchant}}</view>
+                    <view class="title">{{item.title}}</view>
+                    <view class="unit">
+                        <view>规格:{{item.specification}}</view>
+                        <view class="text-overflow" style="-webkit-line-clamp:1;">配送范围:{{item.area}}</view>
+                    </view>
+                </navigator>
                 <view class="price">
                     <text><text class="_rmb">￥</text>{{item.price}}</text>
                     <view class="calc">

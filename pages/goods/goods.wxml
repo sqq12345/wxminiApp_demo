@@ -13,14 +13,10 @@
         </view>
 
         <view class="unit">
-            <view>
-                规格:
-                <text>{{goods.specification}}</text>
-            </view>
-            <view>
-                配送范围:
-                <text>{{goods.area}}</text>
-            </view>
+            <text>规格：</text>
+            <text class="green mar-right">{{goods.specification}}</text>
+            <text>配送范围：</text>
+            <text class="green text-overflow" style="flex: 1;-webkit-line-clamp:1;">{{goods.area}}</text>
         </view>
         <view class="title">{{goods.title}}</view>
         <view class="desc">

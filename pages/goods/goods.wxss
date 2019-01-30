@@ -92,19 +92,19 @@ swiper {
 .info .extr .gray{
     color: #999;
 }
-
-.info .unit view,
+.info .unit{
+    display: flex;
+    /*-webkit-line-clamp:1;*/
+}
 .info .unit text {
     color: #666666;
     font-size: 24rpx;
 }
-.info .unit>view {
-    margin-right: 48rpx;
-    display: inline-block;
-}
-
-.info .unit>view text {
+.info .unit .green{
     color: #25CE41;
+}
+.info .unit .mar-right{
+    margin-right: 48rpx;
 }
 
 .comments {
