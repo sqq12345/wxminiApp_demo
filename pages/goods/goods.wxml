@@ -27,7 +27,7 @@
             {{goods.summary}}
         </view>
         <view class="extr">
-            <view>快递：<text class="gray">{{goods.fee==null?'免运费':goods.fee+'元'}}</text></view>
+            <view>快递：<text class="gray">{{goods.fee}}</text></view>
             <view>已售<text class="gray">{{goods.sales}}</text></view>
             <view>库存<text class="gray">{{goods.stock}}</text>件</view>
         </view>
