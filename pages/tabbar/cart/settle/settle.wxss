@@ -101,14 +101,6 @@
     padding: 20rpx;
 }
 
-.bf9fefa {
-    background: #F9FEFA;
-}
-
-.bfbfbfb {
-    background: #fbfbfb;
-}
-
 .thumbView {
     position: relative;
 }
@@ -222,4 +214,17 @@
     bottom: 0;
     left: -16rpx;
     right: 0;
+}
+.bf9fefa {
+    background: #F9FEFA;
+}
+
+.bfbfbfb {
+    background: #fbfbfb;
+}
+.bfbfbfb .title{
+    color: #999999;
+}
+.bfbfbfb .unit{
+    color: #AAAAAA;
 }
