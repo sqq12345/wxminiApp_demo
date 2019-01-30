@@ -56,7 +56,17 @@ Page({
     if (this.data.select) {
       //选择优惠券
       const index = e.currentTarget.dataset.index;
-      this.props.order.coupon = this.data.list[index];
+      // this.props.order.coupon = this.data.list[index];
+
+      var pages = getCurrentPages();
+      var currPage = pages[pages.length - 1];   //当前页面
+      var prevPage = pages[pages.length - 2];  //上一个页面
+
+      //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+      prevPage.setData({
+        coupon: this.data.list[index]
+      })
+
       wx.navigateBack({
         delta: 1
       });
