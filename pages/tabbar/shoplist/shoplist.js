@@ -57,23 +57,26 @@ Page(observer({
       }
     })
   },
+    async slidesList(){
+        //请求轮播图
+        http.request({
+            url: '/api/basics/slides',
+            method: 'POST',
+            success: (response) => {
+                //排序图片
+                const arr = response.data.data;
+                arr.sort((a, b) => {
+                    return b.sort - a.sort;
+                });
+                this.setData({imgUrls: response.data.data})
+            }
+        });
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //请求轮播图
-    http.request({
-      url: '/api/basics/slides',
-      method: 'POST',
-      success: (response) => {
-        //排序图片
-        const arr = response.data.data;
-        arr.sort((a, b) => {
-          return b.sort - a.sort;
-        });
-        this.setData({imgUrls: response.data.data})
-      }
-    });
+    this.slidesList();
     this.fetchList();
   },
   //刷新购物车数量
@@ -124,6 +127,7 @@ Page(observer({
             duration: 2000
         })
         that.onChangeList()
+        that.slidesList();
         setTimeout(function(){
             wx.stopPullDownRefresh()
         }, 2000)

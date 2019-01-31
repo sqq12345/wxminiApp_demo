@@ -242,8 +242,8 @@ Page(observer({
                         that.setData({
                             oImgW: imgW,
                             oImgH: imgH,
-                            oBgH: imgH + 200,
-                            oCanvasH: imgH + 200+130, //上padding40下padding90
+                            oBgH: imgH + 180,
+                            oCanvasH: imgH + 180+130, //上padding40下padding90
                         });
                         that.canvasImg()
                     }
@@ -269,30 +269,60 @@ Page(observer({
         // 绘制产品图
         ctx.drawImage(proImg, 30, 40, imgW, imgH);
         // 绘制小程序码wxCode
-        ctx.drawImage(wxCode, (canvasW - 110), (imgH + 130), 70, 70);
+        ctx.drawImage(wxCode, (canvasW - 110), (imgH + 100), 70, 70);
         // 绘制logo
-        ctx.drawImage(logo, (canvasW/2-45), (canvasH - 73), 90, 23);
+        ctx.drawImage(logo, (canvasW/2-45), (canvasH - 63), 90, 23);
         //绘制产品标题
-        ctx.setFontSize(14);
+        // ctx.setFontSize(14);
+        // ctx.fillStyle = "#333333"
+        // let initHeight = (imgH + 65), titleHeight = 20,canvasWidth = (imgW - 35)
+        // titleHeight = this.drawText(ctx, title, initHeight, titleHeight, canvasWidth);// 调用行文本换行函数
+        // ctx.moveTo(15, titleHeight)
         ctx.fillStyle = "#333333"
-        let initHeight = (imgH + 65), titleHeight = 20,canvasWidth = (imgW - 35)
-        titleHeight = this.drawText(ctx, title, initHeight, titleHeight, canvasWidth);// 调用行文本换行函数
-        ctx.moveTo(15, titleHeight)
+        this.dealWords({
+            ctx: ctx,//画布上下文
+            fontSize: 14,//字体大小
+            word: title,//需要处理的文字
+            maxWidth: imgW - 35,//一行文字最大宽度
+            x: 45,//文字在x轴要显示的位置
+            y: imgH + 50,//文字在y轴要显示的位置
+            maxLine: 2//文字最多显示的行数
+        })
         //绘制产品规格
         ctx.setFontSize(12);
         ctx.fillStyle = "#999999"
-        ctx.fillText(guige, 45, (imgH + 145));
+        ctx.fillText(guige, 45, (imgH + 110));
         //绘制配送范围
-        ctx.setFontSize(12);
+        // ctx.setFontSize(12);
+        // ctx.fillStyle = "#999999"
+        // ctx.fillText("配送范围：", 45, (imgH + 165));
+        // ctx.setFontSize(12);
+        // ctx.fillStyle = "#29D258"
+        // ctx.fillText(fanwei, 45 + ctx.measureText("配送范围：").width, (imgH + 165));
         ctx.fillStyle = "#999999"
-        ctx.fillText("配送范围：", 45, (imgH + 165));
-        ctx.setFontSize(12);
+        this.dealWords({
+            ctx: ctx,//画布上下文
+            fontSize: 12,//字体大小
+            word: "配送范围：",//需要处理的文字
+            maxWidth: ctx.measureText("配送范围：").width,//一行文字最大宽度
+            x: 45,//文字在x轴要显示的位置
+            y: (imgH + 115),//文字在y轴要显示的位置
+            maxLine: 1//文字最多显示的行数
+        })
         ctx.fillStyle = "#29D258"
-        ctx.fillText(fanwei, 45 + ctx.measureText("配送范围：").width, (imgH + 165));
+        this.dealWords({
+            ctx: ctx,//画布上下文
+            fontSize: 12,//字体大小
+            word: fanwei,//需要处理的文字
+            maxWidth: imgW-180,//一行文字最大宽度
+            x: 45 + ctx.measureText("配送范围：").width,//文字在x轴要显示的位置
+            y: (imgH + 115),//文字在y轴要显示的位置
+            maxLine: 1//文字最多显示的行数
+        })
         //绘制产品价格
         ctx.setFontSize(15);
         ctx.fillStyle = "#FF8A00"
-        ctx.fillText(money, 45, (imgH + 195));
+        ctx.fillText(money, 45, (imgH + 165));
         //绘制用户名
         ctx.setFontSize(12);
         ctx.fillStyle = "#DADADA"
@@ -332,6 +362,33 @@ Page(observer({
         titleHeight = titleHeight + 10;
         return titleHeight
     },
+    //处理文字多出省略号显示
+    dealWords: function (options) {
+        options.ctx.setFontSize(options.fontSize);//设置字体大小
+        var allRow = Math.ceil(options.ctx.measureText(options.word).width / options.maxWidth);//实际总共能分多少行
+        var count = allRow >= options.maxLine ? options.maxLine : allRow;//实际能分多少行与设置的最大显示行数比，谁小就用谁做循环次数
+        var endPos = 0;//当前字符串的截断点
+        for (var j = 0; j < count; j++) {
+            var nowStr = options.word.slice(endPos);//当前剩余的字符串
+            var rowWid = 0;//每一行当前宽度
+            if (options.ctx.measureText(nowStr).width > options.maxWidth) {//如果当前的字符串宽度大于最大宽度，然后开始截取
+                for (var m = 0; m < nowStr.length; m++) {
+                    rowWid += options.ctx.measureText(nowStr[m]).width;//当前字符串总宽度
+                    if (rowWid > options.maxWidth) {
+                        if (j === options.maxLine - 1) { //如果是最后一行
+                            options.ctx.fillText(nowStr.slice(0, m - 1) + '...', options.x, options.y + (j + 1) * 18);    //(j+1)*18这是每一行的高度
+                        } else {
+                            options.ctx.fillText(nowStr.slice(0, m), options.x, options.y + (j + 1) * 18);
+                        }
+                        endPos += m;//下次截断点
+                        break;
+                    }
+                }
+            } else {//如果当前的字符串宽度小于最大宽度就直接输出
+                options.ctx.fillText(nowStr.slice(0), options.x, options.y + (j + 1) * 18);
+            }
+        }
+    },
     saveCanvas: function(){
         let that = this
         wx.canvasToTempFilePath({
@@ -359,5 +416,4 @@ Page(observer({
             }
         })
     },
-
 }))
