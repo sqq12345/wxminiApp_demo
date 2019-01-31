@@ -101,9 +101,9 @@ City.prototype.fetchData = function () {
                   const position = res.data.data.position
                   this.longitude = position.location.lng;
                   this.latitude = position.location.lat;
-                  //用户所处位置
-                  this.user_latitude = position.location.lng;
-                  this.user_longitude = position.location.lat;
+                  //用户所处位置 
+                this.user_latitude = position.location.lat;
+                this.user_longitude = position.location.lng;
                   //根据名字找到数组中的城市
                   for (const key in this.list) {
                       const find = this.list[key].find(item => {
@@ -142,8 +142,8 @@ City.prototype.fetchData = function () {
                                         this.longitude = position.location.lng;
                                         this.latitude = position.location.lat;
                                         //用户所处位置
-                                        this.user_latitude = position.location.lng;
-                                        this.user_longitude = position.location.lat;
+                                      this.user_latitude = position.location.lat; 
+                                      this.user_longitude = position.location.lng;
                                         //根据名字找到数组中的城市
                                         for (const key in this.list) {
                                             const find = this.list[key].find(item => {
@@ -215,8 +215,8 @@ City.prototype.fetchData = function () {
                                                   this.longitude = position.location.lng;
                                                   this.latitude = position.location.lat;
                                                   //用户所处位置
-                                                  this.user_latitude = position.location.lng;
-                                                  this.user_longitude = position.location.lat;
+                                                this.user_latitude = position.location.lat; 
+                                                this.user_longitude = position.location.lng;
                                                   //根据名字找到数组中的城市
                                                   for (const key in this.list) {
                                                       const find = this.list[key].find(item => {
@@ -288,8 +288,8 @@ City.prototype.fetchData = function () {
                                       this.longitude = position.location.lng;
                                       this.latitude = position.location.lat;
                                       //用户所处位置
-                                      this.user_latitude = position.location.lng;
-                                      this.user_longitude = position.location.lat;
+                                    this.user_latitude = position.location.lat;
+                                    this.user_longitude = position.location.lng;
                                       //根据名字找到数组中的城市
                                       for (const key in this.list) {
                                           const find = this.list[key].find(item => {
