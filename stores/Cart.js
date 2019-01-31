@@ -74,7 +74,7 @@ Cart.prototype.fetchData = async function () {
                     if(g.stock == 0){
                         // goods.selected=0;
                         //禁用
-                        
+
                         goods.disabled = true;
                         goods.selected =  0;
 
@@ -120,7 +120,7 @@ Cart.prototype.fetchData = async function () {
                         // _this.totalNumber++;
                         //显示角标
                         _this.setTabbar();
-                        this.count = this.count + 1;
+
                         const result = await login();
                         http.request({
                             url: '/api/order/addcart',
@@ -133,6 +133,16 @@ Cart.prototype.fetchData = async function () {
                             },
                             success: (response) => {
                                 //加一成功
+                                if(response.data.code == 1){
+                                    this.count = this.count + 1;
+                                }
+                                else {
+                                    wx.showToast({
+                                        title: response.data.msg,
+                                        icon: 'none',
+                                        duration: 1000
+                                    })
+                                }
                             }
                         });
                     };
@@ -146,7 +156,6 @@ Cart.prototype.fetchData = async function () {
                         // _this.totalNumber--;
                         //显示角标
                         _this.setTabbar();
-                        this.count = this.count - 1;
                         const result = await login();
                         http.request({
                             url: '/api/order/minuscart',
@@ -159,6 +168,16 @@ Cart.prototype.fetchData = async function () {
                             },
                             success: (response) => {
                                 //减一成功
+                                if(response.data.code == 1){
+                                    this.count = this.count>1?this.count - 1:this.count;
+                                }
+                                else {
+                                    wx.showToast({
+                                        title: response.data.msg,
+                                        icon: 'none',
+                                        duration: 1000
+                                    })
+                                }
                             }
                         });
                     };
@@ -234,7 +253,7 @@ Cart.prototype.selectAll = async function () {
 //切换状态
 Cart.prototype.changeEdit = async function () {
   this.edit = !this.edit; //
-  
+
       this.list.map(item => {
         item.selected = this.allSelected;
         item.goods.map(goods => {

@@ -17,12 +17,32 @@
 }
 
 .goods .thumb {
+    position: relative;
     width: 160rpx;
     height: 160rpx;
     border: 1px solid #eee;
     border-radius: 5px;
     margin-right: 20rpx;
     flex-shrink: 0;
+}
+.goods .thumb image{
+    width: 100%;
+    height: 100%;
+}
+.goods .thumb .disable{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 32rpx;
+    color: #fff;
+    border-radius:5px;
+    border: 1px solid #000;
+    background: rgba(0,0,0,0.6);
 }
 
 .goods .unit {
@@ -94,10 +114,11 @@
     white-space: nowrap;
     max-width: 460rpx;
 }
+.goods.disable{
+    background: #FBFBFB;
+}
 
 .item {
-    /*background: #fff;*/
-    /*margin-bottom: 20rpx;*/
     padding: 30rpx;
 }
 

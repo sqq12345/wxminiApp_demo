@@ -24,9 +24,10 @@
         </scroll-view>
     </view>
     <view class="goods-list">
-        <view class="goods" wx:for="{{detail.goods}}" wx:key="{{index}}">
-            <navigator hover-class="none" url="/pages/goods/goods?id={{item.gid}}">
-                <image class="thumb" src="{{item.thumb_image}}" />
+        <view class="goods {{item.stock == 0?'disable':''}}" wx:for="{{detail.goods}}" wx:key="{{index}}">
+            <navigator class="thumb" hover-class="none" url="/pages/goods/goods?id={{item.gid}}">
+                <image src="{{item.thumb_image}}" />
+                <view class="disable" wx:if="{{item.stock<1}}">缺货</view>
             </navigator>
             <view class="info">
                 <navigator hover-class="none" url="/pages/goods/goods?id={{item.gid}}">
@@ -42,7 +43,7 @@
                     <view class="calc">
                         <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-index="{{index}}" />
                         <text class="num">{{item.num}}</text>
-                        <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-index="{{index}}" />
+                        <image src="/static/icons/cart/jia.png" class="op" bind:tap="{{item.stock<1?'':'increase'}}" data-index="{{index}}" />
                     </view>
                 </view>
             </view>

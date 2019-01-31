@@ -66,7 +66,6 @@ Page({
             } else if (d_days >= 10) {
                 return user.time = user.time
             }
-          // user.time = new Date(dateTime).valueOf() == currentTime?"刚刚":user.time
         });
         detail.total = 0;
         detail.status = endTime<=timeNow ? 1:0;//1为已结束 0未结束
@@ -102,6 +101,14 @@ Page({
     //console.log(this.data.detail);
     const detail = this.data.detail;
     const { index } = e.currentTarget.dataset;
+    if(detail.goods[index].num == detail.goods[index].stock){
+        wx.showToast({
+            title: "库存不足",
+            icon: 'none',
+            duration: 1000
+        })
+      return false;
+    }
     detail.goods[index].num++;
     detail.goods[index].total = Number.parseFloat(detail.goods[index].value * detail.goods[index].num).toFixed(2);
     detail.total = this.calc(detail.goods);
