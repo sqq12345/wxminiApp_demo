@@ -99,6 +99,7 @@ swiper {
 .info .unit text {
     color: #666666;
     font-size: 24rpx;
+    line-height: 1.4;
 }
 .info .unit .green{
     color: #25CE41;
@@ -291,14 +292,14 @@ swiper {
 
 .detail {
     background: #fff;
-    /* padding: 0 20rpx; */
+     padding: 0 30rpx;
 }
 
 .detail .text {
     text-align: center;
     color: #999;
     padding: 30rpx;
-    margin: 0 30rpx;
+    /*margin: 0 30rpx;*/
     border-top: 1px solid #eeeeee;
 }
 
