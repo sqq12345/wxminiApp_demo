@@ -15,7 +15,26 @@ Page(observer({
    */
   data: {
     address: '',
+      nums: 0,
+      numsList:[{
+          key: 0,
+          value: '0-50',
+      },{
+          key: 1,
+          value: '50-100',
+      },{
+          key: 2,
+          value: '100以上',
+      }],
   },
+    //选择产品种类
+    bindPickerNum: function(e) {
+        var val = e.detail.value
+        this.setData({
+            nums: val,
+        })
+        this.props.form['nums'] = val;
+    },
   onInput(e) {
     const value = e.detail.value;
     const {field} = e.target.dataset;
@@ -131,11 +150,6 @@ const config = {
     name: '其他',
     require: false,
   },
-  idcard: {
-    name: '身份证号',
-    require: true,
-    regex: regex.idcard
-  },
   nums: {
     name: '产品种类',
     require: true,
@@ -144,8 +158,16 @@ const config = {
     name: '地址',
     require: true,
   },
+    idcard: {
+        name: '身份证正面',
+        require: true,
+    },
+    idcardback: {
+        name: '身份证反面',
+        require: true,
+    },
   cover: {
-    name: '封面',
+    name: '主头像',
     require: true,
   },
   memo: {
@@ -155,11 +177,19 @@ const config = {
   },
   pics: {
     name: '产品图片',
-    require: true,
+    require: false,
   },
   story: {
     name: '超市故事',
-    require: true,
+    require: false,
     max: 300
   },
+  latitude: {
+      require: true,
+      msg: '请在地图上选择位置'
+  },
+  longitude: {
+      require: true,
+      msg: '请在地图上选择位置'
+  }
 }

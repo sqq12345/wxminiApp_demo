@@ -38,6 +38,7 @@ Page({
         const list = response.data.data.coupon;
         list.forEach(item => {
           item.value = Number.parseInt(item.value_money);
+          item.mMoney = Number.parseInt(item.money);
           const startTime = new Date(item.start_time * 1000);
           const endTime = new Date(item.end_time * 1000);
           item.startTime = util.formatTime(startTime);

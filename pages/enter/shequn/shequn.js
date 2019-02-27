@@ -15,9 +15,28 @@ Page(observer({
    */
   data: {
     address: '',
+      nums: 0,
+      numsList:[{
+          key: 0,
+          value: '0-200',
+      },{
+          key: 1,
+          value: '200-500',
+      },{
+          key: 2,
+          value: '500以上',
+      }],
   },
     async onLoad(options) {
         this.props.form['mid'] = options.id;
+    },
+    //选择社群人数
+    bindPickerNum: function(e) {
+        var val = e.detail.value
+        this.setData({
+            nums: val,
+        })
+        this.props.form['nums'] = val;
     },
   onInput(e) {
     const value = e.detail.value;
@@ -140,7 +159,7 @@ const config = {
     require: true,
   },
   cover: {
-    name: '封面',
+    name: '主头像',
     require: true,
   },
   memo: {
@@ -150,16 +169,16 @@ const config = {
   },
   pics: {
     name: '产品图片',
-    require: true,
+    require: false,
   },
   story: {
     name: '社群故事',
-    require: true,
+    require: false,
     max: 300
   },
   enterprise: {
     name: '营业执照',
-    require: true,
+    require: false,
   },
   idcard: {
     name: '身份证正面',
@@ -171,11 +190,11 @@ const config = {
   },
   brand: {
     name: '品牌授权',
-    require: true,
+    require: false,
   },
   qs: {
     name: '食品经营许可证/食品流通许可证',
-    require: true,
+    require: false,
   },
   latitude: {
     require: true,
@@ -185,8 +204,8 @@ const config = {
     require: true,
     msg: '请在地图上选择位置'
   },
-    wxaccount_image: {
-        name: '微信二维码',
-        require: true,
-    },
+  wxaccount_image: {
+      name: '微信二维码',
+      require: false,
+  },
 };

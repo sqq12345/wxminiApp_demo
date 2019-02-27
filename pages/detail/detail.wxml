@@ -39,13 +39,18 @@
 
     <view class="block desc">
         <view class="title">{{descLabel}}</view>
-        <view class="content" wx:if="{{detail.memo!=null}}">{{detail.memo}}</view>
+        <block wx:if="{{detail.memo!=null}}">
+            <view class="content" >{{detail.memo}}</view>
+            <view class="imgList" wx:for="{{detail.imgs}}" wx:key="{{index}}">
+                <view><image src="{{item}}" bindtap="bindImg" data-list="{{detail.imgs}}" data-src="{{item}}"/></view>
+            </view>
+        </block>
         <view class="empty" wx:else>暂无简介</view>
         <view class="contact" wx:if="{{type == '2'}}">
             <view class="title">联系方式</view>
             <view class="sub-title">Contact Information</view>
             <image wx:if="{{detail.wxaccount_image}}" src="{{detail.wxaccount_image}}" bindtap="bindImg" data-list="null" data-src="{{detail.wxaccount_image}}"/>
-            <view wx:if="{{detail.mobile}}" class="mobile">手机号：<text>{{detail.mobile}}</text></view>
+            <!--<view wx:if="{{detail.mobile}}" class="mobile">手机号：<text>{{detail.mobile}}</text></view>-->
         </view>
     </view>
     <view class="block two">
@@ -55,7 +60,10 @@
             <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
                 <image class="userhead" src="{{item.avatar}}"/>
                 <view class="content">
-                    <view class="username">{{item.nickname}}</view>
+                    <view class="username">
+                        {{item.nickname}}
+                        <wux-rater allow-half defaultValue="{{item.ranks}}" disabled fontSize="12" starSize="12" />
+                    </view>
                     <view class="desc">{{item.content_text}}</view>
                     <view class="pics">
                         <!--<image src="{{img}}" wx:for-item="img" wx:for="{{item.content_img}}" wx:key="{{index}}"/>-->

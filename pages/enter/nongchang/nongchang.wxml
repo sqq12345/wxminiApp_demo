@@ -1,47 +1,59 @@
 <view class="container">
     <form>
         <view class='form-group'>
-            <text>联系人</text>
+            <text><text class="red">*</text>联系人</text>
             <input placeholder="请输入姓名" data-field="linkman" bindinput="onInput" maxlength="4"/>
         </view>
         <view class='form-group'>
-            <text>手机号码</text>
+            <text><text class="red">*</text>手机号码</text>
             <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"
                    maxlength="11"/>
         </view>
         <view class='form-group'>
             <text>固定电话</text>
-            <input placeholder="请输入固定电话（选填）" type="number" data-field="telephone" bindinput="onInput"
+            <input placeholder="请输入固定电话" type="number" data-field="telephone" bindinput="onInput"
                    maxlength="11"/>
         </view>
         <view class='form-group'>
             <text>其他</text>
-            <input placeholder="请输入其他联系方式（选填）" data-field="other" bindinput="onInput"/>
+            <input placeholder="请输入其他联系方式" data-field="other" bindinput="onInput"/>
         </view>
         <view class='form-group'>
-            <text>农场规模</text>
-            <input placeholder="只可填写数字" type="number" data-field="farmsize" bindinput="onInput"/>
+            <text><text class="red">*</text>农场规模</text>
+            <picker bindchange="bindPickerNum" value="{{farmsize}}" range="{{numsList}}" range-key="{{'value'}}">
+                <text>{{numsList[farmsize].value}}</text>
+            </picker>
+            <!--<input placeholder="只可填写数字" type="number" data-field="farmsize" bindinput="onInput"/>-->
             <text style="text-align:right">（亩）</text>
         </view>
         <view class='form-group'>
-            <text>地址</text>
+            <text><text class="red">*</text>地址</text>
             <!--<input bind:tap="chooseAddress" placeholder="详细地址" data-field="address" bindinput="onInput" value="{{address}}"/>-->
             <view bind:tap="chooseAddress" class="address {{address?'':'gray'}}">{{address?address:'详细地址'}}</view>
             <text style="text-align:right" class="getAddress" bind:tap="chooseAddress">获取位置</text>
         </view>
         <view class='form-group'>
-            <text>封面</text>
-            <wux-upload data-field="cover" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
+            <text><text class="red">*</text>身份证</text>
+            <wux-upload data-field="idcard" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
+                <text>正面</text>
+            </wux-upload>
+            <wux-upload data-field="idcardback" style="margin-left:20rpx" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+                <text>反面</text>
+            </wux-upload>
+        </view>
+        <view class='form-group'>
+            <text><text class="red">*</text>主头像</text>
+            <wux-upload data-field="cover" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
                 <text class="plus">+</text>
             </wux-upload>
         </view>
         <view class='form-group'>
-            <text>简介</text>
+            <text><text class="red">*</text>简介</text>
             <textarea bindinput="onInput" data-field="memo"  placeholder='可介绍下农场成立的初衷，农场特色，农场产品等。' maxlength="300"></textarea>
         </view>
         <view class='form-group'>
-            <text>农场图片</text>
-            <wux-upload data-field="pics" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
+            <text style="display:block;width:100%;margin-bottom:20rpx">农场图片(最多9张)</text>
+            <wux-upload data-field="pics" listType="picture-card" max="9" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                 <text class="plus">+</text>
             </wux-upload>
         </view>
@@ -53,15 +65,6 @@
             <text>营业执照</text>
             <wux-upload data-field="licence" listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
                 <text class="plus">+</text>
-            </wux-upload>
-        </view>
-        <view class='form-group'>
-            <text>个人身份证</text>
-            <wux-upload data-field="idcard" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail"  bind:remove="onRemove">
-                <text>正面</text>
-            </wux-upload>
-            <wux-upload data-field="idcardback" style="margin-left:20rpx" listType="picture-card" max="1" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
-                <text>反面</text>
             </wux-upload>
         </view>
         <view class='form-group'>

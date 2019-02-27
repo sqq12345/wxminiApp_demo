@@ -33,7 +33,9 @@ wux-upload text {
     align-items: center;
     flex-wrap: wrap;
 }
-
+.form-group .red{
+    color: red;
+}
 .form-group>text {
     float: left;
     width: 5.5em;

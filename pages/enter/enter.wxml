@@ -44,14 +44,14 @@
             <!--<image src="/static/icons/icon-success.png" />-->
             <icon type="waiting" size="70" color="" />
             <text class="title">等待审核</text>
-            <text>您已提交【{{detail.role}}】入驻申请</text>
+            <text>您已提交【{{roleName}}】入驻申请</text>
         </view>
     </block>
     <block wx:if="{{detail.status === 4 && !onShowApply}}">
         <view class="hasRole">
             <icon type="warn" size="70" color="" />
             <text class="title">审核被拒</text>
-            <text>您提交的【{{detail.role}}】入驻申请审核被拒</text>
+            <text>您提交的【{{roleName}}】入驻申请审核被拒</text>
             <text>拒绝原因：{{detail.refuse_reason}}</text>
             <view class="btn" bind:tap="getApply">重新申请</view>
         </view>
@@ -60,9 +60,9 @@
         <view class="hasRole">
             <image src="/static/icons/icon-success.png" />
             <text class="title">恭喜您!</text>
-            <text>您的【{{detail.role}}】入驻申请已经审核通过！</text>
-            <navigator class="btn" hover-class="none" url="/pages/detail/detail?id={{detail.mid}}&type={{type}}">
-                查看{{detail.role}}详情
+            <text>您的【{{roleName}}】入驻申请已经审核通过！</text>
+            <navigator class="btn" hover-class="none" url="/pages/detail/detail?id={{detail.mid}}&type={{detail.role}}">
+                查看{{roleName}}详情
             </navigator>
         </view>
     </block>

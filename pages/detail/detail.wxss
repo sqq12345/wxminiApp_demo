@@ -152,6 +152,9 @@
 
 .comment .content .username {
     color: #25CE41;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .comment .content .desc {
@@ -239,4 +242,20 @@
 }
 .contact .mobile text{
     font-size: 26rpx;
+}
+
+.imgList{
+    display: flex;
+    /*justify-content: space-around;*/
+    flex-wrap: wrap;
+    padding: 30rpx 0 20rpx;
+}
+.imgList view{
+    padding: 6rpx;
+}
+.imgList image{
+    display: block;
+    width: 222rpx;
+    height: 222rpx;
+    border-radius: 8rpx;
 }

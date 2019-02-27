@@ -15,7 +15,45 @@ Page(observer({
    */
   data: {
     address: '',
+    nums: 0,
+    person_nums: 0,
+    numsList:[{
+      key: 0,
+      value: '0-50',
+    },{
+        key: 1,
+        value: '50-100',
+    },{
+        key: 2,
+        value: '100以上',
+    }],
+    personNumsList:[{
+        key: 0,
+        value: '0-200',
+    },{
+        key: 1,
+        value: '200-500',
+    },{
+        key: 2,
+        value: '500以上',
+    }],
   },
+    //选择餐桌数
+    bindPickerNum: function(e) {
+        var val = e.detail.value
+        this.setData({
+            nums: val,
+        })
+        this.props.form['nums'] = val;
+    },
+    //选择可接待人数
+    bindPickerPersonNum: function(e) {
+        var val = e.detail.value
+        this.setData({
+            person_nums: val,
+        })
+        this.props.form['person_nums'] = val;
+    },
   onInput(e) {
     const value = e.detail.value;
     const {field} = e.target.dataset;
@@ -123,11 +161,6 @@ const config = {
     require: false,
     name: '其他',
   },
-  idcard: {
-    name: '身份证号',
-    require: true,
-    regex: regex.idcard
-  },
   nums: {
     name: '餐桌数',
     require: true,
@@ -140,8 +173,16 @@ const config = {
     name: '地址',
     require: true,
   },
+  idcard: {
+    name: '身份证正面',
+    require: true,
+  },
+  idcardback: {
+      name: '身份证反面',
+      require: true,
+  },
   cover: {
-    name: '封面',
+    name: '主头像',
     require: true,
   },
   memo: {
@@ -151,11 +192,11 @@ const config = {
   },
   pics: {
     name: '菜品图片',
-    require: true,
+    require: false,
   },
   story: {
     name: '品牌故事',
-    require: true,
+    require: false,
     max: 300
   },
   latitude: {

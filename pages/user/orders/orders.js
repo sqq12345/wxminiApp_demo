@@ -270,12 +270,16 @@ Page(observer({
             },
             success: (response) => {
                 wx.showToast({
-                    title: '已收货',
+                    title: '收货成功',
                     icon: 'success',
-                    duration: 1500,
+                    duration: 3000,
                     mask: false,
+                    complete: (res) => {
+                        wx.navigateTo({
+                          url: '/pages/comment/comment?type=order&id='+id
+                        })
+                    },
                 });
-                this.refresh()
             }
         })
     }

@@ -125,16 +125,21 @@ Page({
                 const pages = getCurrentPages();
                 const lastPage = pages[pages.length - 2];
                 lastPage.resetComments();
+                  setTimeout(() => {
+                      wx.navigateBack({
+                          delta: 1
+                      });
+                  }, 1000)
               } else {
                   const pages = getCurrentPages();
                   const prePage = pages[pages.length - 2];
                   prePage.refresh()
+                  setTimeout(() => {
+                      wx.navigateTo({
+                        url: '/pages/user/orders/orders?status=""'
+                      });
+                  }, 1000)
               }
-              setTimeout(() => {
-                wx.navigateBack({
-                  delta: 1
-                });
-              }, 1000)
             },
           });
         }

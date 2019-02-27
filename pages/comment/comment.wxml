@@ -8,7 +8,7 @@
         </view>
     </view>
     <view class="textarea">
-        <textarea placeholder="请输入您的评论..." bindinput="onInput"/>
+        <textarea placeholder="请输入您的评论..." bindinput="onInput" maxlength="500"/>
         <wux-upload listType="picture-card" max="4" bind:complete="onComplete" bind:fail="onUploadFail" bind:remove="onRemove">
             <image src="/static/icons/upload.png" />
         </wux-upload>

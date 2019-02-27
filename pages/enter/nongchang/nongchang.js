@@ -15,7 +15,26 @@ Page(observer({
    */
   data: {
     address: '',
+      farmsize: 0,
+      numsList:[{
+          key: 0,
+          value: '0-50',
+      },{
+          key: 1,
+          value: '50-100',
+      },{
+          key: 2,
+          value: '100以上',
+      }],
   },
+    //选择农场规模
+    bindPickerNum: function(e) {
+        var val = e.detail.value
+        this.setData({
+            farmsize: val,
+        })
+        this.props.form['farmsize'] = val;
+    },
   onInput(e) {
     const value = e.detail.value;
     const {field} = e.target.dataset;
@@ -142,7 +161,7 @@ const config = {
     require: true,
   },
   cover: {
-    name: '封面',
+    name: '主头像',
     require: true,
   },
   memo: {
@@ -152,16 +171,16 @@ const config = {
   },
   pics: {
     name: '农场图片',
-    require: true,
+    require: false,
   },
   story: {
     name: '农夫故事',
-    require: true,
+    require: false,
     max: 300
   },
   licence: {
     name: '营业执照',
-    require: true,
+    require: false,
   },
   idcard: {
     name: '身份证正面',
@@ -173,19 +192,19 @@ const config = {
   },
   brand: {
     name: '品牌授权',
-    require: true,
+    require: false,
   },
   enterprise: {
     name: '企业生产许可证/食品经营许可证/食品流通许可证',
-    require: true,
+    require: false,
   },
   report: {
     name: '质检报告(质监局/SGS等专业检测机构)',
-    require: true,
+    require: false,
   },
   organic: {
     name: '有机认证/绿色认证',
-    require: true,
+    require: false,
   },
   latitude: {
     require: true,

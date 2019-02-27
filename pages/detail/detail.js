@@ -25,13 +25,15 @@ Page({
     end: false,
     //评论列表
     list: [],
-    descLabel: ''
+    descLabel: '',
+    imgHttps: app.globalData.imgHttps
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that =this;
     let bg = '';
     let labels = [];
     let descLabel = '';
@@ -84,6 +86,9 @@ Page({
       method: 'GET',
       success: (response) => {
         const data = response.data.data;
+        data.imgs = data.imgs.map(function(item){
+              return item = item.indexOf('http') === -1 ? that.data.imgHttps + item:item
+          });
         switch (options.type) {
           case '1': //农场
             labels[0].arr = data['type_ids'].split(',');

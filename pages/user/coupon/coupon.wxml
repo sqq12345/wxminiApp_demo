@@ -13,7 +13,7 @@
             <view class="info">
                 <view class="title">{{item.title}}</view>
                 <view class="label">使用规则：</view>
-                <view class="role">{{item.use_money}}</view>
+                <view class="role">满{{item.mMoney}}减{{item.value}}</view>
             </view>
         </view>
         <view class="right">
