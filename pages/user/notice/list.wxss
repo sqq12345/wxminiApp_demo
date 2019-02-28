@@ -1,0 +1,23 @@
+.notice{
+    margin-top: 20rpx;
+    padding: 0 30rpx;
+    background: white;
+}
+.noticeItem{
+    display: block;
+    padding: 20rpx 0;
+    border-bottom: 1px solid #E1E1E1;
+}
+.noticeItem:last-child{
+    border-bottom: none;
+}
+.noticeItem text{
+    display: block;
+    font-size: 28rpx;
+    color: #000;
+    padding: 7rpx 0;
+}
+.noticeItem text:last-child{
+    font-size: 24rpx;
+    color: #BBBBBB;
+}

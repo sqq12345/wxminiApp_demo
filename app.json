@@ -42,7 +42,9 @@
         "orders/suborder/suborder",
         "assemble/assemble",
         "assemble/buy/buy",
-        "orders/refund/refund"
+        "orders/refund/refund",
+        "notice/list",
+        "notice/detail"
       ]
     },
     {

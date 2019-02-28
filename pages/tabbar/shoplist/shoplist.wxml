@@ -10,6 +10,12 @@
             </swiper-item>
         </block>
     </swiper>
+    <view class="notice">
+        <image src="/static/icons/icon-notice.png" />
+        <navigator class="noticeItem" url="/pages/user/notice/detail?id={{noticeList.id}}" hover-class="none">
+            <text>{{noticeList.title}}</text>
+        </navigator>
+    </view>
     <view class="sort">
         <view class="btns">
             <text data-condition="type" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedType==item.value?'selected':''}}" wx:for="{{types}}" wx:key="{{index}}">{{item.text}}</text>

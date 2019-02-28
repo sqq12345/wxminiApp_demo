@@ -32,7 +32,21 @@ Page(observer({
     //没有更多数据了
     end: false,
     imgUrls: [],
+    noticeList:{},
   },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.slidesList();
+        this.fetchList();
+        this.getNotice();
+    },
+    //刷新购物车数量
+    onShow() {
+        const cart = require('../../../stores/Cart');
+        cart.setTabbar();
+    },
   async fetchList() {
     await this.props.city.fetchData();
     http.request({
@@ -72,18 +86,18 @@ Page(observer({
             }
         });
     },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.slidesList();
-    this.fetchList();
-  },
-  //刷新购物车数量
-  onShow() {
-    const cart = require('../../../stores/Cart');
-    cart.setTabbar();
-  },
+    async getNotice(){
+        //请求公告
+        http.request({
+            url: '/api/notice/home',
+            method: 'GET',
+            success: (response) => {
+                console.log(response.data.data)
+                this.setData({noticeList: response.data.data})
+            }
+        });
+    },
+
   //切换城市
   onCityChange(e) {
     this.props.city.selected = e.detail.detail.value;

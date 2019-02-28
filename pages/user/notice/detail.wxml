@@ -1,0 +1,7 @@
+<view class="notice">
+    <text class="title">{{detail.title}}</text>
+    <text class="time">{{detail.update_at}}</text>
+    <view class="article">
+        <rich-text nodes="{{detail.content}}"></rich-text>
+    </view>
+</view>

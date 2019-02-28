@@ -110,11 +110,14 @@
     </view>
     <view class="bottom-line"/>
     <view class="icons">
+      <navigator class="icon" hover-class="none" url="/pages/user/notice/list">
+        <image src="/static/icons/user/12.png" style="width:40rpx;height:34rpx;"/>
+        公告
+      </navigator>
       <navigator class="icon" hover-class="none" url="/pages/user/profile/profile">
         <image src="/static/icons/user/11.png" style="width:34rpx;height:34rpx;"/>
         设置
       </navigator>
-      <view class="icon" style="visibility:hidden"></view>
       <view class="icon" style="visibility:hidden"></view>
       <view class="icon" style="visibility:hidden"></view>
     </view>

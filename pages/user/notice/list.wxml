@@ -1,0 +1,7 @@
+<view class="notice">
+    <navigator class="noticeItem" wx:for="{{noticeList}}" wx:key="{{index}}" wx:for-item="item"
+               url="/pages/user/notice/detail?id={{item.id}}" hover-class="none">
+        <text>{{item.title}}</text>
+        <text>{{item.update_at}}</text>
+    </navigator>
+</view>

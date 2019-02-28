@@ -1,0 +1,22 @@
+.notice{
+    margin-top: 20rpx;
+    padding: 30rpx;
+    background: white;
+}
+.notice >text{
+    display: block;
+    text-align: center;
+    padding: 6rpx 0;
+}
+.notice .title{
+    font-size: 28rpx;
+    color: #000;
+    font-weight: bold;
+}
+.notice .time{
+    font-size: 24rpx;
+    color: #BBBBBB;
+}
+.notice .article{
+    padding: 20rpx 0 50rpx;
+}
