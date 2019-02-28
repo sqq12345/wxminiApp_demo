@@ -282,5 +282,39 @@ Page(observer({
                 });
             }
         })
-    }
+    },
+    //再次购买
+    async buyNow(e) {
+        const { gid,mid } = e.currentTarget.dataset;
+        const result = await login();
+        http.request({
+            url: '/api/order/buynow',
+            showLoading: true,
+            header: {
+                token: result.user_token,
+                accesstoken: http.accesstoken,
+            },
+            data: {
+                //商品id
+                gid: gid,
+                //农场id
+                mid: mid,
+            },
+            method: 'POST',
+            success: (response) => {
+                if (response.data.code === 1) {
+                    wx.navigateTo({
+                        url: '/pages/tabbar/cart/settle/settle',
+                    });
+                } else {
+                    wx.showToast({
+                        title: response.data.msg,
+                        icon: 'none',
+                        duration: 4000,
+                        mask: false,
+                    });
+                }
+            }
+        });
+    },
 }))
