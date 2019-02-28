@@ -178,7 +178,6 @@ Page(observer({
         return {
             title: title, // 转发后 所显示的title
             path: '/pages/goods/goods?id=' + id, // 相对的路径
-            //拼团图片
             imageUrl:img,
             success: (res) => {
             },
@@ -255,29 +254,26 @@ Page(observer({
         const result = await login();
         let that = this, dataInfo = that.data
         let canvasW = dataInfo.windowWidth, canvasH = dataInfo.oCanvasH, imgW = dataInfo.oImgW, imgH = dataInfo.oImgH, bgH = dataInfo.oBgH
-        let proImg = dataInfo.proImg, wxCode=dataInfo.wxCode, canvasImg="/static/images/shareBg.png",logo="/static/images/share_logo.png"
+        let proImg = dataInfo.proImg, wxCode=dataInfo.wxCode, canvasImg="/static/images/shareBg.png", slogan = "/static/images/share_slogan.png"
         let userName=result.nickName, guige= "规格："+dataInfo.goods.specification, fanwei=dataInfo.goods.area, money="￥"+dataInfo.goods.price,
-            title = dataInfo.goods.title
-            // title = dataInfo.goods.title.length>20 ? dataInfo.goods.title.substring(0,20)+"...": dataInfo.goods.title
+            title = dataInfo.goods.title,introduct = dataInfo.goods.introduct?'“'+dataInfo.goods.introduct+'”':''
         let ctx = wx.createCanvasContext('share');
-        console.log(proImg,wxCode)
         // 绘制背景图
         ctx.drawImage(canvasImg, 0, 0, canvasW, canvasH);
+        //绘制产品推荐语
+        ctx.setFontSize(22);
+        ctx.fillStyle = "#ffffff"
+        ctx.fillText(introduct, (canvasW - ctx.measureText(introduct).width) / 2, 40);
         // 绘制背景块
         ctx.setFillStyle('#fff');
-        ctx.fillRect(30, 40, imgW, bgH);
+        ctx.fillRect(30, 60, imgW, bgH);
         // 绘制产品图
-        ctx.drawImage(proImg, 30, 40, imgW, imgH);
+        ctx.drawImage(proImg, 30, 60, imgW, imgH);
         // 绘制小程序码wxCode
-        ctx.drawImage(wxCode, (canvasW - 110), (imgH + 100), 70, 70);
-        // 绘制logo
-        ctx.drawImage(logo, (canvasW/2-45), (canvasH - 63), 90, 23);
+        ctx.drawImage(wxCode, (canvasW - 110), (imgH + 120), 70, 70);
+        // 绘制slogan
+        ctx.drawImage(slogan, 0, (canvasH - 48), canvasW, 48);
         //绘制产品标题
-        // ctx.setFontSize(14);
-        // ctx.fillStyle = "#333333"
-        // let initHeight = (imgH + 65), titleHeight = 20,canvasWidth = (imgW - 35)
-        // titleHeight = this.drawText(ctx, title, initHeight, titleHeight, canvasWidth);// 调用行文本换行函数
-        // ctx.moveTo(15, titleHeight)
         ctx.fillStyle = "#333333"
         this.dealWords({
             ctx: ctx,//画布上下文
@@ -285,20 +281,14 @@ Page(observer({
             word: title,//需要处理的文字
             maxWidth: imgW - 35,//一行文字最大宽度
             x: 45,//文字在x轴要显示的位置
-            y: imgH + 50,//文字在y轴要显示的位置
+            y: imgH + 70,//文字在y轴要显示的位置
             maxLine: 2//文字最多显示的行数
         })
         //绘制产品规格
         ctx.setFontSize(12);
         ctx.fillStyle = "#999999"
-        ctx.fillText(guige, 45, (imgH + 110));
+        ctx.fillText(guige, 45, (imgH + 130));
         //绘制配送范围
-        // ctx.setFontSize(12);
-        // ctx.fillStyle = "#999999"
-        // ctx.fillText("配送范围：", 45, (imgH + 165));
-        // ctx.setFontSize(12);
-        // ctx.fillStyle = "#29D258"
-        // ctx.fillText(fanwei, 45 + ctx.measureText("配送范围：").width, (imgH + 165));
         ctx.fillStyle = "#999999"
         this.dealWords({
             ctx: ctx,//画布上下文
@@ -306,7 +296,7 @@ Page(observer({
             word: "配送范围：",//需要处理的文字
             maxWidth: ctx.measureText("配送范围：").width,//一行文字最大宽度
             x: 45,//文字在x轴要显示的位置
-            y: (imgH + 115),//文字在y轴要显示的位置
+            y: (imgH + 135),//文字在y轴要显示的位置
             maxLine: 1//文字最多显示的行数
         })
         ctx.fillStyle = "#29D258"
@@ -316,21 +306,20 @@ Page(observer({
             word: fanwei,//需要处理的文字
             maxWidth: imgW-180,//一行文字最大宽度
             x: 45 + ctx.measureText("配送范围：").width,//文字在x轴要显示的位置
-            y: (imgH + 115),//文字在y轴要显示的位置
+            y: (imgH + 135),//文字在y轴要显示的位置
             maxLine: 1//文字最多显示的行数
         })
         //绘制产品价格
         ctx.setFontSize(15);
         ctx.fillStyle = "#FF8A00"
-        ctx.fillText(money, 45, (imgH + 165));
+        ctx.fillText(money, 45, (imgH + 185));
         //绘制用户名
         ctx.setFontSize(12);
         ctx.fillStyle = "#DADADA"
-        ctx.fillText(userName, (canvasW - ctx.measureText(userName).width) / 2, bgH+20);
+        ctx.fillText(userName, (canvasW - ctx.measureText(userName).width) / 2, bgH+40);
 
 
         ctx.draw(false, that.saveCanvas);
-        // ctx.draw();
         wx.hideLoading()
         that.setData({
             showContent:true
@@ -340,27 +329,6 @@ Page(observer({
                 showFoot:true
             })
         }, 3000)
-    },
-    // 文字换行
-    drawText: function (ctx, str, initHeight, titleHeight, canvasWidth) {
-        var that = this, lineWidth = 0
-        var lastSubStrIndex = 0; //每次开始截取的字符串的索引
-        for (let i = 0; i < str.length; i++) {
-            lineWidth += ctx.measureText(str[i]).width;
-            if (lineWidth > canvasWidth) {
-                ctx.fillText(str.substring(lastSubStrIndex, i), 45, initHeight);//绘制截取部分
-                initHeight += 20;//20为字体的高度
-                lineWidth = 0;
-                lastSubStrIndex = i;
-                titleHeight += 30;
-            }
-            if (i == str.length - 1) {//绘制剩余部分
-                ctx.fillText(str.substring(lastSubStrIndex, i + 1), 45, initHeight);
-            }
-        }
-        // 标题border-bottom 线距顶部距离
-        titleHeight = titleHeight + 10;
-        return titleHeight
     },
     //处理文字多出省略号显示
     dealWords: function (options) {
