@@ -35,6 +35,9 @@
                 </view>
             </view>
         </view>
+        <view vw:if="{{detail.item_status == '-13'}}" class="reasonBox">
+            <text class="red">驳回原因</text><text>{{detail.refund_reason}}</text>
+        </view>
         <view class="block info">
             <view>
                 <text>订单号：{{detail.item_num}}</text>

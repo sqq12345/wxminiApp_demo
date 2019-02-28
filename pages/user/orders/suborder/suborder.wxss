@@ -171,3 +171,15 @@
     color: #FF8A00;
     font-size: 30rpx;
 }
+
+.reasonBox{
+    padding: 20rpx 30rpx 0;
+}
+.reasonBox text{
+    font-size: 26rpx;
+    color: #333333;
+}
+.reasonBox text.red{
+    color: #FE5555;
+    padding-right: 16rpx;
+}
