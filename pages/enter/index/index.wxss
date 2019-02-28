@@ -12,17 +12,27 @@ page {
 }
 
 .code {
-    background: #eeeeee;
+    /*background: #eeeeee;*/
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100rpx;
+    /*height: 100rpx;*/
+    background: #25CE41;
+    height: 144rpx;
 }
 
 .code input {
-    width: 50%;
+    /*width: 50%;*/
+    /*color: #25CE41;*/
+    /*border-bottom: 1px solid #25CE41;*/
+    width: 300rpx;
+    height: 60rpx;
+    background: white;
+    border-radius: 8rpx;
+    text-align: center;
+    font-size: 26rpx;
     color: #25CE41;
-    border-bottom: 1px solid #25CE41;
+    line-height: 60rpx;
 }
 
 .placeholder {

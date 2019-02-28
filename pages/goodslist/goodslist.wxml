@@ -3,7 +3,7 @@
     <image class="logo" src="{{detail.logo}}"/>
     <text class="title">{{detail.name}}</text>
     <view class="info">
-        <text>农场ID：{{detail.id}}</text>
+        <text>{{typeName}}ID：{{detail.id}}</text>
         <text class="total">总销量：<text>{{detail.sales==null?0:detail.sales}}</text></text>
         <navigator hover-class="none" url="/pages/detail/detail?id={{detail.id}}&type={{detail.type}}">详情</navigator>
     </view>

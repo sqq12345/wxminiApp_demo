@@ -25,6 +25,10 @@
                 <view><text>市集主板方：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
             </block>
             <view><text>地址：</text><text>{{detail.address!=null?detail.address:"暂无"}}</text></view>
+            <navigator class="_button" url="/pages/goodslist/goodslist?id={{detail.id}}" hover-class="none">
+                <text>全部商品</text>
+                <image src="/static/icons/icon-right.png"/>
+            </navigator>
         </view>
     </view>
     <!-- tags -->
@@ -41,8 +45,9 @@
         <view class="title">{{descLabel}}</view>
         <block wx:if="{{detail.memo!=null}}">
             <view class="content" >{{detail.memo}}</view>
-            <view class="imgList" wx:for="{{detail.imgs}}" wx:key="{{index}}">
-                <view><image src="{{item}}" bindtap="bindImg" data-list="{{detail.imgs}}" data-src="{{item}}"/></view>
+            <view class="imgList">
+                <view wx:for="{{detail.imgs}}" wx:key="{{index}}">
+                    <image src="{{item}}" bindtap="bindImg" data-list="{{detail.imgs}}" data-src="{{item}}"/></view>
             </view>
         </block>
         <view class="empty" wx:else>暂无简介</view>

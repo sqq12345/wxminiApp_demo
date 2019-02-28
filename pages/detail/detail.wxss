@@ -52,6 +52,21 @@
 .head view text:nth-child(3n){
     padding-left: 30rpx;
 }
+.head .sub-head ._button{
+    background: linear-gradient(to right, rgb(255,172,53), rgb(255,153,53));
+    width: auto;
+    padding: 20rpx 40rpx;
+}
+.head .sub-head ._button text{
+    font-size: 26rpx;
+    color: white;
+    padding-right: 7rpx;
+}
+.head .sub-head ._button image{
+    margin-right: 0;
+    width: 24rpx;
+    height: 24rpx;
+}
 
 .block {
     background: #fff;

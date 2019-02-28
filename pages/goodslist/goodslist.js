@@ -5,13 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-/*
-    nvabarData: {
-      showCapsule: true, //是否显示左上角图标
-      transparent: true //透明导航栏
-    },
-*/
     detail: {},
+    typeName: '',
   },
 
   /**
@@ -27,11 +22,30 @@ Page({
       },
       success: (response) => {
         const data = response.data.data;
+        let typeName='';
         data.goods.forEach(item => {
           item.score = Number.parseFloat(item.score).toFixed(1);
           item.price = Number.parseFloat(item.price).toFixed(2);
         });
-        this.setData({ detail: data });
+          switch (data.type) {
+              case 1: //农场
+                  typeName = '农场';
+                  break;
+              case 2: //社群
+                  typeName = '社群';
+                  break;
+              case 3: //餐厅
+                  typeName = '餐厅';
+                  break;
+              case 4: //超市
+                  typeName = '超市';
+                  break;
+              case 5: //集市
+                  typeName = '集市';
+                  break;
+          }
+        this.setData({ detail: data,typeName });
+          console.log(data,typeName)
       }
     })
   }
