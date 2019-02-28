@@ -17,9 +17,10 @@ Page({
       card: '',
       card_name: '',
       card_bank: '',
-      amount: 0
+      amount: null
     },
     max: 0,
+    maxDraw: 0,
   },
 
   onInput(e) {
@@ -37,6 +38,7 @@ Page({
     console.log(o);
     this.setData({
       max: o.max,
+      maxDraw: parseInt(o.max),
     });
   },
 
@@ -77,7 +79,7 @@ Page({
    */
   takeAll() {
     this.setData({
-      'form.amount': this.data.max
+      'form.amount': this.data.maxDraw
     });
   }
 });

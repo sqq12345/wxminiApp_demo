@@ -25,13 +25,20 @@
         </view>
         <view class="money">
             <text class="_rmb">￥</text>
-            <input type="digit" value="{{form.amount}}" data-field="amount" bindinput="onInput"/>
+            <input type="number" value="{{form.amount}}" data-field="amount" bindinput="onInput" placeholder="请输入提现金额" placeholder-class="placeholderClass"/>
         </view>
         <view class="item">
-            <text>可提现金额金额 ￥{{max}}</text>
+            <text>可提现金额金额 ￥{{maxDraw}}</text>
             <text class="all" bind:tap="takeAll">全部提现</text>
         </view>
     </view>
-    <view class="_button" bind:tap="submit" wx:if="{{max>0}}">确认提现</view>
-    <view class="_button disable" wx:if="{{max==0}}">无可提现金额</view>
+    <view class="red">*安否平台工作人员会在每月15~20日集体处理上月提现需求</view>
+
+    <block wx:if="{{maxDraw>=50}}">
+        <view class="_button" bind:tap="submit" wx:if="{{form.amount>=50&&form.amount<=maxDraw}}">确认提现</view>
+        <view class="_button disable" wx:if="{{form.amount<50}}">提现金额必须大于50</view>
+    </block>
+    <block wx:else>
+        <view class="_button disable">提现金额必须大于50</view>
+    </block>
 </view>
