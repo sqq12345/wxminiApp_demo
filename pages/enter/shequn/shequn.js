@@ -26,6 +26,9 @@ Page(observer({
           key: 2,
           value: '500以上',
       }],
+      selected:true,
+      mDisabled:false,
+      cDisabled:true,
   },
     async onLoad(options) {
         this.props.form['mid'] = options.id;
@@ -81,20 +84,110 @@ Page(observer({
       }
     }
   },
+    //同意协议
+    select() {
+        this.data.selected = !this.data.selected
+        const selected = this.data.selected;
+        this.setData({selected});
+    },
+    // 输入框失去焦点
+    async blurInput(e) {
+        const value = e.detail.value;
+        const {field} = e.target.dataset;
+        const result = await login();
+        if(field == 'mobile'){
+            // 验证手机号是否重复
+            http.request({
+                url: '/api/shop/valid_mobile',
+                method: 'POST',
+                data: {
+                    mobile:value
+                },
+                success: (response) => {
+                    if (response.data.code === 1) {
+                        //success
+                    } else {
+                        wx.showToast({
+                            title: response.data.msg,
+                            icon: 'none',
+                            duration: 2000,
+                        });
+                    }
+                }
+            })
+        }
+        if(field == 'mobileCode'){
+            //验证 验证码是否正确
+            http.request({
+                url: '/api/message/valid',
+                method: 'POST',
+                header: {
+                    token: result.user_token
+                },
+                data: {
+                    code:value
+                },
+                success: (response) => {
+                    if (response.data.code === 1) {
+                        //success
+                        this.setData({
+                            cDisabled:true
+                        });
+                    } else {
+                        wx.showToast({
+                            title: response.data.msg,
+                            icon: 'none',
+                            duration: 2000,
+                        });
+                    }
+                }
+            })
+        }
+    },
+    //获取验证码
+    async getMobileCode() {
+        const result = await login();
+        http.request({
+            url: '/api/message/send',
+            method: 'POST',
+            header: {
+                token: result.user_token
+            },
+            data: {
+                mobile:this.props.form['mobile']
+            },
+            success: (response) => {
+                console.log(response)
+                if (response.data.code === 1) {
+                    //success
+                    this.setData({
+                        mDisabled:true,
+                        cDisabled:false
+                    });
+                } else {
+                    wx.showToast({
+                        title: response.data.msg,
+                        icon: 'none',
+                        duration: 2000,
+                    });
+                }
+            }
+        })
+    },
 
   async submit() {
     const result = await login();
     const form = this.props.form;
-    console.log(form);
-    //   if(!form.mobile && !form.other && !form.telephone){
-    //       wx.showToast({
-    //           title: '联系方式至少填一项',
-    //           icon: 'none',
-    //           duration: 2000,
-    //       });
-    //       return;
-    //   }
     if (verify(form, config)) {
+        //判断是否同意协议
+        if(!this.data.selected){
+            wx.showToast({
+                title: '请认真查阅《商户协议》并勾选同意',
+                icon: 'none',
+                duration: 4000
+            })
+            return;
+        }
       http.request({
         url: '/api/shop/setgrouptwo',
         method: 'POST',
@@ -141,6 +234,10 @@ const config = {
     regex: regex.cellphone,
     require: true,
   },
+    mobileCode:{
+        name: '验证码',
+        require: true,
+    },
   telephone: {
     name: '固定电话',
     regex: regex.telphone,

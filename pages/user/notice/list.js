@@ -38,7 +38,6 @@ Page({
                 page: this.data.page,
             },
             success: (response) => {
-                console.log(response.data.data)
                 const list = this.data.noticeList;
                 //没有更多了
                 const end = response.data.data.last_page == this.data.page;

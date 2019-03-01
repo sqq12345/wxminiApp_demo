@@ -6,7 +6,14 @@
         </view>
         <view class='form-group'>
             <text><text class="red">*</text>手机号码</text>
-            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput" maxlength="11"/>
+            <input placeholder="请输入手机号码" type="number" data-field="mobile" bindinput="onInput"
+                   maxlength="11" bindblur="blurInput" disabled="{{mDisabled}}"/>
+        </view>
+        <view class='form-group'>
+            <text><text class="red">*</text>验证码</text>
+            <input placeholder="请输入验证码" type="number" data-field="mobileCode" bindinput="onInput"
+                   maxlength="6" bindblur="blurInput" disabled="{{cDisabled}}"/>
+            <text style="text-align:right" class="getAddress" bind:tap="getMobileCode">获取验证码</text>
         </view>
         <view class='form-group'>
             <text>固定电话</text>
@@ -63,6 +70,16 @@
             <text>集市故事</text>
             <textarea bindinput="onInput" data-field="story" placeholder='可以说说农夫集市的品牌故事，成立的时间，内外部环境，让更多人了解。' maxlength="300"></textarea>
         </view>
-        <button bind:tap="submit">提交</button>
+        <view class="footer">
+            <view class="agreement">
+                <view class="agreeSelect" bind:tap="select">
+                    <image  src="/static/icons/cart/{{selected?'selected.png':'unselected1.png'}}" />
+                    同意
+                </view>
+                <navigator url="/pages/enter/agreement/agreement" hover-class="none">《附近的农场商户服务协议》</navigator>
+            </view>
+            <view class="tips">添加完整信息，加快审核通过速度</view>
+            <button bind:tap="submit">提交</button>
+        </view>
     </form>
 </view>

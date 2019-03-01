@@ -65,10 +65,34 @@ wux-upload text {
 }
 
 button {
-    margin-top: 30rpx;
+    margin-top: 10rpx;
     background: #25CE41;
     color: #fff;
     font-size: 30rpx;
+}
+.footer{}
+.footer .agreement{
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: #25CE41;
+    padding: 30rpx 0;
+}
+.footer .agreeSelect{
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+}
+.footer .agreement image{
+    width: 38rpx;
+    height: 38rpx;
+    margin-right: 20rpx;
+}
+.footer .tips{
+    font-size: 24rpx;
+    color: #FF8838;
+    text-align: center;
+    line-height: 48rpx;
 }
 
 .half{

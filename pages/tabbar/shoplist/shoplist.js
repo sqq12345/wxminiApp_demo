@@ -92,7 +92,6 @@ Page(observer({
             url: '/api/notice/home',
             method: 'GET',
             success: (response) => {
-                console.log(response.data.data)
                 this.setData({noticeList: response.data.data})
             }
         });
