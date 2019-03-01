@@ -65,7 +65,9 @@
     bottom: 6rpx;
     color: #FF8A00;
 }
-
+.order .bottom{
+    padding: 20rpx 0;
+}
 .order .bottom>view {
     display: flex;
     justify-content: space-between;
@@ -74,10 +76,6 @@
 
 .order .bottom>view text {
     font-size: 26rpx;
-}
-
-.order .bottom>view:first-of-type {
-    margin-top: 20rpx;
 }
 
 .info {
@@ -182,4 +180,39 @@
 .reasonBox text.red{
     color: #FE5555;
     padding-right: 16rpx;
+}
+
+/*发票信息*/
+.invoiceBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #E1E1E1;
+    /*padding: 20rpx 0;*/
+    padding-top: 20rpx;
+}
+.invoiceBox text:first-child{
+    color: #333333;
+    font-size: 26rpx;
+}
+.invoiceBox text:last-child{
+    color: #000000;
+    font-size: 24rpx;
+}
+.invoiceInfo{
+    padding-top: 10rpx;
+}
+.invoiceInfo >view{
+    display: flex;
+    padding: 5rpx 0;
+}
+.invoiceInfo text{
+    font-size: 24rpx;
+}
+.invoiceInfo text:first-child{
+    width: 5em;
+    color: #AAAAAA;
+}
+.invoiceInfo text:last-child{
+    color: #333333;
 }

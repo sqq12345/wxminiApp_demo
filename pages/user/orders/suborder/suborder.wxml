@@ -33,9 +33,38 @@
                         <text>￥{{detail.money}}</text>
                     </view>
                 </view>
+                <block wx:if="{{detail.need_tax===0}}">
+                    <view class="invoiceBox">
+                        <text>发票信息</text>
+                        <text>不开发票</text>
+                    </view>
+                </block>
+                <block wx:if="{{detail.need_tax===1}}">
+                    <view class="invoiceBox">
+                        <text>发票信息</text>
+                    </view>
+                    <view class="invoiceInfo">
+                        <view>
+                            <text>发票抬头</text>
+                            <text>{{detail.tax.tax_company}}</text>
+                        </view>
+                        <view>
+                            <text>税号</text>
+                            <text>{{detail.tax.tax_number}}</text>
+                        </view>
+                        <view wx:if="{{detail.tax.bank_name}}">
+                            <text>开户名称</text>
+                            <text>{{detail.tax.bank_name}}</text>
+                        </view>
+                        <view wx:if="{{detail.tax.bank}}">
+                            <text>开户行</text>
+                            <text>{{detail.tax.bank}}</text>
+                        </view>
+                    </view>
+                </block>
             </view>
         </view>
-        <view vw:if="{{detail.item_status == '-13'}}" class="reasonBox">
+        <view wx:if="{{detail.item_status == '-13'}}" class="reasonBox">
             <text class="red">驳回原因</text><text>{{detail.refund_reason}}</text>
         </view>
         <view class="block info">

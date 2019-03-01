@@ -16,43 +16,6 @@
         </view>
     </navigator>
     <view class="box">
-        <!--<view class="cart">-->
-            <!--<view class="item" wx:for="{{props.cart.list}}" wx:key="{{cartIndex}}" wx:for-index="cartIndex" wx:if="{{item.settle}}">-->
-                <!--<view class="header">-->
-                    <!--<view>-->
-                        <!--<image class="select-icon" src="{{item.shop.logo}}" />-->
-                        <!--{{item.shop.name}}-->
-                    <!--</view>-->
-                    <!--<image class="_right" src="/static/icons/right.png" />-->
-                <!--</view>-->
-                <!--<view>-->
-                    <!--<view class="goods {{state===0?'bfbfbfb':'bf9fefa'}}" wx:for="{{item.goods}}"-->
-                          <!--wx:key="{{goodsIndex}}" wx:for-item="goods"-->
-                          <!--wx:for-index="goodsIndex" wx:if="{{goods.selected}}">-->
-                        <!--<view class="thumbView">-->
-                            <!--<view class="shortage" wx:if="{{state===0}}">缺货</view>-->
-                            <!--<image class="thumb" src="{{goods.image}}" />-->
-                        <!--</view>-->
-                        <!--<view class="info">-->
-                            <!--<view class="title">{{goods.name}}</view>-->
-                            <!--<view class="unit">{{goods.unit}}</view>-->
-                            <!--<view class="price">-->
-                                <!--￥{{goods.total}}-->
-                                <!--<view class="calc">-->
-                                    <!--&lt;!&ndash; <image src="/static/icons/cart/jian.png" class="op" bind:tap="reduce" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> &ndash;&gt;-->
-                                    <!--<text class="num">{{goods.count}}</text>-->
-                                    <!--&lt;!&ndash; <image src="/static/icons/cart/jia.png" class="op" bind:tap="increase" data-goods-index="{{goodsIndex}}" data-cart-index="{{cartIndex}}" /> &ndash;&gt;-->
-                                <!--</view>-->
-                            <!--</view>-->
-                        <!--</view>-->
-                    <!--</view>-->
-                <!--</view>-->
-                <!--<view class="line">-->
-                    <!--<text>买家留言</text>-->
-                    <!--<input placeholder="选填，可填写您与卖家达成一致的要求" bindinput="onInput" data-mid="{{item.shop.id}}"/>-->
-                <!--</view>-->
-            <!--</view>-->
-        <!--</view>-->
         <view class="cart">
             <view class="item" wx:for="{{goods}}" wx:key="{{index}}">
                 <view class="header">
@@ -101,6 +64,33 @@
                 <text wx:if="{{hasCoupon==0}}">暂无可用优惠券</text>
                 <navigator hover-class="none" url="/pages/user/coupon/coupon?select=true&param={{couponParam}}" wx:if="{{hasCoupon>0}}">{{coupon==null?hasCoupon+'张优惠券可用':'-'+coupon.value}}</navigator>
             </view>
+            <view class="line">
+                <text>发票</text>
+                <view class="inputBox" bindtap="bindChoice">
+                    <text>{{invoiceList[invoiceIndex].value}}</text>
+                    <image src="/static/icons/right.png"/>
+                </view>
+            </view>
+            <!--发票信息S-->
+            <block wx:if="{{showInvoice}}">
+                <view class="line">
+                    <text><text class="red">*</text>发票抬头</text>
+                    <input placeholder="请输入个人或公司名称" bindinput="bindInput" data-field="tax_company" />
+                </view>
+                <view class="line">
+                    <text><text class="red">*</text>税号</text>
+                    <input placeholder="请输入税号" bindinput="bindInput" data-field="tax_number"/>
+                </view>
+                <view class="line">
+                    <text>开户名称</text>
+                    <input placeholder="请输入开户名称" bindinput="bindInput" data-field="bank_name"/>
+                </view>
+                <view class="line">
+                    <text>开户行</text>
+                    <input placeholder="请输入开户行" bindinput="bindInput" data-field="bank"/>
+                </view>
+            </block>
+            <!--发票信息E-->
         </view>
     </view>
 </view>
@@ -116,3 +106,17 @@
     <view class="buy disable"  wx:if="{{props.order.address==null || totalPrice<=0}}">{{props.order.address==null?"请添加地址":"不在配送范围"}}</view>
     <view class="buy" bind:tap="prePay" wx:else>确认付款</view>
 </view>
+
+<!--弹出框S-->
+<view class="fixedBox" wx:if="{{showFixed}}">
+    <view class="fixedBg"></view>
+    <view class="fixedContent">
+        <view class="title">发票</view>
+        <view class="list" wx:for="{{invoiceList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="subChoice">
+            <view>{{item.value}}</view>
+            <image  src="/static/icons/cart/{{invoiceIndex === index?'selected.png':'unselected1.png'}}" />
+        </view>
+        <view class="_button" bindtap="bindClose">确认</view>
+    </view>
+</view>
+<!--弹出框E-->
