@@ -83,30 +83,36 @@
                 <view class="bottom">
                     <text class="button solid" data-gid="{{sub.goods[0].gid}}" data-mid="{{sub.mid}}" bind:tap="buyNow">再次购买</text>
                     <!-- 已付款 -->
-                    <block wx:if="{{sub.item_status==1}}">
-                        <!--<text class="button" data-item="{{sub}}" bind:tap="refundOrder">退款</text>-->
-                        <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
-                    </block>
+                    <!--<block wx:if="{{sub.item_status==1}}">-->
+                        <!--&lt;!&ndash;<text class="button" data-item="{{sub}}" bind:tap="refundOrder">退款</text>&ndash;&gt;-->
+                        <!--<text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{sub.price}}</text></text>-->
+                    <!--</block>-->
                     <!-- 已发货 -->
                     <block wx:if="{{sub.item_status==2}}">
                         <text class="button solid" data-id="{{sub.item_id}}" bind:tap="confirmOrder">确认收货</text>
                         <navigator hover-class="none" class="button" url="logistics/logistics?no={{sub.logic_no}}">查看物流</navigator>
                         <!--<text class="button" data-item="{{sub}}" bind:tap="refundOrder">退款</text>-->
-                        <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
+                        <!--<text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{sub.price}}</text></text>-->
                     </block>
                     <!-- 完成 -->
                     <block wx:if="{{sub.item_status==3}}">
                         <navigator class="button solid" url="/pages/comment/comment?type=order&id={{sub.item_id}}">评价</navigator>
                         <navigator hover-class="none" class="button" url="logistics/logistics?no={{sub.logic_no}}">查看物流</navigator>
-                        <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
+                        <!--<text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{sub.price}}</text></text>-->
                     </block>
                     <!-- 已取消 -->
                     <block wx:if="{{sub.item_status==-1}}">
                         <text class="button" data-id="{{sub.item_id}}" bind:tap="deleteOrder">删除订单</text>
                     </block>
                     <!-- 已评价 -->
-                    <block wx:if="{{sub.item_status==4}}">
-                        <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{item.price}}</text></text>
+                    <!--<block wx:if="{{sub.item_status==4}}">-->
+                        <!--<text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{sub.price}}</text></text>-->
+                    <!--</block>-->
+
+
+                    <!--已付款、已发货、完成、已评价-->
+                    <block wx:if="{{sub.item_status==1||sub.item_status==2||sub.item_status==3||sub.item_status==4}}">
+                        <text class="total">实付:<text class="price"><text class="_rmb">￥</text>{{sub.price}}</text></text>
                     </block>
                 </view>
             </view>

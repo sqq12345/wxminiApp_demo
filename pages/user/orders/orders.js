@@ -72,6 +72,7 @@ Page(observer({
                             g.price = Number.parseFloat(g.price).toFixed(2)
                         });
                         i.status = this.getStatusText(i.item_status);
+                        i.price = Number.parseFloat(i.money).toFixed(2);
                     })
                     item.price = Number.parseFloat(item.money).toFixed(2);
                 });

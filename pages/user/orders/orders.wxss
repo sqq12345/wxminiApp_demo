@@ -29,10 +29,20 @@
 }
 
 .order {
-    background: white;
     margin-top: 20rpx;
 }
-
+.order .wait-pay{
+    background: white;
+}
+.order .sub-order{
+    background: white;
+}
+.order .sub-order.non{
+    margin-top: 20rpx;
+}
+.order .sub-order.non:first-child{
+    margin-top: 0;
+}
 .order .shop {
     display: flex;
     justify-content: space-between;
