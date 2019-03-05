@@ -2,7 +2,7 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
-// const app = getApp();
+const app = getApp();
 Page({
 
   /**
@@ -69,17 +69,19 @@ Page({
   onShareAppMessage: function (e) {
     if (e.from === 'button') {
       const { title, id, img} = e.target.dataset;
+      const imgUrl = app.globalData.imgHttps+img.split(',')[0]
+        console.log(imgUrl)
       return {
         title: title, // 转发后 所显示的title
         path: '/pages/group/buy/buy?id=' + id, // 相对的路径
         //拼团图片
-        imageUrl: img,
+        imageUrl: imgUrl,
         success: (res) => {    // 成功后要做的事情
 
         },
         fail: function (res) {
           // 分享失败
-          console.log(res)
+          console.log('fail',res)
         }
       }
     }

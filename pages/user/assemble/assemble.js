@@ -1,6 +1,6 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 Page({
 
@@ -58,11 +58,12 @@ Page({
   onShareAppMessage: function (e) {
     if (e.from === 'button') {
       const {title, id, img} = e.target.dataset;
+        const imgUrl = app.globalData.imgHttps+img.split(',')[0]
       return {
         title: title, // 转发后 所显示的title
         path: '/pages/group/buy/buy?id=' + id, // 相对的路径
         //拼团图片
-        imageUrl:img,
+        imageUrl:imgUrl,
         success: (res) => {
         },
         fail: function (res) {

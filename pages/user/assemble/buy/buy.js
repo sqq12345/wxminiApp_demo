@@ -51,11 +51,12 @@ Page({
     const title = this.data.detail.solitaire.title;
     const id = this.data.sid;
     const img = this.data.detail.solitaire.image;
+      const imgUrl = app.globalData.imgHttps+img.split(',')[0]
     return {
       title: title, // 转发后 所显示的title
       path: '/pages/group/buy/buy?id=' + id, // 相对的路径
       //拼团图片
-      imageUrl:img,
+      imageUrl:imgUrl,
       success: (res) => {    // 成功后要做的事情
 
       },

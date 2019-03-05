@@ -19,6 +19,7 @@ Page({
       data: {
         logi_no: options.no,
       },
+        showLoading: true,
       success: (response) => {
         var res = response.data;
         if (res.code === 1) {

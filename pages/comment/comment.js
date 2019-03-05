@@ -123,9 +123,9 @@ Page({
             duration: 1000,
             mask: false,
             success: (result) => {
+            const pages = getCurrentPages();
+            const lastPage = pages[pages.length - 2];
               if (this.data.type == 'shop') {
-                const pages = getCurrentPages();
-                const lastPage = pages[pages.length - 2];
                 lastPage.resetComments();
                   setTimeout(() => {
                       wx.navigateBack({
@@ -133,12 +133,10 @@ Page({
                       });
                   }, 1000)
               } else {
-                  const pages = getCurrentPages();
-                  const prePage = pages[pages.length - 2];
-                  prePage.refresh()
+                  lastPage.refresh()
                   setTimeout(() => {
                       wx.navigateTo({
-                        url: '/pages/user/orders/orders?status=""'
+                        url: '/pages/user/orders/orders'
                       });
                   }, 1000)
               }

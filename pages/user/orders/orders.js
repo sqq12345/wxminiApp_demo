@@ -260,6 +260,7 @@ Page(observer({
     async confirmOrder(e) {
         const { id } = e.currentTarget.dataset;
         const result = await login();
+
         http.request({
             url: '/api/user/confirmgoods',
             method: 'POST',
@@ -270,15 +271,26 @@ Page(observer({
                 orderid: id
             },
             success: (response) => {
-                wx.showToast({
-                    title: '收货成功',
-                    icon: 'success',
-                    duration: 3000,
-                    mask: false,
-                    complete: (res) => {
-                        wx.navigateTo({
-                          url: '/pages/comment/comment?type=order&id='+id
-                        })
+                this.refresh()
+                wx.showModal({
+                    title: '提示',
+                    content: '确认收货成功，立即前往评论',
+                    cancelText: '查看订单',
+                    cancelColor: '#000000',
+                    confirmText: '立即评论',
+                    confirmColor: '#3CC51F',
+                    success: (result) => {
+                        if(result.confirm){
+                            //确定
+                            wx.navigateTo({
+                                url: '/pages/comment/comment?type=order&id='+id
+                            })
+                        } else if(result.cancel){
+                            //取消
+                            wx.navigateTo({
+                                url: '/pages/user/orders/suborder/suborder?id='+id
+                            });
+                        }
                     },
                 });
             }
