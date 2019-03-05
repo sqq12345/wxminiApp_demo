@@ -85,7 +85,7 @@ Component({
         uploadFileList: [],
     },
     methods: {
-        /** 
+        /**
          * 计算最多可以选择的图片张数
          */
         updated() {
@@ -135,7 +135,6 @@ Component({
             const success = (res) => {
                 this.tempFilePaths = res.tempFilePaths.map((item) => ({ url: item, uid: this.getUid() }))
                 this.triggerEvent('before', {...res, fileList })
-
                 // 判断是否取消默认的上传行为
                 if (uploaded) {
                     this.uploadFile()
@@ -186,6 +185,7 @@ Component({
          * @param {Object} res 请求响应对象
          */
         onSuccess(file, res) {
+            console.log("Success",file,res)
             const fileList = [...this.data.uploadFileList]
             const index = fileList.map((item) => item.uid).indexOf(file.uid)
 
@@ -273,9 +273,43 @@ Component({
             let { url, name, header, formData, disabled, progress } = this.data
             const file = this.tempFilePaths.shift()
             const { uid, url: filePath } = file
+            // name = 'images'
+            name = 'file'
+            // if(!url) url = 'https://anfou.cc/api/basics/upload'
+            if(!url) url = 'https://anfou.oss-cn-shanghai.aliyuncs.com'
 
-            name = 'images'
-            if(!url) url = 'https://anfou.cc//api/basics/upload'
+
+            //oss上传文件夹路径
+            const myDate = new Date()
+            const date = myDate.getDate()<10 ? '0'+myDate.getDate() : myDate.getDate()
+            const month = myDate.getMonth()+1 <10 ? '0'+(myDate.getMonth()+1) : myDate.getMonth()+1
+            const nowDate = myDate.getFullYear() +""+ month +""+ date
+            const fileName = new Date().getTime()+Math.floor(Math.random() * 1000)+"."+filePath.split('.')[3]
+            const fileKey = 'anfou/' + nowDate + '/'+fileName
+            //oss key
+            const Base64 = require('Base64.js');
+            require('hmac.js');
+            require('sha1.js');
+            const Crypto = require('crypto.js');
+            var policyText = {
+                "expiration": "2030-01-01T12:00:00.000Z", //设置该Policy的失效时间，超过这个失效时间之后，就没有办法通过这个policy上传文件了
+                "conditions": [
+                    ["content-length-range", 0, 1048576000] // 设置上传文件的大小限制
+                ]
+            };
+            const accesskey= '1U7fiB3iawSKJ495x2WkZvRx3tujjg';
+            const policyBase64 = Base64.encode(JSON.stringify(policyText)),
+                   message = policyBase64
+            const bytes = Crypto.HMAC(Crypto.SHA1, message, accesskey, { asBytes: true }) ;
+            const signature = Crypto.util.bytesToBase64(bytes);
+            formData= {
+                // name: filePath,
+                key: fileKey,
+                policy: policyBase64,
+                OSSAccessKeyId: "RQaayt64TEEdGZto",
+                success_action_status: "200", //让服务端返回200,不然，默认会返回204
+                signature: signature,
+            }
 
             if (!url || !filePath || disabled) return
 
@@ -293,16 +327,16 @@ Component({
                 url,
                 filePath,
                 name,
-                header,
                 formData,
                 success: (res) => this.onSuccess(file, res),
                 fail: (res) => this.onFail(file, res),
                 complete: (res) => {
                     delete this.uploadTask[uid]
-                    this.triggerEvent('complete', res)
+                    this.triggerEvent('complete', fileKey)
                     this.uploadFile()
                 },
             })
+            console.log("wx.uploadFile",formData)
 
             // 判断是否监听上传进度变化
             if (progress) {

@@ -93,14 +93,16 @@ Page(observer({
     }
   },
   onComplete(e) {
-    const {detail: {data}} = e;
+    // const {detail: {data}} = e;
+      const data = e.detail
+      console.log(e,data)
     if (data) {
       const {field} = e.target.dataset;
-      const json = JSON.parse(data);
+      // const json = JSON.parse(data);
       if (this.props.form[field] == undefined) {
-        this.props.form[field] = json.data.img
+        this.props.form[field] = data
       } else {
-        this.props.form[field] += ',' + json.data.img
+        this.props.form[field] += ',' + data
       }
     }
   },

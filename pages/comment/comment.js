@@ -76,16 +76,18 @@ Page({
     }
   },
   onComplete(e) {
-    const { detail: { data } } = e;
+    // const { detail: { data } } = e;
+    const data = e.detail
     if (data) {
-      const json = JSON.parse(data);
+      // const json = JSON.parse(data);
       if (this.data.form.content_img == '') {
         this.setData({
-          'form.content_img': json.data.img
+          // 'form.content_img': json.data.img
+            'form.content_img': data
         })
       } else {
         this.setData({
-          'form.content_img': this.data.form.content_img + ',' + json.data.img
+          'form.content_img': this.data.form.content_img + ',' + data
         })
       }
     }

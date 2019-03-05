@@ -31,7 +31,7 @@ App({
 
   globalData: {
     upload: 'https://anfou.cc/api/basics/upload',
-    imgHttps: 'https://anfou.cc/',
+    imgHttps: 'https://upload.anfou.cc/',
     openid: null,
     session_key: null,
     user_token: null,

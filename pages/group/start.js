@@ -76,14 +76,15 @@ Page(observer({
     }
   },
   onComplete(e) {
-    const { detail: { data } } = e;
+    // const { detail: { data } } = e;
+      const data = e.detail
     if (data) {
-      const json = JSON.parse(data);
+      // const json = JSON.parse(data);
       let image = this.data.form.image;
       if (this.data.form.image == "") {
-        image = json.data.img
+        image = data
       } else {
-        image += ',' + json.data.img
+        image += ',' + data
       }
       this.setData({
         'form.image': image

@@ -152,14 +152,15 @@ Page(observer({
         }
     },
     onComplete(e) {
-        const { detail: { data } } = e;
+        // const { detail: { data } } = e;
+        const data = e.detail
         if (data) {
             const { field } = e.target.dataset;
-            const json = JSON.parse(data);
+            // const json = JSON.parse(data);
             if (this.data.images == '') {
-                this.data.images = json.data.img
+                this.data.images = data
             } else {
-                this.data.images += ',' + json.data.img
+                this.data.images += ',' + data
             }
             console.log("upload:",this.data.images,field)
         }
