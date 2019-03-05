@@ -1,6 +1,6 @@
 <view class='container' wx:if="{{!loading}}">
     <view class='code'>
-        <input placeholder="点击输入邀请码" placeholder-class='placeholder' bindinput="onInput" data-field="icode"/>
+        <input placeholder="点击输入邀请码" placeholder-class='placeholder' bindinput="onInput" data-field="icode" value="{{icode}}" disabled="{{codeDisabled}}"/>
     </view>
     <form class='form'>
         <view class='form-group'>

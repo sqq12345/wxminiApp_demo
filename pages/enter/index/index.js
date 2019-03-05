@@ -14,11 +14,18 @@ Page(observer({
     nextUrl: '',  //下一步地址
     fields: [],
     loading: true,
+    icode:'',
+      codeDisabled: false,
   },
   /**
    * 页面的初始数据
    */
   async onLoad(options) {
+      let enterCode = options.icode
+      if(enterCode!='undefined'){
+          this.setData({icode:options.icode,codeDisabled:true})
+          this.props.form["icode"] = options.icode;
+      }
     wx.showLoading({
       title: '加载中',
       mask: true,

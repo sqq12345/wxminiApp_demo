@@ -9,8 +9,13 @@ Page({
      */
     data: {
         onShowApply:false,
+        enterCode:'',
     },
-    async onLoad(){
+    async onLoad(options){
+        var enterCode = options.icode, scene = decodeURIComponent(options.scene)
+        this.setData({
+            enterCode:enterCode || scene
+        })
         const result = await login();
         http.request({
             showLoading: true,

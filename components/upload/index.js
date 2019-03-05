@@ -185,7 +185,6 @@ Component({
          * @param {Object} res 请求响应对象
          */
         onSuccess(file, res) {
-            console.log("Success",file,res)
             const fileList = [...this.data.uploadFileList]
             const index = fileList.map((item) => item.uid).indexOf(file.uid)
 
@@ -286,7 +285,6 @@ Component({
             const nowDate = myDate.getFullYear() +""+ month +""+ date
             const fileName = new Date().getTime()+Math.floor(Math.random() * 1000)+"."+filePath.split('.').pop()
             const fileKey = 'anfou/' + nowDate + '/'+fileName
-            // console.log(filePath.split('/'),filePath.split('.').pop())
             //oss key
             const Base64 = require('Base64.js');
             require('hmac.js');
@@ -337,7 +335,7 @@ Component({
                     this.uploadFile()
                 },
             })
-            console.log("wx.uploadFile",formData)
+            console.log("uploadFile",fileKey)
 
             // 判断是否监听上传进度变化
             if (progress) {

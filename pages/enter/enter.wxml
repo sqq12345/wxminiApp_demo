@@ -1,35 +1,35 @@
 <view class='container'>
     <block wx:if="{{detail.status === 1 || onShowApply}}">
         <view class="f1">请选择角色</view>
-        <navigator hover-class="none" class="item bg1" url="/pages/enter/index/index?index=1">
+        <navigator hover-class="none" class="item bg1" url="/pages/enter/index/index?index=1&icode={{enterCode}}">
             <image src="/static/bg/enter/1.png" class="_bg" />
             <view class="icon i1">
                 <image src="/static/icons/enter/1.png" />
             </view>
             农场
         </navigator>
-        <navigator hover-class="none" class="item bg2" url="/pages/enter/index/index?index=2">
+        <navigator hover-class="none" class="item bg2" url="/pages/enter/index/index?index=2&icode={{enterCode}}">
             <image src="/static/bg/enter/2.png" class="_bg" />
             <view class="icon i2">
                 <image src="/static/icons/enter/2.png" />
             </view>
             社群
         </navigator>
-        <navigator hover-class="none" class="item bg3" url="/pages/enter/index/index?index=3">
+        <navigator hover-class="none" class="item bg3" url="/pages/enter/index/index?index=3&icode={{enterCode}}">
             <image src="/static/bg/enter/3.png" class="_bg" />
             <view class="icon i3">
                 <image src="/static/icons/enter/3.png" />
             </view>
             生态餐厅
         </navigator>
-        <navigator hover-class="none" class="item bg4" url="/pages/enter/index/index?index=4">
+        <navigator hover-class="none" class="item bg4" url="/pages/enter/index/index?index=4&icode={{enterCode}}">
             <image src="/static/bg/enter/4.png" class="_bg" />
             <view class="icon i4">
                 <image src="/static/icons/enter/4.png" />
             </view>
             有机超市
         </navigator>
-        <navigator hover-class="none" class="item bg5" url="/pages/enter/index/index?index=5">
+        <navigator hover-class="none" class="item bg5" url="/pages/enter/index/index?index=5&icode={{enterCode}}">
             <image src="/static/bg/enter/5.png" class="_bg" />
             <view class="icon i5">
                 <image src="/static/icons/enter/5.png" />
