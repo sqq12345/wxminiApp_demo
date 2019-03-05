@@ -1,7 +1,7 @@
 <view class="container">
     <form>
         <view class='form-group'>
-            <text><text class="red">*</text>系人</text>
+            <text><text class="red">*</text>联系人</text>
             <input placeholder="请输入姓名" data-field="linkman" bindinput="onInput" maxlength="4" value="{{detail.linkman}}"/>
         </view>
         <view class='form-group'>
