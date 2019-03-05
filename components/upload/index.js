@@ -284,8 +284,9 @@ Component({
             const date = myDate.getDate()<10 ? '0'+myDate.getDate() : myDate.getDate()
             const month = myDate.getMonth()+1 <10 ? '0'+(myDate.getMonth()+1) : myDate.getMonth()+1
             const nowDate = myDate.getFullYear() +""+ month +""+ date
-            const fileName = new Date().getTime()+Math.floor(Math.random() * 1000)+"."+filePath.split('.')[3]
+            const fileName = new Date().getTime()+Math.floor(Math.random() * 1000)+"."+filePath.split('.').pop()
             const fileKey = 'anfou/' + nowDate + '/'+fileName
+            // console.log(filePath.split('/'),filePath.split('.').pop())
             //oss key
             const Base64 = require('Base64.js');
             require('hmac.js');
@@ -303,7 +304,7 @@ Component({
             const bytes = Crypto.HMAC(Crypto.SHA1, message, accesskey, { asBytes: true }) ;
             const signature = Crypto.util.bytesToBase64(bytes);
             formData= {
-                // name: filePath,
+                name: filePath,
                 key: fileKey,
                 policy: policyBase64,
                 OSSAccessKeyId: "RQaayt64TEEdGZto",
