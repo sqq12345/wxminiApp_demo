@@ -29,6 +29,10 @@ Page(observer({
       selected:true,
       mDisabled:false,
       cDisabled:true,
+      validMobile: false, //判断手机号是否可用【正确且不重复】
+      showCodebtn: true,
+      timer: '',//定时器名字
+      countDownNum: '60'//倒计时初始值
   },
     //选择农场规模
     bindPickerNum: function(e) {
@@ -38,10 +42,25 @@ Page(observer({
         })
         this.props.form['farmsize'] = val;
     },
-  onInput(e) {
-    const value = e.detail.value;
-    const {field} = e.target.dataset;
-    this.props.form[field] = value;
+     onInput(e) {
+        const value = e.detail.value;
+        const {field} = e.target.dataset;
+        this.props.form[field] = value;
+
+      if(field == 'mobile'){
+          if(value.length!=11){
+              return;
+          }
+          // 验证手机号是否重复
+          this.valid_mobile(value)
+      }
+      if(field == 'mobileCode'){
+          if(value.length!=6){
+              return;
+          }
+          //验证 验证码是否正确
+          this.valid_code(value)
+      }
   },
   chooseAddress() {
     wx.chooseLocation({
@@ -93,75 +112,26 @@ Page(observer({
     async blurInput(e) {
         const value = e.detail.value;
         const {field} = e.target.dataset;
-        const result = await login();
         if(field == 'mobile'){
-            // 验证手机号是否重复
-            http.request({
-                url: '/api/shop/valid_mobile',
-                method: 'POST',
-                data: {
-                    mobile:value
-                },
-                success: (response) => {
-                    if (response.data.code === 1) {
-                        //success
-                    } else {
-                        wx.showToast({
-                            title: response.data.msg,
-                            icon: 'none',
-                            duration: 2000,
-                        });
-                    }
-                }
-            })
+            this.valid_mobile(value)
         }
         if(field == 'mobileCode'){
-            //验证 验证码是否正确
-            http.request({
-                url: '/api/message/valid',
-                method: 'POST',
-                header: {
-                    token: result.user_token
-                },
-                data: {
-                    code:value
-                },
-                success: (response) => {
-                    if (response.data.code === 1) {
-                        //success
-                        this.setData({
-                            cDisabled:true
-                        });
-                    } else {
-                        wx.showToast({
-                            title: response.data.msg,
-                            icon: 'none',
-                            duration: 2000,
-                        });
-                    }
-                }
-            })
+            this.valid_code(value)
         }
     },
-    //获取验证码
-    async getMobileCode() {
-        const result = await login();
+    // 验证手机号是否重复
+    async valid_mobile (val){
         http.request({
-            url: '/api/message/send',
+            url: '/api/shop/valid_mobile',
             method: 'POST',
-            header: {
-                token: result.user_token
-            },
             data: {
-                mobile:this.props.form['mobile']
+                mobile:val
             },
             success: (response) => {
-              console.log(response)
                 if (response.data.code === 1) {
                     //success
                     this.setData({
-                        mDisabled:true,
-                        cDisabled:false
+                        validMobile:true
                     });
                 } else {
                     wx.showToast({
@@ -171,6 +141,90 @@ Page(observer({
                     });
                 }
             }
+        })
+    },
+    //验证 验证码是否正确
+    async valid_code(val){
+        http.request({
+            url: '/api/message/valid',
+            method: 'POST',
+            data: {
+                code:val,
+                mobile:this.props.form['mobile']
+            },
+            success: (response) => {
+                if (response.data.code === 1) {
+                    //success
+                    this.setData({
+                        cDisabled:true
+                    });
+                } else {
+                    wx.showToast({
+                        title: response.data.msg,
+                        icon: 'none',
+                        duration: 2000,
+                    });
+                }
+            }
+        })
+    },
+    //获取验证码
+    async getMobileCode() {
+      if(!this.props.form['mobile']){
+          wx.showToast({
+              title: "手机号不能为空",
+              icon: 'none',
+              duration: 2000,
+          });
+          return;
+      }
+      if(!this.data.validMobile){
+          //判断手机号防重是否success
+          return;
+      }
+        http.request({
+            url: '/api/message/send',
+            method: 'POST',
+            data: {
+                mobile:this.props.form['mobile']
+            },
+            success: (response) => {
+              console.log(response)
+                if (response.data.code === 1) {
+                    //success
+                    this.setData({
+                        mDisabled:true,
+                        cDisabled:false,
+                        showCodebtn: false,
+                    });
+                    this.countDown();
+                } else {
+                    wx.showToast({
+                        title: response.data.msg,
+                        icon: 'none',
+                        duration: 2000,
+                    });
+                }
+            }
+        })
+    },
+    // 定时器
+    countDown(){
+        let that = this,countDownNum = that.data.countDownNum;
+        that.setData({
+            timer: setInterval(function () {
+                countDownNum--;
+                that.setData({
+                    countDownNum: countDownNum
+                })
+                if (countDownNum == 0) {
+                    clearInterval(that.data.timer);
+                    that.setData({
+                        showCodebtn: true,
+                        countDownNum:60
+                    });
+                }
+            }, 1000)
         })
     },
 
