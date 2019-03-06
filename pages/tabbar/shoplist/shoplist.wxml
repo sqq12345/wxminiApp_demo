@@ -10,7 +10,7 @@
             </swiper-item>
         </block>
     </swiper>
-    <view class="notice">
+    <view class="notice" wx:if="{{noticeList}}">
         <image src="/static/icons/icon-notice.png" />
         <navigator class="noticeItem" url="/pages/user/notice/detail?id={{noticeList.id}}" hover-class="none">
             <text>{{noticeList.title}}</text>

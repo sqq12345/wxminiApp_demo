@@ -92,7 +92,10 @@ Page(observer({
             url: '/api/notice/home',
             method: 'GET',
             success: (response) => {
-                this.setData({noticeList: response.data.data})
+                this.setData({
+                    noticeList: response.data.code===1?response.data.data:null
+                })
+
             }
         });
     },
