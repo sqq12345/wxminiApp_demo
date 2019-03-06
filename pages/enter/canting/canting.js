@@ -160,7 +160,7 @@ Page(observer({
                     wx.showToast({
                         title: response.data.msg,
                         icon: 'none',
-                        duration: 2000,
+                        duration: 4000,
                     });
                 }
             }
@@ -185,7 +185,7 @@ Page(observer({
                     wx.showToast({
                         title: response.data.msg,
                         icon: 'none',
-                        duration: 2000,
+                        duration: 4000,
                     });
                 }
             }
@@ -197,7 +197,7 @@ Page(observer({
             wx.showToast({
                 title: "手机号不能为空",
                 icon: 'none',
-                duration: 2000,
+                duration: 4000,
             });
             return;
         }
@@ -225,7 +225,7 @@ Page(observer({
                     wx.showToast({
                         title: response.data.msg,
                         icon: 'none',
-                        duration: 2000,
+                        duration: 4000,
                     });
                 }
             }

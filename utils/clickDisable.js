@@ -6,7 +6,7 @@ function btnDisabled(self) {
         self.setData({
             btnDisabled: false
         })
-    }, 1500)
+    }, 3000)
 }
 module.exports = {
     btnDisabled: btnDisabled

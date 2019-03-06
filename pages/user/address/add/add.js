@@ -183,7 +183,9 @@ Page({
       form.addressid = this.data.addressid
     }
     if (verify(form, config)) {
+        console.log("before:",this.data.btnDisabled)
       clickDisable.btnDisabled(this)
+        console.log("after:",this.data.btnDisabled)
       const result = await login();
       http.request({
         url: this.data.addressid == null ? '/api/user/addaddress' : '/api/user/modifyaddress',
@@ -193,13 +195,6 @@ Page({
         },
         data: form,
         success: (response) => {
-          if (response.data.code == 0) {
-            wx.showToast({
-              title: response.data.msg,
-              icon: 'none',
-              duration: 1500,
-            });
-          }
           if (response.data.code == 1) {
             wx.showToast({
               title: this.data.addressid == null ? '添加成功' : '修改成功',
@@ -214,6 +209,12 @@ Page({
                 }, 1500)
               },
             });
+          } else {
+              wx.showToast({
+                  title: response.data.msg,
+                  icon: 'none',
+                  duration: 1500,
+              });
           }
         }
       })
