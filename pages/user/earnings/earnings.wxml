@@ -2,7 +2,7 @@
     <view class="list" wx:if="{{list.length>0}}">
         <view class="item" wx:for="{{list}}" wx:key="{{index}}">
             <text>订单号:{{item.orderNo}}</text>
-            <text>分成金额:￥<text class="price">{{item.money}}</text></text>
+            <text>{{item.decription}}:￥<text class="price">{{item.money}}</text></text>
         </view>
     </view>
     <view class="empty" wx:else>

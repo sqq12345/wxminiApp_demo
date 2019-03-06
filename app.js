@@ -33,7 +33,7 @@ App({
     upload: 'https://anfou.cc/api/basics/upload',
     imgHttps: 'https://upload.anfou.cc/',
     openid: null,
-    session_key: null,
+    // session_key: null,
     user_token: null,
     share: false,  // 分享默认为false
     height: 0,
