@@ -84,11 +84,12 @@
 
 .agreement {
   padding: 0 30rpx;
-  color: #999;
+  /*color: #999;*/
   font-size: 26rpx;
   display: flex;
   align-items: center;
   margin-top: 20rpx;
+  color: #2dd955;
 }
 
 .agreement image {
