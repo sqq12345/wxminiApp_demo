@@ -51,7 +51,7 @@
             </view>
         </block>
         <view class="empty" wx:else>暂无简介</view>
-        <view class="contact" wx:if="{{type == '2'}}">
+        <view class="contact" wx:if="{{detail.wxaccount_image}}">
             <view class="title">联系方式</view>
             <view class="sub-title">Contact Information</view>
             <image wx:if="{{detail.wxaccount_image}}" src="{{detail.wxaccount_image}}" bindtap="bindImg" data-list="null" data-src="{{detail.wxaccount_image}}"/>
