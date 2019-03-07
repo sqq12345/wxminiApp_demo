@@ -14,7 +14,7 @@
     </block>
     <block wx:else>
         <view class="input">
-            <input placeholder='请输入您要搜索的农场和商品' confirm-type="search" bind:confirm="search" value="{{query}}" />
+            <input placeholder='请输入您要搜索的商家和商品' confirm-type="search" bind:confirm="search" value="{{query}}" />
             <image src="/static/icons/search.png" class="search_icon" />
         </view>
     </block>
