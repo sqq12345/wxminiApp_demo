@@ -36,7 +36,7 @@
     display: flex;
     flex-wrap: wrap;
     /*align-items: center;*/
-    padding: 20rpx 30rpx;
+    padding: 20rpx 30rpx 0;
     /*justify-content: space-between;*/
 }
 .sort .btns{
