@@ -26,7 +26,8 @@ Page({
     //评论列表
     list: [],
     descLabel: '',
-    imgHttps: app.globalData.imgHttps
+    imgHttps: app.globalData.imgHttps,
+      score: "5.0",
   },
 
   /**
@@ -136,7 +137,8 @@ Page({
       success: (response) => {
         const list = this.data.list;
         const end = response.data.data.totalpage == this.data.page;
-        this.setData({ list: list.concat(response.data.data.list), end, loading: false, page: this.data.page + 1 })
+        const score = response.data.data.score
+        this.setData({ list: list.concat(response.data.data.list), end, loading: false, page: this.data.page + 1,score })
       }
     });
   },

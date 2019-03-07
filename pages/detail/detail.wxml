@@ -24,6 +24,7 @@
                 <view><text>产品种类：</text><text>{{detail.farmsize!=null?detail.farmsize+"种":"暂无"}}</text></view>
                 <view><text>市集主板方：</text><text>{{detail.linkman!=null?detail.linkman:"暂无"}}</text></view>
             </block>
+            <view><text>评分：</text><text>{{score}}</text></view>
             <view><text>地址：</text><text>{{detail.address!=null?detail.address:"暂无"}}</text></view>
             <navigator class="_button" url="/pages/goodslist/goodslist?id={{detail.id}}" hover-class="none">
                 <text>全部商品</text>

@@ -24,7 +24,7 @@ Page(observer({
     selectedType: '1',
     //排序
     sorts: [
-      {text: '默认排序', value: '0'},
+      {text: '排序', value: '0'},
       {text: '销量', value: '1'},
     ],
     selectedSort: '0',
@@ -36,6 +36,7 @@ Page(observer({
     end: false,
     imgUrls: [],
     noticeList:{},
+      showSorts:false,
   },
     /**
      * 生命周期函数--监听页面加载
@@ -123,7 +124,15 @@ Page(observer({
     this.setData({page: 1, loading: true, end: false, list: []}, () => {
       this.fetchList();
     });
+      this.setData({showSorts: false})
   },
+    // 排序
+    onShowSorts(){
+        let val=this.data.showSorts
+        this.setData({
+            showSorts: val = !val
+        })
+    },
 
   onReachBottom() {
     if (this.data.loading || this.data.end) return;

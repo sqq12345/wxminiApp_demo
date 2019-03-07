@@ -20,8 +20,12 @@
         <view class="btns">
             <text data-condition="type" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedType==item.value?'selected':''}}" wx:for="{{types}}" wx:key="{{index}}">{{item.text}}</text>
         </view>
-        <view class="sorts">
-            <text data-condition="sort" bind:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
+        <view class="sorts" bind:tap="onShowSorts">
+            <text>排序</text>
+            <image src="/static/icons/down4.png" />
+            <view class="sortsList" wx:if="{{showSorts}}">
+                <text data-condition="sort" catch:tap="onConditionChange" data-value="{{item.value}}" class="{{selectedSort==item.value?'selected':''}}" wx:for="{{sorts}}" wx:key="{{index}}">{{item.text}}</text>
+            </view>
         </view>
     </view>
     <block wx:if="{{list.length>0}}">

@@ -34,35 +34,43 @@
 
 .sort {
     display: flex;
-    flex-wrap: wrap;
-    /*align-items: center;*/
-    padding: 20rpx 30rpx 0;
-    /*justify-content: space-between;*/
-}
-.sort .btns{
-    width: 100%;
-    display: flex;
+    /*flex-wrap: wrap;*/
+    align-items: center;
+    padding: 0 30rpx;
     justify-content: space-between;
 }
+.sort .btns{
+    display: flex;
+    /*justify-content: space-between;*/
+}
 .sort .btns text {
-    border-radius: 40rpx;
-    padding: 10rpx 30rpx;
-    color: #25CE41;
+    position: relative;
+    padding: 20rpx 25rpx;
+    color: #888888;
     font-weight: bolder;
 }
 
 .sort .btns text.selected {
+    color: #25CE41;
+}
+.sort .btns text.selected:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25rpx;
+    right: 25rpx;
+    height: 6rpx;
     background: #25CE41;
-    color: #fff;
+    border-radius:3rpx;
 }
 
 .sort>view:last-of-type text {
     margin-left: 20rpx;
 }
 .sort .sorts{
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    position: relative;
 }
 .sort .sorts text {
     color: #999;
@@ -71,6 +79,37 @@
 
 .sort .sorts .selected {
     color: #666;
+}
+.sort .sorts image{
+    width: 11rpx;
+    height: 7rpx;
+    margin-left: 8rpx;
+}
+.sortsList{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 60rpx;
+    right: 0;
+    width: 130rpx;
+    background: white;
+    border: 1px solid #F6F6F6;
+    border-radius: 8rpx;
+    box-shadow:0rpx 16rpx 24rpx 0rpx rgba(8,8,8,0.1);
+}
+.sort .sorts .sortsList text{
+    color: #333333;
+    text-align: center;
+    width: 100%;
+    padding: 25rpx 0;
+    margin-left: 0;
+    border-bottom: 1px solid #F6F6F6;
+}
+.sort .sorts .sortsList text:last-child{
+    border-bottom: none;
+}
+.sort .sorts .sortsList text.selected{
+    color: #25CE41;
 }
 
 .nomore{
