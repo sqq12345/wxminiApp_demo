@@ -34,12 +34,16 @@
 
 .sort {
     display: flex;
-    align-items: center;
-    padding: 30rpx;
-    /*margin-top: 30rpx;*/
+    flex-wrap: wrap;
+    /*align-items: center;*/
+    padding: 20rpx 30rpx;
+    /*justify-content: space-between;*/
+}
+.sort .btns{
+    width: 100%;
+    display: flex;
     justify-content: space-between;
 }
-
 .sort .btns text {
     border-radius: 40rpx;
     padding: 10rpx 30rpx;
@@ -55,9 +59,14 @@
 .sort>view:last-of-type text {
     margin-left: 20rpx;
 }
-
+.sort .sorts{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 .sort .sorts text {
     color: #999;
+    padding: 20rpx 0;
 }
 
 .sort .sorts .selected {

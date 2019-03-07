@@ -17,6 +17,9 @@ Page(observer({
     types: [
       {text: '农场', value: '1'},
       {text: '社群', value: '2'},
+        {text: '餐厅', value: '3'},
+        {text: '超市', value: '4'},
+        {text: '集市', value: '5'},
     ],
     selectedType: '1',
     //排序

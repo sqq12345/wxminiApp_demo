@@ -27,9 +27,9 @@ Component({
     }
 
     var jumpUrl = '/pages/goodslist/goodslist?id=' + this.properties.item.id;
-    if (this.properties.item.btype != 1){
-      jumpUrl = '/pages/detail/detail?type=2&id='+this.properties.item.id;
-    }
+    // if (this.properties.item.btype != 1){
+    //   jumpUrl = '/pages/detail/detail?type=2&id='+this.properties.item.id;
+    // }
 
 
     const dist = this.properties.item.distance;

@@ -47,6 +47,8 @@ Page(observer({
   },
     async onLoad(options) {
         this.props.form['mid'] = options.id;
+        this.props.form['nums'] = this.data.nums;
+        this.props.form['person_nums'] = this.data.person_nums;
     },
     //选择餐桌数
     bindPickerNum: function(e) {

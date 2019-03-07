@@ -34,7 +34,11 @@ Page(observer({
       timer: '',//定时器名字
       countDownNum: '60'//倒计时初始值
   },
-    //选择餐桌数
+    async onLoad(options) {
+        this.props.form['mid'] = options.id;
+        this.props.form['nums'] = this.data.nums;
+    },
+    //选择产品种类
     bindPickerNum: function(e) {
         var val = e.detail.value
         this.setData({
@@ -77,10 +81,6 @@ Page(observer({
       },
     });
   },
-  async onLoad(options) {
-    this.props.form['mid'] = options.id;
-  },
-
   /* upload */
   onUploadFail(e) {},
   onRemove(e) {

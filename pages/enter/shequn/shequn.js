@@ -36,6 +36,7 @@ Page(observer({
   },
     async onLoad(options) {
         this.props.form['mid'] = options.id;
+        this.props.form['nums'] = this.data.nums;
     },
     //选择社群人数
     bindPickerNum: function(e) {
