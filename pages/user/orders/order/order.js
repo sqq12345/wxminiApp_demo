@@ -90,12 +90,23 @@ Page({
           if(second <= 0){
             clearInterval(interval);
             //todo 归零了做下处理
-              const pages = getCurrentPages();
-              const prePage = pages[pages.length - 2];
-              prePage.cancelOrder({ currentTarget: { dataset: { id: this.data.orderId } } })
-              wx.redirectTo({
-                  url: '/pages/user/orders/orders'
-              });
+            //   console.log("页面栈：",getCurrentPages())
+            //   const pages = getCurrentPages();
+            //   const prePage = pages[pages.length - 2];
+            //   prePage.cancelOrder({ currentTarget: { dataset: { id: this.data.orderId } } })
+              http.request({
+                  url: '/api/user/cancelorder',
+                  method: 'POST',
+                  header: {
+                      token: result.user_token
+                  },
+                  data: { orderid: this.data.orderId },
+                  success: (response) => {
+                      wx.redirectTo({
+                          url: '/pages/user/orders/orders'
+                      });
+                  }
+              })
           }
           this.setData({ second, timetext: formatSeconds(second) });
         }, 1000)
