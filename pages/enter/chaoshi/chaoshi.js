@@ -15,7 +15,7 @@ Page(observer({
    */
   data: {
     address: '',
-      nums: 0,
+      nums: '0',
       numsList:[{
           key: 0,
           value: '0-50',
@@ -235,6 +235,7 @@ Page(observer({
   async submit() {
     const result = await login();
     const form = this.props.form;
+      console.log("submit：",form)
     if (verify(form, config)) {
         //判断是否同意协议
         if(!this.data.selected){
