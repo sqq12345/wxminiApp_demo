@@ -44,12 +44,13 @@ Page(observer({
     onLoad: function (options) {
         this.slidesList();
         this.fetchList();
-        this.getNotice();
+        // this.getNotice();
     },
     //刷新购物车数量
     onShow() {
         const cart = require('../../../stores/Cart');
         cart.setTabbar();
+        this.getNotice();
     },
   async fetchList() {
     await this.props.city.fetchData();
@@ -156,6 +157,7 @@ Page(observer({
         })
         that.onChangeList()
         that.slidesList();
+        this.getNotice();
         setTimeout(function(){
             wx.stopPullDownRefresh()
         }, 2000)
