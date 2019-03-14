@@ -64,22 +64,19 @@ Page(observer({
 
   },
   onRemove(e) {
-    const data = e.detail.file.res.data;
-    if (data) {
-      const json = JSON.parse(data);
-      let image = '';
-      image = this.data.form.image.replace(json.data.img + ',', '');
-      image = this.data.form.image.replace(',' + json.data.img, '');
+      const index = e.detail.index;
+      const { field } = e.target.dataset;
+      let imgList = this.data.form.image.split(',')
+      imgList.splice(index,1)
+      this.data.form.image = imgList.join(',')
       this.setData({
-        'form.image': image
-      })
-    }
+          'form.image': imgList.join(',')
+      });
+      console.log("onRemove：",index,this.data.form.image,field)
   },
   onComplete(e) {
-    // const { detail: { data } } = e;
-      const data = e.detail
+    const data = e.detail
     if (data) {
-      // const json = JSON.parse(data);
       let image = this.data.form.image;
       if (this.data.form.image == "") {
         image = data
@@ -89,6 +86,7 @@ Page(observer({
       this.setData({
         'form.image': image
       })
+        console.log("upload:",this.data.form.image)
     }
   },
   onInput(e) {

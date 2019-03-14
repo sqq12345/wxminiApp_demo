@@ -64,25 +64,20 @@ Page({
 
   },
   onRemove(e) {
-    const data = e.detail.file.res.data;
-    if (data) {
-      const json = JSON.parse(data);
+      const index = e.detail.index;
+      let imgList = this.data.form.content_img.split(',')
+      imgList.splice(index,1)
+      this.data.form.content_img = imgList.join(',')
       this.setData({
-        'form.content_img': this.data.form.content_img.replace(json.data.img + ',', '')
+          'form.content_img': imgList.join(',')
       });
-      this.setData({
-        'form.content_img': this.data.form.content_img.replace(',' + json.data.img, '')
-      })
-    }
+      console.log("onRemove：",index,this.data.form.content_img)
   },
   onComplete(e) {
-    // const { detail: { data } } = e;
     const data = e.detail
     if (data) {
-      // const json = JSON.parse(data);
       if (this.data.form.content_img == '') {
         this.setData({
-          // 'form.content_img': json.data.img
             'form.content_img': data
         })
       } else {
@@ -90,6 +85,7 @@ Page({
           'form.content_img': this.data.form.content_img + ',' + data
         })
       }
+        console.log("upload:",this.data.form.content_img)
     }
   },
   submit: async function () {

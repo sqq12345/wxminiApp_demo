@@ -142,21 +142,17 @@ Page(observer({
     },
     onChange(e){},
     onRemove(e) {
-        const data = e.detail.file.res.data;
-        if (data) {
-            const { field } = e.target.dataset;
-            const json = JSON.parse(data);
-            this.data.images = this.data.images.replace(json.data.img + ',', '');
-            this.data.images = this.data.images.replace(',' + json.data.img, '');
-            console.log("onRemove:",this.data.images,field)
-        }
+        const index = e.detail.index;
+        const { field } = e.target.dataset;
+        let imgList = this.data.images.split(',')
+        imgList.splice(index,1)
+        this.data.images = imgList.join(',')
+        console.log("onRemove：",index,this.data.images,field)
     },
     onComplete(e) {
-        // const { detail: { data } } = e;
         const data = e.detail
         if (data) {
             const { field } = e.target.dataset;
-            // const json = JSON.parse(data);
             if (this.data.images == '') {
                 this.data.images = data
             } else {

@@ -83,26 +83,23 @@ Page(observer({
   },
   onUploadFail(e) {},
   onRemove(e) {
-    console.log(e.detail)
-    const data = e.detail.file.res.data;
-    if (data) {
+      const index = e.detail.index;
       const {field} = e.target.dataset;
-      const json = JSON.parse(data);
-      this.props.form[field] = this.props.form[field].replace(json.data.img + ',', '');
-      this.props.form[field] = this.props.form[field].replace(',' + json.data.img, '');
-    }
+      let imgList = this.props.form[field].split(',')
+      imgList.splice(index,1)
+      this.props.form[field] = imgList.join(',')
+      console.log("onRemove：",index,this.props.form[field],field)
   },
   onComplete(e) {
-    // const {detail: {data}} = e;
-      const data = e.detail
+    const data = e.detail
     if (data) {
       const {field} = e.target.dataset;
-      // const json = JSON.parse(data);
-      if (this.props.form[field] == undefined) {
+      if (this.props.form[field] == undefined||!this.props.form[field]) {
         this.props.form[field] = data
       } else {
         this.props.form[field] += ',' + data
       }
+        console.log("upload：",this.props.form[field],field)
     }
   },
     //同意协议
