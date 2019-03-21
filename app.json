@@ -11,7 +11,6 @@
     "pages/comment/comment",
     "pages/comments/comments",
     "pages/cities/cities",
-    "pages/test/test",
     "pages/login/login",
     "pages/tabbar/cart/success/success"
   ],
@@ -79,7 +78,8 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#fff"
+    "navigationBarBackgroundColor": "#fff",
+    "withShareTicket":true
   },
   "tabBar": {
     "color": "#555555",

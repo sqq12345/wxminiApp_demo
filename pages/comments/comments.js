@@ -1,6 +1,7 @@
 import http from '../../utils/http';
 
 const {regeneratorRuntime} = global;
+const app = getApp();
 
 Page({
 
@@ -61,5 +62,9 @@ Page({
             current: src, // 当前显示图片的http链接
             urls: imgList, // 需要预览的图片http链接列表
         })
+    },
+    //分享
+    onShareAppMessage: function () {
+        // return app.share('', "/pages/tabbar/home/home", '')
     },
 });

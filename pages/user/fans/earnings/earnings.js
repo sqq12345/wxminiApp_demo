@@ -1,8 +1,9 @@
 // pages/tabbar/user/fans/orders/orders.js
 import http from '../../../../utils/http';
 import login from '../../../../stores/Login';
+const app = getApp();
 const { regeneratorRuntime } = global;
-Page({
+    Page({
 
   /**
    * 页面的初始数据
@@ -47,5 +48,8 @@ Page({
       }
     })
   },
-
+  //分享
+  onShareAppMessage: function () {
+      return app.share('', '/pages/tabbar/user/user', 'default')
+  },
 })

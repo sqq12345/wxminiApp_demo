@@ -29,5 +29,9 @@ Page({
     wx.navigateBack({
       delta: 1
     })
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/tabbar/home/home', 'default')
+    },
 })

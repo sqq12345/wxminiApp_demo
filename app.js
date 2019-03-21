@@ -29,6 +29,22 @@ App({
     cart.fetchData();
   },
 
+  //分享
+   share: function(title,path,imageUrl) {
+    let tle = !title?"附近的农场":title;
+    let imgUrl = !imageUrl?"":imageUrl === 'default'?"/static/images/shareImg.jpg":imageUrl
+    return {
+      title: tle,
+      path: path,
+      imageUrl: imgUrl,
+      success: (res) => {
+      },
+      fail: function (res) {
+          // 分享失败
+      }
+    }
+   },
+
   globalData: {
     upload: 'https://anfou.cc/api/basics/upload',
     imgHttps: 'https://upload.anfou.cc/',

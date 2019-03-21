@@ -152,7 +152,11 @@ Page(observer({
         }
       });
     }
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/tabbar/home/home', 'default')
+    },
 }))
 
 const config = {

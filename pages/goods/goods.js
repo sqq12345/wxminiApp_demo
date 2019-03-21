@@ -5,6 +5,7 @@ import {observer} from '../../utils/mobx/observer';
 
 const {regeneratorRuntime} = global;
 const city = require('../../stores/City');
+const app = getApp();
 
 Page(observer({
   props: {
@@ -175,17 +176,7 @@ Page(observer({
         const title = this.data.goods.title;
         const id = this.data.sid;
         const img = this.data.goods.image;
-        return {
-            title: title, // 转发后 所显示的title
-            path: '/pages/goods/goods?id=' + id, // 相对的路径
-            imageUrl:img,
-            success: (res) => {
-            },
-            fail: function (res) {
-                // 分享失败
-                console.log(res)
-            }
-        }
+        return app.share(title,'',img)
     },
     //获取小程序码
     getwxApp: async function () {

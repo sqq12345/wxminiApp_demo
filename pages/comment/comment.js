@@ -3,7 +3,7 @@ import http from '../../utils/http';
 import login from '../../stores/Login';
 const { regeneratorRuntime } = global;
 import clickDisable from '../../utils/clickDisable';
-// const app = getApp();
+const app = getApp();
 Page({
 
   /**
@@ -144,5 +144,9 @@ Page({
   },
     submit1:function () {
         console.log("禁止提交")
-    }
+    },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', "/pages/tabbar/home/home", 'default')
+    },
 })

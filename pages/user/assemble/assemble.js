@@ -57,20 +57,9 @@ Page({
   //分享
   onShareAppMessage: function (e) {
     if (e.from === 'button') {
-      const {title, id, img} = e.target.dataset;
+        const {title, id, img} = e.target.dataset;
         const imgUrl = app.globalData.imgHttps+img.split(',')[0]
-      return {
-        title: title, // 转发后 所显示的title
-        path: '/pages/group/buy/buy?id=' + id, // 相对的路径
-        //拼团图片
-        imageUrl:imgUrl,
-        success: (res) => {
-        },
-        fail: function (res) {
-          // 分享失败
-          console.log(res)
-        }
-      }
+        return app.share(title, '/pages/group/buy/buy?id=' + id, imgUrl)
     }
   }
 });

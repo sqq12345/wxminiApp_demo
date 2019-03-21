@@ -22,5 +22,9 @@ Page({
   onLoad: function (options) {
 
   },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/user/orders/orders', 'default')
+    },
 
 })

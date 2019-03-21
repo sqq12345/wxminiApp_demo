@@ -1,5 +1,5 @@
 // pages/tabbar/user/orders/order/order.js
-// const app = getApp();
+const app = getApp();
 import http from '../../../../utils/http';
 import login from '../../../../stores/Login';
 import utils from '../../../../utils/util';
@@ -131,5 +131,9 @@ Page({
         wx.navigateTo({
             url: '/pages/user/orders/refund/refund'
         })
+    },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/user/orders/orders', 'default')
     },
 })

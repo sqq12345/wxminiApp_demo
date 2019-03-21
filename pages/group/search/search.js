@@ -16,7 +16,7 @@ Page({
     occupation: app.globalData.height + 46,
 */
     list: [
-      
+
     ]
   },
   search(e) {
@@ -37,4 +37,8 @@ Page({
       }
     })
   },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/tabbar/home/home', 'default')
+    },
 })

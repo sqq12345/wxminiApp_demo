@@ -2,7 +2,7 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 const { regeneratorRuntime } = global;
-// const app = getApp();
+const app = getApp();
 Page({
 
   /**
@@ -45,5 +45,9 @@ Page({
         }
       }
     })
+  },
+  //分享
+  onShareAppMessage: function () {
+      // return app.share('', '/pages/tabbar/home/home', 'default')
   },
 })

@@ -1,5 +1,5 @@
 import http from '../../../../utils/http';
-
+const app = getApp();
 Page({
 
   /**
@@ -30,4 +30,8 @@ Page({
       }
     });
   },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/user/orders/orders', 'default')
+    },
 });

@@ -63,7 +63,11 @@ Page({
         }
       })
     }
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/tabbar/user/user', 'default')
+    },
 })
 
 const config = {

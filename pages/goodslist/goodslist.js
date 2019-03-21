@@ -1,4 +1,6 @@
 import http from '../../utils/http';
+const app = getApp();
+
 Page({
 
   /**
@@ -48,5 +50,9 @@ Page({
           console.log(data,typeName)
       }
     })
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share(this.data.detail.name, '', '')
+    },
 })

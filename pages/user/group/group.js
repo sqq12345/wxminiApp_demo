@@ -70,20 +70,8 @@ Page({
     if (e.from === 'button') {
       const { title, id, img} = e.target.dataset;
       const imgUrl = app.globalData.imgHttps+img.split(',')[0]
-        console.log(imgUrl)
-      return {
-        title: title, // 转发后 所显示的title
-        path: '/pages/group/buy/buy?id=' + id, // 相对的路径
-        //拼团图片
-        imageUrl: imgUrl,
-        success: (res) => {    // 成功后要做的事情
-
-        },
-        fail: function (res) {
-          // 分享失败
-          console.log('fail',res)
-        }
-      }
+      console.log(imgUrl)
+      return app.share(title,'/pages/group/buy/buy?id=' + id, imgUrl)
     }
   }
 })

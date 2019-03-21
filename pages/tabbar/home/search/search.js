@@ -2,7 +2,7 @@
 import { observer } from '../../../../utils/mobx/observer';
 import http from '../../../../utils/http';
 const { regeneratorRuntime } = global;
-// const app = getApp();
+const app = getApp();
 Page(observer({
   props: {
     city: require('../../../../stores/City'),
@@ -101,5 +101,9 @@ Page(observer({
                 }
             }
         })
+    },
+    //分享
+    onShareAppMessage: function () {
+        // return app.share('', '/pages/tabbar/home/home', 'default')
     },
 }))

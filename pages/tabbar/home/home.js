@@ -75,5 +75,10 @@ Page(observer({
     wx.navigateTo({
       url: `/pages/detail/detail?id=${this.data.selectedMarker.id}&type=${this.data.selectedTypeId}`,
     });
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+       // return app.share('', "/pages/tabbar/home/home", '')
+    },
+
 }))

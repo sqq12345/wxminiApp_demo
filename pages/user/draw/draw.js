@@ -81,7 +81,11 @@ Page({
     this.setData({
       'form.amount': this.data.maxDraw
     });
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/tabbar/user/user', 'default')
+    },
 });
 
 const config = {

@@ -1,7 +1,7 @@
 // pages/cart/cart.js
 import {observer} from '../../../utils/mobx/observer';
 
-// const app = getApp();
+const app = getApp();
 
 Page(observer({
 
@@ -62,4 +62,8 @@ Page(observer({
   selectAll() {
     this.props.cart.selectAll();
   },
+    //分享
+    onShareAppMessage: function () {
+        // return app.share('', '/pages/tabbar/home/home', 'default')
+    },
 }))

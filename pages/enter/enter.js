@@ -3,6 +3,7 @@ import http from '../../utils/http';
 import {observer} from '../../utils/mobx/observer';
 import util from "../../utils/util";
 const { regeneratorRuntime } = global;
+const app = getApp();
 Page({
     /**
      * 页面的初始数据
@@ -56,5 +57,9 @@ Page({
                 });
             }
         })
+    },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '', 'default')
     },
 })

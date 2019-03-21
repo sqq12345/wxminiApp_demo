@@ -1,6 +1,6 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 
 Page({
@@ -46,4 +46,8 @@ Page({
       }
     })
   },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/tabbar/user/user', 'default')
+    },
 });

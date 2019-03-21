@@ -3,7 +3,7 @@ import login from '../../../stores/Login';
 import regex from '../../../utils/regex';
 import {observer} from '../../../utils/mobx/observer';
 import verify from '../../../utils/verify';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 
 Page(observer({
@@ -230,7 +230,7 @@ Page(observer({
         })
     },
 
-  async submit() {
+   async submit() {
     const result = await login();
     const form = this.props.form;
       console.log("submit：",form)
@@ -276,7 +276,11 @@ Page(observer({
         }
       })
     }
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/enter/enter', 'default')
+    },
 }))
 
 const config = {

@@ -6,6 +6,8 @@ page {
 .container{
     width: 100%;
     padding-top: 20rpx;
+    height: 100%;
+    box-sizing:border-box;
 }
 
 .empty {

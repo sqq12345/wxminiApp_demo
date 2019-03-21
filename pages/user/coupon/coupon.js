@@ -1,7 +1,7 @@
 import http from '../../../utils/http';
 import login from '../../../stores/Login';
 import util from '../../../utils/util';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 
 Page({
@@ -76,5 +76,9 @@ Page({
         url: '/pages/tabbar/shoplist/shoplist',
       });
     }
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        // return app.share('', '/pages/tabbar/home/home', 'default')
+    },
 });

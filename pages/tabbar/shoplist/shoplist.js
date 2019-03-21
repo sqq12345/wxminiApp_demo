@@ -1,6 +1,6 @@
 import {observer} from '../../../utils/mobx/observer';
 import http from '../../../utils/http';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 
 Page(observer({
@@ -161,5 +161,9 @@ Page(observer({
         setTimeout(function(){
             wx.stopPullDownRefresh()
         }, 2000)
+    },
+    //分享
+    onShareAppMessage: function () {
+        // return app.share('', '/pages/tabbar/home/home', 'default')
     },
 }))

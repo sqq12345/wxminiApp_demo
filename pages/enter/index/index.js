@@ -1,7 +1,7 @@
 import http from '../../../utils/http';
 import {observer} from '../../../utils/mobx/observer';
 import login from '../../../stores/Login';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 //表单提交地址
 let submitUrl = '';
@@ -393,5 +393,9 @@ Page(observer({
   },
   onUnload() {
     this.props.form = {};
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/enter/enter', 'default')
+    },
 }));

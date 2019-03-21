@@ -5,6 +5,7 @@ import {observer} from '../../../utils/mobx/observer';
 import verify from '../../../utils/verify';
 
 const {regeneratorRuntime} = global;
+const app = getApp();
 
 Page(observer({
   props: {
@@ -296,7 +297,11 @@ Page(observer({
         }
       })
     }
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/enter/enter', 'default')
+    },
 }));
 
 const config = {

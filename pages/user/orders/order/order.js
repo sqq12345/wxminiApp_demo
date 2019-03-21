@@ -1,5 +1,5 @@
 // pages/tabbar/user/orders/order/order.js
-// const app = getApp();
+const app = getApp();
 import http from '../../../../utils/http';
 import login from '../../../../stores/Login';
 import utils from '../../../../utils/util';
@@ -155,7 +155,11 @@ Page({
     const pages = getCurrentPages();
     const prePage = pages[pages.length - 2];
     prePage.payOrder({ currentTarget: { dataset: { id: this.data.orderId } } })
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/user/orders/orders', 'default')
+    },
 })
 
 function formatSeconds(value) {

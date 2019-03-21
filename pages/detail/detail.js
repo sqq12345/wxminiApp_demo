@@ -159,4 +159,8 @@ Page({
             urls: imgList, // 需要预览的图片http链接列表
         })
     },
+    //分享
+    onShareAppMessage: function () {
+        return app.share(this.data.detail.name,'', '')
+    },
 })

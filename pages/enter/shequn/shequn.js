@@ -3,7 +3,7 @@ import login from '../../../stores/Login';
 import regex from '../../../utils/regex';
 import {observer} from '../../../utils/mobx/observer';
 import verify from '../../../utils/verify';
-
+const app = getApp();
 const {regeneratorRuntime} = global;
 
 Page(observer({
@@ -274,7 +274,11 @@ Page(observer({
         }
       })
     }
-  }
+  },
+    //分享
+    onShareAppMessage: function () {
+        return app.share('', '/pages/enter/enter', 'default')
+    },
 }));
 
 const config = {
