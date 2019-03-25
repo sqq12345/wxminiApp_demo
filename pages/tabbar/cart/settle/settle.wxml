@@ -20,7 +20,7 @@
             <view class="item" wx:for="{{goods}}" wx:key="{{index}}">
                 <view class="header">
                     <view>
-                        <image class="select-icon" src="{{item.middata.logo}}" />
+                        <image mode="aspectFill" class="select-icon" src="{{item.middata.logo}}" />
                         {{item.middata.name}}
                     </view>
                     <image class="_right" src="/static/icons/right.png" />
@@ -31,7 +31,7 @@
                           wx:for-index="goodsIndex">
                         <view class="thumbView">
                             <view class="shortage" wx:if="{{goodsItem.stock===0}}">缺货</view>
-                            <image class="thumb" src="{{goodsItem.thumb_image}}" />
+                            <image mode="aspectFill" class="thumb" src="{{goodsItem.thumb_image}}" />
                         </view>
                         <view class="info">
                             <view class="title">{{goodsItem.title}}</view>

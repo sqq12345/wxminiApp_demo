@@ -1,7 +1,7 @@
 <!-- components/shop/shpo.wxml -->
 <view>
     <navigator class='shop' url="{{jumpUrl}}" hover-class="none">
-        <view><image class="logo" src="{{item.logo}}"/></view>
+        <view><image mode="aspectFill" class="logo" src="{{item.logo}}"/></view>
         <view class="text">
             <view class="title">{{item.name}}</view>
             <view class="info">
@@ -16,7 +16,7 @@
     </navigator>
     <view class="activity" wx:if="{{item.goods.length>0&&showDetail}}">
         <navigator url="/pages/goods/goods?id={{item.id}}" hover-class="none" wx:for="{{goods}}" wx:key="{{index}}">
-            <image src="{{item.thumb_image}}"/>
+            <image mode="aspectFill" src="{{item.thumb_image}}"/>
             <view class="ellipsis">{{item.title}}</view>
             <view class="price">￥{{item.price}}</view>
         </navigator>

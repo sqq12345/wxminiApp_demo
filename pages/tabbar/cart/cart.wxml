@@ -9,7 +9,7 @@
             </view>
             <navigator hover-class="none" url="/pages/goodslist/goodslist?id={{item.shop.id}}">
                 <view>
-                    <image class="select-icon" src="{{item.shop.logo}}" />
+                    <image mode="aspectFill" class="select-icon" src="{{item.shop.logo}}" />
                     {{item.shop.name}}
                 </view>
                 <image class="_right" src="/static/icons/right.png" />
@@ -22,7 +22,7 @@
                 </view>
                 <view  style="display: flex; flex: 1;">
                     <navigator class="image" hover-class="none" url="/pages/goods/goods?id={{goods.id}}">
-                        <image class="thumb" src="{{goods.image}}" />
+                        <image mode="aspectFill" class="thumb" src="{{goods.image}}" />
                         <view class="disable" wx:if="{{goods.stock<1}}">缺货</view>
                     </navigator>
                     <view class="info" >

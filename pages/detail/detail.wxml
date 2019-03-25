@@ -2,7 +2,7 @@
     <view class="head">
         <image src="{{bg}}" class="_bg" />
         <view class="sub-head">
-            <image class="logo" src="{{detail.logo}}" />
+            <image mode="aspectFill" class="logo" src="{{detail.logo}}" />
             <view class="title">{{detail.name}}</view>
             <block wx:if="{{type=='1'}}">
                 <view><text>农场规模：</text><text>{{detail.farmsize!=null? detail.farmsize+"亩":"暂无"}}</text></view>
@@ -48,7 +48,7 @@
             <view class="content" >{{detail.memo}}</view>
             <view class="imgList">
                 <view wx:for="{{detail.imgs}}" wx:key="{{index}}">
-                    <image src="{{item}}" bindtap="bindImg" data-list="{{detail.imgs}}" data-src="{{item}}"/></view>
+                    <image mode="aspectFill" src="{{item}}" bindtap="bindImg" data-list="{{detail.imgs}}" data-src="{{item}}"/></view>
             </view>
         </block>
         <view class="empty" wx:else>暂无简介</view>
@@ -64,7 +64,7 @@
         <view class="empty" wx:if="{{list.length==0}}">暂无评论</view>
         <view class="comments" wx:if="{{list.length>0}}">
             <view class="comment" wx:for="{{list}}" wx:key="{{index}}">
-                <image class="userhead" src="{{item.avatar}}"/>
+                <image mode="aspectFill" class="userhead" src="{{item.avatar}}"/>
                 <view class="content">
                     <view class="username">
                         {{item.nickname}}
@@ -73,13 +73,13 @@
                     <view class="desc">{{item.content_text}}</view>
                     <view class="pics">
                         <!--<image src="{{img}}" wx:for-item="img" wx:for="{{item.content_img}}" wx:key="{{index}}"/>-->
-                        <image wx:for="{{item.content_img}}" wx:for-item="dImg" wx:key="{{index}}" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
+                        <image mode="aspectFill" wx:for="{{item.content_img}}" wx:for-item="dImg" wx:key="{{index}}" src="{{dImg}}" bindtap="bindImg" data-list="{{item.content_img}}" data-src="{{dImg}}" ></image>
                     </view>
                     <!--子评论S-->
                     <view class="sub-comment" wx:if="{{item.son.length>0}}" wx:for="{{item.son}}" wx:for-item="subItem" wx:key="{{index}}">
                         <text class="subName">{{subItem.nickname}}：</text><text>{{subItem.content_text}}</text>
                         <view class="pics">
-                            <image wx:for="{{subItem.content_img}}"wx:for-item="subImg"  wx:key="{{index}}" src="{{subImg}}" bindtap="bindImg" data-list="{{subItem.content_img}}" data-src="{{subImg}}"/>
+                            <image mode="aspectFill" wx:for="{{subItem.content_img}}"wx:for-item="subImg"  wx:key="{{index}}" src="{{subImg}}" bindtap="bindImg" data-list="{{subItem.content_img}}" data-src="{{subImg}}"/>
                         </view>
                     </view>
                     <!--子评论E-->

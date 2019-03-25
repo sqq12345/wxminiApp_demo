@@ -1,6 +1,6 @@
 <view class="header">
     <image src="/static/bg/goodslist/bg.png" class="_bg"/>
-    <image class="logo" src="{{detail.logo}}"/>
+    <image mode="aspectFill" class="logo" src="{{detail.logo}}"/>
     <text class="title">{{detail.name}}</text>
     <view class="info">
         <text>{{typeName}}ID：{{detail.id}}</text>
@@ -15,7 +15,7 @@
     </view>
     <view class="list" wx:if="{{detail.goods.length > 0}}">
         <navigator hover-class="none" url="/pages/goods/goods?id={{item.id}}" class="item" wx:for="{{detail.goods}}" wx:key="{{index}}">
-            <image src="{{item.thumb_image}}"/>
+            <image mode="aspectFill" src="{{item.thumb_image}}"/>
             <view class="info">
                 <text class="name">{{item.title}}</text>
                 <text class="price">￥{{item.price}}</text>
