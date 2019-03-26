@@ -246,7 +246,7 @@ Page(observer({
         let that = this, dataInfo = that.data
         let canvasW = dataInfo.windowWidth, canvasH = dataInfo.oCanvasH, imgW = dataInfo.oImgW, imgH = dataInfo.oImgH, bgH = dataInfo.oBgH
         let proImg = dataInfo.proImg, wxCode=dataInfo.wxCode, canvasImg="/static/images/shareBg.png", slogan = "/static/images/share_slogan.png"
-        let userName=result.nickName, guige= "规格："+dataInfo.goods.specification, fanwei=dataInfo.goods.area, money="￥"+dataInfo.goods.price,
+        let userName=dataInfo.goods.merchant_name?dataInfo.goods.merchant_name:result.nickName, guige= "规格："+dataInfo.goods.specification, fanwei=dataInfo.goods.area, money="￥"+dataInfo.goods.price,
             title = dataInfo.goods.title,introduct = dataInfo.goods.introduct?'“'+dataInfo.goods.introduct+'”':''
         let ctx = wx.createCanvasContext('share');
         // 绘制背景图

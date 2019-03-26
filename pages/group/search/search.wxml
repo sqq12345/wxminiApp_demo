@@ -3,7 +3,7 @@
         <view wx:for="{{list}}" wx:key="{{item}}">
             <navigator url="/pages/group/result/result?type={{item.id}}">
                 <text>{{item.name}}</text>
-                <image src="{{item.icon}}" mode="aspectFit" />
+                <image src="{{item.icon}}" mode="aspectFill" />
             </navigator>
         </view>
     </view>

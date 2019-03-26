@@ -9,7 +9,7 @@
                     <text class="status">{{detail.status}}</text>
                 </view>
                 <view class="middle" wx:for="{{detail.goods}}" wx:key="{{index}}" wx:for-item="g">
-                    <image src="{{g.goods_info.thumb_image}}" />
+                    <image mode="aspectFill" src="{{g.goods_info.thumb_image}}" />
                     <view>
                         <view class="name">{{g.goods_info.title}}</view>
                         <view class="unit">

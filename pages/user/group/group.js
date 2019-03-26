@@ -28,10 +28,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onShow: function (options) {
+  onLoad: function (options) {
     this.fetchList()
   },
-
   async fetchList() {
     const result = await login();
     http.request({
@@ -64,7 +63,25 @@ Page({
       this.fetchList();
     });
   },
-
+   // 更新数据
+    onChangeList(){
+        this.setData({page: 1, loading: true, end: false, list: []}, () => {
+            this.fetchList();
+        });
+    },
+    //下拉
+    onPullDownRefresh: function () {
+        var that = this
+        wx.showToast({
+            title: '正在刷新',
+            icon: 'loading',
+            duration: 2000
+        })
+        that.onChangeList()
+        setTimeout(function(){
+            wx.stopPullDownRefresh()
+        }, 2000)
+    },
   //分享
   onShareAppMessage: function (e) {
     if (e.from === 'button') {
@@ -73,5 +90,6 @@ Page({
       console.log(imgUrl)
       return app.share(title,'/pages/group/buy/buy?id=' + id, imgUrl)
     }
-  }
+  },
+
 })

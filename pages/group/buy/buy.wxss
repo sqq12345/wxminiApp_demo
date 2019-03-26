@@ -166,10 +166,19 @@
 }
 
 .item .end {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: #23C743;
     font-size: 24rpx;
 }
-
+.item .end>view{
+    font-size: 22rpx;
+    color: #F8F8F8;
+    padding: 8rpx 20rpx;
+    border-radius: 20rpx;
+    background-color: #FCA000;
+}
 .item .more .btn {
     border: 1px solid #BCBDBD;
     color: #BCBDBD;

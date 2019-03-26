@@ -6,7 +6,7 @@
   <view wx:if="{{list.length>0}}">
     <block wx:for="{{list}}" wx:key="{{index}}">
         <view class="goods" bind:tap="select" data-id="{{item.id}}">
-            <image class="thumb" src="{{item.thumb_image}}"/>
+            <image mode="aspectFill" class="thumb" src="{{item.thumb_image}}"/>
             <view class="info">
                 <view class="shop">{{item.merchant}}</view>
                 <view class="title">{{item.title}}</view>

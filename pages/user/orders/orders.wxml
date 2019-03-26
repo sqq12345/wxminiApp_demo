@@ -14,7 +14,7 @@
         <view wx:if="{{item.order_status==0}}" class="wait-pay">
             <view class="shop" wx:if="{{item.items_info.length>1}}" >
                 <view class="left">
-                    <image src="../../../static/icons/logo.jpg"/>
+                    <image mode="aspectFill" src="../../../static/icons/logo.jpg"/>
                     安否
                 </view>
                 <text class="status">{{item.status}}</text>
@@ -22,7 +22,7 @@
             <view class="sub-order {{item.items_info.length>1&&index!=0?'hasBorder':''}}" wx:for="{{item.items_info}}" wx:key="{{index}}" wx:for-item="sub">
                 <view class="shop" wx:if="{{item.items_info.length <= 1}}">
                     <view class="left">
-                        <image src="{{sub.logo}}"/>
+                        <image mode="aspectFill" src="{{sub.logo}}"/>
                         {{sub.name}}
                     </view>
                     <text class="status">{{item.status}}</text>
@@ -30,7 +30,7 @@
                 </view>
                 <navigator class="goods" url="/pages/user/orders/order/order?id={{item.id}}" hover-class="none">
                     <view class="middle" wx:for="{{sub.goods}}" wx:key="{{index}}" wx:for-item="goods">
-                        <image src="{{goods.goods_info.thumb_image}}" />
+                        <image mode="aspectFill" src="{{goods.goods_info.thumb_image}}" />
                         <view>
                             <view class="name text-overflow">{{goods.goods_info.title}}</view>
                             <view class="unit">
@@ -59,14 +59,14 @@
                 <!-- 查看分订单 -->
                 <view class="shop" >
                     <view class="left">
-                        <image src="{{sub.logo}}"/>
+                        <image mode="aspectFill" src="{{sub.logo}}"/>
                         {{sub.name}}
                     </view>
                     <text class="status">{{sub.status}}</text>
                 </view>
                 <navigator class="goods" wx:for="{{sub.goods}}" wx:key="{{index}}" wx:for-item="goods" url="/pages/user/orders/suborder/suborder?id={{sub.item_id}}" hover-class="none">
                     <view class="middle">
-                        <image src="{{goods.goods_info.thumb_image}}" />
+                        <image mode="aspectFill" src="{{goods.goods_info.thumb_image}}" />
                         <view>
                             <view class="name text-overflow">{{goods.goods_info.title}}</view>
                             <view class="unit">

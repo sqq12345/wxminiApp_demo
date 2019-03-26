@@ -14,7 +14,7 @@
     <!-- 商品库选择 -->
     <view class="part two">
       <view class="goods" wx:for="{{props.selectedList}}" wx:key="{{index}}">
-        <image class="thumb" src="{{item.thumb_image}}"/>
+        <image mode="aspectFill" class="thumb" src="{{item.thumb_image}}"/>
         <view class="info">
           <view class="shop">{{item.merchant}}</view>
           <view class="title">{{item.title}}</view>

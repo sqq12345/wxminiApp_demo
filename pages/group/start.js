@@ -143,11 +143,19 @@ Page(observer({
         success: (response) => {
             //提交成功
           if (response.data.code == 1) {
-              this.props.selectedList.splice(0, this.props.selectedList.length)
-              this.setData({disable: false})
-            wx.redirectTo({
-              url: '/pages/user/group/group',
-            });
+              this.props.selectedList.splice(0, this.props.selectedList.length) //清除已添加接龙商品
+              this.setData({disable: false}) //按钮状态
+              //更新上一页数据
+              // var pages = getCurrentPages();
+              // if (pages.length > 1) {
+              //     var prePage = pages[pages.length - 2];
+              //     prePage.onChangeList()
+              //     console.log(pages,prePage)
+              // }
+              //返回上页
+              wx.redirectTo({
+                url: '/pages/user/group/group',
+              });
           }
         }
       });

@@ -14,7 +14,7 @@
     </view>
     <view class="goods-list">
         <view class="goods" wx:for="{{detail.goods}}" wx:key="{{index}}">
-            <image class="thumb" src="{{item.goods_info.thumb_image}}" />
+            <image mode="aspectFill" class="thumb" src="{{item.goods_info.thumb_image}}" />
             <view class="info">
                 <!--<view class="shop">{{item.goods_info.title}}</view>-->
                 <view class="title text-overflow">{{item.goods_info.title}}</view>

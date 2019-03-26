@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "我的接龙"
+    "navigationBarTitleText": "我的接龙",
+    "enablePullDownRefresh": true
 }

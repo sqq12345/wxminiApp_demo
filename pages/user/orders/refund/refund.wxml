@@ -1,6 +1,6 @@
 <view class="refund">
     <view class="heard sub-content" wx:for="{{list}}" wx:key="{{index}}">
-        <image src="{{item.goods_info.thumb_image}}"></image>
+        <image mode="aspectFill" src="{{item.goods_info.thumb_image}}"></image>
         <view class="right">
             <view class="name">{{item.goods_info.title}}</view>
             <view><text>商品规格：{{item.goods_info.specification}}</text><text>x{{item.num}}</text></view>
